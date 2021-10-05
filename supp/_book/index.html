@@ -331,7 +331,7 @@ Figure 0.2: Stratigraphic position of Features 119 and 134 at the George C. Davi
 </div>
 <div id="acknowledgments" class="section level2" number="0.3">
 <h2><span class="header-section-number">0.3</span> Acknowledgments</h2>
-<p>We extend our gratitude to the Caddo Nation of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the 3D scans of the Gahagan bifaces. Thanks to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments on the analyses of Gahagan biface shape. RZS extend his gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of <a href="https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md">LM3d1</a>, as well as the landmarking protocol used in this study (<a href="https://seldenlab.github.io/gahaganmorph.3/landmarking-protocol-3d2.html">LM3d2</a>). Thanks to Martin Hinz for fielding questions related to the oxcAAR package, and to Derek Hamilton for his guidance with the chronological models, and to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, general comments, and suggestions throughout the development of this research program.</p>
+<p>We extend our gratitude to the Caddo Nation of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the 3D scans of the Gahagan bifaces. Thanks to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments on the analyses of Gahagan biface shape. RZS extend his gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of <a href="https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md">LM3d1</a>, as well as the landmarking protocol used in this study (<a href="https://seldenlab.github.io/gahaganmorph.3/landmarking-protocol-3d2.html">LM3d2</a>), to Martin Hinz for fielding questions related to the <code>oxcAAR</code> package, to Derek Hamilton for his guidance with the chronological models, and to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, general comments, and suggestions throughout the development of this research program.</p>
 </div>
 <div id="funding" class="section level2" number="0.4">
 <h2><span class="header-section-number">0.4</span> Funding</h2>
@@ -345,10 +345,10 @@ Figure 0.2: Stratigraphic position of Features 119 and 134 at the George C. Davi
 </div>
 <div id="colophon" class="section level2" number="0.6">
 <h2><span class="header-section-number">0.6</span> Colophon</h2>
-<p>This version of the analysis was generated on 2021-10-05 15:34:59 using the following computational environment and dependencies:</p>
+<p>This version of the analysis was generated on 2021-10-05 17:16:00 using the following computational environment and dependencies:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># which R packages and versions were used?</span></span>
 <span id="cb4-2"><a href="index.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()) devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## - Session info ----------------------------------------------------------------------------------
+<pre><code>## - Session info --------------------------------------------------------------------------------------
 ##  setting  value                       
 ##  version  R version 4.1.1 (2021-08-10)
 ##  os       Windows 10 x64              
@@ -360,105 +360,53 @@ Figure 0.2: Stratigraphic position of Features 119 and 134 at the George C. Davi
 ##  tz       America/Chicago             
 ##  date     2021-10-05                  
 ## 
-## - Packages --------------------------------------------------------------------------------------
-##  package     * version  date       lib source                             
-##  ape           5.5      2021-04-25 [1] CRAN (R 4.1.0)                     
-##  assertthat    0.2.1    2019-03-21 [1] CRAN (R 4.1.0)                     
-##  backports     1.2.1    2020-12-09 [1] CRAN (R 4.1.0)                     
-##  bookdown      0.24     2021-09-02 [1] CRAN (R 4.1.1)                     
-##  broom         0.7.9    2021-07-27 [1] CRAN (R 4.1.0)                     
-##  bslib         0.3.0    2021-09-02 [1] CRAN (R 4.1.1)                     
-##  cachem        1.0.6    2021-08-19 [1] CRAN (R 4.1.1)                     
-##  callr         3.7.0    2021-04-20 [1] CRAN (R 4.1.0)                     
-##  cellranger    1.1.0    2016-07-27 [1] CRAN (R 4.1.0)                     
-##  cli           3.0.1    2021-07-17 [1] CRAN (R 4.1.0)                     
-##  colorspace    2.0-2    2021-06-24 [1] CRAN (R 4.1.0)                     
-##  crayon        1.4.1    2021-02-08 [1] CRAN (R 4.1.0)                     
-##  curl          4.3.2    2021-06-23 [1] CRAN (R 4.1.0)                     
-##  DBI           1.1.1    2021-01-15 [1] CRAN (R 4.1.0)                     
-##  dbplyr        2.1.1    2021-04-06 [1] CRAN (R 4.1.0)                     
-##  desc          1.4.0    2021-09-28 [1] CRAN (R 4.1.1)                     
-##  devtools      2.4.2    2021-06-07 [1] CRAN (R 4.1.0)                     
-##  digest        0.6.28   2021-09-23 [1] CRAN (R 4.1.1)                     
-##  dplyr       * 1.0.7    2021-06-18 [1] CRAN (R 4.1.0)                     
-##  ellipsis      0.3.2    2021-04-29 [1] CRAN (R 4.1.0)                     
-##  evaluate      0.14     2019-05-28 [1] CRAN (R 4.1.0)                     
-##  fansi         0.5.0    2021-05-25 [1] CRAN (R 4.1.0)                     
-##  farver        2.1.0    2021-02-28 [1] CRAN (R 4.1.0)                     
-##  fastmap       1.1.0    2021-01-25 [1] CRAN (R 4.1.0)                     
-##  forcats     * 0.5.1    2021-01-27 [1] CRAN (R 4.1.0)                     
-##  fs            1.5.0    2020-07-31 [1] CRAN (R 4.1.0)                     
-##  generics      0.1.0    2020-10-31 [1] CRAN (R 4.1.0)                     
-##  geomorph    * 4.0.0    2021-09-30 [1] Github (geomorphR/geomorph@f91484d)
-##  ggplot2     * 3.3.5    2021-06-25 [1] CRAN (R 4.1.0)                     
-##  ggridges      0.5.3    2021-01-08 [1] CRAN (R 4.1.0)                     
-##  git2r         0.28.0   2021-01-10 [1] CRAN (R 4.1.0)                     
-##  glue          1.4.2    2020-08-27 [1] CRAN (R 4.1.0)                     
-##  gtable        0.3.0    2019-03-25 [1] CRAN (R 4.1.0)                     
-##  haven         2.4.3    2021-08-04 [1] CRAN (R 4.1.0)                     
-##  here        * 1.0.1    2020-12-13 [1] CRAN (R 4.1.0)                     
-##  highr         0.9      2021-04-16 [1] CRAN (R 4.1.0)                     
-##  hms           1.1.1    2021-09-26 [1] CRAN (R 4.1.1)                     
-##  htmltools     0.5.2    2021-08-25 [1] CRAN (R 4.1.1)                     
-##  htmlwidgets   1.5.4    2021-09-08 [1] CRAN (R 4.1.1)                     
-##  httr          1.4.2    2020-07-20 [1] CRAN (R 4.1.0)                     
-##  jpeg          0.1-9    2021-07-24 [1] CRAN (R 4.1.0)                     
-##  jquerylib     0.1.4    2021-04-26 [1] CRAN (R 4.1.0)                     
-##  jsonlite      1.7.2    2020-12-09 [1] CRAN (R 4.1.0)                     
-##  knitr         1.36     2021-09-29 [1] CRAN (R 4.1.1)                     
-##  labeling      0.4.2    2020-10-20 [1] CRAN (R 4.1.0)                     
-##  lattice       0.20-44  2021-05-02 [2] CRAN (R 4.1.1)                     
-##  lifecycle     1.0.1    2021-09-24 [1] CRAN (R 4.1.1)                     
-##  lubridate     1.7.10   2021-02-26 [1] CRAN (R 4.1.0)                     
-##  magrittr      2.0.1    2020-11-17 [1] CRAN (R 4.1.0)                     
-##  Matrix      * 1.3-4    2021-06-01 [2] CRAN (R 4.1.1)                     
-##  memoise       2.0.0    2021-01-26 [1] CRAN (R 4.1.0)                     
-##  modelr        0.1.8    2020-05-19 [1] CRAN (R 4.1.0)                     
-##  munsell       0.5.0    2018-06-12 [1] CRAN (R 4.1.0)                     
-##  nlme          3.1-152  2021-02-04 [2] CRAN (R 4.1.1)                     
-##  oxcAAR      * 1.1.1    2021-08-23 [1] Github (ISAAKiel/oxcAAR@109a20d)   
-##  pillar        1.6.3    2021-09-26 [1] CRAN (R 4.1.1)                     
-##  pkgbuild      1.2.0    2020-12-15 [1] CRAN (R 4.1.0)                     
-##  pkgconfig     2.0.3    2019-09-22 [1] CRAN (R 4.1.0)                     
-##  pkgload       1.2.2    2021-09-11 [1] CRAN (R 4.1.1)                     
-##  plyr          1.8.6    2020-03-03 [1] CRAN (R 4.1.0)                     
-##  png           0.1-7    2013-12-03 [1] CRAN (R 4.1.0)                     
-##  prettyunits   1.1.1    2020-01-24 [1] CRAN (R 4.1.0)                     
-##  processx      3.5.2    2021-04-30 [1] CRAN (R 4.1.0)                     
-##  ps            1.6.0    2021-02-28 [1] CRAN (R 4.1.0)                     
-##  purrr       * 0.3.4    2020-04-17 [1] CRAN (R 4.1.0)                     
-##  R6            2.5.1    2021-08-19 [1] CRAN (R 4.1.1)                     
-##  Rcpp          1.0.7    2021-07-07 [1] CRAN (R 4.1.0)                     
-##  readr       * 2.0.1    2021-08-10 [1] CRAN (R 4.1.1)                     
-##  readxl        1.3.1    2019-03-13 [1] CRAN (R 4.1.0)                     
-##  remotes       2.4.0    2021-06-02 [1] CRAN (R 4.1.0)                     
-##  reprex        2.0.1    2021-08-05 [1] CRAN (R 4.1.0)                     
-##  rgl         * 0.107.14 2021-08-21 [1] CRAN (R 4.1.1)                     
-##  rlang         0.4.11   2021-04-30 [1] CRAN (R 4.1.0)                     
-##  rmarkdown     2.11     2021-09-14 [1] CRAN (R 4.1.1)                     
-##  rprojroot     2.0.2    2020-11-15 [1] CRAN (R 4.1.0)                     
-##  RRPP        * 1.0.0    2021-03-28 [1] Github (mlcollyer/RRPP@af4e550)    
-##  rstudioapi    0.13     2020-11-12 [1] CRAN (R 4.1.0)                     
-##  rvest         1.0.1    2021-07-26 [1] CRAN (R 4.1.0)                     
-##  sass          0.4.0    2021-05-12 [1] CRAN (R 4.1.0)                     
-##  scales        1.1.1    2020-05-11 [1] CRAN (R 4.1.0)                     
-##  sessioninfo   1.1.1    2018-11-05 [1] CRAN (R 4.1.0)                     
-##  stringi       1.7.4    2021-08-25 [1] CRAN (R 4.1.1)                     
-##  stringr     * 1.4.0    2019-02-10 [1] CRAN (R 4.1.0)                     
-##  testthat      3.0.4    2021-07-01 [1] CRAN (R 4.1.0)                     
-##  tibble      * 3.1.4    2021-08-25 [1] CRAN (R 4.1.1)                     
-##  tidyr       * 1.1.3    2021-03-03 [1] CRAN (R 4.1.1)                     
-##  tidyselect    1.1.1    2021-04-30 [1] CRAN (R 4.1.0)                     
-##  tidyverse   * 1.3.1    2021-04-15 [1] CRAN (R 4.1.0)                     
-##  tzdb          0.1.2    2021-07-20 [1] CRAN (R 4.1.0)                     
-##  usethis       2.0.1    2021-02-10 [1] CRAN (R 4.1.0)                     
-##  utf8          1.2.2    2021-07-24 [1] CRAN (R 4.1.0)                     
-##  vctrs         0.3.8    2021-04-29 [1] CRAN (R 4.1.0)                     
-##  wesanderson * 0.3.6    2018-04-20 [1] CRAN (R 4.1.0)                     
-##  withr         2.4.2    2021-04-18 [1] CRAN (R 4.1.0)                     
-##  xfun          0.26     2021-09-14 [1] CRAN (R 4.1.1)                     
-##  xml2          1.3.2    2020-04-23 [1] CRAN (R 4.1.0)                     
-##  yaml          2.2.1    2020-02-01 [1] CRAN (R 4.1.0)                     
+## - Packages ------------------------------------------------------------------------------------------
+##  package     * version date       lib source        
+##  bookdown      0.24    2021-09-02 [1] CRAN (R 4.1.1)
+##  bslib         0.3.0   2021-09-02 [1] CRAN (R 4.1.1)
+##  cachem        1.0.6   2021-08-19 [1] CRAN (R 4.1.1)
+##  callr         3.7.0   2021-04-20 [1] CRAN (R 4.1.0)
+##  cli           3.0.1   2021-07-17 [1] CRAN (R 4.1.0)
+##  crayon        1.4.1   2021-02-08 [1] CRAN (R 4.1.0)
+##  desc          1.4.0   2021-09-28 [1] CRAN (R 4.1.1)
+##  devtools      2.4.2   2021-06-07 [1] CRAN (R 4.1.0)
+##  digest        0.6.28  2021-09-23 [1] CRAN (R 4.1.1)
+##  ellipsis      0.3.2   2021-04-29 [1] CRAN (R 4.1.0)
+##  evaluate      0.14    2019-05-28 [1] CRAN (R 4.1.0)
+##  fastmap       1.1.0   2021-01-25 [1] CRAN (R 4.1.0)
+##  fs            1.5.0   2020-07-31 [1] CRAN (R 4.1.0)
+##  git2r         0.28.0  2021-01-10 [1] CRAN (R 4.1.0)
+##  glue          1.4.2   2020-08-27 [1] CRAN (R 4.1.0)
+##  here          1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
+##  highr         0.9     2021-04-16 [1] CRAN (R 4.1.0)
+##  htmltools     0.5.2   2021-08-25 [1] CRAN (R 4.1.1)
+##  jquerylib     0.1.4   2021-04-26 [1] CRAN (R 4.1.0)
+##  jsonlite      1.7.2   2020-12-09 [1] CRAN (R 4.1.0)
+##  knitr         1.36    2021-09-29 [1] CRAN (R 4.1.1)
+##  lifecycle     1.0.1   2021-09-24 [1] CRAN (R 4.1.1)
+##  magrittr      2.0.1   2020-11-17 [1] CRAN (R 4.1.0)
+##  memoise       2.0.0   2021-01-26 [1] CRAN (R 4.1.0)
+##  pkgbuild      1.2.0   2020-12-15 [1] CRAN (R 4.1.0)
+##  pkgload       1.2.2   2021-09-11 [1] CRAN (R 4.1.1)
+##  prettyunits   1.1.1   2020-01-24 [1] CRAN (R 4.1.0)
+##  processx      3.5.2   2021-04-30 [1] CRAN (R 4.1.0)
+##  ps            1.6.0   2021-02-28 [1] CRAN (R 4.1.0)
+##  purrr         0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
+##  R6            2.5.1   2021-08-19 [1] CRAN (R 4.1.1)
+##  remotes       2.4.0   2021-06-02 [1] CRAN (R 4.1.0)
+##  rlang         0.4.11  2021-04-30 [1] CRAN (R 4.1.0)
+##  rmarkdown     2.11    2021-09-14 [1] CRAN (R 4.1.1)
+##  rprojroot     2.0.2   2020-11-15 [1] CRAN (R 4.1.0)
+##  rstudioapi    0.13    2020-11-12 [1] CRAN (R 4.1.0)
+##  sass          0.4.0   2021-05-12 [1] CRAN (R 4.1.0)
+##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 4.1.0)
+##  stringi       1.7.4   2021-08-25 [1] CRAN (R 4.1.1)
+##  stringr       1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
+##  testthat      3.0.4   2021-07-01 [1] CRAN (R 4.1.0)
+##  usethis       2.0.1   2021-02-10 [1] CRAN (R 4.1.0)
+##  withr         2.4.2   2021-04-18 [1] CRAN (R 4.1.0)
+##  xfun          0.26    2021-09-14 [1] CRAN (R 4.1.1)
+##  yaml          2.2.1   2020-02-01 [1] CRAN (R 4.1.0)
 ## 
 ## [1] C:/Users/seldenjrz/Documents/R/win-library/4.1
 ## [2] C:/Program Files/R/R-4.1.1/library</code></pre>
@@ -467,7 +415,7 @@ Figure 0.2: Stratigraphic position of Features 119 and 134 at the George C. Davi
 <span id="cb6-2"><a href="index.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;git2r&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>() <span class="sc">&amp;</span> git2r<span class="sc">::</span><span class="fu">in_repository</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>)) git2r<span class="sc">::</span><span class="fu">repository</span>(here<span class="sc">::</span><span class="fu">here</span>())  </span></code></pre></div>
 <pre><code>## Local:    main E:/github/gahaganmorph.3
 ## Remote:   main @ origin (https://github.com/seldenlab/gahaganmorph.3)
-## Head:     [372a397] 2021-10-05: &lt;add.perdiz&gt;</code></pre>
+## Head:     [e77d548] 2021-10-05: &lt;edit lm.protocol&gt;</code></pre>
 
 </div>
 </div>
