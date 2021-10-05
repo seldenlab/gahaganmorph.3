@@ -128,5 +128,5 @@ gahaganmod <- 'Plot()
 
 ```{r gahagan14cprint, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # embed image
-knitr::include_graphics('images/gahagan-14cmodel.png')
+knitr::include_graphics('images/gahagan-chronology.jpg')
 ```

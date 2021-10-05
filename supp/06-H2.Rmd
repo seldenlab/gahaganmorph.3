@@ -8,7 +8,7 @@ Hypothesis 2 is tested using a sample of Gahagan bifaces interred as part of a C
 
 ## Load packages + data
 
-```{r load geomorph2, setwd, and load data, echo=TRUE, warning=FALSE}
+```{r load geomorph.h2, setwd, and load data, echo=TRUE, warning=FALSE, eval = FALSE}
 # load libraries
 library(here)
 library(geomorph)
@@ -32,7 +32,7 @@ qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 
 Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
-```{r gpa2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r gpa.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 Y.gpa <- gpagen(coords, 
               PrinAxes = TRUE, 
               print.progress = FALSE)
@@ -60,7 +60,7 @@ pal <- wes_palette("Moonrise2")
 
 ## Boxplot
 
-```{r centsize.box2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r centsize.box.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 # boxplot of Perdiz arrow points by context
 csz.temp <- ggplot(qdata, aes(x = context, y = csz, color = context)) +
   geom_boxplot() +
@@ -77,13 +77,13 @@ csz.temp
 
 Principal components analysis [@RN1746] was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479]. 
 
-```{r pca2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r pca.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 # principal components analysis
 pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
 ```
 
-```{r pca.h12, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r pca1.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 # set plot parameters to plot by context
 pch.gps.context <- c(15,17,19)[as.factor(context)]
 col.gps.context <- pal[as.factor(context)]
@@ -100,14 +100,14 @@ pc.plot <- plot(pca, asp = 1,
 
 ### Plot PCA with mean shape + x/y maxima/minima
 
-```{r pca.22, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r pca2.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
 knitr::include_graphics('images/cacheind-pca-warpref.png')
 ```
 
 ## Define models
 
-```{r define-models2}
+```{r define-models.h2, eval = FALSE}
 # shape as a function of context
 fit.shapecontext <- procD.lm(shape ~ context,
                             data = gdf,
@@ -125,7 +125,7 @@ fit.sizecontext <- procD.lm(size ~ context,
 
 A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756]. 
 
-```{r anova2, warning=FALSE}
+```{r anova.h2, warning=FALSE, eval = FALSE}
 # ANOVA: do gahagan biface shapes differ by context?
 anova(fit.shapecontext)
 
@@ -150,7 +150,7 @@ summary(sz.context,
 
 ## Mean shapes
 
-```{r m-shapes2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r m-shapes.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 #subset landmark coordinates to produce mean shapes for contexts
 new.coords <- coords.subset(A = Y.gpa$coords,
                             group = qdata$context)
