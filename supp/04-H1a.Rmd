@@ -2,7 +2,7 @@
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as the Smithport Plain and Hickory Engraved bottles [@RN11801;@RN11782;@RN11716;@RN8312]. The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-#### _Hypothesis 1a: Temporal change in preference at Mounds Plantation_
+## _Hypothesis 1a: Temporal change in preference at Mounds Plantation_
 
 In assessing a temporal change in preference between populations of bifaces from Mounds Plantation, those from burials included during mound development and/or construction (Burial pits 1, 5, and 8) are contrasted with those from Burial pit 2 which cuts into the corner of Burial Pit 1 in Mound 5, cutting downward from the mound's surface. The stratigraphic position of Burial Pit 2 indicates that the burial occurred after those of Burial pits 1, 5, and 8.
 

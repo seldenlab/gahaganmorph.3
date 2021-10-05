@@ -2,7 +2,7 @@
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as the Smithport Plain and Hickory Engraved bottles [@RN11801;@RN11782;@RN11716;@RN8312]. The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-**Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache offering differ in morphology from those placed with an individual.**
+## _Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache offering differ in morphology from those placed with an individual._
 
 Hypothesis 2 is tested using a sample of Gahagan bifaces interred as part of a Caddo group offering (here called a cache) or with a Caddo individual. Findings provide useful insights with regard to macro trends associated with the use-life of Gahagan bifaces, which may have ranged from a cache offering (where _design intent_ is assumed) to an individual offering (where minor modification(s)/retouch may be present).
 

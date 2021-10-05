@@ -2,7 +2,7 @@
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as the Smithport Plain and Hickory Engraved bottles [@RN11801;@RN11782;@RN11716;@RN8312]. The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-#### _Hypothesis 1b: Temporal change in preference at George C. Davis_
+## _Hypothesis 1b: Temporal change in preference at George C. Davis_
 
 To assess the temporal change in preference between populations of bifaces from George C. Davis, those recovered from Feature 134 are contrasted with those from Feature 119. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred after those associated with Feature 134.
 

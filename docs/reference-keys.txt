@@ -66,6 +66,7 @@ define-models-1
 procrustes-anova-1
 mean-shapes-1
 hypothesis-2
+hypothesis-2-gahagan-bifaces-included-in-caddo-burials-as-a-cache-offering-differ-in-morphology-from-those-placed-with-an-individual.
 load-packages-data-2
 generalized-procrustes-analysis-2
 boxplot-2
