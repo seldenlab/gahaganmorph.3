@@ -45,7 +45,6 @@ cross-sections
 splitting-the-curves-step-1
 splitting-the-curves-step-2
 landmark-and-semilandmark-placement
-acknowledgments-1
 hypothesis-1a
 hypothesis-1a-temporal-change-in-preference-at-mounds-plantation-1
 load-packages-data

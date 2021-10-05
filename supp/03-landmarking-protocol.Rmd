@@ -113,7 +113,3 @@ knitr::include_graphics('images/lmslm-allplanes.png')
 ```
 
 The resulting constellation of LMs and sLMs can be parsed and divided to answer wide-ranging morphological questions related to Gahagan bifaces, marking a substantive advancement in the analysis of Gahagan biface morphology. The design of the `reference geometry` used in LM3d2 is extensible, and the semilandmark configuration can expanded or contracted as the research programme---and research questions---evolves.
-
-## Acknowledgments
-
-I extend my gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of [LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md), as well as this landmarking protocol. The current iteration of the landmarking protocol was developed using the `digit3DLand` package in R (code available in this repository); however, the capacity to populate a replicable suite of `reference geometry` across the sample in _Geomagic Design X_ provides a means of making this design process extensible.
