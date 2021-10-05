@@ -269,167 +269,174 @@ div.csl-indent {
 <div id="hypothesis-1a-temporal-change-in-preference-at-mounds-plantation-1" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> <em>Hypothesis 1a: Temporal change in preference at Mounds Plantation</em></h2>
 <p>In assessing a temporal change in preference between populations of bifaces from Mounds Plantation, those from burials included during mound development and/or construction (Burial pits 1, 5, and 8) are contrasted with those from Burial pit 2 which cuts into the corner of Burial Pit 1 in Mound 5, cutting downward from the mound’s surface. The stratigraphic position of Burial Pit 2 indicates that the burial occurred after those of Burial pits 1, 5, and 8.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="hypothesis-1a.html#cb43-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/h1a.jpg&#39;</span>)</span></code></pre></div>
+<div class="figure">
+<img src="images/h1a.jpg" alt="Stratigraphic position of Burial Pits 1 and 2 at the Mounds Plantation site; adapted from Webb (1975:Figure 7). Burial Pit 2 is the only burial found to be intrusive from the mound surface." width="100%" />
+<p class="caption">
+(#fig:h1a.analysis)Stratigraphic position of Burial Pits 1 and 2 at the Mounds Plantation site; adapted from Webb (1975:Figure 7). Burial Pit 2 is the only burial found to be intrusive from the mound surface.
+</p>
+</div>
 </div>
 <div id="load-packages-data" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Load packages + data</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="hypothesis-1a.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
-<span id="cb43-2"><a href="hypothesis-1a.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb43-3"><a href="hypothesis-1a.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
-<span id="cb43-4"><a href="hypothesis-1a.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb43-5"><a href="hypothesis-1a.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb43-6"><a href="hypothesis-1a.html#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-7"><a href="hypothesis-1a.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
-<span id="cb43-8"><a href="hypothesis-1a.html#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-9"><a href="hypothesis-1a.html#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
-<span id="cb43-10"><a href="hypothesis-1a.html#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./dataH1a&quot;</span>)</span>
-<span id="cb43-11"><a href="hypothesis-1a.html#cb43-11" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb43-12"><a href="hypothesis-1a.html#cb43-12" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
-<span id="cb43-13"><a href="hypothesis-1a.html#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb43-14"><a href="hypothesis-1a.html#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-15"><a href="hypothesis-1a.html#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb43-16"><a href="hypothesis-1a.html#cb43-16" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdataH1a.csv&quot;</span>,<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb43-17"><a href="hypothesis-1a.html#cb43-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="hypothesis-1a.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb44-2"><a href="hypothesis-1a.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb44-3"><a href="hypothesis-1a.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
+<span id="cb44-4"><a href="hypothesis-1a.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb44-5"><a href="hypothesis-1a.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb44-6"><a href="hypothesis-1a.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="hypothesis-1a.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
+<span id="cb44-8"><a href="hypothesis-1a.html#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="hypothesis-1a.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
+<span id="cb44-10"><a href="hypothesis-1a.html#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./dataH1a&quot;</span>)</span>
+<span id="cb44-11"><a href="hypothesis-1a.html#cb44-11" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb44-12"><a href="hypothesis-1a.html#cb44-12" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
+<span id="cb44-13"><a href="hypothesis-1a.html#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb44-14"><a href="hypothesis-1a.html#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="hypothesis-1a.html#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb44-16"><a href="hypothesis-1a.html#cb44-16" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdataH1a.csv&quot;</span>,<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb44-17"><a href="hypothesis-1a.html#cb44-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span></code></pre></div>
 </div>
 <div id="generalized-procrustes-analysis" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Generalized Procrustes Analysis</h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.0 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2020</a>)</span> using the <code>geomorph</code> library v. 4.0.0 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otárola-Castillo 2013</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="hypothesis-1a.html#cb44-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords, </span>
-<span id="cb44-2"><a href="hypothesis-1a.html#cb44-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb44-3"><a href="hypothesis-1a.html#cb44-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb44-4"><a href="hypothesis-1a.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
-<span id="cb44-5"><a href="hypothesis-1a.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
-<span id="cb44-6"><a href="hypothesis-1a.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="hypothesis-1a.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb44-8"><a href="hypothesis-1a.html#cb44-8" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
-<span id="cb44-9"><a href="hypothesis-1a.html#cb44-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb44-10"><a href="hypothesis-1a.html#cb44-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">context =</span> qdata<span class="sc">$</span>context) </span>
-<span id="cb44-11"><a href="hypothesis-1a.html#cb44-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-12"><a href="hypothesis-1a.html#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb44-13"><a href="hypothesis-1a.html#cb44-13" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
-<span id="cb44-14"><a href="hypothesis-1a.html#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-15"><a href="hypothesis-1a.html#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - context by centroid size</span></span>
-<span id="cb44-16"><a href="hypothesis-1a.html#cb44-16" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
-<span id="cb44-17"><a href="hypothesis-1a.html#cb44-17" aria-hidden="true" tabindex="-1"></a>context <span class="ot">&lt;-</span> qdata<span class="sc">$</span>context</span>
-<span id="cb44-18"><a href="hypothesis-1a.html#cb44-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-19"><a href="hypothesis-1a.html#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
-<span id="cb44-20"><a href="hypothesis-1a.html#cb44-20" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="hypothesis-1a.html#cb45-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords, </span>
+<span id="cb45-2"><a href="hypothesis-1a.html#cb45-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb45-3"><a href="hypothesis-1a.html#cb45-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb45-4"><a href="hypothesis-1a.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
+<span id="cb45-5"><a href="hypothesis-1a.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
+<span id="cb45-6"><a href="hypothesis-1a.html#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="hypothesis-1a.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb45-8"><a href="hypothesis-1a.html#cb45-8" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
+<span id="cb45-9"><a href="hypothesis-1a.html#cb45-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb45-10"><a href="hypothesis-1a.html#cb45-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">context =</span> qdata<span class="sc">$</span>context) </span>
+<span id="cb45-11"><a href="hypothesis-1a.html#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="hypothesis-1a.html#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb45-13"><a href="hypothesis-1a.html#cb45-13" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
+<span id="cb45-14"><a href="hypothesis-1a.html#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-15"><a href="hypothesis-1a.html#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - context by centroid size</span></span>
+<span id="cb45-16"><a href="hypothesis-1a.html#cb45-16" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
+<span id="cb45-17"><a href="hypothesis-1a.html#cb45-17" aria-hidden="true" tabindex="-1"></a>context <span class="ot">&lt;-</span> qdata<span class="sc">$</span>context</span>
+<span id="cb45-18"><a href="hypothesis-1a.html#cb45-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-19"><a href="hypothesis-1a.html#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
+<span id="cb45-20"><a href="hypothesis-1a.html#cb45-20" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="boxplot" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Boxplot</h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="hypothesis-1a.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot of Perdiz arrow points by context</span></span>
-<span id="cb45-2"><a href="hypothesis-1a.html#cb45-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> csz, <span class="at">color =</span> context)) <span class="sc">+</span></span>
-<span id="cb45-3"><a href="hypothesis-1a.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb45-4"><a href="hypothesis-1a.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb45-5"><a href="hypothesis-1a.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb45-6"><a href="hypothesis-1a.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb45-7"><a href="hypothesis-1a.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb45-8"><a href="hypothesis-1a.html#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-9"><a href="hypothesis-1a.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
-<span id="cb45-10"><a href="hypothesis-1a.html#cb45-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="hypothesis-1a.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot of Perdiz arrow points by context</span></span>
+<span id="cb46-2"><a href="hypothesis-1a.html#cb46-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> csz, <span class="at">color =</span> context)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="hypothesis-1a.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a href="hypothesis-1a.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="hypothesis-1a.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb46-6"><a href="hypothesis-1a.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-7"><a href="hypothesis-1a.html#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb46-8"><a href="hypothesis-1a.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="hypothesis-1a.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
+<span id="cb46-10"><a href="hypothesis-1a.html#cb46-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
 </div>
 <div id="principal-components-analysis" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Principal Components Analysis</h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="hypothesis-1a.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb46-2"><a href="hypothesis-1a.html#cb46-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb46-3"><a href="hypothesis-1a.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="hypothesis-1a.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
-<span id="cb47-2"><a href="hypothesis-1a.html#cb47-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="fu">as.factor</span>(context)]</span>
-<span id="cb47-3"><a href="hypothesis-1a.html#cb47-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(context)]</span>
-<span id="cb47-4"><a href="hypothesis-1a.html#cb47-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
-<span id="cb47-5"><a href="hypothesis-1a.html#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-6"><a href="hypothesis-1a.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
-<span id="cb47-7"><a href="hypothesis-1a.html#cb47-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb47-8"><a href="hypothesis-1a.html#cb47-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pch =</span> pch.gps.context,</span>
-<span id="cb47-9"><a href="hypothesis-1a.html#cb47-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> col.gps.context)</span>
-<span id="cb47-10"><a href="hypothesis-1a.html#cb47-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">shapeHulls</span>(pc.plot, </span>
-<span id="cb47-11"><a href="hypothesis-1a.html#cb47-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">groups =</span> context,</span>
-<span id="cb47-12"><a href="hypothesis-1a.html#cb47-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="hypothesis-1a.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb47-2"><a href="hypothesis-1a.html#cb47-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb47-3"><a href="hypothesis-1a.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="hypothesis-1a.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb48-2"><a href="hypothesis-1a.html#cb48-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="fu">as.factor</span>(context)]</span>
+<span id="cb48-3"><a href="hypothesis-1a.html#cb48-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(context)]</span>
+<span id="cb48-4"><a href="hypothesis-1a.html#cb48-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
+<span id="cb48-5"><a href="hypothesis-1a.html#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="hypothesis-1a.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb48-7"><a href="hypothesis-1a.html#cb48-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb48-8"><a href="hypothesis-1a.html#cb48-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb48-9"><a href="hypothesis-1a.html#cb48-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> col.gps.context)</span>
+<span id="cb48-10"><a href="hypothesis-1a.html#cb48-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">shapeHulls</span>(pc.plot, </span>
+<span id="cb48-11"><a href="hypothesis-1a.html#cb48-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">groups =</span> context,</span>
+<span id="cb48-12"><a href="hypothesis-1a.html#cb48-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
 <div id="plot-pca-with-mean-shape-xy-maximaminima" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Plot PCA with mean shape + x/y maxima/minima</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="hypothesis-1a.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
-<span id="cb48-2"><a href="hypothesis-1a.html#cb48-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/cacheind-pca-warpref.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="hypothesis-1a.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
+<span id="cb49-2"><a href="hypothesis-1a.html#cb49-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/cacheind-pca-warpref.png&#39;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="define-models" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Define models</h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="hypothesis-1a.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># shape as a function of context</span></span>
-<span id="cb49-2"><a href="hypothesis-1a.html#cb49-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> context,</span>
-<span id="cb49-3"><a href="hypothesis-1a.html#cb49-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
-<span id="cb49-4"><a href="hypothesis-1a.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb49-5"><a href="hypothesis-1a.html#cb49-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb49-6"><a href="hypothesis-1a.html#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="hypothesis-1a.html#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size as a function of context</span></span>
-<span id="cb49-8"><a href="hypothesis-1a.html#cb49-8" aria-hidden="true" tabindex="-1"></a>fit.sizecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> context,</span>
-<span id="cb49-9"><a href="hypothesis-1a.html#cb49-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> gdf,</span>
-<span id="cb49-10"><a href="hypothesis-1a.html#cb49-10" aria-hidden="true" tabindex="-1"></a>                           <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb49-11"><a href="hypothesis-1a.html#cb49-11" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="hypothesis-1a.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># shape as a function of context</span></span>
+<span id="cb50-2"><a href="hypothesis-1a.html#cb50-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> context,</span>
+<span id="cb50-3"><a href="hypothesis-1a.html#cb50-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
+<span id="cb50-4"><a href="hypothesis-1a.html#cb50-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb50-5"><a href="hypothesis-1a.html#cb50-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb50-6"><a href="hypothesis-1a.html#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="hypothesis-1a.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size as a function of context</span></span>
+<span id="cb50-8"><a href="hypothesis-1a.html#cb50-8" aria-hidden="true" tabindex="-1"></a>fit.sizecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> context,</span>
+<span id="cb50-9"><a href="hypothesis-1a.html#cb50-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> gdf,</span>
+<span id="cb50-10"><a href="hypothesis-1a.html#cb50-10" aria-hidden="true" tabindex="-1"></a>                           <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb50-11"><a href="hypothesis-1a.html#cb50-11" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 </div>
 <div id="procrustes-anova" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Procrustes ANOVA</h2>
 <p>A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">Michael L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="hypothesis-1a.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
-<span id="cb50-2"><a href="hypothesis-1a.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontext)</span>
-<span id="cb50-3"><a href="hypothesis-1a.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="hypothesis-1a.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb50-5"><a href="hypothesis-1a.html#cb50-5" aria-hidden="true" tabindex="-1"></a>sh.context <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.shapecontext,</span>
-<span id="cb50-6"><a href="hypothesis-1a.html#cb50-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">groups =</span> qdata<span class="sc">$</span>context)</span>
-<span id="cb50-7"><a href="hypothesis-1a.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sh.context, </span>
-<span id="cb50-8"><a href="hypothesis-1a.html#cb50-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb50-9"><a href="hypothesis-1a.html#cb50-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span>
-<span id="cb50-10"><a href="hypothesis-1a.html#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-11"><a href="hypothesis-1a.html#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
-<span id="cb50-12"><a href="hypothesis-1a.html#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontext)</span>
-<span id="cb50-13"><a href="hypothesis-1a.html#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-14"><a href="hypothesis-1a.html#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb50-15"><a href="hypothesis-1a.html#cb50-15" aria-hidden="true" tabindex="-1"></a>sz.context <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sizecontext,</span>
-<span id="cb50-16"><a href="hypothesis-1a.html#cb50-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">groups =</span> qdata<span class="sc">$</span>context)</span>
-<span id="cb50-17"><a href="hypothesis-1a.html#cb50-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-18"><a href="hypothesis-1a.html#cb50-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sz.context, </span>
-<span id="cb50-19"><a href="hypothesis-1a.html#cb50-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb50-20"><a href="hypothesis-1a.html#cb50-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="hypothesis-1a.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
+<span id="cb51-2"><a href="hypothesis-1a.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontext)</span>
+<span id="cb51-3"><a href="hypothesis-1a.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="hypothesis-1a.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb51-5"><a href="hypothesis-1a.html#cb51-5" aria-hidden="true" tabindex="-1"></a>sh.context <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.shapecontext,</span>
+<span id="cb51-6"><a href="hypothesis-1a.html#cb51-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">groups =</span> qdata<span class="sc">$</span>context)</span>
+<span id="cb51-7"><a href="hypothesis-1a.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sh.context, </span>
+<span id="cb51-8"><a href="hypothesis-1a.html#cb51-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb51-9"><a href="hypothesis-1a.html#cb51-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span>
+<span id="cb51-10"><a href="hypothesis-1a.html#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-11"><a href="hypothesis-1a.html#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
+<span id="cb51-12"><a href="hypothesis-1a.html#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontext)</span>
+<span id="cb51-13"><a href="hypothesis-1a.html#cb51-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-14"><a href="hypothesis-1a.html#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb51-15"><a href="hypothesis-1a.html#cb51-15" aria-hidden="true" tabindex="-1"></a>sz.context <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sizecontext,</span>
+<span id="cb51-16"><a href="hypothesis-1a.html#cb51-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">groups =</span> qdata<span class="sc">$</span>context)</span>
+<span id="cb51-17"><a href="hypothesis-1a.html#cb51-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-18"><a href="hypothesis-1a.html#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sz.context, </span>
+<span id="cb51-19"><a href="hypothesis-1a.html#cb51-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb51-20"><a href="hypothesis-1a.html#cb51-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 </div>
 <div id="mean-shapes" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Mean shapes</h2>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="hypothesis-1a.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#subset landmark coordinates to produce mean shapes for contexts</span></span>
-<span id="cb51-2"><a href="hypothesis-1a.html#cb51-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb51-3"><a href="hypothesis-1a.html#cb51-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>context)</span>
-<span id="cb51-4"><a href="hypothesis-1a.html#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-5"><a href="hypothesis-1a.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span>
-<span id="cb51-6"><a href="hypothesis-1a.html#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-7"><a href="hypothesis-1a.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
-<span id="cb51-8"><a href="hypothesis-1a.html#cb51-8" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
-<span id="cb51-9"><a href="hypothesis-1a.html#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>cache)</span>
-<span id="cb51-10"><a href="hypothesis-1a.html#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>ctx)</span>
-<span id="cb51-11"><a href="hypothesis-1a.html#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>individual)</span>
-<span id="cb51-12"><a href="hypothesis-1a.html#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-13"><a href="hypothesis-1a.html#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - mean shapes by population</span></span>
-<span id="cb51-14"><a href="hypothesis-1a.html#cb51-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-context.png&#39;</span>)</span>
-<span id="cb51-15"><a href="hypothesis-1a.html#cb51-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-16"><a href="hypothesis-1a.html#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
-<span id="cb51-17"><a href="hypothesis-1a.html#cb51-17" aria-hidden="true" tabindex="-1"></a><span class="do">## cache (gray) vs ctx (black)</span></span>
-<span id="cb51-18"><a href="hypothesis-1a.html#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
-<span id="cb51-19"><a href="hypothesis-1a.html#cb51-19" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>ctx, </span>
-<span id="cb51-20"><a href="hypothesis-1a.html#cb51-20" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;point&quot;</span>,</span>
-<span id="cb51-21"><a href="hypothesis-1a.html#cb51-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb51-22"><a href="hypothesis-1a.html#cb51-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-23"><a href="hypothesis-1a.html#cb51-23" aria-hidden="true" tabindex="-1"></a><span class="do">## cache (gray) vs individual (black)</span></span>
-<span id="cb51-24"><a href="hypothesis-1a.html#cb51-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
-<span id="cb51-25"><a href="hypothesis-1a.html#cb51-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>individual, </span>
-<span id="cb51-26"><a href="hypothesis-1a.html#cb51-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;point&quot;</span>,</span>
-<span id="cb51-27"><a href="hypothesis-1a.html#cb51-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb51-28"><a href="hypothesis-1a.html#cb51-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-29"><a href="hypothesis-1a.html#cb51-29" aria-hidden="true" tabindex="-1"></a><span class="do">## ctx (gray) vs individual (black)</span></span>
-<span id="cb51-30"><a href="hypothesis-1a.html#cb51-30" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>individual,</span>
-<span id="cb51-31"><a href="hypothesis-1a.html#cb51-31" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>ctx, </span>
-<span id="cb51-32"><a href="hypothesis-1a.html#cb51-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;point&quot;</span>,</span>
-<span id="cb51-33"><a href="hypothesis-1a.html#cb51-33" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb51-34"><a href="hypothesis-1a.html#cb51-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-35"><a href="hypothesis-1a.html#cb51-35" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - comparison of mean shapes</span></span>
-<span id="cb51-36"><a href="hypothesis-1a.html#cb51-36" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-contextcompare.png&#39;</span>)</span>
-<span id="cb51-37"><a href="hypothesis-1a.html#cb51-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-38"><a href="hypothesis-1a.html#cb51-38" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
-<span id="cb51-39"><a href="hypothesis-1a.html#cb51-39" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-context-figure.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="hypothesis-1a.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#subset landmark coordinates to produce mean shapes for contexts</span></span>
+<span id="cb52-2"><a href="hypothesis-1a.html#cb52-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb52-3"><a href="hypothesis-1a.html#cb52-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>context)</span>
+<span id="cb52-4"><a href="hypothesis-1a.html#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="hypothesis-1a.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span>
+<span id="cb52-6"><a href="hypothesis-1a.html#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="hypothesis-1a.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
+<span id="cb52-8"><a href="hypothesis-1a.html#cb52-8" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
+<span id="cb52-9"><a href="hypothesis-1a.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>cache)</span>
+<span id="cb52-10"><a href="hypothesis-1a.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>ctx)</span>
+<span id="cb52-11"><a href="hypothesis-1a.html#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>individual)</span>
+<span id="cb52-12"><a href="hypothesis-1a.html#cb52-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="hypothesis-1a.html#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - mean shapes by population</span></span>
+<span id="cb52-14"><a href="hypothesis-1a.html#cb52-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-context.png&#39;</span>)</span>
+<span id="cb52-15"><a href="hypothesis-1a.html#cb52-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-16"><a href="hypothesis-1a.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
+<span id="cb52-17"><a href="hypothesis-1a.html#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="do">## cache (gray) vs ctx (black)</span></span>
+<span id="cb52-18"><a href="hypothesis-1a.html#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
+<span id="cb52-19"><a href="hypothesis-1a.html#cb52-19" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>ctx, </span>
+<span id="cb52-20"><a href="hypothesis-1a.html#cb52-20" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb52-21"><a href="hypothesis-1a.html#cb52-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb52-22"><a href="hypothesis-1a.html#cb52-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-23"><a href="hypothesis-1a.html#cb52-23" aria-hidden="true" tabindex="-1"></a><span class="do">## cache (gray) vs individual (black)</span></span>
+<span id="cb52-24"><a href="hypothesis-1a.html#cb52-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
+<span id="cb52-25"><a href="hypothesis-1a.html#cb52-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>individual, </span>
+<span id="cb52-26"><a href="hypothesis-1a.html#cb52-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb52-27"><a href="hypothesis-1a.html#cb52-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb52-28"><a href="hypothesis-1a.html#cb52-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-29"><a href="hypothesis-1a.html#cb52-29" aria-hidden="true" tabindex="-1"></a><span class="do">## ctx (gray) vs individual (black)</span></span>
+<span id="cb52-30"><a href="hypothesis-1a.html#cb52-30" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>individual,</span>
+<span id="cb52-31"><a href="hypothesis-1a.html#cb52-31" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>ctx, </span>
+<span id="cb52-32"><a href="hypothesis-1a.html#cb52-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb52-33"><a href="hypothesis-1a.html#cb52-33" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb52-34"><a href="hypothesis-1a.html#cb52-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-35"><a href="hypothesis-1a.html#cb52-35" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - comparison of mean shapes</span></span>
+<span id="cb52-36"><a href="hypothesis-1a.html#cb52-36" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-contextcompare.png&#39;</span>)</span>
+<span id="cb52-37"><a href="hypothesis-1a.html#cb52-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-38"><a href="hypothesis-1a.html#cb52-38" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
+<span id="cb52-39"><a href="hypothesis-1a.html#cb52-39" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-context-figure.png&#39;</span>)</span></code></pre></div>
 
 </div>
 </div>

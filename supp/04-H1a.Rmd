@@ -6,6 +6,10 @@ This effort follows recent analyses of Gahagan biface shapes across the southern
 
 In assessing a temporal change in preference between populations of bifaces from Mounds Plantation, those from burials included during mound development and/or construction (Burial pits 1, 5, and 8) are contrasted with those from Burial pit 2 which cuts into the corner of Burial Pit 1 in Mound 5, cutting downward from the mound's surface. The stratigraphic position of Burial Pit 2 indicates that the burial occurred after those of Burial pits 1, 5, and 8.
 
+```{r h1a.analysis, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Stratigraphic position of Burial Pits 1 and 2 at the Mounds Plantation site; adapted from Webb (1975:Figure 7). Burial Pit 2 is the only burial found to be intrusive from the mound surface."}
+knitr::include_graphics('images/h1a.jpg')
+```
+
 ## Load packages + data
 
 ```{r load h1a, setwd, and load data, echo=TRUE, warning=FALSE, eval = FALSE}
