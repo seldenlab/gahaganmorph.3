@@ -34,14 +34,18 @@ qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 
 ## Generalized Procrustes Analysis
 
-Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
+Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774,@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
 ```{r gpa.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 Y.gpa <- gpagen(coords, 
               PrinAxes = TRUE, 
               print.progress = FALSE)
+
 ## plot gpa
-plot(Y.gpa)
+#plot(Y.gpa)
+
+## 3D gpa plot
+#knitr::include_graphics('images/f119f134-gpa3d.png')
 
 # geomorph data frame
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
@@ -51,7 +55,7 @@ gdf <- geomorph.data.frame(shape = Y.gpa$coords,
 # add centroid size to qdata
 qdata$csz <- Y.gpa$Csize
 
-# boxplot - context by centroid size
+# attributes for boxplot
 csz <- qdata$csz
 context <- qdata$context
 
@@ -109,7 +113,7 @@ knitr::include_graphics('images/cacheind-pca-warpref.png')
 A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756].
 
 ```{r anova.h1b, eval = FALSE}
-# shape as a function of context
+# MODEL: shape as a function of context
 fit.shapecontext <- procD.lm(shape ~ context,
                             data = gdf,
                             print.progress = FALSE,
@@ -118,7 +122,7 @@ fit.shapecontext <- procD.lm(shape ~ context,
 # ANOVA: do gahagan biface shapes differ by context?
 anova(fit.shapecontext)
 
-# size as a function of context
+# MODEL: size as a function of context
 fit.sizecontext <- procD.lm(size ~ context,
                            data = gdf,
                            print.progress = FALSE,
@@ -131,7 +135,7 @@ anova(fit.sizecontext)
 ## Mean shapes
 
 ```{r m-shapes.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
-#subset landmark coordinates to produce mean shapes for contexts
+# subset landmark coordinates to produce mean shapes for contexts
 new.coords <- coords.subset(A = Y.gpa$coords,
                             group = qdata$context)
 

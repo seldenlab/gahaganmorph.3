@@ -10,7 +10,7 @@ The initial landmarking protocol used by Selden and colleagues [-@RN11783] enlis
 knitr::include_graphics('images/gahaganmorph.jpg')
 ```
 
-The first 3D landmarking protocol ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)) was used in an analysis of Gahagan bifaces focused only upon the plan view (lateral/basal edges), and enlisted _auto3dgm_ to achieve the principal alignments needed to assign the front and back to each face [@RN21001]. While basic, this landmarking protocol generated the requisite framework needed to begin constructing different suites of design-based `reference geometry` that can be tailored to address specific research questions.
+The first 3D landmarking protocol ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)) was used in an analysis of Gahagan bifaces focused only upon the plan view (lateral/basal edges), and enlisted _auto3dgm_ [@RN8343] to achieve the principal alignments needed to assign the front and back to each biface [@RN21001]. While basic, this landmarking protocol generated the requisite framework needed to begin constructing different suites of design-based `reference geometry` that can be tailored to address specific research questions.
 
 ```{r fig.gahaganmorph2, fig.cap="The first [3D landmarking protocol](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md) (LM3d1) used to analyse Gahagan bifaces, which captured those attributes associated with axial twisting."}
 knitr::include_graphics('images/gahaganmorph2.png')
@@ -46,7 +46,7 @@ knitr::include_graphics('images/lm1.png')
 
 #### Split Spline 1 at locations of LM 02 and LM 03
 
-The point of highest curvature on either side of the basal edge was calculated using the `curvature` function in the Accuracy Analyzer. This function displays the curvature flow as a continuous color plot across the area of the curve. In this instance, _curvature_ is defined as the amount by which a geometric shape deviates from being flat or straight in the case of a line. Curvature is displayed in different colors according to the local radius, and calculated in only one direction (U or V) along the curve. Using this tool, the two points of highest curvature were located between the basal and lateral edges on either side of each projectile where the local radius measure was largest. The orientation of each biface was initially dictated by the _auto3dgm_ alignment in [LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md); however, _LM3d2 follows a different protocol._
+The point of highest curvature on either side of the basal edge was calculated using the `curvature` function in the Accuracy Analyzer. This function displays the curvature flow as a continuous color plot across the area of the curve. In this instance, _curvature_ is defined as the amount by which a geometric shape deviates from being flat or straight in the case of a line. Curvature is displayed in different colors according to the local radius, and calculated in only one direction (U or V) along the curve. Using this tool, the two points of highest curvature were located between the basal and lateral edges on either side of each projectile where the local radius measure was largest. The orientation of each biface was initially dictated by the _auto3dgm_ alignment in [LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)[@RN8343,@RN21001]; however, _LM3d2 follows a different protocol._
 
 ```{r figcurve, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Identify points of hightest curvature (light blue) at left/right intersection of lateral and basal edges."}
 knitr::include_graphics('images/splinesplit1.png')
@@ -54,7 +54,7 @@ knitr::include_graphics('images/splinesplit1.png')
 
 #### Split Spline 1 at location of LM 04
 
-One additional landmark (LM 06) was placed at the center of the base. The location of this landmark was identified by calculating the linear distance between LM 02 and LM 03, and projecting a `reference point` (ctrl-div; below) equidistant between the two. A `reference plane` was added using the ctrl-div as the pick point, and the `Right plane` as the `normal axis`. The spline was then split at the intersection of the `reference plane` and the basal spline.
+One additional landmark (LM 04) was placed at the center of the base. The location of this landmark was identified by calculating the linear distance between LM 02 and LM 03, and projecting a `reference point` (ctrl-div; below) equidistant between the two. A `reference plane` was added using the ctrl-div as the pick point, and the `Right plane` as the `normal axis`. The spline was subsequently split at the intersection of the `reference plane` and the basal spline.
 
 ```{r figlm4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Calculate linear distance between LM2 and LM3, insert reference plane coplanar to Right plane equidistant between LM2 and LM3, and use the reference plane to cut the spline."}
 knitr::include_graphics('images/lm4.png')
@@ -62,7 +62,7 @@ knitr::include_graphics('images/lm4.png')
 
 ## Reference geometry, Build 1
 
-Each of the preceding protocols were used in the previous analysis of Gahagan bifaces [@RN21001], and the following sections detail the evolution of that landmarking protocol. The resulting constellation of LM and sLM points can be subset to test a wide range of hypotheses associated with the plan and profile views of bifaces, and can be extended to include specific or multiple components of each cross-section. Each cross-section is also split between LM 01 and LM04, allowing for analyses of _bilateral asymmetry_ for both plan and profile views.
+Each of the preceding protocols were used in the previous analysis of Gahagan bifaces [@RN21001] using [LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md). The following sections detail the evolution of that landmarking protocol. The resulting constellation of LM and sLM points use a design-based constellation that can be subset to test a broad range of hypotheses associated with biface morphology, and can be extended to include specific or multiple components for each cross-section. Each cross-section is also split between LM 01 and LM04, allowing for analyses of _bilateral asymmetry_ in both plan and profile views.
 
 ### Reference Vector 1, Point 2, and Plane 2
 
