@@ -143,12 +143,11 @@ plot(mean$m5)
 plot(mean$b2)
 
 # comparison plots
-## cache (gray) vs ctx (black)
 plotRefToTarget(mean$m5,
                 mean$b2,
                 method = "surface",
                 mag = 1)
 
 ## 3D plot - final figure
-knitr::include_graphics('images/mshape-context-figure.png')
+knitr::include_graphics('images/mp-bcontext-figure.png')
 ```
