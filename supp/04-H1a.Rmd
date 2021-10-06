@@ -62,7 +62,7 @@ pal <- wes_palette("Moonrise2")
 ## Boxplot
 
 ```{r centsize.box.h1a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
-# boxplot
+# boxplot - centroid size by context
 csz.temp <- ggplot(qdata, aes(x = context, y = csz, color = context)) +
   geom_boxplot() +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
@@ -82,9 +82,7 @@ Principal components analysis [@RN1746] was used to visualise shape variation am
 # principal components analysis
 pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
-```
 
-```{r pca.h1a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 # set plot parameters to plot by context
 pch.gps.context <- c(15,17,19)[as.factor(context)]
 col.gps.context <- pal[as.factor(context)]
@@ -106,47 +104,28 @@ pc.plot <- plot(pca, asp = 1,
 knitr::include_graphics('images/cacheind-pca-warpref.png')
 ```
 
-## Define models
+## Procrustes ANOVA
 
-```{r define-models.h1a, eval = FALSE}
+A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756]. 
+
+```{r anova.h1a, eval = FALSE}
 # shape as a function of context
 fit.shapecontext <- procD.lm(shape ~ context,
                             data = gdf,
                             print.progress = FALSE,
                             iter = 9999)
 
+# ANOVA: do gahagan biface shapes differ by context?
+anova(fit.shapecontext)
+
 # size as a function of context
 fit.sizecontext <- procD.lm(size ~ context,
                            data = gdf,
                            print.progress = FALSE,
                            iter = 9999)
-```
-
-## Procrustes ANOVA
-
-A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756]. 
-
-```{r anova.h1a, warning=FALSE, eval = FALSE}
-# ANOVA: do gahagan biface shapes differ by context?
-anova(fit.shapecontext)
-
-# pairwise comparison of LS means = which differ?
-sh.context <- pairwise(fit.shapecontext,
-                      groups = qdata$context)
-summary(sh.context, 
-        confidence = 0.95, 
-        test.type = "dist")
 
 # ANOVA: do gahagan biface sizes differ by context?
 anova(fit.sizecontext)
-
-# pairwise comparison of LS means = which differ?
-sz.context <- pairwise(fit.sizecontext,
-                      groups = qdata$context)
-
-summary(sz.context, 
-        confidence = 0.95, 
-        test.type = "dist")
 ```
 
 ## Mean shapes
@@ -160,34 +139,15 @@ names(new.coords)
 
 ## plot shape means
 mean <- lapply(new.coords, mshape)
-plot(mean$cache)
-plot(mean$ctx)
-plot(mean$individual)
-
-## 3D plot - mean shapes by population
-knitr::include_graphics('images/mshape-context.png')
+plot(mean$m5)
+plot(mean$b2)
 
 # comparison plots
 ## cache (gray) vs ctx (black)
-plotRefToTarget(mean$cache,
-                mean$ctx, 
-                method = "point",
+plotRefToTarget(mean$m5,
+                mean$b2,
+                method = "surface",
                 mag = 1)
-
-## cache (gray) vs individual (black)
-plotRefToTarget(mean$cache,
-                mean$individual, 
-                method = "point",
-                mag = 1)
-
-## ctx (gray) vs individual (black)
-plotRefToTarget(mean$individual,
-                mean$ctx, 
-                method = "point",
-                mag = 1)
-
-## 3D plot - comparison of mean shapes
-knitr::include_graphics('images/mshape-contextcompare.png')
 
 ## 3D plot - final figure
 knitr::include_graphics('images/mshape-context-figure.png')

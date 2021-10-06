@@ -10,7 +10,7 @@ The initial landmarking protocol used by Selden and colleagues [-@RN11783] enlis
 knitr::include_graphics('images/gahaganmorph.jpg')
 ```
 
-The first 3D landmarking protocol ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)) was used in an analysis of Gahagan bifaces focused only upon the plan view (lateral/basal edges), and enlisted _auto3dgm_ to achieve the principal alignments needed to assign the front and back to each face [@RN21001]. While basic, this landmarking protocol generated the requisite framework needed to begin constructing different suites of design-driven `reference geometry` that can be tailored to address specific research questions.
+The first 3D landmarking protocol ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)) was used in an analysis of Gahagan bifaces focused only upon the plan view (lateral/basal edges), and enlisted _auto3dgm_ to achieve the principal alignments needed to assign the front and back to each face [@RN21001]. While basic, this landmarking protocol generated the requisite framework needed to begin constructing different suites of design-based `reference geometry` that can be tailored to address specific research questions.
 
 ```{r fig.gahaganmorph2, fig.cap="The first [3D landmarking protocol](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md) (LM3d1) used to analyse Gahagan bifaces, which captured those attributes associated with axial twisting."}
 knitr::include_graphics('images/gahaganmorph2.png')
@@ -76,7 +76,7 @@ knitr::include_graphics('images/vecptplane.png')
 
 Using the same method, a `reference vector` (vector.2) was inserted between LM 02 and LM 03 using the same `reference point`. The Z-coordinates of ref.pt.3 were similarly altered to relocate it 15 mm from vector.2 in the direction of the Z-axis. The `pick point and coplanar axis` function was used to place a `reference plane` ref.pl.3 along vector.2 in the direction of ref.pt.3, bisecting the biface along the X-axis---parallel to the base---between LM 02 and LM 03. A fourth `reference plane` ref.pl.4 was inserted using the `pick point and normal axis` function, placing a plane at the intersection of LM 01 and vector.1. These two planes serve as the basis for the equidistant cross-sections. 
 
-_**The angle between the ref.pl.2 and ref.pl.3 was measured on each side of ref.pl.2, and the side with the lowest angle was kept on the right during the remainder of the landmarking process. LMs 02 and 03 were assigned following this calculation.**_
+_**The angle between ref.pl.2 and ref.pl.3 was measured on each side of ref.pl.2, and the side with the lowest angle was kept on the right during the remainder of the landmarking process. LMs 02 and 03 were assigned following this calculation.**_
 
 ```{r plane3.4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Vector placed between LM 01 and 04, ref.pt.2 equidistant between the landmarks along the vector, then the Z-coordinates were altered to offset the point 15mm from the vector (left two images). The vector and ref.pt.3 were subsequently used to place a plane coplanar to the vector in the direction of ref.pt.3 using the `pick point and coplanar axis` function. Plane 4 was inserted using the `pick point and normal axis` function with vector1 as the normal axis, and LM 01 as the pick point."}
 knitr::include_graphics('images/plane3-4.png')
