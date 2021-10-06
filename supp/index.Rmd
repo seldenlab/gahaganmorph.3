@@ -31,11 +31,11 @@ knitr::include_graphics('images/fig02.jpg')
 
 **Hypothesis 1: Gahagan bifaces selected for inclusion in Caddo burials differ in morphology through time.**
 
-Hypothesis 1 is tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing temporal positions. There is an important cultural distinction between contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were interred with/alongside an individual (Burials 1, 2, 5, and 8), and all of the Gahagan bifaces from George C. Davis articulate with a cache included as part of two group burials (Features 119 and 134). The information gathered from the analysis provides valuable insights with regard to _design intent_ and aesthetic preference that articulate with Gahagan bifaces at differing temporal intervals.
+Hypothesis 1 is tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing temporal positions. There is an important cultural distinction between contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were interred _alongside an individual_ (Burials 1, 2, 5, and 8), and all of the Gahagan bifaces from George C. Davis articulate with _caches or concentrations included in two group burials_ (Features 119 and 134). The information gathered from the analysis provides valuable insights with regard to `design intent` and `aesthetic preference` that articulate with Gahagan bifaces at different temporal intervals.
 
 #### _Hypothesis 1a: Temporal change in preference at Mounds Plantation_
 
-In assessing a temporal change in preference between populations of bifaces from Mounds Plantation, those from burials included during mound development and/or construction (Burial pits 1, 5, and 8) are contrasted with those from Burial pit 2 which cuts into the corner of Burial Pit 1 in Mound 5, cutting downward from the mound's surface. The stratigraphic position of Burial Pit 2 indicates that the burial occurred after those burials associated with Burial Pits 1, 5, and 8.
+In assessing a temporal change in preference between Gahagan bifaces from Mound 5 at the Mounds Plantation site, those from burials included during mound development and/or construction (Burial Pits 1, 5, and 8) are contrasted with those from Burial Pit 2 which cuts into the corner of Burial Pit 1, cutting downward from the mound's surface. The stratigraphic position of Burial Pit 2 indicates that this burial occurred after the burials from Burial Pits 1, 5, and 8.
 
 ```{r h1a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Stratigraphic position of Burial Pits 1 and 2 at the Mounds Plantation site; adapted from Webb (1975:Figure 7). Burial Pit 2 is the only burial found to be intrusive from the mound surface."}
 knitr::include_graphics('images/h1a.jpg')
@@ -45,7 +45,7 @@ knitr::include_graphics('images/h1a.jpg')
 
 #### _Hypothesis 1b: Temporal change in preference at George C. Davis_
 
-To assess the temporal change in preference between populations of bifaces from George C. Davis, those recovered from Feature 134 are contrasted with those from Feature 119. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred after those associated with Feature 134.
+To assess the temporal change in preference between populations of bifaces from Mound C at the George C. Davis site, those recovered from Feature 134 are contrasted with those from Feature 119. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred after those associated with Feature 134.
 
 ```{r h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Stratigraphic position of Features 119 and 134 at the George C. Davis site; adapted from Story (1997:Figure 13)."}
 knitr::include_graphics('images/h1b.jpg')
