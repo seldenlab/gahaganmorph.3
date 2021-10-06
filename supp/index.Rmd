@@ -1,7 +1,7 @@
 --- 
 title: "Supplementary materials for article: Morphological trajectories of Gahagan bifaces from Caddo burial contexts"
 author: 
-    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu], John E. Dockall^[Cox|McClain Environmental Consulting, Inc.], Christian S. Hoggard^[Department of Archaeology, University of Southampton], and David K. Thulman^[Department of Anthropology, George Washington University]
+    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu] and John E. Dockall^[Cox|McClain Environmental Consulting, Inc.]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
