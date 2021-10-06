@@ -10,6 +10,7 @@ fig:figcurve
 fig:figlm4
 fig:vecptplane
 fig:figlmslm-all
+fig:all-applied-lmslm
 basis-of-inquiry
 primary-findings
 temporal-change-in-preference
