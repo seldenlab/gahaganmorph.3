@@ -84,9 +84,9 @@ pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
 
 # set plot parameters to plot by context
-pch.gps.context <- c(15,17,19)[as.factor(context)]
+pch.gps.context <- c(15,17)[as.factor(context)]
 col.gps.context <- pal[as.factor(context)]
-col.hull.context <- c("#C27D38","#CCC591","#798E87")
+col.hull.context <- c("#C27D38","#CCC591")
 
 ## plot pca by context 2
 pc.plot <- plot(pca, asp = 1,
