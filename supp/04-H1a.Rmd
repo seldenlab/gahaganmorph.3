@@ -2,7 +2,7 @@
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as Caddo bottles [@RN11801;@RN11782;@RN11716;@RN8312] and Perdiz arrow points ([Selden and Dockall, in review](https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf)). The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-**Hypothesis 1a: Temporal change in Caddo preference at Mounds Plantation**
+_**Hypothesis 1a: Temporal change in Caddo preference at Mounds Plantation**_
 
 In assessing a temporal change in preference between Gahagan bifaces from Mound 5 at the Mounds Plantation site, those from burials included during mound development and/or construction (Burial Pits 1, 5, and 8) are contrasted with those from Burial Pit 2 which cuts into the corner of Burial Pit 1, cutting downward from the mound's surface [@RN8174]. The stratigraphic position of Burial Pit 2 indicates that this burial occurred after those associated with Burial Pits 1, 5, and 8 [@RN8174].
 

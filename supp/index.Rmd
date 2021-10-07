@@ -45,6 +45,14 @@ knitr::include_graphics('images/h1a.jpg')
 
 ##### _Hypothesis 1a Findings_:
 
+- Gahagan bifaces from BPs 1, 5, and 8 (Early) and BP2 (Late) contexts do not differ in _shape_
+- Gahagan bifaces from Early and Late contexts **differ significantly** in _size_
+  - Early bifaces are **significantly larger** than Late bifaces
+  
+```{r h1a.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Difference in centroid size between Gahagan bifaces from BPs 1, 5, and 8 (Early) and BP 2 (Later) contexts at the Mounds Plantation site."}
+knitr::include_graphics('images/mp-size.png')
+```
+
 #### _Hypothesis 1b: Temporal change in Caddo preference at George C. Davis_
 
 To assess the temporal change in preference between caches of Gahagan bifaces recovered from Mound C at the George C. Davis site, those from Feature 134 are contrasted with those from Feature 119 [@RN3682;@RN8186]. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred subsequent to those associated with Feature 134 [@RN3682;@RN8186].
@@ -55,6 +63,14 @@ knitr::include_graphics('images/h1b.jpg')
 
 ##### _Hypothesis 1b Findings_:
 
+- Gahagan bifaces from F134 (Early) and F119 (Late) contexts do not differ in _shape_
+- Gahagan bifaces from Early and Late contexts **differ significantly** in _size_
+  - Late bifaces are **significantly larger** than Early bifaces
+
+```{r h1b.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Difference in centroid size between Gahagan bifaces from F134 (Early) and F119 (Later) contexts at the George C. Davis site."}
+knitr::include_graphics('images/gcd-size.png')
+```
+
 ### Differential `design intent` of Gahagan bifaces
 
 **Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**
@@ -62,6 +78,13 @@ knitr::include_graphics('images/h1b.jpg')
 Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting aspects of differential `design intent`.
 
 #### _Hypothesis 2 Findings_:
+
+- Gahagan bifaces from cache and individual contexts **differ significantly** in _shape_
+- Gahagan bifaces from cache and individual contexts do not differ in _size_
+
+```{r h2.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="There is a significant difference Gahagan biface shapes from _cache_ (left), _individual_ (right), contexts. In the comparison of contexts, _cache_ is presented in gray, and _individual_ in black."}
+knitr::include_graphics('images/mshape-cache-ind.jpg')
+```
 
 ## Acknowledgments
 
