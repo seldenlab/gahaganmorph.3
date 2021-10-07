@@ -1,5 +1,5 @@
 --- 
-title: "Morphological trajectories suggest discrete Caddo preferences associated with Gahagan bifaces from burial contexts"
+title: "Morphological trajectories suggest changes in cultural preference associated with Gahagan bifaces from Caddo burial contexts"
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu] and John E. Dockall^[Cox|McClain Environmental Consulting, Inc.]
 date: "`r Sys.Date()`"
@@ -23,7 +23,7 @@ That Gahagan bifaces differ across two `spatial boundaries` was noteworthy, part
 
 This effort is the first to shift the analytical foci of this research program from one of regional trends to one of local Caddo burial contexts.
 
-```{r gahagan bifaces 2D, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered with an individual denoted by black circles. Additional information for each bifaces, including the option to download 2D images of these bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
+```{r gahagan bifaces 2D, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
 knitr::include_graphics('images/fig02.jpg')
 ```
 
@@ -33,7 +33,7 @@ knitr::include_graphics('images/fig02.jpg')
 
 **Hypothesis 1: Gahagan bifaces selected for inclusion in Caddo burials differ in morphology through time.**
 
-Hypothesis 1 is tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered _in association with an individual_ (Burials 1, 2, 5, and 8) [@RN8174], and all of the Gahagan bifaces from George C. Davis articulate with _caches included along the periphery of two group burials_ (Features 119 and 134) [@RN3682;@RN8186]. The information gathered from the analysis provides valuable insights with regard to `design intent` and `aesthetic preference` for Gahagan bifaces recovered from discrete temporal intervals.
+Hypothesis 1 is tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered _in association with an individual_ (Burials 1, 2, 5, and 8) [@RN8174], and all of the Gahagan bifaces from George C. Davis articulate with _caches included along the northern periphery of two group burials_ (Features 119 and 134) [@RN3682;@RN8186]. The information gathered from the analysis provides valuable insights with regard to changes in `aesthetic preference`, as well as `design intent` for Gahagan bifaces recovered from discrete temporal intervals.
 
 #### _Hypothesis 1a: Temporal change in Caddo preference at Mounds Plantation_
 
@@ -55,17 +55,19 @@ knitr::include_graphics('images/h1b.jpg')
 
 ##### _Hypothesis 1b Findings_:
 
-### General morphological trajectory of Gahagan bifaces
+### Differential `design intent` of Gahagan bifaces
 
 **Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**
 
-Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct burial practices may have resulted in discrete Gahagan biface morphologies constrained by local traditions, which differ between the `behavioral regions`.
+Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential `design intent`.
 
 #### _Hypothesis 2 Findings_:
 
 ## Acknowledgments
 
-We extend our gratitude to the Caddo Nation of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the 3D scans of the Gahagan bifaces. Thanks to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments on the analyses of Gahagan biface shape. RZS extend his gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of [`LM3d1`](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md), as well as the landmarking protocol used in this study ([`LM3d2`](https://seldenlab.github.io/gahaganmorph.3/landmarking-protocol-3d2.html)), to Martin Hinz for fielding questions related to the `oxcAAR` package, to Derek Hamilton for his guidance with the chronological models, and to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, general comments, and suggestions throughout the development of this research program.
+We extend our gratitude to the Caddo Nation of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the 3D scans of the Gahagan bifaces. Thanks to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments on the analyses of Gahagan biface shape. 
+
+RZS extend his gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of [`LM3d1`](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md), as well as the landmarking protocol used in this study ([`LM3d2`](https://seldenlab.github.io/gahaganmorph.3/landmarking-protocol-3d2.html)), to Martin Hinz for fielding questions related to the `oxcAAR` package, to Derek Hamilton for his guidance with the chronological models, and to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, general comments, and suggestions throughout the development of this research program.
 
 ## Funding
 
