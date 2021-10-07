@@ -65,7 +65,7 @@ pal <- wes_palette("Moonrise2")
 
 ## Boxplot
 
-```{r centsize.box.h1a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r centsize.box.h1a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # boxplot - centroid size by context
 csz.temp <- ggplot(qdata, aes(x = context, y = csz, color = context)) +
   geom_boxplot() +
