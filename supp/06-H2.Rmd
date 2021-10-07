@@ -37,7 +37,7 @@ Y.gpa <- gpagen(coords,
               PrinAxes = TRUE, 
               print.progress = FALSE)
 ## plot gpa
-#plot(Y.gpa)
+plot(Y.gpa)
 
 ## 3D gpa plot
 #knitr::include_graphics('images/cacheind-gpa3d.png')
@@ -140,9 +140,6 @@ names(new.coords)
 mean <- lapply(new.coords, mshape)
 plot(mean$cache)
 plot(mean$individual)
-
-## 3D plot - mean shapes by population
-#knitr::include_graphics('images/mshape-context.png')
 
 # comparison plots
 plotRefToTarget(mean$cache,

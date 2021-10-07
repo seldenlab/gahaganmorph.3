@@ -59,7 +59,7 @@ knitr::include_graphics('images/h1b.jpg')
 
 **Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**
 
-Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential `design intent`.
+Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting aspects of differential `design intent`.
 
 #### _Hypothesis 2 Findings_:
 

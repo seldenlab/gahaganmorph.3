@@ -42,7 +42,7 @@ Y.gpa <- gpagen(coords,
               print.progress = FALSE)
 
 ## plot gpa
-#plot(Y.gpa)
+plot(Y.gpa)
 
 ## 3D gpa plot
 #knitr::include_graphics('images/m5b2-gpa3d.png')
