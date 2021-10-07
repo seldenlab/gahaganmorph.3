@@ -82,7 +82,7 @@ Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interr
 - Gahagan bifaces from cache and individual contexts **differ significantly** in _shape_
 - Gahagan bifaces from cache and individual contexts do not differ in _size_
 
-```{r h2.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="There is a significant difference Gahagan biface shapes from _cache_ (left), _individual_ (right), contexts. In the comparison of contexts, _cache_ is presented in gray, and _individual_ in black."}
+```{r h2.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="There is a significant difference Gahagan biface shapes from _cache_ and _individual_ contexts. In the comparison of contexts, _cache_ is presented in gray, and _individual_ in black."}
 knitr::include_graphics('images/mshape-cache-ind.jpg')
 ```
 
