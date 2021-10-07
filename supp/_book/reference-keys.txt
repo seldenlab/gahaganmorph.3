@@ -10,14 +10,15 @@ fig:figcurve
 fig:figlm4
 fig:vecptplane
 fig:figlmslm-all
+fig:all-applied-lmslm
 basis-of-inquiry
 primary-findings
-temporal-change-in-preference
-hypothesis-1a-temporal-change-in-preference-at-mounds-plantation
+temporal-change-in-caddo-preference
+hypothesis-1a-temporal-change-in-caddo-preference-at-mounds-plantation
 hypothesis-1a-findings
-hypothesis-1b-temporal-change-in-preference-at-george-c.-davis
+hypothesis-1b-temporal-change-in-caddo-preference-at-george-c.-davis
 hypothesis-1b-findings
-general-morphological-trajectory
+general-morphological-trajectory-of-gahagan-bifaces
 hypothesis-2-findings
 acknowledgments
 funding
@@ -46,7 +47,7 @@ splitting-the-curves-step-1
 splitting-the-curves-step-2
 landmark-and-semilandmark-placement
 hypothesis-1a
-hypothesis-1a-temporal-change-in-preference-at-mounds-plantation-1
+hypothesis-1a-temporal-change-in-preference-at-mounds-plantation
 load-packages-data
 generalized-procrustes-analysis
 boxplot
@@ -55,7 +56,7 @@ plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
 mean-shapes
 hypothesis-1b
-hypothesis-1b-temporal-change-in-preference-at-george-c.-davis-1
+hypothesis-1b-temporal-change-in-preference-at-george-c.-davis
 load-packages-data-1
 generalized-procrustes-analysis-1
 boxplot-1
@@ -72,7 +73,3 @@ principal-components-analysis-2
 plot-pca-with-mean-shape-xy-maximaminima-2
 procrustes-anova-2
 mean-shapes-2
-temporal-change-in-caddo-preference
-hypothesis-1a-temporal-change-in-caddo-preference-at-mounds-plantation
-hypothesis-1b-temporal-change-in-caddo-preference-at-george-c.-davis
-general-morphological-trajectory-of-gahagan-bifaces
