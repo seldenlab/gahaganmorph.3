@@ -2,13 +2,13 @@
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as Caddo bottles [@RN11801;@RN11782;@RN11716;@RN8312] and Perdiz arrow points ([Selden and Dockall, in review](https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf)). The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-## _Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache offering differ in morphology from those placed with an individual._
+**Hypothesis 2: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**
 
-Hypothesis 2 is tested using a sample of Gahagan bifaces interred as part of a Caddo group offering (here called a cache) or with a Caddo individual. Findings provide useful insights with regard to macro trends associated with the use-life of Gahagan bifaces, which may have ranged from a cache offering (where _design intent_ is assumed) to an individual offering (where minor modification(s)/retouch may be present).
+Hypothesis 2 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential `design intent`.
 
 ## Load packages + data
 
-```{r load geomorph.h2, setwd, and load data, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r load geomorph.h2, setwd, and load data, echo=TRUE, warning=FALSE}
 # load libraries
 library(here)
 library(geomorph)
@@ -32,7 +32,7 @@ qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 
 Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
-```{r gpa.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r gpa.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 Y.gpa <- gpagen(coords, 
               PrinAxes = TRUE, 
               print.progress = FALSE)
@@ -77,7 +77,7 @@ csz.temp
 
 Principal components analysis [@RN1746] was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479]. 
 
-```{r pca1.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r pca1.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # principal components analysis
 pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
@@ -85,7 +85,7 @@ summary(pca)
 # set plot parameters to plot by context
 pch.gps.context <- c(15,17)[as.factor(context)]
 col.gps.context <- pal[as.factor(context)]
-col.hull.context <- c("#C27D38","#CCC591")
+col.hull.context <- c("#C27D38","#798E87")
 
 ## plot pca by context 2
 pc.plot <- plot(pca, asp = 1,
@@ -100,7 +100,7 @@ pc.plot <- plot(pca, asp = 1,
 
 ```{r pca2.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
-knitr::include_graphics('images/cacheind-pca-warpref.png')
+#knitr::include_graphics('images/cacheind-pca-warpref.png')
 ```
 
 ## Procrustes ANOVA
@@ -142,14 +142,14 @@ plot(mean$cache)
 plot(mean$individual)
 
 ## 3D plot - mean shapes by population
-knitr::include_graphics('images/mshape-context.png')
+#knitr::include_graphics('images/mshape-context.png')
 
 # comparison plots
 plotRefToTarget(mean$cache,
                 mean$individual, 
-                method = "surface",
+                method = "points",
                 mag = 1)
 
 ## 3D plot - final figure
-knitr::include_graphics('images/cacheind-bcontext-figure.png')
+#knitr::include_graphics('images/cacheind-bcontext-figure.png')
 ```

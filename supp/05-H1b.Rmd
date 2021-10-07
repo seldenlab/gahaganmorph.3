@@ -2,9 +2,9 @@
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as Caddo bottles [@RN11801;@RN11782;@RN11716;@RN8312] and Perdiz arrow points ([Selden and Dockall, in review](https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf)). The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-## _Hypothesis 1b: Temporal change in preference at George C. Davis_
+**Hypothesis 1b: Temporal change in Caddo preference at George C. Davis**
 
-To assess the temporal change in preference between populations of bifaces from George C. Davis, those recovered from Feature 134 are contrasted with those from Feature 119. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred after those associated with Feature 134.
+To assess the temporal change in preference between caches of Gahagan bifaces recovered from Mound C at the George C. Davis site, those from Feature 134 are contrasted with those from Feature 119 [@RN3682;@RN8186]. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred subsequent to those associated with Feature 134 [@RN3682;@RN8186].
 
 ```{r h1b.analysis, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Stratigraphic position of Features 119 and 134 at the George C. Davis site; adapted from Story (1997:Figure 13)."}
 knitr::include_graphics('images/h1b.jpg')
@@ -12,7 +12,7 @@ knitr::include_graphics('images/h1b.jpg')
 
 ## Load packages + data
 
-```{r load geomorph.h1b, setwd, and load data, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r load geomorph.h1b, setwd, and load data, echo=TRUE, warning=FALSE}
 # load libraries
 library(here)
 library(geomorph)
@@ -36,7 +36,7 @@ qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 
 Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
-```{r gpa.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r gpa.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 Y.gpa <- gpagen(coords, 
               PrinAxes = TRUE, 
               print.progress = FALSE)
@@ -65,7 +65,7 @@ pal <- wes_palette("Moonrise2")
 
 ## Boxplot
 
-```{r centsize.box.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r centsize.box.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # boxplot - centroid size by context
 csz.temp <- ggplot(qdata, aes(x = context, y = csz, color = context)) +
   geom_boxplot() +
@@ -82,7 +82,7 @@ csz.temp
 
 Principal components analysis [@RN1746] was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479]. 
 
-```{r pca1.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+```{r pca1.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # principal components analysis
 pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
@@ -90,7 +90,7 @@ summary(pca)
 # set plot parameters to plot by context
 pch.gps.context <- c(15,17)[as.factor(context)]
 col.gps.context <- pal[as.factor(context)]
-col.hull.context <- c("#C27D38","#CCC591")
+col.hull.context <- c("#798E87","#C27D38")
 
 ## plot pca by context 2
 pc.plot <- plot(pca, asp = 1,
@@ -105,14 +105,14 @@ pc.plot <- plot(pca, asp = 1,
 
 ```{r pca2.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
-knitr::include_graphics('images/cacheind-pca-warpref.png')
+#knitr::include_graphics('images/cacheind-pca-warpref.png')
 ```
 
 ## Procrustes ANOVA
 
 A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756].
 
-```{r anova.h1b, eval = FALSE}
+```{r anova.h1b}
 # MODEL: shape as a function of context
 fit.shapecontext <- procD.lm(shape ~ context,
                             data = gdf,
@@ -143,15 +143,15 @@ names(new.coords)
 
 ## plot shape means
 mean <- lapply(new.coords, mshape)
-plot(mean$f134)
-plot(mean$f119)
+plot(mean$Early)
+plot(mean$Late)
 
 # comparison plots
-plotRefToTarget(mean$f134,
-                mean$f119, 
-                method = "surface",
+plotRefToTarget(mean$Early,
+                mean$Late, 
+                method = "points",
                 mag = 1)
 
 ## 3D plot - final figure
-knitr::include_graphics('images/gcd-bcontext-figure.png')
+#knitr::include_graphics('images/gcd-bcontext-figure.png')
 ```

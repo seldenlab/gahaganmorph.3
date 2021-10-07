@@ -47,7 +47,6 @@ splitting-the-curves-step-1
 splitting-the-curves-step-2
 landmark-and-semilandmark-placement
 hypothesis-1a
-hypothesis-1a-temporal-change-in-preference-at-mounds-plantation
 load-packages-data
 generalized-procrustes-analysis
 boxplot
@@ -56,7 +55,6 @@ plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
 mean-shapes
 hypothesis-1b
-hypothesis-1b-temporal-change-in-preference-at-george-c.-davis
 load-packages-data-1
 generalized-procrustes-analysis-1
 boxplot-1
@@ -65,7 +63,6 @@ plot-pca-with-mean-shape-xy-maximaminima-1
 procrustes-anova-1
 mean-shapes-1
 hypothesis-2
-hypothesis-2-gahagan-bifaces-included-in-caddo-burials-as-a-cache-offering-differ-in-morphology-from-those-placed-with-an-individual.
 load-packages-data-2
 generalized-procrustes-analysis-2
 boxplot-2
