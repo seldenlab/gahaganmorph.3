@@ -42,7 +42,7 @@ Y.gpa <- gpagen(coords,
               print.progress = FALSE)
 
 ## plot gpa
-plot(Y.gpa)
+#plot(Y.gpa)
 
 ## 3D gpa plot
 #knitr::include_graphics('images/f119f134-gpa3d.png')
@@ -130,28 +130,4 @@ fit.sizecontext <- procD.lm(size ~ context,
 
 # ANOVA: do gahagan biface sizes differ by context?
 anova(fit.sizecontext)
-```
-
-## Mean shapes
-
-```{r m-shapes.h1b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
-# subset landmark coordinates to produce mean shapes for contexts
-new.coords <- coords.subset(A = Y.gpa$coords,
-                            group = qdata$context)
-
-names(new.coords)
-
-## plot shape means
-mean <- lapply(new.coords, mshape)
-plot(mean$Early)
-plot(mean$Late)
-
-# comparison plots
-plotRefToTarget(mean$Early,
-                mean$Late, 
-                method = "points",
-                mag = 1)
-
-## 3D plot - final figure
-#knitr::include_graphics('images/gcd-bcontext-figure.png')
 ```

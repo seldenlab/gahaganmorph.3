@@ -37,7 +37,7 @@ Y.gpa <- gpagen(coords,
               PrinAxes = TRUE, 
               print.progress = FALSE)
 ## plot gpa
-plot(Y.gpa)
+#plot(Y.gpa)
 
 ## 3D gpa plot
 #knitr::include_graphics('images/cacheind-gpa3d.png')
@@ -148,5 +148,5 @@ plotRefToTarget(mean$cache,
                 mag = 1)
 
 ## 3D plot - final figure
-#knitr::include_graphics('images/cacheind-bcontext-figure.png')
+knitr::include_graphics('images/mshape-cache-ind.jpg')
 ```

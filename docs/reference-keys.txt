@@ -33,7 +33,6 @@ boxplot
 principal-components-analysis
 plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
-mean-shapes
 hypothesis-1b
 load-packages-data-1
 generalized-procrustes-analysis-1
@@ -41,7 +40,6 @@ boxplot-1
 principal-components-analysis-1
 plot-pca-with-mean-shape-xy-maximaminima-1
 procrustes-anova-1
-mean-shapes-1
 hypothesis-2
 load-packages-data-2
 generalized-procrustes-analysis-2
@@ -49,4 +47,4 @@ boxplot-2
 principal-components-analysis-2
 plot-pca-with-mean-shape-xy-maximaminima-2
 procrustes-anova-2
-mean-shapes-2
+mean-shapes
