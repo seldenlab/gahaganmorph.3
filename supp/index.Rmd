@@ -45,8 +45,8 @@ knitr::include_graphics('images/h1a.jpg')
 
 ##### _Hypothesis 1a Findings_:
 
-- Gahagan bifaces from BPs 1, 5, and 8 contexts do not differ in _shape_ from BP2 contexts
-- Gahagan bifaces from BPs 1, 5, and 8 contexts **differ significantly** in _size_ from BP2 contexts
+- Gahagan bifaces from BPs 1, 5, and 8 contexts do not differ in _shape_ from BP2
+- Gahagan bifaces from BPs 1, 5, and 8 contexts **differ significantly** in _size_ from BP2
   - BP2 (later) bifaces are **significantly smaller** than the earlier bifaces from BPs 1, 5, and 8
   
 ```{r h1a.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Difference in centroid size between Gahagan bifaces from earlier (BPs 1, 5, and 8) and later (BP 2) contexts at the Mounds Plantation site."}
@@ -114,7 +114,7 @@ Components of this analytical work flow were developed and funded by a Preservat
 
 This volume is written in _Markdown_, and all files needed to reproduce the analytical findings are included in the [GitHub repository](https://github.com/seldenlab/gahaganmorph.3), which is digitally curated on the Open Science Framework. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
-Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN11783;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
+Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN11783;@RN21001;@RN9364], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
 
 The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/seldenlab/gahaganmorph.3) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/JV3X8](https://osf.io/jv3x8/).
 
