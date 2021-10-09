@@ -11,12 +11,10 @@ hypothesis-1a-temporal-change-in-caddo-preference-at-mounds-plantation
 hypothesis-1a-findings
 hypothesis-1b-temporal-change-in-caddo-preference-at-george-c.-davis
 hypothesis-1b-findings
+hypothesis-1-summary-of-results
 differential-design-intent-of-gahagan-bifaces
 hypothesis-2-findings
-acknowledgments
-funding
-data-management
-colophon
+hypothesis-2-summary-of-results
 temporal-dynamics
 calibration-and-plots-for-dates-from-burial-pit-5-at-the-mounds-plantation-site
 calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site
