@@ -1,0 +1,3 @@
+# Landmarking protocol
+
+The landmarking protocol used for this study is identical to that used by Selden and colleagues [@RN21001]; which is explained in detail at: [https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md).
