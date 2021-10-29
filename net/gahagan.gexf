@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?><gexf xmlns="http://www.gexf.net/1.1draft" version="1.1" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.1draft http://www.gexf.net/1.1draft/gexf.xsd">
+<meta lastmodifieddate="2011-06-15"><creator>GraphMaker</creator><description>Jacomy Mathieu, Sciences Po Medialab and WebAtlas</description></meta>
+<graph defaultedgetype="undirected"  mode="static">
+<attributes class="node" mode="static">
+<attribute id="attr_type" title="Type" type="string"></attribute>
+<attribute id="global_occurrences" title="Occurrences Count" type="integer"></attribute>
+<attribute id="attr_2" title="BehavioralRegion" type="string"></attribute>
+</attributes>
+<attributes class="edge" mode="static">
+<attribute id="attr_type" title="Type" type="string"></attribute>
+<attribute id="matchings_count" title="Matchings Count" type="integer"></attribute>
+</attributes>
+<nodes>
+<node id="label_6fd66d5fc96ef1206d4604d079f199f2" label="16cd12-bp1">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="North"></attvalue>
+</attvalues>
+</node>
+<node id="label_f974c26f6eb1b9f64a9013734de45851" label="16cd12-bp2">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="North"></attvalue>
+</attvalues>
+</node>
+<node id="label_97b74a186678bbe828bba4ca1c0e6b25" label="16cd12-bp5">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="North"></attvalue>
+</attvalues>
+</node>
+<node id="label_5368d9947f8d706c3ce75e98d19b6cdb" label="16cd12-bp8">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="North"></attvalue>
+</attvalues>
+</node>
+<node id="label_b9ebb6ba8417216104a2be4b35dc4fab" label="16rr1-bp2">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="South"></attvalue>
+</attvalues>
+</node>
+<node id="label_77581486a953c1d40bc78ff62d428fe8" label="16rr1-bp3">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="South"></attvalue>
+</attvalues>
+</node>
+<node id="label_27244f1cdadc6bdb09068936a36f2742" label="41ce19-f119">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="South"></attvalue>
+</attvalues>
+</node>
+<node id="label_cd99e1def491e4ba0f84d53c68835dab" label="41ce19-f134">
+<attvalues>
+<attvalue for="attr_type" value="Label"></attvalue>
+<attvalue for="global_occurrences" value="1"></attvalue>
+<attvalue for="attr_2" value="South"></attvalue>
+</attvalues>
+</node>
+</nodes>
+<edges>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_f974c26f6eb1b9f64a9013734de45851" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_97b74a186678bbe828bba4ca1c0e6b25" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_5368d9947f8d706c3ce75e98d19b6cdb" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_b9ebb6ba8417216104a2be4b35dc4fab" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_77581486a953c1d40bc78ff62d428fe8" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_27244f1cdadc6bdb09068936a36f2742" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_6fd66d5fc96ef1206d4604d079f199f2" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_f974c26f6eb1b9f64a9013734de45851" target="label_97b74a186678bbe828bba4ca1c0e6b25" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_f974c26f6eb1b9f64a9013734de45851" target="label_5368d9947f8d706c3ce75e98d19b6cdb" >
+<attvalues>
+<attvalue for="matchings_count" value="1"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_f974c26f6eb1b9f64a9013734de45851" target="label_b9ebb6ba8417216104a2be4b35dc4fab" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_f974c26f6eb1b9f64a9013734de45851" target="label_77581486a953c1d40bc78ff62d428fe8" >
+<attvalues>
+<attvalue for="matchings_count" value="2"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_f974c26f6eb1b9f64a9013734de45851" target="label_27244f1cdadc6bdb09068936a36f2742" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_f974c26f6eb1b9f64a9013734de45851" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_97b74a186678bbe828bba4ca1c0e6b25" target="label_5368d9947f8d706c3ce75e98d19b6cdb" >
+<attvalues>
+<attvalue for="matchings_count" value="2"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_97b74a186678bbe828bba4ca1c0e6b25" target="label_b9ebb6ba8417216104a2be4b35dc4fab" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_97b74a186678bbe828bba4ca1c0e6b25" target="label_77581486a953c1d40bc78ff62d428fe8" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_97b74a186678bbe828bba4ca1c0e6b25" target="label_27244f1cdadc6bdb09068936a36f2742" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_97b74a186678bbe828bba4ca1c0e6b25" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_5368d9947f8d706c3ce75e98d19b6cdb" target="label_b9ebb6ba8417216104a2be4b35dc4fab" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_5368d9947f8d706c3ce75e98d19b6cdb" target="label_77581486a953c1d40bc78ff62d428fe8" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_5368d9947f8d706c3ce75e98d19b6cdb" target="label_27244f1cdadc6bdb09068936a36f2742" >
+<attvalues>
+<attvalue for="matchings_count" value="2"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_5368d9947f8d706c3ce75e98d19b6cdb" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="1"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_b9ebb6ba8417216104a2be4b35dc4fab" target="label_77581486a953c1d40bc78ff62d428fe8" >
+<attvalues>
+<attvalue for="matchings_count" value="5"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_b9ebb6ba8417216104a2be4b35dc4fab" target="label_27244f1cdadc6bdb09068936a36f2742" >
+<attvalues>
+<attvalue for="matchings_count" value="5"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_b9ebb6ba8417216104a2be4b35dc4fab" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_77581486a953c1d40bc78ff62d428fe8" target="label_27244f1cdadc6bdb09068936a36f2742" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_77581486a953c1d40bc78ff62d428fe8" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="3"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+<edge source="label_27244f1cdadc6bdb09068936a36f2742" target="label_cd99e1def491e4ba0f84d53c68835dab" >
+<attvalues>
+<attvalue for="matchings_count" value="4"></attvalue>
+<attvalue for="attr_type" value="Diagnostics"></attvalue>
+</attvalues>
+</edge>
+</edges>
+</graph></gexf>
