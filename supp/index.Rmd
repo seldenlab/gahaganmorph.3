@@ -60,8 +60,7 @@ knitr::include_graphics('images/h1b.jpg')
 ##### _Hypothesis 1b Findings_:
 
 - Gahagan bifaces from F134 and F119 do not differ in _shape_
-- Gahagan bifaces from F134 and F119 **differ significantly** in _size_
-  - F119 (later) bifaces are **significantly larger** than the earlier bifaces from F134
+- Gahagan bifaces from F134 and F119 do not differ in _size_
 
 ```{r h1b.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Difference in centroid size between Gahagan bifaces from earlier (F134) and later (F119) contexts at the George C. Davis site."}
 knitr::include_graphics('images/gcd-size.png')
@@ -71,11 +70,11 @@ knitr::include_graphics('images/gcd-size.png')
 
 Hypothesis 1 was tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing (earlier/later) temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered _in association with an individual_ (Burials 1, 2, 5, and 8) [@RN8174], and all but two of the Gahagan bifaces from George C. Davis articulate with _caches included along the northern periphery of two group burials_ (Features 119 and 134) [@RN3682;@RN8186].
 
-Previous studies have demonstrated a significant difference in shape between Gahagan bifaces recovered from the Mounds Plantation and George C. Davis sites [@RN11783]. The results presented here demonstrate no significant intrasite differences in shape, but support an inverse relationship in the size of Gahagan bifaces found in earlier and later contexts at Mounds Plantation and George C. Davis. In burials at Mounds Plantation, the Caddo were `selecting` for Gahagan bifaces that were significantly smaller in later contexts; a pattern that is inverted at George C. Davis.
+Previous studies have demonstrated a significant difference in shape between Gahagan bifaces recovered from the Mounds Plantation and George C. Davis sites [@RN11783]. In burials at Mounds Plantation, the Caddo were `selecting` for Gahagan bifaces that were significantly smaller in later contexts; a pattern that is not present at George C. Davis.
 
-Chronometric dates associated with contexts yielding Gahagan bifaces leave much to be desired, and it is not possible at this time to order these burials using chronometric or relative dating methods. The results raise substantive questions regarding the cultural or social practices that were driving shifts in size at these two important mound sites. Might the size differences articulate with a shift in trading or exchange-based relationships with central Texas groups, and/or might the shift be related to a different functional use? 
+Chronometric dates associated with contexts yielding Gahagan bifaces leave much to be desired, and it is not possible at this time to order these burials using chronometric or relative dating methods. The results raise substantive questions regarding the cultural or social practices that were driving the temporal shift in size at Mounds Plantation. Might the size difference articulate with a shift in trading or exchange-based relationships with central Texas groups, and/or might the shift be related to a different functional use?
 
-At both sites, shape remains consistent and does not differ among contexts, indicating an established `shape preference` that may have shifted in size due to cyclical differences in the variable social mechanisms associated with raw material procurement. It may also be the case that the size difference was related to signaling, as well as the intended audience. For instance, larger bifaces selected for inclusion with caches may suggest that the intended audience was the group; representative of a potentially ostentatious display. The smaller Gahagan bifaces from individual burials may have been personal items belonging to the deceased, intended to signal status among personal contacts.
+At both sites, shape remains consistent and does not differ between contexts, indicating an established `shape preference` that may have shifted at Mounds Plantation due to cyclical differences in the variable social mechanisms associated with raw material procurement. It may also be the case that the size difference was related to signaling, as well as the intended audience. For instance, larger bifaces selected for inclusion with caches may suggest that the intended audience was the group; representative of a potentially ostentatious display. The smaller Gahagan bifaces from individual burials may have been personal items belonging to the deceased, intended to signal status among personal contacts.
 
 ### Differential `design intent` of Gahagan bifaces
 
