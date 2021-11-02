@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg contentScriptType="text/ecmascript" width="497.0"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css"
+     viewBox="-142.000000 -196.000000 497.000000 432.000000" height="432.0"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+    <g id="edges">
+        <path fill="none" stroke-width="3.8935187"
+              d="M 344.228943,53.479080 L 7.487820,-22.143539"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_f974c26f6eb1b9f64a9013734de45851"
+              stroke-opacity="1.0" stroke="#0073c1"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 344.228943,53.479080 L -131.802429,-144.223068"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_97b74a186678bbe828bba4ca1c0e6b25"
+              stroke-opacity="1.0" stroke="#0073c1"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 344.228943,53.479080 L 336.035675,-194.744812"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_5368d9947f8d706c3ce75e98d19b6cdb"
+              stroke-opacity="1.0" stroke="#0073c1"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 344.228943,53.479080 L 126.735527,-153.698486"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_b9ebb6ba8417216104a2be4b35dc4fab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 344.228943,53.479080 L 25.181084,225.334839"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_77581486a953c1d40bc78ff62d428fe8"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 344.228943,53.479080 L 166.109482,22.713978"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_27244f1cdadc6bdb09068936a36f2742"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 344.228943,53.479080 L -134.452927,58.309856"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2 id_label_cd99e1def491e4ba0f84d53c68835dab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 7.487820,-22.143539 L -131.802429,-144.223068"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851 id_label_97b74a186678bbe828bba4ca1c0e6b25"
+              stroke-opacity="1.0" stroke="#0073c1"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 7.487820,-22.143539 L 126.735527,-153.698486"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851 id_label_b9ebb6ba8417216104a2be4b35dc4fab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="1.9467593"
+              d="M 7.487820,-22.143539 L 25.181084,225.334839"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851 id_label_77581486a953c1d40bc78ff62d428fe8"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 7.487820,-22.143539 L 166.109482,22.713978"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851 id_label_27244f1cdadc6bdb09068936a36f2742"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 7.487820,-22.143539 L -134.452927,58.309856"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851 id_label_cd99e1def491e4ba0f84d53c68835dab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="1.9467593"
+              d="M -131.802429,-144.223068 L 336.035675,-194.744812"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25 id_label_5368d9947f8d706c3ce75e98d19b6cdb"
+              stroke-opacity="1.0" stroke="#0073c1"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M -131.802429,-144.223068 L 126.735527,-153.698486"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25 id_label_b9ebb6ba8417216104a2be4b35dc4fab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M -131.802429,-144.223068 L 25.181084,225.334839"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25 id_label_77581486a953c1d40bc78ff62d428fe8"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M -131.802429,-144.223068 L 166.109482,22.713978"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25 id_label_27244f1cdadc6bdb09068936a36f2742"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M -131.802429,-144.223068 L -134.452927,58.309856"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25 id_label_cd99e1def491e4ba0f84d53c68835dab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 336.035675,-194.744812 L 126.735527,-153.698486"
+              class="id_label_5368d9947f8d706c3ce75e98d19b6cdb id_label_b9ebb6ba8417216104a2be4b35dc4fab"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 336.035675,-194.744812 L 25.181084,225.334839"
+              class="id_label_5368d9947f8d706c3ce75e98d19b6cdb id_label_77581486a953c1d40bc78ff62d428fe8"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="1.9467593"
+              d="M 336.035675,-194.744812 L 166.109482,22.713978"
+              class="id_label_5368d9947f8d706c3ce75e98d19b6cdb id_label_27244f1cdadc6bdb09068936a36f2742"
+              stroke-opacity="1.0" stroke="#0d568d"/>
+        <path fill="none" stroke-width="7.7870374"
+              d="M 126.735527,-153.698486 L 25.181084,225.334839"
+              class="id_label_b9ebb6ba8417216104a2be4b35dc4fab id_label_77581486a953c1d40bc78ff62d428fe8"
+              stroke-opacity="1.0" stroke="#1a395a"/>
+        <path fill="none" stroke-width="7.7870374"
+              d="M 126.735527,-153.698486 L 166.109482,22.713978"
+              class="id_label_b9ebb6ba8417216104a2be4b35dc4fab id_label_27244f1cdadc6bdb09068936a36f2742"
+              stroke-opacity="1.0" stroke="#1a395a"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 126.735527,-153.698486 L -134.452927,58.309856"
+              class="id_label_b9ebb6ba8417216104a2be4b35dc4fab id_label_cd99e1def491e4ba0f84d53c68835dab"
+              stroke-opacity="1.0" stroke="#1a395a"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 25.181084,225.334839 L 166.109482,22.713978"
+              class="id_label_77581486a953c1d40bc78ff62d428fe8 id_label_27244f1cdadc6bdb09068936a36f2742"
+              stroke-opacity="1.0" stroke="#1a395a"/>
+        <path fill="none" stroke-width="3.8935187"
+              d="M 25.181084,225.334839 L -134.452927,58.309856"
+              class="id_label_77581486a953c1d40bc78ff62d428fe8 id_label_cd99e1def491e4ba0f84d53c68835dab"
+              stroke-opacity="1.0" stroke="#1a395a"/>
+        <path fill="none" stroke-width="5.840278"
+              d="M 166.109482,22.713978 L -134.452927,58.309856"
+              class="id_label_27244f1cdadc6bdb09068936a36f2742 id_label_cd99e1def491e4ba0f84d53c68835dab"
+              stroke-opacity="1.0" stroke="#1a395a"/>
+    </g>
+    <g id="nodes">
+        <circle fill-opacity="1.0" fill="#0073c1" r="10.0" cx="344.22894"
+                class="id_label_6fd66d5fc96ef1206d4604d079f199f2" cy="53.47908"
+                stroke="#000000" stroke-opacity="1.0" stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#0073c1" r="5.5" cx="7.4878197"
+                class="id_label_f974c26f6eb1b9f64a9013734de45851" cy="-22.14354"
+                stroke="#000000" stroke-opacity="1.0" stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#0073c1" r="10.0" cx="-131.80243"
+                class="id_label_97b74a186678bbe828bba4ca1c0e6b25"
+                cy="-144.22307" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#0073c1" r="1.0" cx="336.03568"
+                class="id_label_5368d9947f8d706c3ce75e98d19b6cdb"
+                cy="-194.74481" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#1a395a" r="10.0" cx="126.73553"
+                class="id_label_b9ebb6ba8417216104a2be4b35dc4fab"
+                cy="-153.69849" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#1a395a" r="10.0" cx="25.181084"
+                class="id_label_77581486a953c1d40bc78ff62d428fe8" cy="225.33484"
+                stroke="#000000" stroke-opacity="1.0" stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#1a395a" r="10.0" cx="166.10948"
+                class="id_label_27244f1cdadc6bdb09068936a36f2742" cy="22.713978"
+                stroke="#000000" stroke-opacity="1.0" stroke-width="1.9467593"/>
+        <circle fill-opacity="1.0" fill="#1a395a" r="5.5" cx="-134.45293"
+                class="id_label_cd99e1def491e4ba0f84d53c68835dab" cy="58.309856"
+                stroke="#000000" stroke-opacity="1.0" stroke-width="1.9467593"/>
+    </g>
+    <g id="node-labels-outline">
+        <text stroke-linecap="round" font-size="16" x="344.22894" y="57.093662"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="4.8668985px">
+            16cd12-bp1
+        </text>
+        <text stroke-linecap="round" font-size="9" x="7.4878197" y="-20.110336"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="2.7376304px">
+            16cd12-bp2
+        </text>
+        <text stroke-linecap="round" font-size="16" x="-131.80243"
+              y="-140.60849" fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="4.8668985px">
+            16cd12-bp5
+        </text>
+        <text stroke-linecap="round" font-size="2" x="336.03568" y="-194.29298"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_5368d9947f8d706c3ce75e98d19b6cdb" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="0.6083623px">
+            16cd12-bp8
+        </text>
+        <text stroke-linecap="round" font-size="16" x="126.73553" y="-150.08391"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_b9ebb6ba8417216104a2be4b35dc4fab" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="4.8668985px">
+            16rr1-bp2
+        </text>
+        <text stroke-linecap="round" font-size="16" x="25.181084" y="228.94942"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_77581486a953c1d40bc78ff62d428fe8" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="4.8668985px">
+            16rr1-bp3
+        </text>
+        <text stroke-linecap="round" font-size="16" x="166.10948" y="25.605906"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_27244f1cdadc6bdb09068936a36f2742" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="4.8668985px">
+            41ce19-f119
+        </text>
+        <text stroke-linecap="round" font-size="9" x="-134.45293" y="59.940228"
+              fill="#000000" stroke-linejoin="round"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_cd99e1def491e4ba0f84d53c68835dab" stroke="#ffffff"
+              stroke-opacity="0.8" stroke-width="2.7376304px">
+            41ce19-f134
+        </text>
+    </g>
+    <g id="node-labels">
+        <text font-size="16" x="344.22894" y="57.093662" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_6fd66d5fc96ef1206d4604d079f199f2">
+            16cd12-bp1
+        </text>
+        <text font-size="9" x="7.4878197" y="-20.110336" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_f974c26f6eb1b9f64a9013734de45851">
+            16cd12-bp2
+        </text>
+        <text font-size="16" x="-131.80243" y="-140.60849" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_97b74a186678bbe828bba4ca1c0e6b25">
+            16cd12-bp5
+        </text>
+        <text font-size="2" x="336.03568" y="-194.29298" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_5368d9947f8d706c3ce75e98d19b6cdb">
+            16cd12-bp8
+        </text>
+        <text font-size="16" x="126.73553" y="-150.08391" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_b9ebb6ba8417216104a2be4b35dc4fab">
+            16rr1-bp2
+        </text>
+        <text font-size="16" x="25.181084" y="228.94942" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_77581486a953c1d40bc78ff62d428fe8">
+            16rr1-bp3
+        </text>
+        <text font-size="16" x="166.10948" y="25.605906" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_27244f1cdadc6bdb09068936a36f2742">
+            41ce19-f119
+        </text>
+        <text font-size="9" x="-134.45293" y="59.940228" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Lato Light"
+              class="id_label_cd99e1def491e4ba0f84d53c68835dab">
+            41ce19-f134
+        </text>
+    </g>
+</svg>

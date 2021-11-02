@@ -31,26 +31,55 @@ output: rticles::tf_article
 
 # Introduction
 
-Found to occur along the western margin of the American Southeast, Gahagan bifaces are among the most recognizable and well known components of Caddo material culture, and were regularly included with burial offerings during the Formative (CE 800-1000) and Early (CE 1000-1250) Caddo periods \citep{RN8186,RN8174,RN8176}. Recent efforts to characterize general trends associated with Gahagan biface morphology yielded support for a `spatial boundary` that divides the northern and southern Caddo behavioral regions based upon morphological differences that occur in Caddo bottles, Gahagan bifaces, and Perdiz arrow points (Figure 1c) \citep{RN7925,RN8071,RN8361,RN8967,RN8154}. A second `shape boundary` has also been posited based upon differences in Gahagan biface morphology between the Caddo and central Texas regions \citep{RN8318}.
+Found to occur along the western margin of the American Southeast, Gahagan bifaces are among the most recognizable and well known components of Caddo material culture, and were regularly included with burial offerings during the Formative (CE 800-1000) and Early (CE 1000-1250) Caddo periods \citep{RN7115,RN8189,RN5746,RN8186,RN8174,RN8176}. Recent efforts to characterize general trends associated with Gahagan biface morphology yielded support for a `spatial boundary` that divides the northern and southern Caddo behavioral regions based upon morphological differences that occur in Caddo bottles, Gahagan bifaces, and Perdiz arrow points (Figure 1c) \citep{RN7925,RN8071,RN8361,RN8967,RN11064,RN8154}. A second `shape boundary` has also been posited based upon differences in Gahagan biface morphology between the Caddo and central Texas regions \citep{RN8318}.
 
-```{r fig5, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Mean shapes and comparisons for a, Formative/Early and b, Late/Historic bottles; c, Formative/Early Gahagan bifaces; and d, Middle/Late Perdiz arrow points from Caddo burial contexts in the northern and southern behavioral regions. In the comparisons of mean shape, the northern population appears in gray, and the southern population appears in black."}
-knitr::include_graphics("img/figure6.png")
+```{r fig01, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Mean shapes and comparisons for a, Formative/Early (Selden Jr. 2018a,b, 2019) and b, Late/Historic bottles (Selden Jr. 2021); c, Formative/Early Gahagan bifaces (Selden Jr., Dockall, and Shafer 2018, Selden Jr., Dockall, and Dubied 2020); and d, Middle/Late Perdiz arrow points from Caddo burial contexts in the northern and southern behavioral regions (Selden and Dockall 2021). In the comparisons of mean shape, the northern population appears in gray, and the southern population appears in black."}
+knitr::include_graphics("img/fig01.png")
 ```
 
 # Contexts of recovery
 
+All Gahagan bifaces used in this analysis were recovered from Caddo burial contexts, and were excavated between 1912 and 1969. Stratigraphic contexts were used to delimit temporal contexts---although the span of that temporal difference remains unclear---and figures were redrafted from the original works that illustrate clear stratigraphic differences. Additional contextual information was used to identify Gahagan bifaces placed atop or alongside an individual, or in caches along the northern wall of the burial pit. Specific references are made to published images and illustrations that depict these burial contexts during excavation. While no images or illustrations of burial contexts were included here, those are included with the supplemental materials \citep{RN11065}.
+
 ## Gahagan Mound
-Gahagan bifaces were identified in 1911 in Deposits 1, 2, and 3 of Burial Pit 1 at the Gahagan Mound site in northwest Louisiana by \citet[Figures 18-19, 21]{RN7107}. A subsequent excavation at the Gahagan Mound site in 1936 identified two additional burial features containing Gahagan bifaces (Burial Pits 2 and 3) (Figure 2) \citep[Plate 27]{RN8176}, and the entirety of the site was destroyed by the meander of the Red River four to five years later \citep{RN10759}.
+Gahagan bifaces were identified in 1911 in Deposits 1, 2, and 3 of Burial Pit 1 at the Gahagan Mound site in northwest Louisiana by \citet[Figures 18-19, 21]{RN7115}. A subsequent excavation at the Gahagan Mound site in 1936 identified two additional burial features containing Gahagan bifaces (Burial Pits 2 and 3) (Figure 2) \citep[Plate 27]{RN8176}, and the entirety of the Gahagan Mound site was eventually destroyed by the meander of the Red River between four and five years later \citep{RN10759}.
 
 ## Mounds Plantation
 
 ## George C. Davis
 
-```{r gahagan bifaces 2D, out.width = "80%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern Caddo behavioral regions. Bifaces recovered atop or alongside an individual denoted by black dot. As a reference to scale, the Gahagan biface at bottom left (m3) measures 48cm in length. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at https://scholarworks.sfasu.edu/ita-gahaganbiface/."}
+```{r gahagan bifaces 2D, out.width = "85%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern Caddo behavioral regions. Bifaces recovered atop or alongside an individual denoted by black dot. As a reference to scale, the Gahagan biface at bottom left (m3) measures 48cm in length. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at https://scholarworks.sfasu.edu/ita-gahaganbiface/."}
 knitr::include_graphics('img/fig02.jpg')
 ```
 
+# Associated diagnostics
 
+```{r associated.net, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Network of associated diagnostic artifacts recovered with Gahagan bifaces. The thicker and darker the line between contexts, the larger the number of co-present diagnostic artifacts."}
+knitr::include_graphics('img/fig03.png')
+```
+
+\begin{table}
+\tbl{Diagnostic artifact types from Caddo burials found in association with Gahagan bifaces.}
+{\begin{tabular}{ll} \toprule
+Contexts & Diagnostics \\
+\midrule
+16CD12-BP1 & AL, CA, CC, FR, HA, HE, HFE \\
+16CD12-BP2 & AL, HA \\
+16CD12-BP5 & AL, FR, HA, SC \\
+16CD12-BP8 & CA, HE, HFE, SC \\
+16RR1-BP2 & AL, C, HA, HFE, HR, KI, SC \\
+16RR1-BP3 & AL, C, HFE, SC \\
+41CE19-F119 & AL, C, HA, HFE \\
+41CE19-F134 & AL, C, HA \\
+\bottomrule
+\end{tabular}}
+\tabnote{Associated diagnostic artifacts from Caddo burial contexts at the Mounds Plantation (16CD12), Gahagan Mound (16RR1), and George C. Davis (41CE19) sites include Alba arrow points (AL), celts (C), Catahoula arrow points (CA), Coles Creek ceramics (CC), Friley arrow points (FR), Gahagan bifaces (GB), Hayes arrow points (HA), Hickory Engraved ceramics (HE), Holly Fine Engraved ceramics (HFE), Harrell arrow points (HR), Kiam Incised ceramics (KI), and Scallorn arrow points (SC).}
+\label{sample-table}
+\end{table}
+
+# Methods
+
+# Discussion and Conclusion
 
 
 # Acknowledgments {-}
@@ -61,7 +90,7 @@ RZS extends his gratitude to Christian S. Hoggard and David K. Thulman for their
 
 # Funding {-}
 
-Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training (NCPTT), and additional grants to RZS from the Caddo Tribe of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074). Funding to scan the Gahagan bifaces at the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, and Sam Noble Oklahoma Museum of Natural Science was provided to the RZS by the Heritage Research Center at Stephen F. Austin State University.
+Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training (NCPTT), and additional grants to RZS from the Caddo Nation of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074). Funding to scan the Gahagan bifaces at the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, and Sam Noble Oklahoma Museum of Natural Science was provided to the RZS by the Heritage Research Center at Stephen F. Austin State University.
 
 # Data management {-}
 
