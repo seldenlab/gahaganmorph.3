@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.2)  2 NOV 2021 07:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.2)  2 NOV 2021 09:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -574,47 +574,86 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 {c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/p
 dftex.map}]
-<img/fig01.png, id=100, 976.6086pt x 956.1321pt>
+<img/fig01.png, id=132, 976.6086pt x 956.1321pt>
 File: img/fig01.png Graphic file (type png)
 <use img/fig01.png>
-Package pdftex.def Info: img/fig01.png  used on input line 108.
-(pdftex.def)             Requested size: 408.0pt x 399.44269pt.
-<img/fig02.jpg, id=109, 8219.70876pt x 14959.89pt>
+Package pdftex.def Info: img/fig01.png  used on input line 109.
+(pdftex.def)             Requested size: 326.40125pt x 319.55124pt.
+[2 <./img/fig01.png (PNG copy)>]
+<img/fig02.jpg, id=165, 8219.70876pt x 14959.89pt>
 File: img/fig02.jpg Graphic file (type jpg)
 <use img/fig02.jpg>
-Package pdftex.def Info: img/fig02.jpg  used on input line 145.
+Package pdftex.def Info: img/fig02.jpg  used on input line 186.
 (pdftex.def)             Requested size: 346.80249pt x 631.16447pt.
 
-LaTeX Warning: Float too large for page by 30.16447pt on input line 146.
+LaTeX Warning: Float too large for page by 30.16447pt on input line 191.
 
-<img/fig03.png, id=110, 794.97pt x 614.295pt>
+<img/fig03.png, id=166, 794.97pt x 614.295pt>
 File: img/fig03.png Graphic file (type png)
 <use img/fig03.png>
-Package pdftex.def Info: img/fig03.png  used on input line 152.
-(pdftex.def)             Requested size: 408.0pt x 315.28282pt.
-[2] [3 <./img/fig01.png (PNG copy)>] [4 <./img/fig02.jpg>] [5 <./img/fig03.png>
-] (./gahagan3.bbl [6]
-Underfull \hbox (badness 1178) in paragraph at lines 59--63
+Package pdftex.def Info: img/fig03.png  used on input line 198.
+(pdftex.def)             Requested size: 285.59875pt x 220.6961pt.
+[3] [4 <./img/fig02.jpg>] [5 <./img/fig03.png>]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
+80.
+
+(c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <11> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 280.
+[6] [7] (./gahagan3.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 15--20
+\OT1/cmtt/m/n/10 2041-[]210X . 12035https : / / besjournals . onlinelibrary . w
+iley . com / doi / pdfdirect /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--49
+\OT1/cmtt/m/n/10 pdf / 10 . 1111 / 2041-[]210X . 13029https : / / besjournals .
+ onlinelibrary . wiley . com / doi /
+ []
+
+[8]
+Underfull \hbox (badness 1348) in paragraph at lines 83--88
+[]\OT1/cmr/m/n/10 Kendall, David G. 1984. ``Shape Man-i-folds, Pro-crustean Met
+-rics, and Com-plex Pro-
+ []
+
+
+Underfull \hbox (badness 5548) in paragraph at lines 83--88
+\OT1/cmr/m/n/10 jec-tive Spaces.'' \OT1/cmr/m/it/10 Bul-letin of the Lon-don Ma
+th-e-mat-i-cal So-ci-ety \OT1/cmr/m/n/10 16 (2): 81--121.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--88
+[]$\OT1/cmtt/m/n/10 http : / / onlinelibrary . wiley . com / doi / 10 . 1112 / 
+blms / 16 . 2 . 81 / abstracthttps :
+ []
+
+
+Underfull \hbox (badness 1178) in paragraph at lines 147--151
 \OT1/cmr/m/it/10 ence: Re-ports \OT1/cmr/m/n/10 21: 884--896. []$\OT1/cmtt/m/n/
 10 https : / / www . sciencedirect . com / science / article / abs /
  []
 
-[7]) (./appendix.tex) [8] (./gahagan3.aux)
+[9]) (./appendix.tex) [10] (./gahagan3.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 Package rerunfilecheck Info: File `gahagan3.out' has not changed.
-(rerunfilecheck)             Checksum: A92E030AE81C4593EA654E595F11416B;1390.
+(rerunfilecheck)             Checksum: 39BA2B161EE8ECA0E05C8FF3400D8366;2305.
  ) 
 Here is how much of TeX's memory you used:
- 10445 strings out of 480539
- 153532 string characters out of 5900801
- 470486 words of memory out of 5000000
- 27862 multiletter control sequences out of 15000+600000
- 414614 words of font info for 72 fonts, out of 8000000 for 9000
+ 10575 strings out of 480539
+ 155386 string characters out of 5900801
+ 473433 words of memory out of 5000000
+ 27952 multiletter control sequences out of 15000+600000
+ 414960 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 87i,8n,94p,647b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,8n,94p,647b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyT
@@ -622,24 +661,25 @@ eX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/seldenjrz/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Use
 rs/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbxti10.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/seldenjrz/AppData/Roam
-ing/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/selde
-njrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
-b><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr9.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/seldenjrz/AppData
-/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users
+/public/amsfonts/cm/cmmi10.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/seldenjrz/AppData/Roa
+ming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/seld
+enjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/seldenjrz/AppData
+/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users
 /seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti9.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/Users/seldenjrz/AppData/Roaming/
-TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on gahagan3.pdf (8 pages, 7234880 bytes).
+ti10.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti9.pfb><c:/Users/seldenjrz/AppData/Roaming/TinyTeX/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/Users/seldenjrz/AppData/Roaming
+/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/Users/seldenjr
+z/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on gahagan3.pdf (10 pages, 7263077 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 104 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 485 PDF objects out of 1000 (max. 8388607)
+ 428 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
