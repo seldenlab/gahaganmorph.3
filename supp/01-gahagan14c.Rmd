@@ -10,31 +10,6 @@ library(oxcAAR)
 quickSetupOxcal()
 ```
 
-```{=latex}
-
-\begin{table}
-\tbl{Diagnostic artifact types from Caddo burials found in association with Gahagan bifaces.}
-{\begin{tabular}{ll} \toprule
-Contexts & Diagnostics \\
-\midrule
-16CD12-BP1 & AL, CA, CC, FR, HA, HE, HFE \\
-16CD12-BP2 & AL, HA \\
-16CD12-BP5 & AL, FR, HA, SC \\
-16CD12-BP8 & CA, HE, HFE, SC \\
-16RR1-BP2 & AL, C, HA, HFE, HR, KI, SC \\
-16RR1-BP3 & AL, C, HFE, SC \\
-41CE19-F119 & AL, C, HA, HFE \\
-41CE19-F134 & AL, C, HA \\
-\bottomrule
-\end{tabular}}
-\tabnote{Associated diagnostic artifacts from Caddo burial contexts at the Mounds Plantation (16CD12), Gahagan Mound (16RR1), and George C. Davis (41CE19) sites include Alba arrow points (AL), celts (C), Catahoula arrow points (CA), Coles Creek ceramics (CC), Friley arrow points (FR), Gahagan bifaces (GB), Hayes arrow points (HA), Hickory Engraved ceramics (HE), Holly Fine Engraved ceramics (HFE), Harrell arrow points (HR), Kiam Incised ceramics (KI), and Scallorn arrow points (SC).}
-\label{sample-table}
-\end{table}
-
-```
-
-
-
 ## Calibration and plots for dates from Burial Pit 5 at the Mounds Plantation site
 
 Three dates (Tx-55, Tx-56, and M-1466) were reported from Burial Pit 5 at the Mounds Plantation site. More information about these dates can be found in the text, and those works cited within the text of the manuscript.
