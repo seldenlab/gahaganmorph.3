@@ -1,13 +1,39 @@
 # Temporal Dynamics
 
-Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001].
+Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001]. A table of associated diagnostic artifacts is included as a means of providing information related to relative dates.
 
 ```{r install, echo = TRUE}
 devtools::install_github('ISAAKiel/oxcAAR')
 # load oxcAAR and OxCal
+library(kableExtra)
 library(oxcAAR)
 quickSetupOxcal()
 ```
+
+```{=latex}
+
+\begin{table}
+\tbl{Diagnostic artifact types from Caddo burials found in association with Gahagan bifaces.}
+{\begin{tabular}{ll} \toprule
+Contexts & Diagnostics \\
+\midrule
+16CD12-BP1 & AL, CA, CC, FR, HA, HE, HFE \\
+16CD12-BP2 & AL, HA \\
+16CD12-BP5 & AL, FR, HA, SC \\
+16CD12-BP8 & CA, HE, HFE, SC \\
+16RR1-BP2 & AL, C, HA, HFE, HR, KI, SC \\
+16RR1-BP3 & AL, C, HFE, SC \\
+41CE19-F119 & AL, C, HA, HFE \\
+41CE19-F134 & AL, C, HA \\
+\bottomrule
+\end{tabular}}
+\tabnote{Associated diagnostic artifacts from Caddo burial contexts at the Mounds Plantation (16CD12), Gahagan Mound (16RR1), and George C. Davis (41CE19) sites include Alba arrow points (AL), celts (C), Catahoula arrow points (CA), Coles Creek ceramics (CC), Friley arrow points (FR), Gahagan bifaces (GB), Hayes arrow points (HA), Hickory Engraved ceramics (HE), Holly Fine Engraved ceramics (HFE), Harrell arrow points (HR), Kiam Incised ceramics (KI), and Scallorn arrow points (SC).}
+\label{sample-table}
+\end{table}
+
+```
+
+
 
 ## Calibration and plots for dates from Burial Pit 5 at the Mounds Plantation site
 
