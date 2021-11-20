@@ -1,7 +1,7 @@
 ---
 title: |
   Morphological trajectories suggest differential preference and design intent associated with Gahagan bifaces from Caddo burials in the American Southeast
-type: ORIGINAL RESEARCH ARTICLE
+type: CHAPTER X
 author:
   - name: Robert Z. Selden, Jr.
     affil: a
@@ -21,7 +21,7 @@ appendix: appendix.tex
 abstract: |
   Gahagan bifaces differ in morphology across the same geography as Caddo bottles and Perdiz arrow points, and between the Caddo and central Texas regions. This study asks whether Gahagan biface morphology differs between stratigraphically-defined---and chronologically discrete---burial contexts at the Mounds Plantation and George C. Davis sites, and whether Gahagan biface morphology may differ based on qualitative differences in Caddo burial practices. Results indicate a significant difference in Gahagan biface size between stratigraphic contexts at the Mounds Plantation site. At both Mounds Plantation and George C. Davis, biface shape remains consistent and does not differ among contexts, indicating an established `shape preference` in the northern and southern behavioral regions that may have shifted significantly in size at Mounds Plantation due to cyclical differences in the variable social mechanisms associated with raw material procurement. Gahagan bifaces also differ in shape between Caddo burial contexts where a biface was placed _atop or alongside an individual_ and those found as part of a cache placed _alongside the northern wall of the burial feature_. Each burial tradition articulates with a distinct `community of practice` relating to Gahgan biface placement and design intent.
 keywords: |
-  Caddo; NAGPRA; archaeoinformatics; 3D geometric morphometrics; museum studies; digital humanities
+  Caddo; NAGPRA; archaeoinformatics; 3D geometric morphometrics; museum studies; digital humanities; socio-ecological systems
 header-includes: |
   \usepackage{hyperref}
   \usepackage[utf8]{inputenc}
@@ -33,14 +33,9 @@ output: rticles::tf_article
 
 # Introduction
 
-Found to occur along the western margin of the American Southeast, Gahagan bifaces are among the most recognizable and well known components of Caddo material culture, and were regularly included with burial offerings during the Formative (CE 800-1000) and Early (CE 1000-1250) Caddo periods \citep{RN7115,RN8189,RN5746,RN8186,RN8174,RN8176}. Recent efforts to characterize general trends associated with Gahagan biface morphology yielded support for a `spatial boundary` that divides the northern and southern Caddo behavioral regions based upon morphological differences that occur in Caddo bottles, Gahagan bifaces, and Perdiz arrow points (Figure 1c) \citep{RN7925,RN8071,RN8361,RN8967,RN11064,RN8154}. A second `shape boundary` has also been posited based upon differences in Gahagan biface morphology between the Caddo and central Texas regions \citep{RN8318}.
+Found to occur along the western margin of the American Southeast, Gahagan bifaces are among the most recognizable and well known components of Caddo material culture, and were regularly included with burial offerings during the Formative (CE 800-1000) and Early (CE 1000-1250) Caddo periods \citep{RN7115,RN8189,RN5746,RN8186,RN8174,RN8176}. Recent efforts to characterize general trends associated with Gahagan biface morphology yielded support for a `spatial boundary` that divides the northern and southern Caddo behavioral regions based upon morphological differences that occur in Caddo bottles, Gahagan bifaces, and Perdiz arrow points (**`Chapter X, Figure 1c`**) \citep{RN7925,RN8071,RN8361,RN8967,RN11064,RN8154}. A second `shape boundary` has also been posited based upon differences in Gahagan biface morphology between the Caddo and central Texas regions \citep{RN8318}.
 
-```{r fig01, out.width = "80%", fig.align="center", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Mean shapes and comparisons for a, Formative/Early (Selden Jr. 2018a,b, 2019) and b, Late/Historic bottles (Selden Jr. 2021); c, Formative/Early Gahagan bifaces (Selden Jr., Dockall, and Shafer 2018, Selden Jr., Dockall, and Dubied 2020); and d, Middle/Late Perdiz arrow points from Caddo burial contexts in the northern and southern behavioral regions (Selden and Dockall 2021). In the comparisons of mean shape, the northern population appears in gray, and the southern population appears in black."}
-knitr::include_graphics("img/fig01.png")
-```
-
-
-```{r gahagan bifaces 2D, out.width = "80%", fig.align="center", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern Caddo behavioral regions. Bifaces recovered atop or alongside an individual denoted by black dot. As a reference to scale, the Gahagan biface at bottom left (m3) measures 48cm in length. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at https://scholarworks.sfasu.edu/ita-gahaganbiface/."}
+```{r gahagan bifaces 2D, out.width = "80%", fig.align="center", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern Caddo behavioral regions. Bifaces recovered atop or alongside an individual denoted by black dot. For reference to scale, the Gahagan biface at bottom left (m3) measures 48cm in length. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at https://scholarworks.sfasu.edu/ita-gahaganbiface/."}
 knitr::include_graphics('img/fig02.jpg')
 ```
 
@@ -50,7 +45,7 @@ knitr::include_graphics('img/fig02.jpg')
 
 **Gahagan bifaces selected for inclusion in Caddo burials differ in morphology through time.**
 
-Hypothesis 1 is tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered in association with an individual (Burials 1, 2, 5, and 8) \citep{RN8174}, and all of the Gahagan bifaces from George C. Davis articulate with caches included along the northern periphery of two group burials (Features 119 and 134) \citep{RN5746,RN8186}. The information gathered from the analysis provides valuable insights with regard to changes in aesthetic preference, as well as design intent for Gahagan bifaces recovered from discrete temporal intervals.
+Hypothesis 1 is tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered in association with an individual (Burials 1, 2, 5, and 8) \citep{RN8174}, and all but four of the Gahagan bifaces from George C. Davis articulate with caches included along the northern periphery of two group burials (Features 119 and 134) \citep{RN5746,RN8186}. The information gathered from the analysis provides valuable insights with regard to changes in aesthetic preference, as well as design intent for Gahagan bifaces recovered from discrete temporal intervals.
 
 ### Hypothesis 2
 
@@ -102,9 +97,9 @@ Contexts & Diagnostics \\
 
 # Methods and results
 
-Data collection procedures are outlined by \cite{RN8154} and \cite{RN8318}. The characteristic points and tangents used in the landmarking protocol were inspired by the work of \cite{RN5700}, and the landmarking protocol is discussed in detail in the [supplementary materials](https://seldenlab.github.io/gahaganmorph.3/). 
+Data collection procedures are outlined in \cite{RN8154} and \cite{RN8318}. Characteristic points and tangents used in the landmarking protocol were inspired by the work of \cite{RN5700}, and the landmarking protocol is discussed in detail in the [supplementary materials](https://seldenlab.github.io/gahaganmorph.3/). 
 
-Landmarks were aligned to a global coordinate system \citep{RN8102,RN8587,RN8384}, achieved through generalized Procrustes superimposition \citep{RN8525}, performed in R 4.1.1 \citep{RN8584} using the `geomorph` package v4.0.1 \citep{RN8565,RN9565}. Procrustes superimposition translates, scales, and rotates the coordinate data allowing for comparisons among objects \citep{RN5698,RN8525}. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space \citep{RN8511,RN8384}.
+Landmarks were aligned to a global coordinate system \citep{RN8102,RN8587,RN8384}, achieved through generalized Procrustes superimposition \citep{RN8525}, performed in R 4.1.1 \citep{RN8584} using the `geomorph` package v4.0.1 \citep{RN8565,RN9565}. Procrustes superimposition translates, scales, and rotates coordinate data allowing for comparisons among objects \citep{RN5698,RN8525}. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space \citep{RN8511,RN8384}.
 
 Principal components analysis \citep{RN8576,RN10875} was used to visualize shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of the landmarks or the reference 3D mesh \citep{RN8555,RN8553}. A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs \citep{RN8579,RN8334}, which has higher statistical power and a greater ability to identify patterns in the data should they be present \citep{RN6995}. To assess whether shape differs by context, Procrustes ANOVAs \citep{RN7046} were run that enlist effect-sizes (z-scores) computed as standard deviates of the generated sampling distributions \citep{RN8477}.
 
@@ -136,15 +131,15 @@ knitr::include_graphics('img/fig05.jpg')
 
 Temporal differences in Gahagan bifaces articulate with size rather than shape at the Mounds Plantation site, no differences in shape or size were found to occur in Gahagan bifaces recovered from F119 and F134 at the George C. Davis site, and bifaces recovered from _cache_ and _individual_ contexts exhibit a significant difference in shape (see Figure 6).
 
-The hypothesis that _Gahagan bifaces selected for inclusion in Caddo burials differ in morphology through time at the Mounds Plantation site_ was tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing (earlier/later) temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered _in association with an individual_ (Burials 1, 2, 5, and 8) [@RN8174], and all but two of the Gahagan bifaces from George C. Davis articulate with _caches included along the northern periphery of two group burials_ (Features 119 and 134) [@RN5746;@RN8186].
+The hypothesis that _Gahagan bifaces selected for inclusion in Caddo burials differ in morphology through time at the Mounds Plantation site_ was tested using two samples of Gahagan bifaces from Caddo burial contexts at the Mounds Plantation and George C. Davis sites where stratigraphy dictates differing (earlier/later) temporal positions. There is an important cultural distinction between archaeological contexts at Mounds Plantation and George C. Davis, in that all of the Gahagan bifaces from Mounds Plantation were recovered _in association with an individual_ (Burials 1, 2, 5, and 8) [@RN8174], and all but four of the Gahagan bifaces from George C. Davis articulate with _caches included along the northern periphery of group burials_ (Features 119 and 134) [@RN5746;@RN8186].
 
 Previous studies have demonstrated a significant difference in shape between Gahagan bifaces recovered from the Mounds Plantation and George C. Davis sites [@RN8154]. In burials at Mounds Plantation, the Caddo were `selecting` for Gahagan bifaces that were significantly smaller in later contexts; a pattern that is not present at George C. Davis.
 
-Chronometric dates associated with contexts yielding Gahagan bifaces leave much to be desired, and it is not possible at this time to order these burial contexts sequentially using chronometric or relative dating methods. Results raise substantive questions regarding the cultural or social practices that were driving the temporal shift in size at Mounds Plantation. Might this size difference articulate with a shift in trading or exchange-based relationships with central Texas groups, and/or might the shift be related to a shift in functional use?
+Chronometric dates associated with contexts yielding Gahagan bifaces leave much to be desired, and it is not possible at this time to order the burial contexts sequentially using chronometric or relative dating methods. Results raise substantive questions regarding the biotic, abiotic, and/or cultural variables that were driving the temporal shift in size at Mounds Plantation. Might this size difference articulate with a shift in trading or exchange-based relationships with central Texas groups, and/or might the shift be related to a shift in functional use?
 
 At both sites, shape remains consistent and does not differ between contexts, indicating an established `shape preference` that may have shifted at Mounds Plantation due to cyclical differences in the variable social mechanisms associated with raw material procurement. It may also be the case that the size difference was related to signaling, as well as the intended audience. For instance, larger bifaces selected for inclusion with caches may suggest that the intended audience was the group; representative of a potentially ostentatious display. The smaller Gahagan bifaces from individual burials may have been personal items belonging to the deceased, intended to signal status among personal contacts.
 
-## Toward the concerted study of design intent
+## Gahagan biface morphology differs by burial context
 
 The hypothesis that _Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual_ was tested using Gahagan bifaces that articulate with two distinct Caddo burial practices; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Burial practices may have been constrained by local morphological requirements, highlighting aspects of differential design intent.
 
