@@ -3,11 +3,11 @@ title: "Morphological trajectories of Gahagan bifaces suggest differences in Cad
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu] and John E. Dockall^[Cox|McClain Environmental Consulting, Inc.]
 date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Gahagan biface shape change."
-output: bookdown::gitbook
 ---
 
 # Preface {-}
