@@ -1,0 +1,81 @@
+# Assemblage Diversity
+
+```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+data <- read.csv("gahagan-diagnostics.csv")
+
+library(vegan)
+N <- rowSums(data[3:14])
+N
+T <- colSums(data[3:14])
+T
+S <- specnumber(data[3:14])
+S
+U <- specnumber(data[3:14])
+Up <- U/length(N)*100
+
+H <- diversity(data[3:14])
+H
+D1 <- diversity(data[3:14], 
+                index = "simpson")
+D1
+D2 <- diversity(data[3:14], 
+                index = "invsimpson")
+D2
+Hmax <- exp(H)
+Hmax
+J <- H/log(S)
+J
+E <- Hmax/S
+E
+
+library(maptools)
+pch <- c(1, 3)[as.factor(data$region)]
+plot(H, J, 
+     pch = pch)
+abline(h = median(J), 
+       v = median(H), 
+       lty = 2)
+pointLabel(H, J, 
+           rownames(data), 
+           cex = .75)
+leg.txt <- c(as.expression(bquote("Northern Behavioral Region")), 
+             as.expression(bquote("Southern Behavioral Region")))
+legend("bottomright", 
+       leg.txt, 
+       pch = c(1, 3))
+
+
+plot(S~N, 
+     ylim = c(0,12), 
+     xlim = c(0, 184), 
+     pch = 16)
+abline(h = seq(0, 12, by = 2), 
+       v = seq(0, 184, by = 25), 
+       col = "black", 
+       lty = 3)
+
+data.log <- lm(S~log(N))
+summary(data.log)
+deviance(data.log)
+xval <- seq(1, 184, by = 1)
+lines(xval, 
+      predict(data.log,
+              data.frame(N = xval)),
+      lty= 1)
+
+xval <- seq(2, 200, by = 2)
+data.rar <- rarefy(T, xval, se = TRUE)
+Est <- data.rar[1, ]
+Sd <- data.rar[2, ]
+rare <- cbind(lower = Est-2*Sd, 
+              expected = Est, 
+              upper = Est+2*Sd)
+plot(S~N, 
+     ylim = range(rare), 
+     xlim = range(xval), 
+     pch = 16)
+matlines(xval, rare, 
+         type = "l", 
+         lty = c(2, 1, 2), 
+         col = "black")
+```
