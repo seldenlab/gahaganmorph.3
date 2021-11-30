@@ -7,6 +7,7 @@ bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Gahagan biface shape change."
+output: bookdown::gitbook
 ---
 
 # Preface {-}
