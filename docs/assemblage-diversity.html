@@ -254,12 +254,14 @@ div.csl-indent {
 <pre><code>## [1] 184  23  93 119  46  13  43   8</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="assemblage-diversity.html#cb44-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
 <span id="cb44-2"><a href="assemblage-diversity.html#cb44-2" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
-<pre><code>##                alba                celt           catahoula         coles_creek 
-##                 330                  31                   6                   1 
-##              friley             gahagan               hayes    hickory_engraved 
-##                   2                  71                  26                   3 
-## holly_fine_engraved             harrell        kiam_incised            scallorn 
-##                   6                   2                   1                  50</code></pre>
+<pre><code>##                alba                celt           catahoula 
+##                 330                  31                   6 
+##         coles_creek              friley             gahagan 
+##                   1                   2                  71 
+##               hayes    hickory_engraved holly_fine_engraved 
+##                  26                   3                   6 
+##             harrell        kiam_incised            scallorn 
+##                   2                   1                  50</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="assemblage-diversity.html#cb46-1" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
 <span id="cb46-2"><a href="assemblage-diversity.html#cb46-2" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
 <pre><code>## [1] 4 5 9 5 9 3 5 5</code></pre>
@@ -268,11 +270,13 @@ div.csl-indent {
 <span id="cb48-3"><a href="assemblage-diversity.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-4"><a href="assemblage-diversity.html#cb48-4" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
 <span id="cb48-5"><a href="assemblage-diversity.html#cb48-5" aria-hidden="true" tabindex="-1"></a>H</span></code></pre></div>
-<pre><code>## [1] 0.5344039 1.2855725 1.7183200 0.8313750 1.0216998 0.8587409 1.2745830 1.3862944</code></pre>
+<pre><code>## [1] 0.5344039 1.2855725 1.7183200 0.8313750 1.0216998 0.8587409 1.2745830
+## [8] 1.3862944</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="assemblage-diversity.html#cb50-1" aria-hidden="true" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], </span>
 <span id="cb50-2"><a href="assemblage-diversity.html#cb50-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
 <span id="cb50-3"><a href="assemblage-diversity.html#cb50-3" aria-hidden="true" tabindex="-1"></a>D1</span></code></pre></div>
-<pre><code>## [1] 0.2614012 0.6540643 0.7866805 0.4155074 0.4120983 0.5207101 0.6803678 0.6875000</code></pre>
+<pre><code>## [1] 0.2614012 0.6540643 0.7866805 0.4155074 0.4120983 0.5207101 0.6803678
+## [8] 0.6875000</code></pre>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="assemblage-diversity.html#cb52-1" aria-hidden="true" tabindex="-1"></a>D2 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], </span>
 <span id="cb52-2"><a href="assemblage-diversity.html#cb52-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="st">&quot;invsimpson&quot;</span>)</span>
 <span id="cb52-3"><a href="assemblage-diversity.html#cb52-3" aria-hidden="true" tabindex="-1"></a>D2</span></code></pre></div>
@@ -282,10 +286,12 @@ div.csl-indent {
 <pre><code>## [1] 1.706431 3.616738 5.575154 2.296474 2.777913 2.360187 3.577209 4.000000</code></pre>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="assemblage-diversity.html#cb56-1" aria-hidden="true" tabindex="-1"></a>J <span class="ot">&lt;-</span> H<span class="sc">/</span><span class="fu">log</span>(S)</span>
 <span id="cb56-2"><a href="assemblage-diversity.html#cb56-2" aria-hidden="true" tabindex="-1"></a>J</span></code></pre></div>
-<pre><code>## [1] 0.3854909 0.7987711 0.7820411 0.5165623 0.4649956 0.7816597 0.7919429 0.8613531</code></pre>
+<pre><code>## [1] 0.3854909 0.7987711 0.7820411 0.5165623 0.4649956 0.7816597 0.7919429
+## [8] 0.8613531</code></pre>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="assemblage-diversity.html#cb58-1" aria-hidden="true" tabindex="-1"></a>E <span class="ot">&lt;-</span> Hmax<span class="sc">/</span>S</span>
 <span id="cb58-2"><a href="assemblage-diversity.html#cb58-2" aria-hidden="true" tabindex="-1"></a>E</span></code></pre></div>
-<pre><code>## [1] 0.4266077 0.7233476 0.6194616 0.4592948 0.3086570 0.7867290 0.7154419 0.8000000</code></pre>
+<pre><code>## [1] 0.4266077 0.7233476 0.6194616 0.4592948 0.3086570 0.7867290 0.7154419
+## [8] 0.8000000</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="assemblage-diversity.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)</span>
 <span id="cb60-2"><a href="assemblage-diversity.html#cb60-2" aria-hidden="true" tabindex="-1"></a>pch <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)[<span class="fu">as.factor</span>(data<span class="sc">$</span>region)]</span>
 <span id="cb60-3"><a href="assemblage-diversity.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(H, J, </span>
