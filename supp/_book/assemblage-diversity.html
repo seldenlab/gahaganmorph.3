@@ -246,14 +246,14 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="assemblage-diversity" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Assemblage Diversity</h1>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="assemblage-diversity.html#cb42-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gahagan-diagnostics.csv&quot;</span>)</span>
-<span id="cb42-2"><a href="assemblage-diversity.html#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="assemblage-diversity.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb42-4"><a href="assemblage-diversity.html#cb42-4" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
-<span id="cb42-5"><a href="assemblage-diversity.html#cb42-5" aria-hidden="true" tabindex="-1"></a>N</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="assemblage-diversity.html#cb48-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gahagan-diagnostics.csv&quot;</span>)</span>
+<span id="cb48-2"><a href="assemblage-diversity.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="assemblage-diversity.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb48-4"><a href="assemblage-diversity.html#cb48-4" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
+<span id="cb48-5"><a href="assemblage-diversity.html#cb48-5" aria-hidden="true" tabindex="-1"></a>N</span></code></pre></div>
 <pre><code>## [1] 184  23  93 119  46  13  43   8</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="assemblage-diversity.html#cb44-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
-<span id="cb44-2"><a href="assemblage-diversity.html#cb44-2" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="assemblage-diversity.html#cb50-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
+<span id="cb50-2"><a href="assemblage-diversity.html#cb50-2" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula 
 ##                 330                  31                   6 
 ##         coles_creek              friley             gahagan 
@@ -262,63 +262,68 @@ div.csl-indent {
 ##                  26                   3                   6 
 ##             harrell        kiam_incised            scallorn 
 ##                   2                   1                  50</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="assemblage-diversity.html#cb46-1" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
-<span id="cb46-2"><a href="assemblage-diversity.html#cb46-2" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="assemblage-diversity.html#cb52-1" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
+<span id="cb52-2"><a href="assemblage-diversity.html#cb52-2" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
 <pre><code>## [1] 4 5 9 5 9 3 5 5</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="assemblage-diversity.html#cb48-1" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
-<span id="cb48-2"><a href="assemblage-diversity.html#cb48-2" aria-hidden="true" tabindex="-1"></a>Up <span class="ot">&lt;-</span> U<span class="sc">/</span><span class="fu">length</span>(N)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb48-3"><a href="assemblage-diversity.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="assemblage-diversity.html#cb48-4" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
-<span id="cb48-5"><a href="assemblage-diversity.html#cb48-5" aria-hidden="true" tabindex="-1"></a>H</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="assemblage-diversity.html#cb54-1" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
+<span id="cb54-2"><a href="assemblage-diversity.html#cb54-2" aria-hidden="true" tabindex="-1"></a>Up <span class="ot">&lt;-</span> U<span class="sc">/</span><span class="fu">length</span>(N)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb54-3"><a href="assemblage-diversity.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="assemblage-diversity.html#cb54-4" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>])</span>
+<span id="cb54-5"><a href="assemblage-diversity.html#cb54-5" aria-hidden="true" tabindex="-1"></a>H</span></code></pre></div>
 <pre><code>## [1] 0.5344039 1.2855725 1.7183200 0.8313750 1.0216998 0.8587409 1.2745830
 ## [8] 1.3862944</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="assemblage-diversity.html#cb50-1" aria-hidden="true" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], </span>
-<span id="cb50-2"><a href="assemblage-diversity.html#cb50-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
-<span id="cb50-3"><a href="assemblage-diversity.html#cb50-3" aria-hidden="true" tabindex="-1"></a>D1</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="assemblage-diversity.html#cb56-1" aria-hidden="true" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], </span>
+<span id="cb56-2"><a href="assemblage-diversity.html#cb56-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
+<span id="cb56-3"><a href="assemblage-diversity.html#cb56-3" aria-hidden="true" tabindex="-1"></a>D1</span></code></pre></div>
 <pre><code>## [1] 0.2614012 0.6540643 0.7866805 0.4155074 0.4120983 0.5207101 0.6803678
 ## [8] 0.6875000</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="assemblage-diversity.html#cb52-1" aria-hidden="true" tabindex="-1"></a>D2 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], </span>
-<span id="cb52-2"><a href="assemblage-diversity.html#cb52-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="st">&quot;invsimpson&quot;</span>)</span>
-<span id="cb52-3"><a href="assemblage-diversity.html#cb52-3" aria-hidden="true" tabindex="-1"></a>D2</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="assemblage-diversity.html#cb58-1" aria-hidden="true" tabindex="-1"></a>D2 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], </span>
+<span id="cb58-2"><a href="assemblage-diversity.html#cb58-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="st">&quot;invsimpson&quot;</span>)</span>
+<span id="cb58-3"><a href="assemblage-diversity.html#cb58-3" aria-hidden="true" tabindex="-1"></a>D2</span></code></pre></div>
 <pre><code>## [1] 1.353915 2.890710 4.687805 1.710886 1.700965 2.086420 3.128596 3.200000</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="assemblage-diversity.html#cb54-1" aria-hidden="true" tabindex="-1"></a>Hmax <span class="ot">&lt;-</span> <span class="fu">exp</span>(H)</span>
-<span id="cb54-2"><a href="assemblage-diversity.html#cb54-2" aria-hidden="true" tabindex="-1"></a>Hmax</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="assemblage-diversity.html#cb60-1" aria-hidden="true" tabindex="-1"></a>Hmax <span class="ot">&lt;-</span> <span class="fu">exp</span>(H)</span>
+<span id="cb60-2"><a href="assemblage-diversity.html#cb60-2" aria-hidden="true" tabindex="-1"></a>Hmax</span></code></pre></div>
 <pre><code>## [1] 1.706431 3.616738 5.575154 2.296474 2.777913 2.360187 3.577209 4.000000</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="assemblage-diversity.html#cb56-1" aria-hidden="true" tabindex="-1"></a>J <span class="ot">&lt;-</span> H<span class="sc">/</span><span class="fu">log</span>(S)</span>
-<span id="cb56-2"><a href="assemblage-diversity.html#cb56-2" aria-hidden="true" tabindex="-1"></a>J</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="assemblage-diversity.html#cb62-1" aria-hidden="true" tabindex="-1"></a>J <span class="ot">&lt;-</span> H<span class="sc">/</span><span class="fu">log</span>(S)</span>
+<span id="cb62-2"><a href="assemblage-diversity.html#cb62-2" aria-hidden="true" tabindex="-1"></a>J</span></code></pre></div>
 <pre><code>## [1] 0.3854909 0.7987711 0.7820411 0.5165623 0.4649956 0.7816597 0.7919429
 ## [8] 0.8613531</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="assemblage-diversity.html#cb58-1" aria-hidden="true" tabindex="-1"></a>E <span class="ot">&lt;-</span> Hmax<span class="sc">/</span>S</span>
-<span id="cb58-2"><a href="assemblage-diversity.html#cb58-2" aria-hidden="true" tabindex="-1"></a>E</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="assemblage-diversity.html#cb64-1" aria-hidden="true" tabindex="-1"></a>E <span class="ot">&lt;-</span> Hmax<span class="sc">/</span>S</span>
+<span id="cb64-2"><a href="assemblage-diversity.html#cb64-2" aria-hidden="true" tabindex="-1"></a>E</span></code></pre></div>
 <pre><code>## [1] 0.4266077 0.7233476 0.6194616 0.4592948 0.3086570 0.7867290 0.7154419
 ## [8] 0.8000000</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="assemblage-diversity.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)</span>
-<span id="cb60-2"><a href="assemblage-diversity.html#cb60-2" aria-hidden="true" tabindex="-1"></a>pch <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)[<span class="fu">as.factor</span>(data<span class="sc">$</span>region)]</span>
-<span id="cb60-3"><a href="assemblage-diversity.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(H, J, </span>
-<span id="cb60-4"><a href="assemblage-diversity.html#cb60-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> pch)</span>
-<span id="cb60-5"><a href="assemblage-diversity.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">median</span>(J), </span>
-<span id="cb60-6"><a href="assemblage-diversity.html#cb60-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">v =</span> <span class="fu">median</span>(H), </span>
-<span id="cb60-7"><a href="assemblage-diversity.html#cb60-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb60-8"><a href="assemblage-diversity.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pointLabel</span>(H, J, </span>
-<span id="cb60-9"><a href="assemblage-diversity.html#cb60-9" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rownames</span>(data), </span>
-<span id="cb60-10"><a href="assemblage-diversity.html#cb60-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">cex =</span> .<span class="dv">75</span>)</span>
-<span id="cb60-11"><a href="assemblage-diversity.html#cb60-11" aria-hidden="true" tabindex="-1"></a>leg.txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">as.expression</span>(<span class="fu">bquote</span>(<span class="st">&quot;Northern Behavioral Region&quot;</span>)), </span>
-<span id="cb60-12"><a href="assemblage-diversity.html#cb60-12" aria-hidden="true" tabindex="-1"></a>             <span class="fu">as.expression</span>(<span class="fu">bquote</span>(<span class="st">&quot;Southern Behavioral Region&quot;</span>)))</span>
-<span id="cb60-13"><a href="assemblage-diversity.html#cb60-13" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, </span>
-<span id="cb60-14"><a href="assemblage-diversity.html#cb60-14" aria-hidden="true" tabindex="-1"></a>       leg.txt, </span>
-<span id="cb60-15"><a href="assemblage-diversity.html#cb60-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="assemblage-diversity.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)</span></code></pre></div>
+<pre><code>## Loading required package: sp</code></pre>
+<pre><code>## Checking rgeos availability: TRUE
+## Please note that &#39;maptools&#39; will be retired by the end of 2023,
+## plan transition at your earliest convenience;
+## some functionality will be moved to &#39;sp&#39;.</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="assemblage-diversity.html#cb69-1" aria-hidden="true" tabindex="-1"></a>pch <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)[<span class="fu">as.factor</span>(data<span class="sc">$</span>region)]</span>
+<span id="cb69-2"><a href="assemblage-diversity.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(H, J, </span>
+<span id="cb69-3"><a href="assemblage-diversity.html#cb69-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> pch)</span>
+<span id="cb69-4"><a href="assemblage-diversity.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">median</span>(J), </span>
+<span id="cb69-5"><a href="assemblage-diversity.html#cb69-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">v =</span> <span class="fu">median</span>(H), </span>
+<span id="cb69-6"><a href="assemblage-diversity.html#cb69-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb69-7"><a href="assemblage-diversity.html#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pointLabel</span>(H, J, </span>
+<span id="cb69-8"><a href="assemblage-diversity.html#cb69-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rownames</span>(data), </span>
+<span id="cb69-9"><a href="assemblage-diversity.html#cb69-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">cex =</span> .<span class="dv">75</span>)</span>
+<span id="cb69-10"><a href="assemblage-diversity.html#cb69-10" aria-hidden="true" tabindex="-1"></a>leg.txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">as.expression</span>(<span class="fu">bquote</span>(<span class="st">&quot;Northern Behavioral Region&quot;</span>)), </span>
+<span id="cb69-11"><a href="assemblage-diversity.html#cb69-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">as.expression</span>(<span class="fu">bquote</span>(<span class="st">&quot;Southern Behavioral Region&quot;</span>)))</span>
+<span id="cb69-12"><a href="assemblage-diversity.html#cb69-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, </span>
+<span id="cb69-13"><a href="assemblage-diversity.html#cb69-13" aria-hidden="true" tabindex="-1"></a>       leg.txt, </span>
+<span id="cb69-14"><a href="assemblage-diversity.html#cb69-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/diversity-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="assemblage-diversity.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(S<span class="sc">~</span>N, </span>
-<span id="cb61-2"><a href="assemblage-diversity.html#cb61-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>), </span>
-<span id="cb61-3"><a href="assemblage-diversity.html#cb61-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">184</span>), </span>
-<span id="cb61-4"><a href="assemblage-diversity.html#cb61-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb61-5"><a href="assemblage-diversity.html#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">2</span>), </span>
-<span id="cb61-6"><a href="assemblage-diversity.html#cb61-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">v =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">184</span>, <span class="at">by =</span> <span class="dv">25</span>), </span>
-<span id="cb61-7"><a href="assemblage-diversity.html#cb61-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb61-8"><a href="assemblage-diversity.html#cb61-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">3</span>)</span>
-<span id="cb61-9"><a href="assemblage-diversity.html#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-10"><a href="assemblage-diversity.html#cb61-10" aria-hidden="true" tabindex="-1"></a>data.log <span class="ot">&lt;-</span> <span class="fu">lm</span>(S<span class="sc">~</span><span class="fu">log</span>(N))</span>
-<span id="cb61-11"><a href="assemblage-diversity.html#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data.log)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="assemblage-diversity.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(S<span class="sc">~</span>N, </span>
+<span id="cb70-2"><a href="assemblage-diversity.html#cb70-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>), </span>
+<span id="cb70-3"><a href="assemblage-diversity.html#cb70-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">184</span>), </span>
+<span id="cb70-4"><a href="assemblage-diversity.html#cb70-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb70-5"><a href="assemblage-diversity.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">2</span>), </span>
+<span id="cb70-6"><a href="assemblage-diversity.html#cb70-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">v =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">184</span>, <span class="at">by =</span> <span class="dv">25</span>), </span>
+<span id="cb70-7"><a href="assemblage-diversity.html#cb70-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb70-8"><a href="assemblage-diversity.html#cb70-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb70-9"><a href="assemblage-diversity.html#cb70-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="assemblage-diversity.html#cb70-10" aria-hidden="true" tabindex="-1"></a>data.log <span class="ot">&lt;-</span> <span class="fu">lm</span>(S<span class="sc">~</span><span class="fu">log</span>(N))</span>
+<span id="cb70-11"><a href="assemblage-diversity.html#cb70-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data.log)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = S ~ log(N))
@@ -335,29 +340,29 @@ div.csl-indent {
 ## Residual standard error: 2.293 on 6 degrees of freedom
 ## Multiple R-squared:  0.06854,    Adjusted R-squared:  -0.08671 
 ## F-statistic: 0.4415 on 1 and 6 DF,  p-value: 0.5311</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="assemblage-diversity.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(data.log)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="assemblage-diversity.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(data.log)</span></code></pre></div>
 <pre><code>## [1] 31.55331</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="assemblage-diversity.html#cb65-1" aria-hidden="true" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">184</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb65-2"><a href="assemblage-diversity.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(xval, </span>
-<span id="cb65-3"><a href="assemblage-diversity.html#cb65-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">predict</span>(data.log,</span>
-<span id="cb65-4"><a href="assemblage-diversity.html#cb65-4" aria-hidden="true" tabindex="-1"></a>              <span class="fu">data.frame</span>(<span class="at">N =</span> xval)),</span>
-<span id="cb65-5"><a href="assemblage-diversity.html#cb65-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">lty=</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="assemblage-diversity.html#cb74-1" aria-hidden="true" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">184</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb74-2"><a href="assemblage-diversity.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(xval, </span>
+<span id="cb74-3"><a href="assemblage-diversity.html#cb74-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">predict</span>(data.log,</span>
+<span id="cb74-4"><a href="assemblage-diversity.html#cb74-4" aria-hidden="true" tabindex="-1"></a>              <span class="fu">data.frame</span>(<span class="at">N =</span> xval)),</span>
+<span id="cb74-5"><a href="assemblage-diversity.html#cb74-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">lty=</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/diversity-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="assemblage-diversity.html#cb66-1" aria-hidden="true" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">200</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb66-2"><a href="assemblage-diversity.html#cb66-2" aria-hidden="true" tabindex="-1"></a>data.rar <span class="ot">&lt;-</span> <span class="fu">rarefy</span>(T, xval, <span class="at">se =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb66-3"><a href="assemblage-diversity.html#cb66-3" aria-hidden="true" tabindex="-1"></a>Est <span class="ot">&lt;-</span> data.rar[<span class="dv">1</span>, ]</span>
-<span id="cb66-4"><a href="assemblage-diversity.html#cb66-4" aria-hidden="true" tabindex="-1"></a>Sd <span class="ot">&lt;-</span> data.rar[<span class="dv">2</span>, ]</span>
-<span id="cb66-5"><a href="assemblage-diversity.html#cb66-5" aria-hidden="true" tabindex="-1"></a>rare <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">lower =</span> Est<span class="dv">-2</span><span class="sc">*</span>Sd, </span>
-<span id="cb66-6"><a href="assemblage-diversity.html#cb66-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">expected =</span> Est, </span>
-<span id="cb66-7"><a href="assemblage-diversity.html#cb66-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">upper =</span> Est<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>Sd)</span>
-<span id="cb66-8"><a href="assemblage-diversity.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(S<span class="sc">~</span>N, </span>
-<span id="cb66-9"><a href="assemblage-diversity.html#cb66-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">range</span>(rare), </span>
-<span id="cb66-10"><a href="assemblage-diversity.html#cb66-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(xval), </span>
-<span id="cb66-11"><a href="assemblage-diversity.html#cb66-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb66-12"><a href="assemblage-diversity.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="fu">matlines</span>(xval, rare, </span>
-<span id="cb66-13"><a href="assemblage-diversity.html#cb66-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, </span>
-<span id="cb66-14"><a href="assemblage-diversity.html#cb66-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), </span>
-<span id="cb66-15"><a href="assemblage-diversity.html#cb66-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="assemblage-diversity.html#cb75-1" aria-hidden="true" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">200</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb75-2"><a href="assemblage-diversity.html#cb75-2" aria-hidden="true" tabindex="-1"></a>data.rar <span class="ot">&lt;-</span> <span class="fu">rarefy</span>(T, xval, <span class="at">se =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb75-3"><a href="assemblage-diversity.html#cb75-3" aria-hidden="true" tabindex="-1"></a>Est <span class="ot">&lt;-</span> data.rar[<span class="dv">1</span>, ]</span>
+<span id="cb75-4"><a href="assemblage-diversity.html#cb75-4" aria-hidden="true" tabindex="-1"></a>Sd <span class="ot">&lt;-</span> data.rar[<span class="dv">2</span>, ]</span>
+<span id="cb75-5"><a href="assemblage-diversity.html#cb75-5" aria-hidden="true" tabindex="-1"></a>rare <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">lower =</span> Est<span class="dv">-2</span><span class="sc">*</span>Sd, </span>
+<span id="cb75-6"><a href="assemblage-diversity.html#cb75-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">expected =</span> Est, </span>
+<span id="cb75-7"><a href="assemblage-diversity.html#cb75-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">upper =</span> Est<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>Sd)</span>
+<span id="cb75-8"><a href="assemblage-diversity.html#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(S<span class="sc">~</span>N, </span>
+<span id="cb75-9"><a href="assemblage-diversity.html#cb75-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">range</span>(rare), </span>
+<span id="cb75-10"><a href="assemblage-diversity.html#cb75-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(xval), </span>
+<span id="cb75-11"><a href="assemblage-diversity.html#cb75-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb75-12"><a href="assemblage-diversity.html#cb75-12" aria-hidden="true" tabindex="-1"></a><span class="fu">matlines</span>(xval, rare, </span>
+<span id="cb75-13"><a href="assemblage-diversity.html#cb75-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, </span>
+<span id="cb75-14"><a href="assemblage-diversity.html#cb75-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb75-15"><a href="assemblage-diversity.html#cb75-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/diversity-3.png" width="100%" /></p>
 
 </div>
