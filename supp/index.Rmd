@@ -1,5 +1,5 @@
 --- 
-title: "Morphological trajectories of Gahagan bifaces from Caddo burial contexts suggest differences in preference"
+title: "Morphological trajectories of Gahagan bifaces suggest differences in Caddo preference through time and by burial tradition"
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu] and John E. Dockall^[Cox|McClain Environmental Consulting, Inc.]
 date: "`r Sys.Date()`"
