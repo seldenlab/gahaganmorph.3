@@ -12,7 +12,7 @@ hypothesis-1a-findings
 hypothesis-1b-temporal-change-in-caddo-preference-at-george-c.-davis
 hypothesis-1b-findings
 hypothesis-1-summary-of-results
-differential-design-intent-of-gahagan-bifaces
+preference-as-a-function-of-burial-practice
 hypothesis-2-findings
 hypothesis-2-summary-of-results
 temporal-dynamics
