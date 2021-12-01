@@ -1,4 +1,6 @@
-# Assemblage Diversity
+# Mortuary Assemblage Diversity
+
+The analysis of assemblage diversity is limited to Caddo mortuary contexts at the George C. Davis, Gahagan Mound, and Mounds Plantation sites where Gahagan bifaces were recovered.
 
 ```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 data <- read.csv("gahagan-diagnostics.csv")

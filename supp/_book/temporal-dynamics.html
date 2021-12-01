@@ -180,7 +180,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#chronological-model-for-burial-contexts-yielding-gahagan-bifaces"><i class="fa fa-check"></i><b>1.4</b> Chronological model for burial contexts yielding Gahagan bifaces</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="seriation.html"><a href="seriation.html"><i class="fa fa-check"></i><b>2</b> Seriation</a></li>
-<li class="chapter" data-level="3" data-path="assemblage-diversity.html"><a href="assemblage-diversity.html"><i class="fa fa-check"></i><b>3</b> Assemblage Diversity</a></li>
+<li class="chapter" data-level="3" data-path="mortuary-assemblage-diversity.html"><a href="mortuary-assemblage-diversity.html"><i class="fa fa-check"></i><b>3</b> Mortuary Assemblage Diversity</a></li>
 <li class="chapter" data-level="4" data-path="modeling-geometry.html"><a href="modeling-geometry.html"><i class="fa fa-check"></i><b>4</b> Modeling Geometry</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="modeling-geometry.html"><a href="modeling-geometry.html#section"><i class="fa fa-check"></i><b>4.1</b> 4078-8</a></li>
@@ -254,17 +254,19 @@ div.csl-indent {
 <span id="cb13-2"><a href="temporal-dynamics.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb13-3"><a href="temporal-dynamics.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(oxcAAR)</span>
 <span id="cb13-4"><a href="temporal-dynamics.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quickSetupOxcal</span>()</span></code></pre></div>
-<pre><code>## Oxcal is already installed correctly.</code></pre>
+<pre><code>## Oxcal doesn&#39;t seem to be installed. Downloading it now:</code></pre>
+<pre><code>## Oxcal stored successful at C:\Users\seldenjrz\AppData\Local\Temp\Rtmpwvbkos!</code></pre>
+<pre><code>## Oxcal path set!</code></pre>
 <pre><code>## NULL</code></pre>
 <div id="calibration-and-plots-for-dates-from-burial-pit-5-at-the-mounds-plantation-site" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Calibration and plots for dates from Burial Pit 5 at the Mounds Plantation site</h2>
 <p>Three dates (Tx-55, Tx-56, and M-1466) were reported from Burial Pit 5 at the Mounds Plantation site. More information about these dates can be found in the text, and those works cited within the text of the manuscript.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="temporal-dynamics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>moundspl<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">860</span>,<span class="dv">900</span>),</span>
-<span id="cb16-2"><a href="temporal-dynamics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">std=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">100</span>),</span>
-<span id="cb16-3"><a href="temporal-dynamics.html#cb16-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-55&quot;</span>,<span class="st">&quot;M-1466&quot;</span>)</span>
-<span id="cb16-4"><a href="temporal-dynamics.html#cb16-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-5"><a href="temporal-dynamics.html#cb16-5" aria-hidden="true" tabindex="-1"></a>moundsplcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(moundspl<span class="sc">$</span>bp,moundspl<span class="sc">$</span>std,moundspl<span class="sc">$</span>names)</span>
-<span id="cb16-6"><a href="temporal-dynamics.html#cb16-6" aria-hidden="true" tabindex="-1"></a>moundsplcal</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="temporal-dynamics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>moundspl<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">860</span>,<span class="dv">900</span>),</span>
+<span id="cb18-2"><a href="temporal-dynamics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">std=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">100</span>),</span>
+<span id="cb18-3"><a href="temporal-dynamics.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-55&quot;</span>,<span class="st">&quot;M-1466&quot;</span>)</span>
+<span id="cb18-4"><a href="temporal-dynamics.html#cb18-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-5"><a href="temporal-dynamics.html#cb18-5" aria-hidden="true" tabindex="-1"></a>moundsplcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(moundspl<span class="sc">$</span>bp,moundspl<span class="sc">$</span>std,moundspl<span class="sc">$</span>names)</span>
+<span id="cb18-6"><a href="temporal-dynamics.html#cb18-6" aria-hidden="true" tabindex="-1"></a>moundsplcal</span></code></pre></div>
 <pre><code>## List of 2 calibrated dates:
 ## 
 ## =============================
@@ -318,21 +320,21 @@ div.csl-indent {
 ## 
 ## Calibrated with:
 ##   Atmospheric data from Reimer et al (2020)</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="temporal-dynamics.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moundsplcal)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="temporal-dynamics.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moundsplcal)</span></code></pre></div>
 <pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="_main_files/figure-html/mplcal-1.png" width="672" /></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="temporal-dynamics.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(moundsplcal)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="temporal-dynamics.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(moundsplcal)</span></code></pre></div>
 <p><img src="_main_files/figure-html/mplcal-2.png" width="672" /></p>
 </div>
 <div id="calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Calibration and plots for dates from Burial Pit 2 at the Gahagan Mound site</h2>
 <p>Three AMS dates (UGA12296, ISGS A0465, and ISGS A0466) were reported from Burial Pit 2 at the Gahagan Mound site. More information about these dates can be found in the text, and those works cited within the text of the manuscript.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="temporal-dynamics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>gahagan<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">950</span>,<span class="dv">910</span>),</span>
-<span id="cb21-2"><a href="temporal-dynamics.html#cb21-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">std=</span><span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">35</span>),</span>
-<span id="cb21-3"><a href="temporal-dynamics.html#cb21-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;UGA-12296&quot;</span>,<span class="st">&quot;ISGS-A0466&quot;</span>,<span class="st">&quot;ISGS-A0465&quot;</span>)</span>
-<span id="cb21-4"><a href="temporal-dynamics.html#cb21-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-5"><a href="temporal-dynamics.html#cb21-5" aria-hidden="true" tabindex="-1"></a>gahagancal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gahagan<span class="sc">$</span>bp,gahagan<span class="sc">$</span>std,gahagan<span class="sc">$</span>names)</span>
-<span id="cb21-6"><a href="temporal-dynamics.html#cb21-6" aria-hidden="true" tabindex="-1"></a>gahagancal</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="temporal-dynamics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>gahagan<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">950</span>,<span class="dv">910</span>),</span>
+<span id="cb23-2"><a href="temporal-dynamics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">std=</span><span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">35</span>),</span>
+<span id="cb23-3"><a href="temporal-dynamics.html#cb23-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;UGA-12296&quot;</span>,<span class="st">&quot;ISGS-A0466&quot;</span>,<span class="st">&quot;ISGS-A0465&quot;</span>)</span>
+<span id="cb23-4"><a href="temporal-dynamics.html#cb23-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-5"><a href="temporal-dynamics.html#cb23-5" aria-hidden="true" tabindex="-1"></a>gahagancal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gahagan<span class="sc">$</span>bp,gahagan<span class="sc">$</span>std,gahagan<span class="sc">$</span>names)</span>
+<span id="cb23-6"><a href="temporal-dynamics.html#cb23-6" aria-hidden="true" tabindex="-1"></a>gahagancal</span></code></pre></div>
 <pre><code>## List of 3 calibrated dates:
 ## 
 ## =============================
@@ -411,21 +413,21 @@ div.csl-indent {
 ## 
 ## Calibrated with:
 ##   Atmospheric data from Reimer et al (2020)</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="temporal-dynamics.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gahagancal)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="temporal-dynamics.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gahagancal)</span></code></pre></div>
 <pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="_main_files/figure-html/gahagancal-1.png" width="672" /></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="temporal-dynamics.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gahagancal)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="temporal-dynamics.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gahagancal)</span></code></pre></div>
 <p><img src="_main_files/figure-html/gahagancal-2.png" width="672" /></p>
 </div>
 <div id="calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-site" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Calibration and plots for the dates from F119 and F134 at the George C. Davis site</h2>
 <p>Two dates (Tx-913 and Tx-1206) were reported from Features 119 and 134, respectively. More information about these dates can be found in the text and cited references.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="temporal-dynamics.html#cb26-1" aria-hidden="true" tabindex="-1"></a>gcd<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1150</span>,<span class="dv">986</span>),</span>
-<span id="cb26-2"><a href="temporal-dynamics.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">std=</span><span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">90</span>),</span>
-<span id="cb26-3"><a href="temporal-dynamics.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-913&quot;</span>,<span class="st">&quot;Tx-1206&quot;</span>)</span>
-<span id="cb26-4"><a href="temporal-dynamics.html#cb26-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-5"><a href="temporal-dynamics.html#cb26-5" aria-hidden="true" tabindex="-1"></a>gcdcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gcd<span class="sc">$</span>bp,gcd<span class="sc">$</span>std,gcd<span class="sc">$</span>names)</span>
-<span id="cb26-6"><a href="temporal-dynamics.html#cb26-6" aria-hidden="true" tabindex="-1"></a>gcdcal</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="temporal-dynamics.html#cb28-1" aria-hidden="true" tabindex="-1"></a>gcd<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1150</span>,<span class="dv">986</span>),</span>
+<span id="cb28-2"><a href="temporal-dynamics.html#cb28-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">std=</span><span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">90</span>),</span>
+<span id="cb28-3"><a href="temporal-dynamics.html#cb28-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-913&quot;</span>,<span class="st">&quot;Tx-1206&quot;</span>)</span>
+<span id="cb28-4"><a href="temporal-dynamics.html#cb28-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-5"><a href="temporal-dynamics.html#cb28-5" aria-hidden="true" tabindex="-1"></a>gcdcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gcd<span class="sc">$</span>bp,gcd<span class="sc">$</span>std,gcd<span class="sc">$</span>names)</span>
+<span id="cb28-6"><a href="temporal-dynamics.html#cb28-6" aria-hidden="true" tabindex="-1"></a>gcdcal</span></code></pre></div>
 <pre><code>## List of 2 calibrated dates:
 ## 
 ## =============================
@@ -476,82 +478,82 @@ div.csl-indent {
 ## 
 ## Calibrated with:
 ##   Atmospheric data from Reimer et al (2020)</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="temporal-dynamics.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gcdcal)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="temporal-dynamics.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gcdcal)</span></code></pre></div>
 <pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="_main_files/figure-html/GCDcal-1.png" width="672" /></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="temporal-dynamics.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gcdcal)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="temporal-dynamics.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gcdcal)</span></code></pre></div>
 <p><img src="_main_files/figure-html/GCDcal-2.png" width="672" /></p>
 </div>
 <div id="chronological-model-for-burial-contexts-yielding-gahagan-bifaces" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Chronological model for burial contexts yielding Gahagan bifaces</h2>
 <p>For reasons discussed by Selden and colleagues <span class="citation">(<a href="#ref-RN21001" role="doc-biblioref">2020</a>)</span>, Tx-1206 and Tx-56 are included in the model as outliers.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="temporal-dynamics.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chronological model</span></span>
-<span id="cb31-2"><a href="temporal-dynamics.html#cb31-2" aria-hidden="true" tabindex="-1"></a>gahaganmod <span class="ot">&lt;-</span> <span class="st">&#39;Plot()</span></span>
-<span id="cb31-3"><a href="temporal-dynamics.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st"> {</span></span>
-<span id="cb31-4"><a href="temporal-dynamics.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Phase(&quot;Burial contexts yielding Gahagan bifaces&quot;)</span></span>
-<span id="cb31-5"><a href="temporal-dynamics.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="st">  {</span></span>
-<span id="cb31-6"><a href="temporal-dynamics.html#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;George C. Davis&quot;)</span></span>
-<span id="cb31-7"><a href="temporal-dynamics.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
-<span id="cb31-8"><a href="temporal-dynamics.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start George C. Davis&quot;);</span></span>
-<span id="cb31-9"><a href="temporal-dynamics.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F119&quot;)</span></span>
-<span id="cb31-10"><a href="temporal-dynamics.html#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb31-11"><a href="temporal-dynamics.html#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-913&quot;, 1150, 80);</span></span>
-<span id="cb31-12"><a href="temporal-dynamics.html#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb31-13"><a href="temporal-dynamics.html#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F134&quot;)</span></span>
-<span id="cb31-14"><a href="temporal-dynamics.html#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb31-15"><a href="temporal-dynamics.html#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-1206&quot;, 986, 90)</span></span>
-<span id="cb31-16"><a href="temporal-dynamics.html#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
-<span id="cb31-17"><a href="temporal-dynamics.html#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
-<span id="cb31-18"><a href="temporal-dynamics.html#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
-<span id="cb31-19"><a href="temporal-dynamics.html#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb31-20"><a href="temporal-dynamics.html#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end George C. Davis&quot;);</span></span>
-<span id="cb31-21"><a href="temporal-dynamics.html#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
-<span id="cb31-22"><a href="temporal-dynamics.html#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Mounds Plantation&quot;)</span></span>
-<span id="cb31-23"><a href="temporal-dynamics.html#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
-<span id="cb31-24"><a href="temporal-dynamics.html#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Mounds Plantation&quot;);</span></span>
-<span id="cb31-25"><a href="temporal-dynamics.html#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
-<span id="cb31-26"><a href="temporal-dynamics.html#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb31-27"><a href="temporal-dynamics.html#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Combine(&quot;Log 1&quot;)</span></span>
-<span id="cb31-28"><a href="temporal-dynamics.html#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
-<span id="cb31-29"><a href="temporal-dynamics.html#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;M-1466&quot;, 900, 100);</span></span>
-<span id="cb31-30"><a href="temporal-dynamics.html#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;Tx-55&quot;, 860, 120);</span></span>
-<span id="cb31-31"><a href="temporal-dynamics.html#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
-<span id="cb31-32"><a href="temporal-dynamics.html#cb31-32" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-56&quot;, 475, 100)</span></span>
-<span id="cb31-33"><a href="temporal-dynamics.html#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
-<span id="cb31-34"><a href="temporal-dynamics.html#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
-<span id="cb31-35"><a href="temporal-dynamics.html#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
-<span id="cb31-36"><a href="temporal-dynamics.html#cb31-36" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb31-37"><a href="temporal-dynamics.html#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Mounds Plantation&quot;);</span></span>
-<span id="cb31-38"><a href="temporal-dynamics.html#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
-<span id="cb31-39"><a href="temporal-dynamics.html#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Gahagan Mound&quot;)</span></span>
-<span id="cb31-40"><a href="temporal-dynamics.html#cb31-40" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
-<span id="cb31-41"><a href="temporal-dynamics.html#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Gahagan Mound&quot;);</span></span>
-<span id="cb31-42"><a href="temporal-dynamics.html#cb31-42" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
-<span id="cb31-43"><a href="temporal-dynamics.html#cb31-43" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb31-44"><a href="temporal-dynamics.html#cb31-44" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;UGA-12296&quot;, 1000, 40);</span></span>
-<span id="cb31-45"><a href="temporal-dynamics.html#cb31-45" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0466&quot;, 950, 40);</span></span>
-<span id="cb31-46"><a href="temporal-dynamics.html#cb31-46" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0465&quot;, 910, 35);</span></span>
-<span id="cb31-47"><a href="temporal-dynamics.html#cb31-47" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb31-48"><a href="temporal-dynamics.html#cb31-48" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Gahagan Mound&quot;);</span></span>
-<span id="cb31-49"><a href="temporal-dynamics.html#cb31-49" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
-<span id="cb31-50"><a href="temporal-dynamics.html#cb31-50" aria-hidden="true" tabindex="-1"></a><span class="st">  };</span></span>
-<span id="cb31-51"><a href="temporal-dynamics.html#cb31-51" aria-hidden="true" tabindex="-1"></a><span class="st"> };</span></span>
-<span id="cb31-52"><a href="temporal-dynamics.html#cb31-52" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb31-53"><a href="temporal-dynamics.html#cb31-53" aria-hidden="true" tabindex="-1"></a>  gahaganmod_results <span class="ot">&lt;-</span> <span class="fu">executeOxcalScript</span>(gahaganmod) </span>
-<span id="cb31-54"><a href="temporal-dynamics.html#cb31-54" aria-hidden="true" tabindex="-1"></a>  gahaganmod_text <span class="ot">&lt;-</span> <span class="fu">readOxcalOutput</span>(gahaganmod_results)</span>
-<span id="cb31-55"><a href="temporal-dynamics.html#cb31-55" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="ot">&lt;-</span> <span class="fu">parseOxcalOutput</span>(gahaganmod_text, </span>
-<span id="cb31-56"><a href="temporal-dynamics.html#cb31-56" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">only.R_Date =</span> F)</span>
-<span id="cb31-57"><a href="temporal-dynamics.html#cb31-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(gahaganmod_result_data)</span>
-<span id="cb31-58"><a href="temporal-dynamics.html#cb31-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(gahaganmod_result_data)</span>
-<span id="cb31-59"><a href="temporal-dynamics.html#cb31-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(gahaganmod_result_data)</span>
-<span id="cb31-60"><a href="temporal-dynamics.html#cb31-60" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb31-61"><a href="temporal-dynamics.html#cb31-61" aria-hidden="true" tabindex="-1"></a><span class="co">#plot start/end boundaries for contexts yielding gahagan bifaces</span></span>
-<span id="cb31-62"><a href="temporal-dynamics.html#cb31-62" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="sc">%&gt;%</span></span>
-<span id="cb31-63"><a href="temporal-dynamics.html#cb31-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="cf">function</span>(x) x<span class="sc">$</span>type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Boundary&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb31-64"><a href="temporal-dynamics.html#cb31-64" aria-hidden="true" tabindex="-1"></a>    gahaganmod_result_data[.] <span class="sc">%&gt;%</span></span>
-<span id="cb31-65"><a href="temporal-dynamics.html#cb31-65" aria-hidden="true" tabindex="-1"></a>    oxcAAR<span class="sc">:::</span><span class="fu">plot.oxcAARCalibratedDatesList</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="temporal-dynamics.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># embed image</span></span>
-<span id="cb32-2"><a href="temporal-dynamics.html#cb32-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gahagan-chronology.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="temporal-dynamics.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chronological model</span></span>
+<span id="cb33-2"><a href="temporal-dynamics.html#cb33-2" aria-hidden="true" tabindex="-1"></a>gahaganmod <span class="ot">&lt;-</span> <span class="st">&#39;Plot()</span></span>
+<span id="cb33-3"><a href="temporal-dynamics.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="st"> {</span></span>
+<span id="cb33-4"><a href="temporal-dynamics.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Phase(&quot;Burial contexts yielding Gahagan bifaces&quot;)</span></span>
+<span id="cb33-5"><a href="temporal-dynamics.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="st">  {</span></span>
+<span id="cb33-6"><a href="temporal-dynamics.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;George C. Davis&quot;)</span></span>
+<span id="cb33-7"><a href="temporal-dynamics.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
+<span id="cb33-8"><a href="temporal-dynamics.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start George C. Davis&quot;);</span></span>
+<span id="cb33-9"><a href="temporal-dynamics.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F119&quot;)</span></span>
+<span id="cb33-10"><a href="temporal-dynamics.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb33-11"><a href="temporal-dynamics.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-913&quot;, 1150, 80);</span></span>
+<span id="cb33-12"><a href="temporal-dynamics.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb33-13"><a href="temporal-dynamics.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F134&quot;)</span></span>
+<span id="cb33-14"><a href="temporal-dynamics.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb33-15"><a href="temporal-dynamics.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-1206&quot;, 986, 90)</span></span>
+<span id="cb33-16"><a href="temporal-dynamics.html#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
+<span id="cb33-17"><a href="temporal-dynamics.html#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
+<span id="cb33-18"><a href="temporal-dynamics.html#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
+<span id="cb33-19"><a href="temporal-dynamics.html#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb33-20"><a href="temporal-dynamics.html#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end George C. Davis&quot;);</span></span>
+<span id="cb33-21"><a href="temporal-dynamics.html#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
+<span id="cb33-22"><a href="temporal-dynamics.html#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Mounds Plantation&quot;)</span></span>
+<span id="cb33-23"><a href="temporal-dynamics.html#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
+<span id="cb33-24"><a href="temporal-dynamics.html#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Mounds Plantation&quot;);</span></span>
+<span id="cb33-25"><a href="temporal-dynamics.html#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
+<span id="cb33-26"><a href="temporal-dynamics.html#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb33-27"><a href="temporal-dynamics.html#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Combine(&quot;Log 1&quot;)</span></span>
+<span id="cb33-28"><a href="temporal-dynamics.html#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
+<span id="cb33-29"><a href="temporal-dynamics.html#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;M-1466&quot;, 900, 100);</span></span>
+<span id="cb33-30"><a href="temporal-dynamics.html#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;Tx-55&quot;, 860, 120);</span></span>
+<span id="cb33-31"><a href="temporal-dynamics.html#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
+<span id="cb33-32"><a href="temporal-dynamics.html#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-56&quot;, 475, 100)</span></span>
+<span id="cb33-33"><a href="temporal-dynamics.html#cb33-33" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
+<span id="cb33-34"><a href="temporal-dynamics.html#cb33-34" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
+<span id="cb33-35"><a href="temporal-dynamics.html#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
+<span id="cb33-36"><a href="temporal-dynamics.html#cb33-36" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb33-37"><a href="temporal-dynamics.html#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Mounds Plantation&quot;);</span></span>
+<span id="cb33-38"><a href="temporal-dynamics.html#cb33-38" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
+<span id="cb33-39"><a href="temporal-dynamics.html#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Gahagan Mound&quot;)</span></span>
+<span id="cb33-40"><a href="temporal-dynamics.html#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
+<span id="cb33-41"><a href="temporal-dynamics.html#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Gahagan Mound&quot;);</span></span>
+<span id="cb33-42"><a href="temporal-dynamics.html#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
+<span id="cb33-43"><a href="temporal-dynamics.html#cb33-43" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb33-44"><a href="temporal-dynamics.html#cb33-44" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;UGA-12296&quot;, 1000, 40);</span></span>
+<span id="cb33-45"><a href="temporal-dynamics.html#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0466&quot;, 950, 40);</span></span>
+<span id="cb33-46"><a href="temporal-dynamics.html#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0465&quot;, 910, 35);</span></span>
+<span id="cb33-47"><a href="temporal-dynamics.html#cb33-47" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb33-48"><a href="temporal-dynamics.html#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Gahagan Mound&quot;);</span></span>
+<span id="cb33-49"><a href="temporal-dynamics.html#cb33-49" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
+<span id="cb33-50"><a href="temporal-dynamics.html#cb33-50" aria-hidden="true" tabindex="-1"></a><span class="st">  };</span></span>
+<span id="cb33-51"><a href="temporal-dynamics.html#cb33-51" aria-hidden="true" tabindex="-1"></a><span class="st"> };</span></span>
+<span id="cb33-52"><a href="temporal-dynamics.html#cb33-52" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb33-53"><a href="temporal-dynamics.html#cb33-53" aria-hidden="true" tabindex="-1"></a>  gahaganmod_results <span class="ot">&lt;-</span> <span class="fu">executeOxcalScript</span>(gahaganmod) </span>
+<span id="cb33-54"><a href="temporal-dynamics.html#cb33-54" aria-hidden="true" tabindex="-1"></a>  gahaganmod_text <span class="ot">&lt;-</span> <span class="fu">readOxcalOutput</span>(gahaganmod_results)</span>
+<span id="cb33-55"><a href="temporal-dynamics.html#cb33-55" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="ot">&lt;-</span> <span class="fu">parseOxcalOutput</span>(gahaganmod_text, </span>
+<span id="cb33-56"><a href="temporal-dynamics.html#cb33-56" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">only.R_Date =</span> F)</span>
+<span id="cb33-57"><a href="temporal-dynamics.html#cb33-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(gahaganmod_result_data)</span>
+<span id="cb33-58"><a href="temporal-dynamics.html#cb33-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(gahaganmod_result_data)</span>
+<span id="cb33-59"><a href="temporal-dynamics.html#cb33-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(gahaganmod_result_data)</span>
+<span id="cb33-60"><a href="temporal-dynamics.html#cb33-60" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-61"><a href="temporal-dynamics.html#cb33-61" aria-hidden="true" tabindex="-1"></a><span class="co">#plot start/end boundaries for contexts yielding gahagan bifaces</span></span>
+<span id="cb33-62"><a href="temporal-dynamics.html#cb33-62" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="sc">%&gt;%</span></span>
+<span id="cb33-63"><a href="temporal-dynamics.html#cb33-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="cf">function</span>(x) x<span class="sc">$</span>type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Boundary&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-64"><a href="temporal-dynamics.html#cb33-64" aria-hidden="true" tabindex="-1"></a>    gahaganmod_result_data[.] <span class="sc">%&gt;%</span></span>
+<span id="cb33-65"><a href="temporal-dynamics.html#cb33-65" aria-hidden="true" tabindex="-1"></a>    oxcAAR<span class="sc">:::</span><span class="fu">plot.oxcAARCalibratedDatesList</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="temporal-dynamics.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># embed image</span></span>
+<span id="cb34-2"><a href="temporal-dynamics.html#cb34-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gahagan-chronology.jpg&#39;</span>)</span></code></pre></div>
 <p><img src="images/gahagan-chronology.jpg" width="100%" /></p>
 
 </div>
