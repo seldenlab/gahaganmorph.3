@@ -16,16 +16,16 @@ T ## quantity of each type (T) found across contexts
 
 # data by percentage
 data.pct <- data[3:15]/N*100
-# mean percent (Mp) of each type across assemblage
+## mean percent (Mp) of each type across assemblage
 Mp <- colMeans(data.pct)
 Mp
 
 #diversity, richness
-# richness (S) = number of types in assemblage
+## richness (S) = number of types in assemblage
 S <- specnumber(data[3:15])
 S
 
-# ubiquity (U) = number of assemblages that contain a particular type
+## ubiquity (U) = number of assemblages that contain a particular type
 U <- specnumber(data[3:15])
 U
 
@@ -55,7 +55,7 @@ Hmax <- exp(H)
 Hmax
 
 # evenness
-# Pielou's J
+## Pielou's J
 J <- H/log(S)
 ## Shannon diversity index divided by natural log of richness
 J

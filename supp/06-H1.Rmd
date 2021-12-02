@@ -18,13 +18,13 @@ library(wesanderson)
 source('readmulti.csv.R')
 
 # read .csv files
-setwd("./dataH2")
+setwd("./data")
 filelist <- list.files(pattern = ".csv")
 coords <- readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
-qdata <- read.csv("qdataH2.csv",header = TRUE, row.names = 1)
+qdata <- read.csv("qdata.csv",header = TRUE, row.names = 1)
 qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 ```
 
