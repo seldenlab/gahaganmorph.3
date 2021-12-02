@@ -90,7 +90,7 @@ summary(pca)
 # set plot parameters to plot by context
 pch.gps.context <- c(15,17)[as.factor(context)]
 col.gps.context <- pal[as.factor(context)]
-col.hull.context <- c("#798E87","#C27D38")
+col.hull.context <- c("#C27D38","#798E87")
 
 ## plot pca by context 2
 pc.plot <- plot(pca, asp = 1,
