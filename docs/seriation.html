@@ -261,11 +261,13 @@ div.csl-indent {
 ##                   1</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="seriation.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ca)</span>
 <span id="cb37-2"><a href="seriation.html#cb37-2" aria-hidden="true" tabindex="-1"></a>data.ca <span class="ot">&lt;-</span> <span class="fu">ca</span>(data[, <span class="dv">3</span><span class="sc">:</span><span class="dv">15</span>])</span>
-<span id="cb37-3"><a href="seriation.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.ca</span>(data.ca, <span class="at">cex=</span>.<span class="dv">75</span>)</span></code></pre></div>
+<span id="cb37-3"><a href="seriation.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.ca</span>(data.ca, </span>
+<span id="cb37-4"><a href="seriation.html#cb37-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/seriate-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="seriation.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
 <span id="cb38-2"><a href="seriation.html#cb38-2" aria-hidden="true" tabindex="-1"></a>data.dec <span class="ot">&lt;-</span> <span class="fu">decorana</span>(data[, <span class="dv">3</span><span class="sc">:</span><span class="dv">15</span>])</span>
-<span id="cb38-3"><a href="seriation.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data.dec, <span class="at">display=</span><span class="st">&quot;both&quot;</span>)</span></code></pre></div>
+<span id="cb38-3"><a href="seriation.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data.dec, </span>
+<span id="cb38-4"><a href="seriation.html#cb38-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">display =</span> <span class="st">&quot;both&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/seriate-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="seriation.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotrix)</span>
 <span id="cb39-2"><a href="seriation.html#cb39-2" aria-hidden="true" tabindex="-1"></a>rowlbl <span class="ot">&lt;-</span> data<span class="sc">$</span>context</span>

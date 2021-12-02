@@ -87,7 +87,7 @@ legend("bottomright",
 ```{r diversity3, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # sample size and richness
 plot(S~N, 
-     ylim = c(0,12), 
+     ylim = c(0, 12), 
      xlim = c(0, 184), 
      pch = 16)
 abline(h = seq(0, 12, by = 2), 
@@ -103,7 +103,7 @@ xval <- seq(1, 184, by = 1)
 lines(xval, 
       predict(data.log,
               data.frame(N = xval)),
-      lty= 1)
+      lty = 1)
 
 # power function
 data.pow <- lm(log(S)~log(N))
