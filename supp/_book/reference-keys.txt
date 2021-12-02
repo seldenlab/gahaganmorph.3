@@ -55,3 +55,4 @@ principal-components-analysis-2
 plot-pca-with-mean-shape-xy-maximaminima-2
 procrustes-anova-2
 mean-shapes
+fig:diversity2

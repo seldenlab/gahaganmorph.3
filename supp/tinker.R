@@ -1,8 +1,5 @@
 # Mortuary Assemblage Diversity
 
-The analysis of assemblage diversity is limited to Caddo mortuary contexts at the George C. Davis, Gahagan Mound, and Mounds Plantation sites where Gahagan bifaces were recovered.
-
-```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 data <- read.csv("gahagan-diagnostics.csv")
 
 library(vegan)
@@ -63,9 +60,7 @@ J
 # ratio of effective species to richness
 E <- Hmax/S
 E
-```
 
-```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. Sites in the lower left quadrat have lower diversity and evenness, and sites in the upper right quadrat have higher diversity and evenness."}
 # summarize assemblage diversity to identify high & low diversity assemblages
 library(maptools)
 pch <- c(1, 3)[as.factor(data$region)]
@@ -82,9 +77,7 @@ leg.txt <- c(as.expression(bquote("Northern Behavioral Region")),
 legend("bottomright", 
        leg.txt, 
        pch = c(1, 3))
-```
 
-```{r diversity3, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # sample size and richness
 plot(S~N, 
      ylim = c(0,12), 
@@ -113,10 +106,9 @@ lines(xval,
       exp(predict(data.pow,
                   data.frame(N = xval))), 
       lty = 2)
-```
 
-```{r diversity4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # rarefaction curve
+## how do individual assemblages compare to the composite?
 xval <- seq(2, 200, by = 2)
 data.rar <- rarefy(T, xval, se = TRUE)
 Est <- data.rar[1, ]
@@ -134,4 +126,18 @@ matlines(xval, rare,
          lty = c(2, 1, 2), 
          col = "black")
 identify(N, S, rownames(data))
-```
+
+## how different are the smaller samples from the largest one?
+data.rare <- data[1,3:14]
+data.184 <- rarefy(data.rare[1,], xval[1:8], se = TRUE)
+Est <- data.184[1, ]
+Sd <- data.184[2, ]
+rare184 <- cbind(lower = Est-2*Sd,
+                 expected = Est,
+                 upper = Est+2*Sd)
+
+plot(S~N,
+     ylim = range(rare184),
+     xlim = range(xval[1:8]),
+     pch = 16)
+
