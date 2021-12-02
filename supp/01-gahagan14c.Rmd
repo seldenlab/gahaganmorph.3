@@ -1,4 +1,4 @@
-# Temporal Dynamics
+# Calibrate + Model Legacy Dates
 
 Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001]. A table of associated diagnostic artifacts is included as a means of providing information related to relative dates.
 

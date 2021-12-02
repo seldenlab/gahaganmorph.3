@@ -9,7 +9,7 @@ primary-findings
 shape-preference-as-a-function-of-burial-practice
 hypothesis-1-findings
 hypothesis-1-summary-of-results
-temporal-dynamics
+calibrate-model-legacy-dates
 calibration-and-plots-for-dates-from-burial-pit-5-at-the-mounds-plantation-site
 calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site
 calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-site
@@ -27,7 +27,7 @@ spline-split-at-locations-of-lm2-and-lm3
 spline-split-at-location-of-lm4
 final-spline
 landmark-and-semilandmark-placement
-hypothesis-2
+hypothesis-1
 load-packages-data
 generalized-procrustes-analysis
 boxplot
