@@ -1,7 +1,7 @@
 --- 
 title: "Trajectories of change: Burial traditions and mortuary assemblage diversity in the ancestral Caddo area of the American Southeast"
 author: 
-    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu] John E. Dockall^[Cox|McClain Environmental Consulting, Inc.] and David L. Carlson^[Department of Anthropology, Texas A&M University]
+    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu], John E. Dockall^[Cox|McClain Environmental Consulting, Inc.], and David L. Carlson^[Department of Anthropology, Texas A&M University]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 bibliography: [book.bib]
