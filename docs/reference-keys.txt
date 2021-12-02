@@ -27,11 +27,12 @@ spline-split-at-locations-of-lm2-and-lm3
 spline-split-at-location-of-lm4
 final-spline
 landmark-and-semilandmark-placement
-hypothesis-1
+d-geometric-morphometrics
 load-packages-data
 generalized-procrustes-analysis
 boxplot
 principal-components-analysis
 plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
+morphological-disparity
 mean-shapes

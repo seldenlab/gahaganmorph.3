@@ -1,10 +1,10 @@
-# Hypothesis 1
+# 3D Geometric Morphometrics
 
 This effort follows recent analyses of Gahagan biface shapes across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahgagan bifaces were found to differ in shape across the same geography as Caddo bottles [@RN11801;@RN11782;@RN11716;@RN8312] and Perdiz arrow points ([Selden and Dockall, in review](https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf)). The analysis builds upon previous discussions and analyses conducted by Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
 
-_**Hypothesis 1: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**_
+_**Hypothesis: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**_
 
-Hypothesis 1 is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential `design intent`.
+This hypothesis is tested using two broad categories of Gahagan bifaces; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential `design intent`.
 
 ## Load packages + data
 
@@ -125,6 +125,26 @@ fit.sizecontext <- procD.lm(size ~ context,
 
 # ANOVA: do gahagan biface sizes differ by context?
 anova(fit.sizecontext)
+```
+
+## Morphological disparity
+
+```{r m-disparity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# does one context display greater **shape** variation among 
+# individuals relative to the other group?
+morphol.disparity(fit.shapecontext, 
+                  groups = qdata$context, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
+
+# does one context display greater **size** variation among 
+# individuals relative to the other group?
+morphol.disparity(fit.sizecontext, 
+                  groups = qdata$context, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
 ```
 
 ## Mean shapes
