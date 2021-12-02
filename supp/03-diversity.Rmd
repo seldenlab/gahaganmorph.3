@@ -50,7 +50,7 @@ D2 <- diversity(data[3:15],
 ## effective number of types
 D2
 
-# effective number of types for Shannon diversity index
+## effective number of types for Shannon diversity index
 Hmax <- exp(H)
 Hmax
 
@@ -60,7 +60,7 @@ J <- H/log(S)
 ## Shannon diversity index divided by natural log of richness
 J
 
-# ratio of effective species to richness
+## ratio of effective species to richness
 E <- Hmax/S
 E
 ```
