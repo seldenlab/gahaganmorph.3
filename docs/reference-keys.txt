@@ -21,7 +21,7 @@ calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site
 calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-site
 chronological-model-for-burial-contexts-yielding-gahagan-bifaces
 seriation
-assemblage-diversity
+mortuary-assemblage-diversity
 modeling-geometry
 section
 section-1
