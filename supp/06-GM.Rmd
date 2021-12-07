@@ -37,10 +37,10 @@ Y.gpa <- gpagen(coords,
               PrinAxes = TRUE, 
               print.progress = FALSE)
 ## plot gpa
-#plot(Y.gpa)
+plot(Y.gpa)
 
 ## 3D gpa plot
-#knitr::include_graphics('images/cacheind-gpa3d.png')
+knitr::include_graphics('images/gpa3d.png')
 
 # geomorph data frame
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
@@ -100,7 +100,7 @@ pc.plot <- plot(pca, asp = 1,
 
 ```{r pca2.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
-#knitr::include_graphics('images/cacheind-pca-warpref.png')
+knitr::include_graphics('images/cacheind-pca-warpref.png')
 ```
 
 ## Procrustes ANOVA
