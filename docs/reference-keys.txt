@@ -16,10 +16,10 @@ calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-si
 chronological-model-for-burial-contexts-yielding-gahagan-bifaces
 seriation
 mortuary-assemblage-diversity
-modeling-geometry
+dgm---modeling-geometry
 section
 section-1
-landmarking-protocol
+dgm---landmarking-protocol
 generating-the-spline
 splitting-the-spline
 spline-split-at-location-of-lm1
@@ -27,7 +27,7 @@ spline-split-at-locations-of-lm2-and-lm3
 spline-split-at-location-of-lm4
 final-spline
 landmark-and-semilandmark-placement
-d-geometric-morphometrics
+dgm---analysis
 load-packages-data
 generalized-procrustes-analysis
 boxplot
