@@ -8,7 +8,7 @@ data <- read.csv("gahagan-diagnostics.csv")
 library(vegan)
 # assemblage size (N)
 N <- rowSums(data[3:15])
-N ## assemblage sizes range from 8 - 184
+N ## assemblage sizes range from:
 
 # how many of each type were found?
 T <- colSums(data[3:15])
