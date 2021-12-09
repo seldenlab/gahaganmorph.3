@@ -51,14 +51,14 @@ All Gahagan bifaces used in the analysis were recovered from Caddo burial contex
 
 ## Mounds Plantation (16CD12)
 
-There is a contextual difference between Gahagan bifaces from Mound 5 at the Mounds Plantation site, where those from burials included during mound development and/or construction (Burial Pits 1, 5, and 8) might be contrasted with those from Burial Pit 2 which was excavated into the corner of Burial Pit 1, cutting downward from the mound's surface (see Figure 2:a\textsubscript{1}-l\textsubscript{1}) [@RN8174]. The stratigraphic position of Burial Pit 2 indicates that this burial may have occurred subsequent to those associated with Burial Pits 1, 5, and 8 [@RN8174].
+There is a contextual difference between Gahagan bifaces from Mound 5 at the Mounds Plantation site (Figure 2:a\textsubscript{1}-l\textsubscript{1}), where those from burials included during mound development and/or construction (Burial Pits 1, 5, and 8) might be contrasted with those from Burial Pit 2 which was excavated into the corner of Burial Pit 1, cutting downward from the mound's surface [@RN8174]. The stratigraphic position of Burial Pit 2 indicates that this burial may have occurred subsequent to those associated with Burial Pits 1, 5, and 8 [@RN8174].
 
 ## Gahagan Mound (16RR1)
-Gahagan bifaces were identified in 1911 from Deposits 1, 2, and 3 of Burial Pit 1 at the Gahagan Mound site in northwest Louisiana by \citet[Figures 18-19, 21]{RN7115}. A subsequent excavation at the Gahagan Mound site in 1936 identified two additional burial features containing Gahagan bifaces (Burial Pits 2 and 3) (see Figure 2:a\textsubscript{2}-ee\textsubscript{2}) \citep[Plate 27]{RN8176}, and the entirety of the Gahagan Mound site was destroyed by the meander of the Red River between four and five years after the excavation of Burial Pits 2 and 3 \citep{RN10759}.
+Gahagan bifaces were identified in 1911 from Deposits 1, 2, and 3 of Burial Pit 1 at the Gahagan Mound site in northwest Louisiana by \citet[Figures 18-19, 21]{RN7115}. A subsequent excavation at the Gahagan Mound site in 1936 identified two additional burial features containing Gahagan bifaces (Burial Pits 2 and 3) (Figure 2:a\textsubscript{2}-ee\textsubscript{2}) \citep[Plate 27]{RN8176}, and the entirety of the Gahagan Mound site was destroyed by the meander of the Red River between four and five years after the excavation of Burial Pits 2 and 3 \citep{RN10759}.
 
 ## George C. Davis (41CE19)
 
-To assess the temporal change in preference between caches of Gahagan bifaces recovered from Mound C at the George C. Davis site, those from Feature 134 are contrasted with those from Feature 119 (see Figure 2:a\textsubscript{3}-y\textsubscript{3}) [@RN5746;@RN8186]. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred subsequent to those associated with Feature 134 [@RN5746;@RN8186].
+To assess the temporal change in preference between caches of Gahagan bifaces recovered from Mound C at the George C. Davis site, those from Feature 134 are contrasted with those from Feature 119 (Figure 2:a\textsubscript{3}-y\textsubscript{3}) [@RN5746;@RN8186]. The stratigraphic position of Feature 119 indicates that the burials in that feature occurred subsequent to those associated with Feature 134 [@RN5746;@RN8186].
 
 # Methods and results
 
@@ -92,8 +92,7 @@ Contexts & Diagnostics \\
 ## Seriation
 
 
-
-```{r h1a, out.width = "90%", dpi = 300, echo = FALSE, fig.align="center", fig.cap = "Results of the seriation of Caddo mortuary contexts. Additional information related to the seriation, including those data and code needed to reproduce these results, can be found in the supplemental materials at https://seldenlab.github.io/gahaganmorph.3/."}
+```{r h1a, out.width = "80%", dpi = 300, echo = FALSE, fig.align="center", fig.cap = "Results of the seriation of Caddo mortuary contexts. Additional information related to the seriation, including those data and code needed to reproduce these results, can be found in the supplemental materials at: https://seldenlab.github.io/gahaganmorph.3/."}
 knitr::include_graphics('img/fig03.png')
 ```
 
