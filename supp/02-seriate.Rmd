@@ -5,12 +5,12 @@ Load the data and summarize row and column sums. Also create gahagan_ct with onl
 ```{r load}
 library(ca)
 library(plotrix)
-gahagan <- read.csv("gahagan-diagnostics.csv")
-save(gahagan, file="gahagan-diagnostics.RData")
+# gahagan <- read.csv("gahagan-diagnostics.csv")
+# save(gahagan, file="gahagan-diagnostics.RData")
 load("gahagan-diagnostics.RData")
 # Structure of the data frame
 str(gahagan, give.attr=FALSE)
-knitr::kable(head(gahagan))
+print(gahagan)
 # Row sums
 (RS <- rowSums(gahagan[, -(1:2)]))
 # Column sums
@@ -116,6 +116,53 @@ quantile(all_perms[, 3], probs=c(0, .01, .25, .50, .75, .99, 1))
 round(quantile(all_perms[, 4], probs=c(0, .01, .25, .50, .75, .99, 1)))
 battleship.plot(gahagan_pct[perm[2034, ], ], col="gray", cex.labels = .75)
 battleship.plot(gahagan_pct[perm[2634, ], ], col="gray", cex.labels = .75)
+# gahagan.dst <- round(dist(gahagan_pct[perm[2034, ], ], method="manhattan", diag=TRUE, upper=TRUE), 1)
+# par(mar=c(0, 0, 0, 0))
+# image(as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt="n", yaxt="n", frame.plot=FALSE)
+# image(200 - as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt="n", yaxt="n", frame.plot=FALSE)
 ```
 
-We can conclude that (5 1 4 [3 7] 2 6 8) and (5 1 4 [7 3] 2 6 8) are the best seriations for these data. The brackets indicate the only difference between the two. However, given the relatively small sample sizes, it may be that sampling fluctuations could make other orderings better.
+We can conclude that (5 1 4 [3 7] 2 6 8) and (5 1 4 [7 3] 2 6 8) are the best seriations for these data. The brackets indicate the only difference between the two. However, given the relatively small sample sizes, it may be that sampling fluctuations could make other orderings better. 
+
+Running the North and South groups separately produces the same orderings (although South is reversed). Since the tied contexts were one North and one South, it did not have any effect on the separate orderings.
+
+```{r twogroups, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+
+# North contexts
+north <- grep("(N)", rownames(gahagan_pct))
+north_pct <- gahagan_pct[north, ]
+north_dist <- dist(north_pct, method="manhattan")
+northrows <- nrow(north_pct)
+northperm <- permutations(northrows)
+northnperm <- factorial(northrows) / 2
+# There are only 12 permutations to check
+north_perms <- t(sapply(seq(northnperm), function(i) criterion(north_dist, northperm[i,], method=Crit)))
+round(north_perms, 1)
+northbest <- c(which.min(north_perms[, "AR_events"]), which.min(north_perms[, "AR_deviations"]),
+     which.max(north_perms[, "Gradient_raw"]), which.max(north_perms[, "Gradient_weighted"]))
+# All four criteria agree on permutation 4
+northbest
+north_ser <- northperm[northbest[1], ]
+rownames(north_pct)[north_ser]
+battleship.plot(north_pct[north_ser, ], col="gray", cex.labels = .75)
+
+# South contexts
+south <- grep("(S)", rownames(gahagan_pct))
+south_pct <- gahagan_pct[south, ]
+south_dist <- dist(south_pct, method="manhattan")
+southrows <- nrow(south_pct)
+southperm <- permutations(southrows)
+southnperm <- factorial(southrows) / 2
+# There are only 12 permutations to check
+south_perms <- t(sapply(seq(southnperm), function(i) criterion(south_dist, southperm[i,], method=Crit)))
+round(south_perms, 1)
+southbest <- c(which.min(south_perms[, "AR_events"]), which.min(south_perms[, "AR_deviations"]),
+     which.max(south_perms[, "Gradient_raw"]), which.max(south_perms[, "Gradient_weighted"]))
+# All four criteria agree on permuation 7
+southbest
+south_ser <- southperm[southbest[1], ]
+rownames(south_pct)[south_ser]
+# Reverse South for battlship plot
+battleship.plot(south_pct[rev(south_ser), ], col="gray", cex.labels = .75)
+```
+

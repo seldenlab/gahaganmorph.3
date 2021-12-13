@@ -1,10 +1,44 @@
-# Mortuary Assemblage Diversity
+# Composition & Diversity
 
-The analysis of assemblage diversity is limited to Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were recovered.
+This analysis of assemblage diversity is limited to Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were recovered.
 
-```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+## Taxonomic composition
+
+```{r composistion}
+library(here)
+# read data
 data <- read.csv("gahagan-diagnostics.csv")
 
+# table of diagnostics
+knitr::kable(data)
+```
+
+## Relative abundance
+
+```{r relative.abundance}
+library(ggplot2)
+library(scales)
+library(reshape2)
+
+taco <- data(tips, package = "reshape2")
+
+# mean number of observations for types
+colMeans(data[3:15])
+
+# abundance by context
+RS <- rowSums(data[, -(1:2)])
+CS <- colSums(data[, -(1:2)])
+as.matrix(CS)
+gahagan_ct <- data[, -(1:2)]
+labels <- paste0(data$context, " (", substr(data$region, 1, 1), ")")
+rownames(gahagan_ct) <- labels
+gahagan_pct <- gahagan_ct / RS  * 100
+
+#see example
+#https://www.geeksforgeeks.org/grouped-stacked-and-percent-stacked-barplot-in-ggplot2/
+```
+
+```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 library(vegan)
 # assemblage size (N)
 N <- rowSums(data[3:15])
@@ -64,6 +98,21 @@ J
 E <- Hmax/S
 E
 ```
+
+```{r diversity1.1, , out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8."}
+type.shannon <- diversity(data[3:15])
+plot(type.shannon)
+
+data2 <- data[3:15]
+types.jaccard <- vegdist(data2, method = "jaccard")
+plot(
+  hclust(types.jaccard),
+  hang = -1,
+  main = "Assemblages clustered by Jaccard similarity",
+  axes = FALSE, ylab = ""
+)
+```
+
 
 ```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and each represents the earliest context at each site to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
 # summarize assemblage diversity to identify high & low diversity assemblages
