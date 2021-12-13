@@ -1,4 +1,4 @@
-# Modeling Geometry
+# 3DGM - Modeling Geometry
 
 Two Gahagan bifaces, both from the George C. Davis site (4078-8, and 4078-72), were missing small sections of the blade along the lateral edge. This analysis limited the inclusion of specimens with missing data to those where the area of missing data was smaller than a dime (10-cent coin in the US), ensuring that modeling was kept to a minimum.
 
