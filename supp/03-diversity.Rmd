@@ -82,8 +82,9 @@ D2
 Hmax <- exp(H)
 Hmax
 
-# are the data normally distributed?
+# are data normally distributed?
 shapiro.test(H)
+hist(H, col='steelblue')
 
 # ANOVA: are there differences in assemblage diversity among the contexts?
 context <- data$context
@@ -102,8 +103,9 @@ anova(shannon)
 ### Simpson index
 
 ```{r simpson, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# are the data normally distributed?
+# are data normally distributed?
 shapiro.test(D1)
+hist(D1, col='steelblue')
 
 # ANOVA: are there differences in assemblage diversity among the contexts?
 df <- data.frame(a = context, b = D1)
@@ -121,8 +123,9 @@ anova(simpson)
 ### Inverse Simpson index
 
 ```{r inv.simpson, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# are the data normally distributed?
+# are data normally distributed?
 shapiro.test(D2)
+hist(D2, col='steelblue')
 
 # ANOVA: are there differences in assemblage diversity among the contexts?
 df <- data.frame(a = context, b = D2)
