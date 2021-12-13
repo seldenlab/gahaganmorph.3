@@ -16,30 +16,17 @@ knitr::kable(data)
 ## Relative abundance
 
 ```{r relative.abundance}
-library(ggplot2)
-library(scales)
-library(reshape2)
-
-taco <- data(tips, package = "reshape2")
-
-# mean number of observations for types
+# mean number of observations for each type
 colMeans(data[3:15])
-
-# abundance by context
-RS <- rowSums(data[, -(1:2)])
-CS <- colSums(data[, -(1:2)])
-as.matrix(CS)
-gahagan_ct <- data[, -(1:2)]
-labels <- paste0(data$context, " (", substr(data$region, 1, 1), ")")
-rownames(gahagan_ct) <- labels
-gahagan_pct <- gahagan_ct / RS  * 100
-
-#see example
-#https://www.geeksforgeeks.org/grouped-stacked-and-percent-stacked-barplot-in-ggplot2/
 ```
+
+## Alpha diversity
 
 ```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 library(vegan)
+library(RRPP)
+library(phyloseq)
+
 # assemblage size (N)
 N <- rowSums(data[3:15])
 N ## assemblage sizes range from:
@@ -48,13 +35,6 @@ N ## assemblage sizes range from:
 T <- colSums(data[3:15])
 T ## quantity of each type (T) found across contexts
 
-# data by percentage
-data.pct <- data[3:15]/N*100
-## mean percent (Mp) of each type across assemblage
-Mp <- colMeans(data.pct)
-Mp
-
-#diversity, richness
 ## richness (S) = number of types in assemblage
 S <- specnumber(data[3:15])
 S
@@ -63,10 +43,20 @@ S
 U <- specnumber(data[3:15])
 U
 
+# data by percentage
+data.pct <- data[3:15]/N*100
+## mean percent (Mp) of each type across assemblage
+Mp <- colMeans(data.pct)
+Mp
+
 ## percentage of sites that have each type
 Up <- U/length(N)*100
 Up
+```
 
+## Diversity indices
+
+```{r diversity.indices, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # Shannon diversity
 H <- diversity(data[3:15])
 ## high diversity = more types and spread more evenly over types
@@ -75,7 +65,7 @@ H
 # Simpson index
 D1 <- diversity(data[3:15], 
                 index = "simpson")
-## probability that two artifacts drawn randomly represent different types
+## probability that two artefacts drawn randomly represent different types
 D1
 
 # inverse Simpson index
@@ -83,15 +73,76 @@ D2 <- diversity(data[3:15],
                 index = "invsimpson")
 ## effective number of types
 D2
+```
 
-## effective number of types for Shannon diversity index
+### Shannon diversity
+
+```{r shannon, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# effective number of types for Shannon diversity index
 Hmax <- exp(H)
 Hmax
 
+# are the data normally distributed?
+shapiro.test(H)
+
+# ANOVA: are there differences in assemblage diversity among the contexts?
+context <- data$context
+df <- data.frame(a = context, b = H)
+
+# MODEL: H as a function of context
+shannon <- lm.rrpp(H ~ context,
+                   data = df,
+                   print.progress = FALSE,
+                   iter = 9999)
+
+# ANOVA: do contexts differ by H?
+anova(shannon)
+```
+
+### Simpson index
+
+```{r simpson, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# are the data normally distributed?
+shapiro.test(D1)
+
+# ANOVA: are there differences in assemblage diversity among the contexts?
+df <- data.frame(a = context, b = D1)
+
+# MODEL: D1 as a function of context
+simpson <- lm.rrpp(D1 ~ context,
+                   data = df,
+                   print.progress = FALSE,
+                   iter = 9999)
+
+# ANOVA: do contexts differ by D1?
+anova(simpson)
+```
+
+### Inverse Simpson index
+
+```{r inv.simpson, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# are the data normally distributed?
+shapiro.test(D2)
+
+# ANOVA: are there differences in assemblage diversity among the contexts?
+df <- data.frame(a = context, b = D2)
+
+# MODEL: D2 as a function of context
+inv.simpson <- lm.rrpp(D2 ~ context,
+                       data = df,
+                       print.progress = FALSE,
+                       iter = 9999)
+
+# ANOVA: do contexts differ by D2?
+anova(inv.simpson)
+```
+
+## Evenness
+
+```{r even, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # evenness
-## Pielou's J
+## Pielou's J (Shannon diversity index divided by natural log of richness)
 J <- H/log(S)
-## Shannon diversity index divided by natural log of richness
 J
 
 ## ratio of effective species to richness
@@ -99,10 +150,9 @@ E <- Hmax/S
 E
 ```
 
-```{r diversity1.1, , out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8."}
-type.shannon <- diversity(data[3:15])
-plot(type.shannon)
+## Beta diversity
 
+```{r diversity1.1, , out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8."}
 data2 <- data[3:15]
 types.jaccard <- vegdist(data2, method = "jaccard")
 plot(
@@ -112,7 +162,6 @@ plot(
   axes = FALSE, ylab = ""
 )
 ```
-
 
 ```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and each represents the earliest context at each site to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
 # summarize assemblage diversity to identify high & low diversity assemblages

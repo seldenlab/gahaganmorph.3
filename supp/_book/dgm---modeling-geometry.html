@@ -183,6 +183,15 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.1" data-path="composition-diversity.html"><a href="composition-diversity.html#taxonomic-composition"><i class="fa fa-check"></i><b>3.1</b> Taxonomic composition</a></li>
 <li class="chapter" data-level="3.2" data-path="composition-diversity.html"><a href="composition-diversity.html#relative-abundance"><i class="fa fa-check"></i><b>3.2</b> Relative abundance</a></li>
+<li class="chapter" data-level="3.3" data-path="composition-diversity.html"><a href="composition-diversity.html#alpha-diversity"><i class="fa fa-check"></i><b>3.3</b> Alpha diversity</a></li>
+<li class="chapter" data-level="3.4" data-path="composition-diversity.html"><a href="composition-diversity.html#diversity-indices"><i class="fa fa-check"></i><b>3.4</b> Diversity indices</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="composition-diversity.html"><a href="composition-diversity.html#shannon-diversity"><i class="fa fa-check"></i><b>3.4.1</b> Shannon diversity</a></li>
+<li class="chapter" data-level="3.4.2" data-path="composition-diversity.html"><a href="composition-diversity.html#simpson-index"><i class="fa fa-check"></i><b>3.4.2</b> Simpson index</a></li>
+<li class="chapter" data-level="3.4.3" data-path="composition-diversity.html"><a href="composition-diversity.html#inverse-simpson-index"><i class="fa fa-check"></i><b>3.4.3</b> Inverse Simpson index</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="composition-diversity.html"><a href="composition-diversity.html#evenness"><i class="fa fa-check"></i><b>3.5</b> Evenness</a></li>
+<li class="chapter" data-level="3.6" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity"><i class="fa fa-check"></i><b>3.6</b> Beta diversity</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dgm---modeling-geometry.html"><a href="dgm---modeling-geometry.html"><i class="fa fa-check"></i><b>4</b> 3DGM - Modeling Geometry</a>
 <ul>
@@ -234,14 +243,14 @@ div.csl-indent {
 <p>The images that follow include a before and after modeling image of each biface, illustrating the area of the biface that was missing, and the subsequent model that was used in the geometric morphometric analysis. In the case of 4078-8, a single semilandmark was included in the modeled area. No semilandmarks were placed in the modeled area of 4078-72.</p>
 <div id="section" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> 4078-8</h2>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="dgm---modeling-geometry.html#cb139-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-8-unmodeled.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="dgm---modeling-geometry.html#cb147-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-8-unmodeled.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fig4078-8-init"></span>
 <img src="images/41ce19-4078-8-unmodeled.png" alt="Gahagan biface 4078-8, before modeling." width="100%" />
 <p class="caption">
 Figure 4.1: Gahagan biface 4078-8, before modeling.
 </p>
 </div>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="dgm---modeling-geometry.html#cb140-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-8-modeled.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="dgm---modeling-geometry.html#cb148-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-8-modeled.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fig4078-8-mod"></span>
 <img src="images/41ce19-4078-8-modeled.png" alt="Gahagan biface 4078-8, after modeling." width="100%" />
 <p class="caption">
@@ -251,14 +260,14 @@ Figure 4.2: Gahagan biface 4078-8, after modeling.
 </div>
 <div id="section-1" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> 4078-72</h2>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="dgm---modeling-geometry.html#cb141-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-72-unmodeled.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="dgm---modeling-geometry.html#cb149-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-72-unmodeled.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fig4078-72-init"></span>
 <img src="images/41ce19-4078-72-unmodeled.png" alt="Gahagan biface 4078-72, before modeling." width="100%" />
 <p class="caption">
 Figure 4.3: Gahagan biface 4078-72, before modeling.
 </p>
 </div>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="dgm---modeling-geometry.html#cb142-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-72-modeled.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="dgm---modeling-geometry.html#cb150-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41ce19-4078-72-modeled.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fig4078-72-mod"></span>
 <img src="images/41ce19-4078-72-modeled.png" alt="Gahagan biface 4078-72, after modeling." width="100%" />
 <p class="caption">

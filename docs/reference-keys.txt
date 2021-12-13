@@ -18,6 +18,13 @@ seriation
 composition-diversity
 taxonomic-composition
 relative-abundance
+alpha-diversity
+diversity-indices
+shannon-diversity
+simpson-index
+inverse-simpson-index
+evenness
+beta-diversity
 dgm---modeling-geometry
 section
 section-1
