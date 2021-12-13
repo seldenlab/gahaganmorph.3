@@ -54,25 +54,7 @@ Up
 ```
 
 ```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# prepare data frame
-RS <- rowSums(data[, -(1:2)])
-CS <- colSums(data[, -(1:2)])
-as.matrix(CS)
-gahagan_ct <- data[, -(1:2)]
-labels <- paste0(data$context, " (", substr(data$region, 1, 1), ")")
-rownames(gahagan_ct) <- labels
-gahagan_pct <- gahagan_ct / RS  * 100
-gahagan_pct$context <- data$context
 
-# identify vars for plot
-context <- gahagan_pct$context
-types <- c("alba", "celt","catahoula", "friley", "gahagan", "harrell",
-           "reed", "scallorn", "coles_creek", "hickory_engraved",
-           "holly_fine_engraved", "kiam_incised")
-
-# plot figure
-ggplot(gahagan_pct, aes(x = context, y = perc, fill = types)) +
-  geom_bar(stat = "identity")
 ```
 
 ## Diversity indices
