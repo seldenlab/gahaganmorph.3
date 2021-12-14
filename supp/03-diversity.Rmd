@@ -6,12 +6,14 @@ This analysis of assemblage diversity is limited to Caddo mortuary contexts at t
 
 ```{r composistion}
 library(here)
+library(dplyr)
 # read data
-data <- read.csv("gahagan-diagnostics-ord.csv")
+data <- read.csv("gahagan-diagnostics.csv")
 
 # table of diagnostics
 knitr::kable(data)
 ```
+
 ## Alpha diversity
 
 ```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
@@ -34,7 +36,7 @@ U <- specnumber(data[3:15])
 U
 ```
 
-### Relative abundance
+## Relative abundance
 
 ```{r relative.abundance}
 # mean number of observations for each type
@@ -51,7 +53,7 @@ Up <- U/length(N)*100
 Up
 ```
 
-#### Relative abundance by context
+### Relative abundance by context
 
 ```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 library(dplyr)
@@ -92,90 +94,63 @@ plot1
 
 ```{r diversity.indices, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # Shannon diversity
-H <- diversity(data[3:15])
 ## high diversity = more types and spread more evenly over types
-H
-
-# Simpson index
-D1 <- diversity(data[3:15], 
-                index = "simpson")
-## probability that two artefacts drawn randomly represent different types
-D1
-
-# inverse Simpson index
-D2 <- diversity(data[3:15], 
-                index = "invsimpson")
-## effective number of types
-D2
+data$H <- diversity(data[3:15])
+H <- data$H
 ```
 
-### Shannon diversity
+## Intra-site diversity
 
-```{r shannon, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+### Beta diversity - Mounds Plantation
+
+```{r shannon.mp.context, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# filter dataset by mp context
+# mutate to add temporal assignment per seriation
+mp <- data %>% 
+  filter(context == c("16CD12-BP1", "16CD12-BP2", 
+                      "16CD12-BP5", "16CD12-BP8")) %>% 
+  mutate(temporal = c(1, 3, 2, 4), .after = region)
+
+pal2 <- wes_palette("Moonrise2", 4, type = "continuous")
+
+# table of diagnostics
+knitr::kable(mp, "pipe")
+
+mp.H <- mp$H
+mp.temporal <- mp$temporal
+
+## plot
+ggplot(mp, aes(x = mp.temporal, y = mp.H)) +
+  geom_point(aes(shape = factor(context))) +
+  geom_smooth(method = "lm")
+
 # load
 library(RRPP)
 
-# effective number of types for Shannon diversity index
-Hmax <- exp(H)
-Hmax
-
 # are data normally distributed?
-shapiro.test(H)
-hist(H, col='steelblue')
+shapiro.test(mp.H)
+hist(mp.H, col='steelblue')
 
-# ANOVA: are there differences in assemblage diversity among the contexts?
-context <- data$context
-df <- data.frame(a = context, b = H)
+# ANOVA: differences in assemblage diversity among the contexts?
+mp.context <- mp$context
 
 # MODEL: H as a function of context
-shannon <- lm.rrpp(H ~ context,
-                   data = df,
-                   print.progress = FALSE,
-                   iter = 9999)
+mp.shannon <- lm.rrpp(mp.H ~ mp.context,
+                      data = mp,
+                      print.progress = FALSE,
+                      iter = 9999)
 
 # ANOVA: do contexts differ by H?
-anova(shannon)
+anova(mp.shannon)
 ```
 
-### Simpson index
+### Beta diversity - George C. Davis
 
-```{r simpson, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# are data normally distributed?
-shapiro.test(D1)
-hist(D1, col='steelblue')
+### Beta diversity - Gahagan Mound
 
-# ANOVA: are there differences in assemblage diversity among the contexts?
-df <- data.frame(a = context, b = D1)
+## Gamma diversity - Southern Behavioural Region Sites
 
-# MODEL: D1 as a function of context
-simpson <- lm.rrpp(D1 ~ context,
-                   data = df,
-                   print.progress = FALSE,
-                   iter = 9999)
-
-# ANOVA: do contexts differ by D1?
-anova(simpson)
-```
-
-### Inverse Simpson index
-
-```{r inv.simpson, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# are data normally distributed?
-shapiro.test(D2)
-hist(D2, col='steelblue')
-
-# ANOVA: are there differences in assemblage diversity among the contexts?
-df <- data.frame(a = context, b = D2)
-
-# MODEL: D2 as a function of context
-inv.simpson <- lm.rrpp(D2 ~ context,
-                       data = df,
-                       print.progress = FALSE,
-                       iter = 9999)
-
-# ANOVA: do contexts differ by D2?
-anova(inv.simpson)
-```
+## Gamma diversity - Combined
 
 ## Evenness
 
@@ -184,10 +159,6 @@ anova(inv.simpson)
 ## Pielou's J (Shannon diversity index divided by natural log of richness)
 J <- H/log(S)
 J
-
-## ratio of effective species to richness
-E <- Hmax/S
-E
 ```
 
 ## Beta diversity
