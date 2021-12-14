@@ -146,7 +146,75 @@ anova(mp.shannon)
 
 ### Beta diversity - George C. Davis
 
+```{r shannon.gcd.context, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# filter dataset by mp context
+# mutate to add temporal assignment per seriation
+gcd <- data %>% 
+  filter(context == c("41CE19-F134", "41CE19-F119")) %>% 
+  mutate(temporal = c(1, 2), .after = region)
+
+# table of diagnostics
+knitr::kable(gcd, "pipe")
+
+gcd.H <- gcd$H
+gcd.temporal <- gcd$temporal
+
+## plot
+ggplot(gcd, aes(x = gcd.temporal, y = gcd.H)) +
+  geom_point(aes(shape = factor(context))) +
+  geom_smooth(method = "lm")
+
+# load
+library(RRPP)
+
+# ANOVA: differences in assemblage diversity among the contexts?
+gcd.context <- gcd$context
+
+# MODEL: H as a function of context
+gcd.shannon <- lm.rrpp(gcd.H ~ gcd.context,
+                      data = gcd,
+                      print.progress = FALSE,
+                      iter = 9999)
+
+# ANOVA: do contexts differ by H?
+anova(gcd.shannon)
+```
+
 ### Beta diversity - Gahagan Mound
+
+```{r shannon.gm.context, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# filter dataset by mp context
+# mutate to add temporal assignment per seriation
+gm <- data %>% 
+  filter(context == c("16RR1-BP2", "16RR1-BP3")) %>% 
+  mutate(temporal = c(2, 1), .after = region)
+
+# table of diagnostics
+knitr::kable(gm, "pipe")
+
+gm.H <- gm$H
+gm.temporal <- gm$temporal
+
+## plot
+ggplot(gm, aes(x = gm.temporal, y = gm.H)) +
+  geom_point(aes(shape = factor(context))) +
+  geom_smooth(method = "lm")
+
+# load
+library(RRPP)
+
+# ANOVA: differences in assemblage diversity among the contexts?
+gm.context <- gm$context
+
+# MODEL: H as a function of context
+gm.shannon <- lm.rrpp(gm.H ~ gm.context,
+                      data = gm,
+                      print.progress = FALSE,
+                      iter = 9999)
+
+# ANOVA: do contexts differ by H?
+anova(gm.shannon)
+```
 
 ## Gamma diversity - Southern Behavioural Region Sites
 
