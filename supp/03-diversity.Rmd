@@ -51,7 +51,9 @@ Up <- U/length(N)*100
 Up
 ```
 
-```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+#### Relative abundance by context
+
+```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 library(dplyr)
 library(ggplot2)
 library(wesanderson)
@@ -78,9 +80,9 @@ plot1 <- artifacts %>%
   geom_bar(stat="identity", position = "fill") + 
   coord_flip() +
   scale_fill_manual(values = pal) +
-  labs(x = "Context (Oldest at bottom, youngest at top)",
+  labs(x = "Context",
        y = "Relative abundance (%)",
-       title = "Abundance of diagnostic types across contexts")
+       title = "Abundance of diagnostic types across Gahagan-bearing contexts")
 
 ## print
 plot1

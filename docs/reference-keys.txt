@@ -19,6 +19,7 @@ composition-diversity
 taxonomic-composition
 alpha-diversity
 relative-abundance
+relative-abundance-by-context
 diversity-indices
 shannon-diversity
 simpson-index
