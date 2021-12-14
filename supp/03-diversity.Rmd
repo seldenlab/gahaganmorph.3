@@ -32,7 +32,7 @@ N ## assemblage sizes range from:
 
 # how many of each type were found?
 T <- colSums(data[3:15])
-T ## quantity of each type (T) found across contexts
+T
 
 ## richness (S) = number of types in assemblage
 S <- specnumber(data[3:15])
