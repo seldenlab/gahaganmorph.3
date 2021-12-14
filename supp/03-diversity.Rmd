@@ -7,24 +7,15 @@ This analysis of assemblage diversity is limited to Caddo mortuary contexts at t
 ```{r composistion}
 library(here)
 # read data
-data <- read.csv("gahagan-diagnostics.csv")
+data <- read.csv("gahagan-diagnostics-ord.csv")
 
 # table of diagnostics
 knitr::kable(data)
 ```
-
-## Relative abundance
-
-```{r relative.abundance}
-# mean number of observations for each type
-colMeans(data[3:15])
-```
-
 ## Alpha diversity
 
 ```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 library(vegan)
-library(RRPP)
 
 # assemblage size (N)
 N <- rowSums(data[3:15])
@@ -41,6 +32,13 @@ S
 ## ubiquity (U) = number of assemblages that contain a particular type
 U <- specnumber(data[3:15])
 U
+```
+
+### Relative abundance
+
+```{r relative.abundance}
+# mean number of observations for each type
+colMeans(data[3:15])
 
 # data by percentage
 data.pct <- data[3:15]/N*100
@@ -54,7 +52,38 @@ Up
 ```
 
 ```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(wesanderson)
 
+pal <- wes_palette("Moonrise2", 13, type = "continuous")
+
+gahagan_ct <- data[, -(1:2)]
+labels <- paste0(data$context, " (", substr(data$region, 1, 1), ")")
+rownames(gahagan_ct) <- labels
+
+artifacts_long <- data.frame(context = rownames(gahagan_ct), 
+                             stack(as.data.frame(gahagan_ct)))
+
+artifacts <- rename(artifacts_long, Types = ind)
+
+# configure plot
+plot1 <- artifacts %>% 
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot( aes(x=context, y = values, fill = Types)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context (Oldest at bottom, youngest at top)",
+       y = "Relative abundance (%)",
+       title = "Abundance of diagnostic types across contexts")
+
+## print
+plot1
 ```
 
 ## Diversity indices
@@ -81,6 +110,9 @@ D2
 ### Shannon diversity
 
 ```{r shannon, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# load
+library(RRPP)
+
 # effective number of types for Shannon diversity index
 Hmax <- exp(H)
 Hmax

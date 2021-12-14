@@ -17,8 +17,8 @@ chronological-model-for-burial-contexts-yielding-gahagan-bifaces
 seriation
 composition-diversity
 taxonomic-composition
-relative-abundance
 alpha-diversity
+relative-abundance
 diversity-indices
 shannon-diversity
 simpson-index

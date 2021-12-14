@@ -1,9 +1,5 @@
 --- 
-<<<<<<< HEAD
-title: "Trajectories of change: Discrete burial traditions and mortuary assemblage diversity in the ancestral Caddo area of the American Southeast"
-=======
 title: "Mortuary assemblage diversity, Gahagan biface morphology, and the evolution of a Caddo burial tradition in the American Southeast"
->>>>>>> d45f9ab8d62e2703e21f49cf6ab1e18241ddffe2
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu], John E. Dockall^[Cox|McClain Environmental Consulting, Inc.], and David L. Carlson^[Department of Anthropology, Texas A&M University]
 date: "`r Sys.Date()`"

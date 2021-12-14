@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2021-12-13" />
+<meta name="date" content="2021-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -182,16 +182,18 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="composition-diversity.html"><a href="composition-diversity.html"><i class="fa fa-check"></i><b>3</b> Composition &amp; Diversity</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="composition-diversity.html"><a href="composition-diversity.html#taxonomic-composition"><i class="fa fa-check"></i><b>3.1</b> Taxonomic composition</a></li>
-<li class="chapter" data-level="3.2" data-path="composition-diversity.html"><a href="composition-diversity.html#relative-abundance"><i class="fa fa-check"></i><b>3.2</b> Relative abundance</a></li>
-<li class="chapter" data-level="3.3" data-path="composition-diversity.html"><a href="composition-diversity.html#alpha-diversity"><i class="fa fa-check"></i><b>3.3</b> Alpha diversity</a></li>
-<li class="chapter" data-level="3.4" data-path="composition-diversity.html"><a href="composition-diversity.html#diversity-indices"><i class="fa fa-check"></i><b>3.4</b> Diversity indices</a>
+<li class="chapter" data-level="3.2" data-path="composition-diversity.html"><a href="composition-diversity.html#alpha-diversity"><i class="fa fa-check"></i><b>3.2</b> Alpha diversity</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="composition-diversity.html"><a href="composition-diversity.html#shannon-diversity"><i class="fa fa-check"></i><b>3.4.1</b> Shannon diversity</a></li>
-<li class="chapter" data-level="3.4.2" data-path="composition-diversity.html"><a href="composition-diversity.html#simpson-index"><i class="fa fa-check"></i><b>3.4.2</b> Simpson index</a></li>
-<li class="chapter" data-level="3.4.3" data-path="composition-diversity.html"><a href="composition-diversity.html#inverse-simpson-index"><i class="fa fa-check"></i><b>3.4.3</b> Inverse Simpson index</a></li>
+<li class="chapter" data-level="3.2.1" data-path="composition-diversity.html"><a href="composition-diversity.html#relative-abundance"><i class="fa fa-check"></i><b>3.2.1</b> Relative abundance</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="composition-diversity.html"><a href="composition-diversity.html#evenness"><i class="fa fa-check"></i><b>3.5</b> Evenness</a></li>
-<li class="chapter" data-level="3.6" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity"><i class="fa fa-check"></i><b>3.6</b> Beta diversity</a></li>
+<li class="chapter" data-level="3.3" data-path="composition-diversity.html"><a href="composition-diversity.html#diversity-indices"><i class="fa fa-check"></i><b>3.3</b> Diversity indices</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="composition-diversity.html"><a href="composition-diversity.html#shannon-diversity"><i class="fa fa-check"></i><b>3.3.1</b> Shannon diversity</a></li>
+<li class="chapter" data-level="3.3.2" data-path="composition-diversity.html"><a href="composition-diversity.html#simpson-index"><i class="fa fa-check"></i><b>3.3.2</b> Simpson index</a></li>
+<li class="chapter" data-level="3.3.3" data-path="composition-diversity.html"><a href="composition-diversity.html#inverse-simpson-index"><i class="fa fa-check"></i><b>3.3.3</b> Inverse Simpson index</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="composition-diversity.html"><a href="composition-diversity.html#evenness"><i class="fa fa-check"></i><b>3.4</b> Evenness</a></li>
+<li class="chapter" data-level="3.5" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity"><i class="fa fa-check"></i><b>3.5</b> Beta diversity</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dgm---modeling-geometry.html"><a href="dgm---modeling-geometry.html"><i class="fa fa-check"></i><b>4</b> 3DGM - Modeling Geometry</a>
 <ul>
@@ -262,24 +264,24 @@ div.csl-indent {
 ##  $ holly_fine_engraved: int  0 2 1 1 1 0 0 1
 ##  $ kiam_incised       : int  0 0 1 0 0 0 0 0</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="seriation.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gahagan)</span></code></pre></div>
-<pre><code>##       context region alba celt catahoula friley gahagan hayes harrell reed
-## 1 41CE19-F134  South  157   10         0      0      16     1       0    0
-## 2 41CE19-F119  South    5    3         0      0      12     1       0    0
-## 3   16RR1-BP2  South   31   14         0      0      16     8       2   16
-## 4   16RR1-BP3  South   89    3         0      0      15     0       0    0
-## 5  16CD12-BP1  North   35    1         2      1       1     3       0    0
-## 6  16CD12-BP2  North    1    0         0      0       8     4       0    0
-## 7  16CD12-BP5  North   12    0         0      1       2     9       0    0
-## 8  16CD12-BP8  North    0    0         4      0       1     0       0    0
-##   scallorn coles_creek hickory_engraved holly_fine_engraved kiam_incised
-## 1        0           0                0                   0            0
-## 2        0           0                0                   2            0
-## 3       19           0                1                   1            1
-## 4       11           0                0                   1            0
-## 5        0           1                1                   1            0
-## 6        0           0                0                   0            0
-## 7       19           0                0                   0            0
-## 8        1           0                1                   1            0</code></pre>
+<pre><code>##       context region alba celt catahoula friley gahagan hayes harrell reed scallorn coles_creek
+## 1 41CE19-F134  South  157   10         0      0      16     1       0    0        0           0
+## 2 41CE19-F119  South    5    3         0      0      12     1       0    0        0           0
+## 3   16RR1-BP2  South   31   14         0      0      16     8       2   16       19           0
+## 4   16RR1-BP3  South   89    3         0      0      15     0       0    0       11           0
+## 5  16CD12-BP1  North   35    1         2      1       1     3       0    0        0           1
+## 6  16CD12-BP2  North    1    0         0      0       8     4       0    0        0           0
+## 7  16CD12-BP5  North   12    0         0      1       2     9       0    0       19           0
+## 8  16CD12-BP8  North    0    0         4      0       1     0       0    0        1           0
+##   hickory_engraved holly_fine_engraved kiam_incised
+## 1                0                   0            0
+## 2                0                   2            0
+## 3                1                   1            1
+## 4                0                   1            0
+## 5                1                   1            0
+## 6                0                   0            0
+## 7                0                   0            0
+## 8                1                   1            0</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="seriation.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Row sums</span></span>
 <span id="cb33-2"><a href="seriation.html#cb33-2" aria-hidden="true" tabindex="-1"></a>(RS <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]))</span></code></pre></div>
 <pre><code>## [1] 184  23 109 119  46  13  43   8</code></pre>
@@ -340,22 +342,22 @@ div.csl-indent {
 <span id="cb47-2"><a href="seriation.html#cb47-2" aria-hidden="true" tabindex="-1"></a>gahagan_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(gahagan_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
 <span id="cb47-3"><a href="seriation.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance matrix:</span></span>
 <span id="cb47-4"><a href="seriation.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(gahagan_dist, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##                 41CE19-F134 (S) 41CE19-F119 (S) 16RR1-BP2 (S) 16RR1-BP3 (S)
-## 41CE19-F119 (S)           127.2                                            
-## 16RR1-BP2 (S)             113.8            90.9                            
-## 16RR1-BP3 (S)              28.0           124.6          92.7              
-## 16CD12-BP1 (N)             38.0           134.8         117.7          40.0
-## 16CD12-BP2 (N)            166.1            71.6         140.6         159.4
-## 16CD12-BP5 (N)            133.8           138.5          85.3         116.4
-## 16CD12-BP8 (N)            182.6           157.6         146.3         154.8
-##                 16CD12-BP1 (N) 16CD12-BP2 (N) 16CD12-BP5 (N)
-## 41CE19-F119 (S)                                             
-## 16RR1-BP2 (S)                                               
-## 16RR1-BP3 (S)                                               
-## 16CD12-BP1 (N)                                              
-## 16CD12-BP2 (N)           167.2                              
-## 16CD12-BP5 (N)           122.4          133.5               
-## 16CD12-BP8 (N)           178.3          175.0          165.7</code></pre>
+<pre><code>##                 41CE19-F134 (S) 41CE19-F119 (S) 16RR1-BP2 (S) 16RR1-BP3 (S) 16CD12-BP1 (N)
+## 41CE19-F119 (S)           127.2                                                           
+## 16RR1-BP2 (S)             113.8            90.9                                           
+## 16RR1-BP3 (S)              28.0           124.6          92.7                             
+## 16CD12-BP1 (N)             38.0           134.8         117.7          40.0               
+## 16CD12-BP2 (N)            166.1            71.6         140.6         159.4          167.2
+## 16CD12-BP5 (N)            133.8           138.5          85.3         116.4          122.4
+## 16CD12-BP8 (N)            182.6           157.6         146.3         154.8          178.3
+##                 16CD12-BP2 (N) 16CD12-BP5 (N)
+## 41CE19-F119 (S)                              
+## 16RR1-BP2 (S)                                
+## 16RR1-BP3 (S)                                
+## 16CD12-BP1 (N)                               
+## 16CD12-BP2 (N)                               
+## 16CD12-BP5 (N)           133.5               
+## 16CD12-BP8 (N)           175.0          165.7</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="seriation.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb49-2"><a href="seriation.html#cb49-2" aria-hidden="true" tabindex="-1"></a>gahagan_ser1 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;ARSA&quot;</span>)</span>
 <span id="cb49-3"><a href="seriation.html#cb49-3" aria-hidden="true" tabindex="-1"></a>gahagan_ser2 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;BBURCG&quot;</span>)</span>
@@ -365,14 +367,14 @@ div.csl-indent {
 <span id="cb49-7"><a href="seriation.html#cb49-7" aria-hidden="true" tabindex="-1"></a>ord3 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser3)</span>
 <span id="cb49-8"><a href="seriation.html#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Suggested orderings</span></span>
 <span id="cb49-9"><a href="seriation.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(ord1, ord2, ord3)</span></code></pre></div>
-<pre><code>##      16CD12-BP1 (N) 41CE19-F134 (S) 16RR1-BP3 (S) 16CD12-BP5 (N) 16RR1-BP2 (S)
-## ord1              5               1             4              7             3
-## ord2              5               1             4              3             7
-## ord3              5               1             4              7             3
-##      41CE19-F119 (S) 16CD12-BP2 (N) 16CD12-BP8 (N)
-## ord1               2              6              8
-## ord2               2              6              8
-## ord3               2              6              8</code></pre>
+<pre><code>##      16CD12-BP1 (N) 41CE19-F134 (S) 16RR1-BP3 (S) 16CD12-BP5 (N) 16RR1-BP2 (S) 41CE19-F119 (S)
+## ord1              5               1             4              7             3               2
+## ord2              5               1             4              3             7               2
+## ord3              5               1             4              7             3               2
+##      16CD12-BP2 (N) 16CD12-BP8 (N)
+## ord1              6              8
+## ord2              6              8
+## ord3              6              8</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="seriation.html#cb51-1" aria-hidden="true" tabindex="-1"></a>Crit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AR_events&quot;</span>, <span class="st">&quot;AR_deviations&quot;</span>, <span class="st">&quot;Gradient_raw&quot;</span>, <span class="st">&quot;Gradient_weighted&quot;</span>)</span>
 <span id="cb51-2"><a href="seriation.html#cb51-2" aria-hidden="true" tabindex="-1"></a>gahagan_ord1 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord1)</span>
 <span id="cb51-3"><a href="seriation.html#cb51-3" aria-hidden="true" tabindex="-1"></a>gahagan_ord2 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord2)</span>
