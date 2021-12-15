@@ -160,21 +160,11 @@ shapiro.test(nbr.H)
 hist(nbr.H, col='steelblue')
 
 # ANOVA: differences in assemblage diversity among the contexts?
-nbr.context <- nbr$context
 
 # MODEL: H as a function of context
 nbr.shannon <- aov(nbr.H ~ nbr.temporal, data = nbr)
 # ANOVA: do contexts differ by H?
 summary(nbr.shannon)
-
-# MODEL: H as a function of context
-nbr.shannon <- lm.rrpp(nbr.H ~ nbr.context,
-                      data = nbr,
-                      print.progress = FALSE,
-                      iter = 9999)
-
-# ANOVA: do contexts differ by H?
-anova(nbr.shannon)
 ```
 
 ### Beta diversity - Southern Behavioural Region
@@ -205,9 +195,9 @@ hist(sbr.H, col='steelblue')
 sbr.context <- sbr$context
 
 # MODEL: H as a function of context
-sbr.shannon <- aov(sbr.H ~ sbr.temporal, data = sbr)
+sbr.temporal.shannon <- aov(sbr.H ~ sbr.temporal, data = sbr)
 # ANOVA: do contexts differ by H?
-summary(sbr.shannon)
+summary(sbr.temporal.shannon)
 ```
 
 ### Beta diversity - Temporal
