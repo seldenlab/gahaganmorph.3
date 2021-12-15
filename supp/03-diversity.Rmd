@@ -243,6 +243,3 @@ temp.shannon <- aov(temp.H ~ time, data = temp)
 # ANOVA: do temporal contexts differ by H?
 summary(temp.shannon)
 ```
-
-
-
