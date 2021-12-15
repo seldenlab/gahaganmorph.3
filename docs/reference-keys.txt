@@ -21,9 +21,10 @@ relative-abundance
 relative-abundance-by-context
 diversity-indices
 evenness
-intra-site-diversity
+beta-diversity
 beta-diversity---northern-behavioural-region
 beta-diversity---southern-behavioural-region
+beta-diversity---temporal
 dgm---modeling-geometry
 section
 section-1

@@ -189,11 +189,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="composition-diversity.html"><a href="composition-diversity.html#diversity-indices"><i class="fa fa-check"></i><b>3.4</b> Diversity indices</a></li>
 <li class="chapter" data-level="3.5" data-path="composition-diversity.html"><a href="composition-diversity.html#evenness"><i class="fa fa-check"></i><b>3.5</b> Evenness</a></li>
-<li class="chapter" data-level="3.6" data-path="composition-diversity.html"><a href="composition-diversity.html#intra-site-diversity"><i class="fa fa-check"></i><b>3.6</b> Intra-site diversity</a>
+<li class="chapter" data-level="3.6" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity"><i class="fa fa-check"></i><b>3.6</b> Beta diversity</a>
 <ul>
 <li class="chapter" data-level="3.6.1" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity---northern-behavioural-region"><i class="fa fa-check"></i><b>3.6.1</b> Beta diversity - Northern Behavioural Region</a></li>
 <li class="chapter" data-level="3.6.2" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity---southern-behavioural-region"><i class="fa fa-check"></i><b>3.6.2</b> Beta diversity - Southern Behavioural Region</a></li>
 </ul></li>
+<li class="chapter" data-level="3.7" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity---temporal"><i class="fa fa-check"></i><b>3.7</b> Beta diversity - Temporal</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dgm---modeling-geometry.html"><a href="dgm---modeling-geometry.html"><i class="fa fa-check"></i><b>4</b> 3DGM - Modeling Geometry</a>
 <ul>
@@ -244,90 +245,72 @@ div.csl-indent {
 <p>This hypothesis is tested using Gahagan bifaces recovered from two discrete contexts; one interred as part of a <em>cache</em>, and the other placed atop or alongside <em>individuals</em>. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential <code>shape preference</code>.</p>
 <div id="load-packages-data" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Load packages + data</h2>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dgm---analysis.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
-<span id="cb165-2"><a href="dgm---analysis.html#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb165-3"><a href="dgm---analysis.html#cb165-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span></code></pre></div>
-<pre><code>## Loading required package: rgl</code></pre>
-<pre><code>## 
-## Attaching package: &#39;rgl&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:plotrix&#39;:
-## 
-##     mtext3d</code></pre>
-<pre><code>## Loading required package: Matrix</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dgm---analysis.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## -- Attaching packages --------------------------------------------- tidyverse 1.3.1 --</code></pre>
-<pre><code>## v tibble  3.1.6     v purrr   0.3.4
-## v tidyr   1.1.4     v stringr 1.4.0
-## v readr   2.1.1     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
-## x tidyr::expand()          masks Matrix::expand()
-## x dplyr::filter()          masks stats::filter()
-## x kableExtra::group_rows() masks dplyr::group_rows()
-## x dplyr::lag()             masks stats::lag()
-## x tidyr::pack()            masks Matrix::pack()
-## x tidyr::unpack()          masks Matrix::unpack()</code></pre>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="dgm---analysis.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb174-2"><a href="dgm---analysis.html#cb174-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-3"><a href="dgm---analysis.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
-<span id="cb174-4"><a href="dgm---analysis.html#cb174-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-5"><a href="dgm---analysis.html#cb174-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
-<span id="cb174-6"><a href="dgm---analysis.html#cb174-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
-<span id="cb174-7"><a href="dgm---analysis.html#cb174-7" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb174-8"><a href="dgm---analysis.html#cb174-8" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
-<span id="cb174-9"><a href="dgm---analysis.html#cb174-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb174-10"><a href="dgm---analysis.html#cb174-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-11"><a href="dgm---analysis.html#cb174-11" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb174-12"><a href="dgm---analysis.html#cb174-12" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>,<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb174-13"><a href="dgm---analysis.html#cb174-13" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="dgm---analysis.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb162-2"><a href="dgm---analysis.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb162-3"><a href="dgm---analysis.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
+<span id="cb162-4"><a href="dgm---analysis.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb162-5"><a href="dgm---analysis.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb162-6"><a href="dgm---analysis.html#cb162-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-7"><a href="dgm---analysis.html#cb162-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
+<span id="cb162-8"><a href="dgm---analysis.html#cb162-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-9"><a href="dgm---analysis.html#cb162-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
+<span id="cb162-10"><a href="dgm---analysis.html#cb162-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
+<span id="cb162-11"><a href="dgm---analysis.html#cb162-11" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb162-12"><a href="dgm---analysis.html#cb162-12" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
+<span id="cb162-13"><a href="dgm---analysis.html#cb162-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb162-14"><a href="dgm---analysis.html#cb162-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-15"><a href="dgm---analysis.html#cb162-15" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb162-16"><a href="dgm---analysis.html#cb162-16" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>,<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb162-17"><a href="dgm---analysis.html#cb162-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span></code></pre></div>
 </div>
 <div id="generalized-procrustes-analysis" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Generalized Procrustes Analysis</h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.0 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2021</a>)</span> using the <code>geomorph</code> library v. 4.0.0 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otárola-Castillo 2013</a>; <a href="#ref-RN9565" role="doc-biblioref">Baken et al. 2021</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="dgm---analysis.html#cb175-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords, </span>
-<span id="cb175-2"><a href="dgm---analysis.html#cb175-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb175-3"><a href="dgm---analysis.html#cb175-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb175-4"><a href="dgm---analysis.html#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
-<span id="cb175-5"><a href="dgm---analysis.html#cb175-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
-<span id="cb175-6"><a href="dgm---analysis.html#cb175-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-7"><a href="dgm---analysis.html#cb175-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
-<span id="cb175-8"><a href="dgm---analysis.html#cb175-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dgm---analysis.html#cb163-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords, </span>
+<span id="cb163-2"><a href="dgm---analysis.html#cb163-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb163-3"><a href="dgm---analysis.html#cb163-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb163-4"><a href="dgm---analysis.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
+<span id="cb163-5"><a href="dgm---analysis.html#cb163-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
+<span id="cb163-6"><a href="dgm---analysis.html#cb163-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-7"><a href="dgm---analysis.html#cb163-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
+<span id="cb163-8"><a href="dgm---analysis.html#cb163-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/gpa3d.png" width="100%" /></p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="dgm---analysis.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb176-2"><a href="dgm---analysis.html#cb176-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
-<span id="cb176-3"><a href="dgm---analysis.html#cb176-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb176-4"><a href="dgm---analysis.html#cb176-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">context =</span> qdata<span class="sc">$</span>context) </span>
-<span id="cb176-5"><a href="dgm---analysis.html#cb176-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-6"><a href="dgm---analysis.html#cb176-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb176-7"><a href="dgm---analysis.html#cb176-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
-<span id="cb176-8"><a href="dgm---analysis.html#cb176-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-9"><a href="dgm---analysis.html#cb176-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
-<span id="cb176-10"><a href="dgm---analysis.html#cb176-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
-<span id="cb176-11"><a href="dgm---analysis.html#cb176-11" aria-hidden="true" tabindex="-1"></a>context <span class="ot">&lt;-</span> qdata<span class="sc">$</span>context</span>
-<span id="cb176-12"><a href="dgm---analysis.html#cb176-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-13"><a href="dgm---analysis.html#cb176-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
-<span id="cb176-14"><a href="dgm---analysis.html#cb176-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="dgm---analysis.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb164-2"><a href="dgm---analysis.html#cb164-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
+<span id="cb164-3"><a href="dgm---analysis.html#cb164-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb164-4"><a href="dgm---analysis.html#cb164-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">context =</span> qdata<span class="sc">$</span>context) </span>
+<span id="cb164-5"><a href="dgm---analysis.html#cb164-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-6"><a href="dgm---analysis.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb164-7"><a href="dgm---analysis.html#cb164-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
+<span id="cb164-8"><a href="dgm---analysis.html#cb164-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-9"><a href="dgm---analysis.html#cb164-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
+<span id="cb164-10"><a href="dgm---analysis.html#cb164-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
+<span id="cb164-11"><a href="dgm---analysis.html#cb164-11" aria-hidden="true" tabindex="-1"></a>context <span class="ot">&lt;-</span> qdata<span class="sc">$</span>context</span>
+<span id="cb164-12"><a href="dgm---analysis.html#cb164-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-13"><a href="dgm---analysis.html#cb164-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
+<span id="cb164-14"><a href="dgm---analysis.html#cb164-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="boxplot" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Boxplot</h2>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="dgm---analysis.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
-<span id="cb177-2"><a href="dgm---analysis.html#cb177-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> csz, <span class="at">color =</span> context)) <span class="sc">+</span></span>
-<span id="cb177-3"><a href="dgm---analysis.html#cb177-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb177-4"><a href="dgm---analysis.html#cb177-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb177-5"><a href="dgm---analysis.html#cb177-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb177-6"><a href="dgm---analysis.html#cb177-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb177-7"><a href="dgm---analysis.html#cb177-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb177-8"><a href="dgm---analysis.html#cb177-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb177-9"><a href="dgm---analysis.html#cb177-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
-<span id="cb177-10"><a href="dgm---analysis.html#cb177-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dgm---analysis.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
+<span id="cb165-2"><a href="dgm---analysis.html#cb165-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> csz, <span class="at">color =</span> context)) <span class="sc">+</span></span>
+<span id="cb165-3"><a href="dgm---analysis.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb165-4"><a href="dgm---analysis.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb165-5"><a href="dgm---analysis.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb165-6"><a href="dgm---analysis.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb165-7"><a href="dgm---analysis.html#cb165-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb165-8"><a href="dgm---analysis.html#cb165-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-9"><a href="dgm---analysis.html#cb165-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
+<span id="cb165-10"><a href="dgm---analysis.html#cb165-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
 <pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/centsize.box.h2-1.png" width="100%" /></p>
 </div>
 <div id="principal-components-analysis" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Principal Components Analysis</h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="dgm---analysis.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb179-2"><a href="dgm---analysis.html#cb179-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb179-3"><a href="dgm---analysis.html#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="dgm---analysis.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb167-2"><a href="dgm---analysis.html#cb167-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb167-3"><a href="dgm---analysis.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering by OLS mean
@@ -336,101 +319,105 @@ div.csl-indent {
 ## Number of vectors 65 
 ## 
 ## Importance of Components:
-##                             Comp1        Comp2        Comp3        Comp4        Comp5
-## Eigenvalues            0.00354545 0.0004879563 0.0002164074 0.0001321895 0.0001143175
-## Proportion of Variance 0.72578649 0.0998891644 0.0443005890 0.0270604221 0.0234018531
-## Cumulative Proportion  0.72578649 0.8256756552 0.8699762442 0.8970366663 0.9204385194
-##                               Comp6        Comp7        Comp8        Comp9
-## Eigenvalues            8.404064e-05 6.702847e-05 5.067751e-05 0.0000440233
-## Proportion of Variance 1.720390e-02 1.372135e-02 1.037415e-02 0.0090119773
-## Cumulative Proportion  9.376424e-01 9.513638e-01 9.617379e-01 0.9707498933
-##                              Comp10       Comp11       Comp12       Comp13
-## Eigenvalues            1.898037e-05 1.736646e-05 1.284811e-05 1.100218e-05
-## Proportion of Variance 3.885457e-03 3.555074e-03 2.630127e-03 2.252248e-03
-## Cumulative Proportion  9.746354e-01 9.781904e-01 9.808206e-01 9.830728e-01
-##                              Comp14       Comp15       Comp16       Comp17
-## Eigenvalues            8.895681e-06 7.742354e-06 7.187114e-06 5.664377e-06
-## Proportion of Variance 1.821028e-03 1.584931e-03 1.471269e-03 1.159550e-03
-## Cumulative Proportion  9.848938e-01 9.864788e-01 9.879500e-01 9.891096e-01
-##                              Comp18       Comp19       Comp20       Comp21
-## Eigenvalues            5.004952e-06 4.648354e-06 3.900183e-06 3.195324e-06
-## Proportion of Variance 1.024560e-03 9.515611e-04 7.984035e-04 6.541124e-04
-## Cumulative Proportion  9.901341e-01 9.910857e-01 9.918841e-01 9.925382e-01
-##                              Comp22       Comp23       Comp24       Comp25
-## Eigenvalues            2.996739e-06 2.844847e-06 2.666197e-06 2.337022e-06
-## Proportion of Variance 6.134602e-04 5.823664e-04 5.457951e-04 4.784100e-04
-## Cumulative Proportion  9.931517e-01 9.937340e-01 9.942798e-01 9.947582e-01
-##                              Comp26       Comp27       Comp28       Comp29
-## Eigenvalues            2.170575e-06 1.931296e-06 1.785836e-06 1.586191e-06
-## Proportion of Variance 4.443368e-04 3.953541e-04 3.655772e-04 3.247079e-04
-## Cumulative Proportion  9.952026e-01 9.955979e-01 9.959635e-01 9.962882e-01
-##                              Comp30       Comp31       Comp32       Comp33
-## Eigenvalues            1.466620e-06 1.443472e-06 1.200869e-06 1.134647e-06
-## Proportion of Variance 3.002307e-04 2.954920e-04 2.458291e-04 2.322727e-04
-## Cumulative Proportion  9.965885e-01 9.968839e-01 9.971298e-01 9.973620e-01
-##                              Comp34       Comp35       Comp36       Comp37
-## Eigenvalues            1.048795e-06 1.002741e-06 9.456084e-07 8.204437e-07
-## Proportion of Variance 2.146980e-04 2.052703e-04 1.935748e-04 1.679524e-04
-## Cumulative Proportion  9.975767e-01 9.977820e-01 9.979756e-01 9.981435e-01
-##                              Comp38       Comp39       Comp40       Comp41
-## Eigenvalues            7.873510e-07 6.408918e-07 6.223865e-07 5.776848e-07
-## Proportion of Variance 1.611780e-04 1.311965e-04 1.274083e-04 1.182574e-04
-## Cumulative Proportion  9.983047e-01 9.984359e-01 9.985633e-01 9.986816e-01
-##                              Comp42       Comp43       Comp44       Comp45
-## Eigenvalues            5.189095e-07 5.059827e-07 4.682170e-07 4.472489e-07
-## Proportion of Variance 1.062256e-04 1.035793e-04 9.584836e-05 9.155599e-05
-## Cumulative Proportion  9.987878e-01 9.988914e-01 9.989872e-01 9.990788e-01
-##                              Comp46       Comp47       Comp48       Comp49
-## Eigenvalues            4.240362e-07 4.050463e-07 3.713485e-07 3.532916e-07
-## Proportion of Variance 8.680412e-05 8.291672e-05 7.601848e-05 7.232206e-05
-## Cumulative Proportion  9.991656e-01 9.992485e-01 9.993245e-01 9.993969e-01
-##                              Comp50       Comp51       Comp52       Comp53
-## Eigenvalues            3.212258e-07 3.099419e-07 2.623062e-07 2.582888e-07
-## Proportion of Variance 6.575789e-05 6.344797e-05 5.369651e-05 5.287411e-05
-## Cumulative Proportion  9.994626e-01 9.995261e-01 9.995798e-01 9.996326e-01
-##                              Comp54       Comp55       Comp56       Comp57
-## Eigenvalues            2.349982e-07 2.256611e-07 2.057828e-07 1.806898e-07
-## Proportion of Variance 4.810630e-05 4.619492e-05 4.212564e-05 3.698888e-05
-## Cumulative Proportion  9.996807e-01 9.997269e-01 9.997691e-01 9.998060e-01
-##                              Comp58       Comp59       Comp60       Comp61
-## Eigenvalues            1.667148e-07 1.562736e-07 1.462683e-07 1.314886e-07
-## Proportion of Variance 3.412806e-05 3.199065e-05 2.994248e-05 2.691693e-05
-## Cumulative Proportion  9.998402e-01 9.998722e-01 9.999021e-01 9.999290e-01
-##                              Comp62       Comp63      Comp64       Comp65
-## Eigenvalues            1.072852e-07 8.676582e-08 8.44168e-08 6.824529e-08
-## Proportion of Variance 2.196227e-05 1.776176e-05 1.72809e-05 1.397044e-05
-## Cumulative Proportion  9.999510e-01 9.999687e-01 9.99986e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="dgm---analysis.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
-<span id="cb181-2"><a href="dgm---analysis.html#cb181-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="fu">as.factor</span>(context)]</span>
-<span id="cb181-3"><a href="dgm---analysis.html#cb181-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(context)]</span>
-<span id="cb181-4"><a href="dgm---analysis.html#cb181-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
-<span id="cb181-5"><a href="dgm---analysis.html#cb181-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-6"><a href="dgm---analysis.html#cb181-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
-<span id="cb181-7"><a href="dgm---analysis.html#cb181-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb181-8"><a href="dgm---analysis.html#cb181-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pch =</span> pch.gps.context,</span>
-<span id="cb181-9"><a href="dgm---analysis.html#cb181-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> col.gps.context)</span>
-<span id="cb181-10"><a href="dgm---analysis.html#cb181-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">shapeHulls</span>(pc.plot, </span>
-<span id="cb181-11"><a href="dgm---analysis.html#cb181-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">groups =</span> context,</span>
-<span id="cb181-12"><a href="dgm---analysis.html#cb181-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+##                             Comp1        Comp2        Comp3        Comp4
+## Eigenvalues            0.00354545 0.0004879563 0.0002164074 0.0001321895
+## Proportion of Variance 0.72578649 0.0998891644 0.0443005890 0.0270604221
+## Cumulative Proportion  0.72578649 0.8256756552 0.8699762442 0.8970366663
+##                               Comp5        Comp6        Comp7        Comp8
+## Eigenvalues            0.0001143175 8.404064e-05 6.702847e-05 5.067751e-05
+## Proportion of Variance 0.0234018531 1.720390e-02 1.372135e-02 1.037415e-02
+## Cumulative Proportion  0.9204385194 9.376424e-01 9.513638e-01 9.617379e-01
+##                               Comp9       Comp10       Comp11       Comp12
+## Eigenvalues            0.0000440233 1.898037e-05 1.736646e-05 1.284811e-05
+## Proportion of Variance 0.0090119773 3.885457e-03 3.555074e-03 2.630127e-03
+## Cumulative Proportion  0.9707498933 9.746354e-01 9.781904e-01 9.808206e-01
+##                              Comp13       Comp14       Comp15       Comp16
+## Eigenvalues            1.100218e-05 8.895681e-06 7.742354e-06 7.187114e-06
+## Proportion of Variance 2.252248e-03 1.821028e-03 1.584931e-03 1.471269e-03
+## Cumulative Proportion  9.830728e-01 9.848938e-01 9.864788e-01 9.879500e-01
+##                              Comp17       Comp18       Comp19       Comp20
+## Eigenvalues            5.664377e-06 5.004952e-06 4.648354e-06 3.900183e-06
+## Proportion of Variance 1.159550e-03 1.024560e-03 9.515611e-04 7.984035e-04
+## Cumulative Proportion  9.891096e-01 9.901341e-01 9.910857e-01 9.918841e-01
+##                              Comp21       Comp22       Comp23       Comp24
+## Eigenvalues            3.195324e-06 2.996739e-06 2.844847e-06 2.666197e-06
+## Proportion of Variance 6.541124e-04 6.134602e-04 5.823664e-04 5.457951e-04
+## Cumulative Proportion  9.925382e-01 9.931517e-01 9.937340e-01 9.942798e-01
+##                              Comp25       Comp26       Comp27       Comp28
+## Eigenvalues            2.337022e-06 2.170575e-06 1.931296e-06 1.785836e-06
+## Proportion of Variance 4.784100e-04 4.443368e-04 3.953541e-04 3.655772e-04
+## Cumulative Proportion  9.947582e-01 9.952026e-01 9.955979e-01 9.959635e-01
+##                              Comp29       Comp30       Comp31       Comp32
+## Eigenvalues            1.586191e-06 1.466620e-06 1.443472e-06 1.200869e-06
+## Proportion of Variance 3.247079e-04 3.002307e-04 2.954920e-04 2.458291e-04
+## Cumulative Proportion  9.962882e-01 9.965885e-01 9.968839e-01 9.971298e-01
+##                              Comp33       Comp34       Comp35       Comp36
+## Eigenvalues            1.134647e-06 1.048795e-06 1.002741e-06 9.456084e-07
+## Proportion of Variance 2.322727e-04 2.146980e-04 2.052703e-04 1.935748e-04
+## Cumulative Proportion  9.973620e-01 9.975767e-01 9.977820e-01 9.979756e-01
+##                              Comp37       Comp38       Comp39       Comp40
+## Eigenvalues            8.204437e-07 7.873510e-07 6.408918e-07 6.223865e-07
+## Proportion of Variance 1.679524e-04 1.611780e-04 1.311965e-04 1.274083e-04
+## Cumulative Proportion  9.981435e-01 9.983047e-01 9.984359e-01 9.985633e-01
+##                              Comp41       Comp42       Comp43       Comp44
+## Eigenvalues            5.776848e-07 5.189095e-07 5.059827e-07 4.682170e-07
+## Proportion of Variance 1.182574e-04 1.062256e-04 1.035793e-04 9.584836e-05
+## Cumulative Proportion  9.986816e-01 9.987878e-01 9.988914e-01 9.989872e-01
+##                              Comp45       Comp46       Comp47       Comp48
+## Eigenvalues            4.472489e-07 4.240362e-07 4.050463e-07 3.713485e-07
+## Proportion of Variance 9.155599e-05 8.680412e-05 8.291672e-05 7.601848e-05
+## Cumulative Proportion  9.990788e-01 9.991656e-01 9.992485e-01 9.993245e-01
+##                              Comp49       Comp50       Comp51       Comp52
+## Eigenvalues            3.532916e-07 3.212258e-07 3.099419e-07 2.623062e-07
+## Proportion of Variance 7.232206e-05 6.575789e-05 6.344797e-05 5.369651e-05
+## Cumulative Proportion  9.993969e-01 9.994626e-01 9.995261e-01 9.995798e-01
+##                              Comp53       Comp54       Comp55       Comp56
+## Eigenvalues            2.582888e-07 2.349982e-07 2.256611e-07 2.057828e-07
+## Proportion of Variance 5.287411e-05 4.810630e-05 4.619492e-05 4.212564e-05
+## Cumulative Proportion  9.996326e-01 9.996807e-01 9.997269e-01 9.997691e-01
+##                              Comp57       Comp58       Comp59       Comp60
+## Eigenvalues            1.806898e-07 1.667148e-07 1.562736e-07 1.462683e-07
+## Proportion of Variance 3.698888e-05 3.412806e-05 3.199065e-05 2.994248e-05
+## Cumulative Proportion  9.998060e-01 9.998402e-01 9.998722e-01 9.999021e-01
+##                              Comp61       Comp62       Comp63      Comp64
+## Eigenvalues            1.314886e-07 1.072852e-07 8.676582e-08 8.44168e-08
+## Proportion of Variance 2.691693e-05 2.196227e-05 1.776176e-05 1.72809e-05
+## Cumulative Proportion  9.999290e-01 9.999510e-01 9.999687e-01 9.99986e-01
+##                              Comp65
+## Eigenvalues            6.824529e-08
+## Proportion of Variance 1.397044e-05
+## Cumulative Proportion  1.000000e+00</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="dgm---analysis.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb169-2"><a href="dgm---analysis.html#cb169-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="fu">as.factor</span>(context)]</span>
+<span id="cb169-3"><a href="dgm---analysis.html#cb169-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(context)]</span>
+<span id="cb169-4"><a href="dgm---analysis.html#cb169-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
+<span id="cb169-5"><a href="dgm---analysis.html#cb169-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-6"><a href="dgm---analysis.html#cb169-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb169-7"><a href="dgm---analysis.html#cb169-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb169-8"><a href="dgm---analysis.html#cb169-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb169-9"><a href="dgm---analysis.html#cb169-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> col.gps.context)</span>
+<span id="cb169-10"><a href="dgm---analysis.html#cb169-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">shapeHulls</span>(pc.plot, </span>
+<span id="cb169-11"><a href="dgm---analysis.html#cb169-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">groups =</span> context,</span>
+<span id="cb169-12"><a href="dgm---analysis.html#cb169-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
 <p><img src="_main_files/figure-html/pca1.h2-1.png" width="100%" /></p>
 <div id="plot-pca-with-mean-shape-xy-maximaminima" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Plot PCA with mean shape + x/y maxima/minima</h3>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="dgm---analysis.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
-<span id="cb182-2"><a href="dgm---analysis.html#cb182-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/cacheind-pca-warpref.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dgm---analysis.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
+<span id="cb170-2"><a href="dgm---analysis.html#cb170-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/cacheind-pca-warpref.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/cacheind-pca-warpref.png" width="100%" /></p>
 </div>
 </div>
 <div id="procrustes-anova" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Procrustes ANOVA</h2>
 <p>A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">Michael L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="dgm---analysis.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context</span></span>
-<span id="cb183-2"><a href="dgm---analysis.html#cb183-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> context,</span>
-<span id="cb183-3"><a href="dgm---analysis.html#cb183-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
-<span id="cb183-4"><a href="dgm---analysis.html#cb183-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb183-5"><a href="dgm---analysis.html#cb183-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb183-6"><a href="dgm---analysis.html#cb183-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb183-7"><a href="dgm---analysis.html#cb183-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
-<span id="cb183-8"><a href="dgm---analysis.html#cb183-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontext)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="dgm---analysis.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context</span></span>
+<span id="cb171-2"><a href="dgm---analysis.html#cb171-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> context,</span>
+<span id="cb171-3"><a href="dgm---analysis.html#cb171-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
+<span id="cb171-4"><a href="dgm---analysis.html#cb171-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb171-5"><a href="dgm---analysis.html#cb171-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb171-6"><a href="dgm---analysis.html#cb171-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-7"><a href="dgm---analysis.html#cb171-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
+<span id="cb171-8"><a href="dgm---analysis.html#cb171-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontext)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -447,14 +434,14 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ context, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="dgm---analysis.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context</span></span>
-<span id="cb185-2"><a href="dgm---analysis.html#cb185-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> context,</span>
-<span id="cb185-3"><a href="dgm---analysis.html#cb185-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> gdf,</span>
-<span id="cb185-4"><a href="dgm---analysis.html#cb185-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb185-5"><a href="dgm---analysis.html#cb185-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb185-6"><a href="dgm---analysis.html#cb185-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-7"><a href="dgm---analysis.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
-<span id="cb185-8"><a href="dgm---analysis.html#cb185-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontext)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="dgm---analysis.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context</span></span>
+<span id="cb173-2"><a href="dgm---analysis.html#cb173-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> context,</span>
+<span id="cb173-3"><a href="dgm---analysis.html#cb173-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> gdf,</span>
+<span id="cb173-4"><a href="dgm---analysis.html#cb173-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb173-5"><a href="dgm---analysis.html#cb173-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb173-6"><a href="dgm---analysis.html#cb173-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-7"><a href="dgm---analysis.html#cb173-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
+<span id="cb173-8"><a href="dgm---analysis.html#cb173-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontext)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -472,13 +459,13 @@ div.csl-indent {
 </div>
 <div id="morphological-disparity" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> Morphological disparity</h2>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="dgm---analysis.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># does one context display greater **shape** variation among </span></span>
-<span id="cb187-2"><a href="dgm---analysis.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
-<span id="cb187-3"><a href="dgm---analysis.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.shapecontext, </span>
-<span id="cb187-4"><a href="dgm---analysis.html#cb187-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
-<span id="cb187-5"><a href="dgm---analysis.html#cb187-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb187-6"><a href="dgm---analysis.html#cb187-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb187-7"><a href="dgm---analysis.html#cb187-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="dgm---analysis.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co"># does one context display greater **shape** variation among </span></span>
+<span id="cb175-2"><a href="dgm---analysis.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
+<span id="cb175-3"><a href="dgm---analysis.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.shapecontext, </span>
+<span id="cb175-4"><a href="dgm---analysis.html#cb175-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
+<span id="cb175-5"><a href="dgm---analysis.html#cb175-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb175-6"><a href="dgm---analysis.html#cb175-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb175-7"><a href="dgm---analysis.html#cb175-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapecontext, groups = qdata$context,  
@@ -504,13 +491,13 @@ div.csl-indent {
 ##             cache individual
 ## cache      1.0000     0.5627
 ## individual 0.5627     1.0000</code></pre>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="dgm---analysis.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co"># does one context display greater **size** variation among </span></span>
-<span id="cb189-2"><a href="dgm---analysis.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
-<span id="cb189-3"><a href="dgm---analysis.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.sizecontext, </span>
-<span id="cb189-4"><a href="dgm---analysis.html#cb189-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
-<span id="cb189-5"><a href="dgm---analysis.html#cb189-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb189-6"><a href="dgm---analysis.html#cb189-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb189-7"><a href="dgm---analysis.html#cb189-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="dgm---analysis.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># does one context display greater **size** variation among </span></span>
+<span id="cb177-2"><a href="dgm---analysis.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
+<span id="cb177-3"><a href="dgm---analysis.html#cb177-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.sizecontext, </span>
+<span id="cb177-4"><a href="dgm---analysis.html#cb177-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
+<span id="cb177-5"><a href="dgm---analysis.html#cb177-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb177-6"><a href="dgm---analysis.html#cb177-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb177-7"><a href="dgm---analysis.html#cb177-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizecontext, groups = qdata$context,  
@@ -539,25 +526,25 @@ div.csl-indent {
 </div>
 <div id="mean-shapes" class="section level2" number="6.7">
 <h2><span class="header-section-number">6.7</span> Mean shapes</h2>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dgm---analysis.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
-<span id="cb191-2"><a href="dgm---analysis.html#cb191-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb191-3"><a href="dgm---analysis.html#cb191-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>context)</span>
-<span id="cb191-4"><a href="dgm---analysis.html#cb191-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb191-5"><a href="dgm---analysis.html#cb191-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="dgm---analysis.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
+<span id="cb179-2"><a href="dgm---analysis.html#cb179-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb179-3"><a href="dgm---analysis.html#cb179-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>context)</span>
+<span id="cb179-4"><a href="dgm---analysis.html#cb179-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-5"><a href="dgm---analysis.html#cb179-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
 <pre><code>## [1] &quot;cache&quot;      &quot;individual&quot;</code></pre>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="dgm---analysis.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
-<span id="cb193-2"><a href="dgm---analysis.html#cb193-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
-<span id="cb193-3"><a href="dgm---analysis.html#cb193-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>cache)</span>
-<span id="cb193-4"><a href="dgm---analysis.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>individual)</span>
-<span id="cb193-5"><a href="dgm---analysis.html#cb193-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-6"><a href="dgm---analysis.html#cb193-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
-<span id="cb193-7"><a href="dgm---analysis.html#cb193-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
-<span id="cb193-8"><a href="dgm---analysis.html#cb193-8" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>individual, </span>
-<span id="cb193-9"><a href="dgm---analysis.html#cb193-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb193-10"><a href="dgm---analysis.html#cb193-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb193-11"><a href="dgm---analysis.html#cb193-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-12"><a href="dgm---analysis.html#cb193-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
-<span id="cb193-13"><a href="dgm---analysis.html#cb193-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-cache-ind.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="dgm---analysis.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
+<span id="cb181-2"><a href="dgm---analysis.html#cb181-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
+<span id="cb181-3"><a href="dgm---analysis.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>cache)</span>
+<span id="cb181-4"><a href="dgm---analysis.html#cb181-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>individual)</span>
+<span id="cb181-5"><a href="dgm---analysis.html#cb181-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-6"><a href="dgm---analysis.html#cb181-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
+<span id="cb181-7"><a href="dgm---analysis.html#cb181-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
+<span id="cb181-8"><a href="dgm---analysis.html#cb181-8" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>individual, </span>
+<span id="cb181-9"><a href="dgm---analysis.html#cb181-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb181-10"><a href="dgm---analysis.html#cb181-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb181-11"><a href="dgm---analysis.html#cb181-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-12"><a href="dgm---analysis.html#cb181-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
+<span id="cb181-13"><a href="dgm---analysis.html#cb181-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-cache-ind.jpg&#39;</span>)</span></code></pre></div>
 <p><img src="images/mshape-cache-ind.jpg" width="100%" /></p>
 
 </div>

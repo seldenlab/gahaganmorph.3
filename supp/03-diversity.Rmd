@@ -108,7 +108,7 @@ J <- H/log(S)
 J
 ```
 
-## Intra-site diversity
+## Beta diversity
 
 ```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and each represents the earliest context at each site to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
 # summarize assemblage diversity to identify high & low diversity assemblages
@@ -163,6 +163,11 @@ hist(nbr.H, col='steelblue')
 nbr.context <- nbr$context
 
 # MODEL: H as a function of context
+nbr.shannon <- aov(nbr.H ~ nbr.temporal, data = nbr)
+# ANOVA: do contexts differ by H?
+summary(nbr.shannon)
+
+# MODEL: H as a function of context
 nbr.shannon <- lm.rrpp(nbr.H ~ nbr.context,
                       data = nbr,
                       print.progress = FALSE,
@@ -179,8 +184,7 @@ anova(nbr.shannon)
 # mutate to add temporal assignment per seriation
 sbr <- data %>% 
   filter(context == c("41CE19-F134", "41CE19-F119", "16RR1-BP2", "16RR1-BP3")) %>% 
-  mutate(temporal = c(1, 2, 1, 2), .after = region)
-sbr
+  mutate(temporal = c(1, 2, 2, 1), .after = region)
 
 # table of diagnostics
 knitr::kable(sbr, "pipe")
@@ -193,9 +197,6 @@ ggplot(sbr, aes(x = sbr.temporal, y = sbr.H)) +
   geom_point(aes(shape = factor(context))) +
   geom_smooth(method = "lm")
 
-# load
-library(RRPP)
-
 # are data normally distributed?
 shapiro.test(sbr.H)
 hist(sbr.H, col='steelblue')
@@ -204,12 +205,44 @@ hist(sbr.H, col='steelblue')
 sbr.context <- sbr$context
 
 # MODEL: H as a function of context
-sbr.shannon <- lm.rrpp(sbr.H ~ sbr.context,
-                      data = sbr,
-                      print.progress = FALSE,
-                      iter = 9999)
-
+sbr.shannon <- aov(sbr.H ~ sbr.temporal, data = sbr)
 # ANOVA: do contexts differ by H?
-anova(sbr.shannon)
+summary(sbr.shannon)
 ```
+
+## Beta diversity - Temporal
+
+Greater diversity in mortuary assemblage diversity after the initial internment that included a Gahagan biface?
+
+```{r shannon.init.temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# mutate to add temporal assignment
+temp <- data %>%
+  mutate(temporal = c(1, 2, 2, 1, 1, 2, 2, 2), .after = region)
+
+# table of diagnostics
+knitr::kable(temp, "pipe")
+
+temp.H <- temp$H
+time <- temp$temporal
+
+## plot
+ggplot(temp, aes(x = time, y = temp.H)) +
+  geom_point(aes(shape = factor(context))) +
+  scale_shape_manual(values = c(0:5,15,17)) +
+  geom_smooth(method = "lm")
+
+# are data normally distributed?
+shapiro.test(temp.H)
+hist(temp.H, col='steelblue')
+
+# ANOVA: differences in assemblage diversity among 
+# initial v. later contexts?
+
+# MODEL: H as a function of temporal contexts
+temp.shannon <- aov(temp.H ~ time, data = temp)
+# ANOVA: do temporal contexts differ by H?
+summary(temp.shannon)
+```
+
+
 
