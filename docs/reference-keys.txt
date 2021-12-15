@@ -1,5 +1,4 @@
 fig:diversity2
-fig:diversity4
 fig:fig4078-8-init
 fig:fig4078-8-mod
 fig:fig4078-72-init
@@ -21,14 +20,10 @@ alpha-diversity
 relative-abundance
 relative-abundance-by-context
 diversity-indices
-intra-site-diversity
-beta-diversity---mounds-plantation
-beta-diversity---george-c.-davis
-beta-diversity---gahagan-mound
-gamma-diversity---southern-behavioural-region-sites
-gamma-diversity---combined
 evenness
-beta-diversity
+intra-site-diversity
+beta-diversity---northern-behavioural-region
+beta-diversity---southern-behavioural-region
 dgm---modeling-geometry
 section
 section-1

@@ -225,3 +225,68 @@ Previous studies have demonstrated a significant difference in shape between Gah
 The results raise substantive questions regarding the cultural or social practices that were driving the temporal shift in size at Mounds Plantation. Might this size difference articulate with a shift in trading or exchange-based relationships with central Texas groups, and/or might the shift be related to a shift in functional use?
   
   At both sites, shape remains consistent and does not differ between contexts, indicating an established `shape preference` that may have shifted at Mounds Plantation due to cyclical differences in the variable social mechanisms associated with raw material procurement. It may also be the case that the size difference was related to signaling, as well as the intended audience. For instance, larger bifaces selected for inclusion with caches may suggest that the intended audience was the group; representative of a potentially ostentatious display. The smaller Gahagan bifaces from individual burials may have been personal items belonging to the deceased, intended to signal status among personal contacts.
+
+
+
+```{r diversity3, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# sample size and richness
+plot(S~N, 
+     ylim = c(0, 12), 
+     xlim = c(0, 184), 
+     pch = 16)
+abline(h = seq(0, 12, by = 2), 
+       v = seq(0, 184, by = 50), 
+       col = "black", 
+       lty = 3)
+
+# logarithmic function
+data.log <- lm(S~log(N))
+summary(data.log)
+deviance(data.log)
+xval <- seq(1, 184, by = 1)
+lines(xval, 
+      predict(data.log,
+              data.frame(N = xval)),
+      lty = 1)
+
+# power function
+data.pow <- lm(log(S)~log(N))
+summary(data.pow)
+sum((S-exp(fitted(data.pow)))^2)
+lines(xval, 
+      exp(predict(data.pow,
+                  data.frame(N = xval))), 
+      lty = 2)
+```
+
+```{r diversity4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Rarefaction curve and confidence limits (dashed lines) for comparison of individual assemblages to the composite. Results demonstrate that diversity in the mortuary assemblages from 41CE19-F119 and 16RR1-BP3 are lower than expected based on the rarefaction curve."}
+# rarefaction curve
+## how do individual assemblages compare to the composite?
+xval <- seq(2, 200, by = 2)
+data.rar <- rarefy(T, xval, se = TRUE)
+Est <- data.rar[1, ]
+Sd <- data.rar[2, ]
+rare <- cbind(lower = Est-2*Sd, 
+              expected = Est, 
+              upper = Est+2*Sd)
+
+plot(S~N, 
+     ylim = range(rare), 
+     xlim = range(xval), 
+     pch = 16)
+matlines(xval, rare, 
+         type = "l", 
+         lty = c(2, 1, 2), 
+         col = "black")
+```
+
+```{r diversity1.1, , out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8."}
+data2 <- data[3:15]
+types.jaccard <- vegdist(data2, method = "jaccard")
+plot(
+  hclust(types.jaccard),
+  hang = -1,
+  main = "Assemblages clustered by Jaccard similarity",
+  axes = FALSE, ylab = ""
+)
+```
