@@ -227,6 +227,12 @@ hist(temp.H, col='steelblue')
 
 # ANOVA: differences in assemblage diversity among 
 # initial v. later contexts?
+region <- temp$region
+
+# MODEL: H as a function of region
+reg.shannon <- aov(temp.H ~ region, data = temp)
+# ANOVA: do temporal contexts differ by H?
+summary(reg.shannon)
 
 # MODEL: H as a function of temporal contexts
 temp.shannon <- aov(temp.H ~ time, data = temp)
