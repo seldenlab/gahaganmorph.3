@@ -210,7 +210,7 @@ sbr.shannon <- aov(sbr.H ~ sbr.temporal, data = sbr)
 summary(sbr.shannon)
 ```
 
-## Beta diversity - Temporal
+### Beta diversity - Temporal
 
 Greater diversity in mortuary assemblage diversity after the initial internment that included a Gahagan biface?
 
