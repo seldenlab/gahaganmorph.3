@@ -32,8 +32,8 @@ This hypothesis is tested using counts of associated diagnostic artefacts recove
 
 #### _Findings_:
 
-- Caddo mortuary contexts that occur following initial deposition include a **significantly greater** diversity of associated diagnostics
-- Caddo mortuary contexts that occur following initial deposition do not include greater evenness across the types
+- Caddo mortuary contexts that occur following initial deposition include **significantly greater** diversity of associated diagnostics
+- Caddo mortuary contexts that occur following initial deposition include **significantly greater** evenness across the types
 
 ```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based upon seriation results. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 knitr::include_graphics('images/relative-abundance.png')

@@ -149,14 +149,9 @@ temp.D1 <- temp$D1
 temp.J <- temp$J
 time <- temp$temporal
 
-## plot
+#diversity
+## plot diversity
 ggplot(temp, aes(x = time, y = temp.D1)) +
-  geom_point(aes(shape = factor(context))) +
-  scale_shape_manual(values = c(0:5,15,17)) +
-  geom_smooth(method = "lm")
-
-## plot
-ggplot(temp, aes(x = time, y = temp.J)) +
   geom_point(aes(shape = factor(context))) +
   scale_shape_manual(values = c(0:5,15,17)) +
   geom_smooth(method = "lm")
@@ -168,16 +163,29 @@ hist(temp.D1, col='steelblue')
 # MODEL: D1 as a function of initial v. later contexts
 temp.simpson <- aov(temp.D1 ~ time, 
                     data = temp)
+
 # ANOVA: do temporal contexts differ by D1?
 summary(temp.simpson)
+
+# evenness
+## plot evenness
+ggplot(temp, aes(x = time, y = temp.J)) +
+  geom_point(aes(shape = factor(context))) +
+  scale_shape_manual(values = c(0:5,15,17)) +
+  geom_smooth(method = "lm")
 
 shapiro.test(temp.J)
 hist(temp.J, col='steelblue')
 
 # MODEL: J as a function of initial v. later contexts
-temporal.J <- anosim(data[3:15], 
+temporal.J <- anosim(temp.J, 
                      grouping = time, 
                      permutations = 9999)
+
 # ANOSIM: do temporal contexts differ by J?
 summary(temporal.J)
+
+# effective types to richness
+Hmax <- exp(H)
+Hmax/S
 ```
