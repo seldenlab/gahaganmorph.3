@@ -24,6 +24,23 @@ knitr::include_graphics('images/fig02.jpg')
 
 ## Primary findings
 
+### Increase in mortuary assemblage diversity as a function of time
+
+**Hypothesis: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity following initial deposition.**
+
+This hypothesis is tested using counts of associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic artefacts included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
+
+#### _Findings_:
+
+- Caddo mortuary contexts that occur following initial deposition include a **significantly greater** diversity of associated diagnostics
+- Caddo mortuary contexts that occur following initial deposition do not include greater evenness across the types
+
+```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based upon seriation results. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+knitr::include_graphics('images/relative-abundance.png')
+```
+
+#### _Summary of results_:
+
 ### Shape preference as a function of burial practice
 
 **Hypothesis: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**

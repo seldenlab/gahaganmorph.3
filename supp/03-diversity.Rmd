@@ -94,9 +94,12 @@ plot1
 
 ```{r diversity.indices, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # Shannon diversity
-## high diversity = more types and spread more evenly over types
 data$H <- diversity(data[3:15])
 H <- data$H
+
+# Simpson diversity
+data$D1 <- diversity(data[3:15], index = "simpson")
+D1 <- data$D1
 ```
 
 ## Evenness
@@ -104,8 +107,8 @@ H <- data$H
 ```{r even, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # evenness
 ## Pielou's J (Shannon diversity index divided by natural log of richness)
-J <- H/log(S)
-J
+data$J <- H/log(S)
+J <- data$J
 ```
 
 ## Beta diversity
@@ -114,12 +117,12 @@ J
 # summarize assemblage diversity to identify high & low diversity assemblages
 library(maptools)
 pch <- c(1, 3)[as.factor(data$region)]
-plot(H, J, 
+plot(D1, J, 
      pch = pch)
 abline(h = median(J), 
-       v = median(H), 
+       v = median(D1), 
        lty = 2)
-pointLabel(H, J, 
+pointLabel(D1, J, 
            rownames(data), 
            cex = .75)
 leg.txt <- c(as.expression(bquote("Northern Behavioral Region")), 
@@ -129,80 +132,9 @@ legend("bottomright",
        pch = c(1, 3))
 ```
 
-### Beta diversity - Northern Behavioural Region
-
-```{r shannon.nbr.context, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# filter dataset by nbr context
-# mutate to add temporal assignment per seriation
-nbr <- data %>% 
-  filter(context == c("16CD12-BP1", "16CD12-BP2", 
-                      "16CD12-BP5", "16CD12-BP8")) %>% 
-  mutate(temporal = c(1, 3, 2, 4), .after = region)
-
-pal2 <- wes_palette("Moonrise2", 4, type = "continuous")
-
-# table of diagnostics
-knitr::kable(nbr, "pipe")
-
-nbr.H <- nbr$H
-nbr.temporal <- nbr$temporal
-
-## plot
-ggplot(nbr, aes(x = nbr.temporal, y = nbr.H)) +
-  geom_point(aes(shape = factor(context))) +
-  geom_smooth(method = "lm")
-
-# load
-library(RRPP)
-
-# are data normally distributed?
-shapiro.test(nbr.H)
-hist(nbr.H, col='steelblue')
-
-# ANOVA: differences in assemblage diversity among the contexts?
-
-# MODEL: H as a function of context
-nbr.shannon <- aov(nbr.H ~ nbr.temporal, data = nbr)
-# ANOVA: do contexts differ by H?
-summary(nbr.shannon)
-```
-
-### Beta diversity - Southern Behavioural Region
-
-```{r shannon.sbr.context, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# filter dataset by sbr context
-# mutate to add temporal assignment per seriation
-sbr <- data %>% 
-  filter(context == c("41CE19-F134", "41CE19-F119", "16RR1-BP2", "16RR1-BP3")) %>% 
-  mutate(temporal = c(1, 2, 2, 1), .after = region)
-
-# table of diagnostics
-knitr::kable(sbr, "pipe")
-
-sbr.H <- sbr$H
-sbr.temporal <- sbr$temporal
-
-## plot
-ggplot(sbr, aes(x = sbr.temporal, y = sbr.H)) +
-  geom_point(aes(shape = factor(context))) +
-  geom_smooth(method = "lm")
-
-# are data normally distributed?
-shapiro.test(sbr.H)
-hist(sbr.H, col='steelblue')
-
-# ANOVA: differences in assemblage diversity among the contexts?
-sbr.context <- sbr$context
-
-# MODEL: H as a function of context
-sbr.temporal.shannon <- aov(sbr.H ~ sbr.temporal, data = sbr)
-# ANOVA: do contexts differ by H?
-summary(sbr.temporal.shannon)
-```
-
 ### Beta diversity - Temporal
 
-Greater diversity in mortuary assemblage diversity after the initial internment that included a Gahagan biface?
+The figure above shows higher diversity and evenness in later contexts. Is there a significant increase in diversity and evenness between the initial burial context at each site that included Gahagan bifaces, and those that occur later?
 
 ```{r shannon.init.temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # mutate to add temporal assignment
@@ -212,30 +144,40 @@ temp <- data %>%
 # table of diagnostics
 knitr::kable(temp, "pipe")
 
-temp.H <- temp$H
+# attributes for plots
+temp.D1 <- temp$D1
+temp.J <- temp$J
 time <- temp$temporal
 
 ## plot
-ggplot(temp, aes(x = time, y = temp.H)) +
+ggplot(temp, aes(x = time, y = temp.D1)) +
   geom_point(aes(shape = factor(context))) +
   scale_shape_manual(values = c(0:5,15,17)) +
   geom_smooth(method = "lm")
 
-# are data normally distributed?
-shapiro.test(temp.H)
-hist(temp.H, col='steelblue')
+## plot
+ggplot(temp, aes(x = time, y = temp.J)) +
+  geom_point(aes(shape = factor(context))) +
+  scale_shape_manual(values = c(0:5,15,17)) +
+  geom_smooth(method = "lm")
 
-# ANOVA: differences in assemblage diversity among 
-# initial v. later contexts?
-region <- temp$region
+# are data not normally distributed?
+shapiro.test(temp.D1)
+hist(temp.D1, col='steelblue')
 
-# MODEL: H as a function of region
-reg.shannon <- aov(temp.H ~ region, data = temp)
-# ANOVA: do temporal contexts differ by H?
-summary(reg.shannon)
+# MODEL: D1 as a function of initial v. later contexts
+temp.simpson <- aov(temp.D1 ~ time, 
+                    data = temp)
+# ANOVA: do temporal contexts differ by D1?
+summary(temp.simpson)
 
-# MODEL: H as a function of temporal contexts
-temp.shannon <- aov(temp.H ~ time, data = temp)
-# ANOVA: do temporal contexts differ by H?
-summary(temp.shannon)
+shapiro.test(temp.J)
+hist(temp.J, col='steelblue')
+
+# MODEL: J as a function of initial v. later contexts
+temporal.J <- anosim(data[3:15], 
+                     grouping = time, 
+                     permutations = 9999)
+# ANOSIM: do temporal contexts differ by J?
+summary(temporal.J)
 ```
