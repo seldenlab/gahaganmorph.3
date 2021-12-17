@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2021-12-16" />
+<meta name="date" content="2021-12-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -189,10 +189,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3.1" data-path="composition-diversity.html"><a href="composition-diversity.html#relative-abundance-by-context"><i class="fa fa-check"></i><b>3.3.1</b> Relative abundance by context</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="composition-diversity.html"><a href="composition-diversity.html#diversity-indices"><i class="fa fa-check"></i><b>3.4</b> Diversity indices</a></li>
-<li class="chapter" data-level="3.5" data-path="composition-diversity.html"><a href="composition-diversity.html#evenness"><i class="fa fa-check"></i><b>3.5</b> Evenness</a></li>
-<li class="chapter" data-level="3.6" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity"><i class="fa fa-check"></i><b>3.6</b> Beta diversity</a>
+<li class="chapter" data-level="3.5" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity"><i class="fa fa-check"></i><b>3.5</b> Beta diversity</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="composition-diversity.html"><a href="composition-diversity.html#beta-diversity---temporal"><i class="fa fa-check"></i><b>3.6.1</b> Beta diversity - Temporal</a></li>
+<li class="chapter" data-level="3.5.1" data-path="composition-diversity.html"><a href="composition-diversity.html#diversity-through-time"><i class="fa fa-check"></i><b>3.5.1</b> Diversity through time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="composition-diversity.html"><a href="composition-diversity.html#evenness-through-time"><i class="fa fa-check"></i><b>3.5.2</b> Evenness through time</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dgm---modeling-geometry.html"><a href="dgm---modeling-geometry.html"><i class="fa fa-check"></i><b>4</b> 3DGM - Modeling Geometry</a>
@@ -240,7 +240,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Mortuary assemblage diversity, Gahagan biface morphology, and the evolution of a Caddo burial tradition in the American Southeast</h1>
 <p class="author"><em>Robert Z. Selden, Jr.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, John E. Dockall<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, and David L. Carlson<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></em></p>
-<p class="date"><em>2021-12-16</em></p>
+<p class="date"><em>2021-12-17</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -326,10 +326,10 @@ Figure 0.1: Relative abundance of diagnostic artefact types recovered from Caddo
 </div>
 <div id="colophon" class="section level2 unnumbered">
 <h2>Colophon</h2>
-<p>This version of the analysis was generated on 2021-12-16 16:09:00 using the following computational environment and dependencies:</p>
+<p>This version of the analysis was generated on 2021-12-17 08:02:49 using the following computational environment and dependencies:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># which R packages and versions were used?</span></span>
 <span id="cb4-2"><a href="index.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()) devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## - Session info ----------------------------------------------------------------------------------------------------------------------------------------------
+<pre><code>## - Session info -----------------------------------------------------------
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
 ##  os       Windows 10 x64 (build 19043)
@@ -339,11 +339,11 @@ Figure 0.1: Relative abundance of diagnostic artefact types recovered from Caddo
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2021-12-16
+##  date     2021-12-17
 ##  rstudio  2021.09.0+351 Ghost Orchid (desktop)
 ##  pandoc   2.14.0.3 @ C:/Program Files/RStudio/bin/pandoc/ (via rmarkdown)
 ## 
-## - Packages --------------------------------------------------------------------------------------------------------------------------------------------------
+## - Packages ---------------------------------------------------------------
 ##  package     * version    date (UTC) lib source
 ##  ape           5.5        2021-04-25 [1] CRAN (R 4.1.0)
 ##  assertthat    0.2.1      2019-03-21 [1] CRAN (R 4.1.0)
@@ -470,13 +470,13 @@ Figure 0.1: Relative abundance of diagnostic artefact types recovered from Caddo
 ##  [1] C:/Users/seldenjrz/Documents/R/win-library/4.1
 ##  [2] C:/Program Files/R/R-4.1.2/library
 ## 
-## -------------------------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
+## --------------------------------------------------------------------------</code></pre>
 <p>Current Git commit details are:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># where can I find this commit? </span></span>
 <span id="cb6-2"><a href="index.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;git2r&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>() <span class="sc">&amp;</span> git2r<span class="sc">::</span><span class="fu">in_repository</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>)) git2r<span class="sc">::</span><span class="fu">repository</span>(here<span class="sc">::</span><span class="fu">here</span>())  </span></code></pre></div>
 <pre><code>## Local:    main E:/github/gahaganmorph.3
 ## Remote:   main @ origin (https://github.com/seldenlab/gahaganmorph.3)
-## Head:     [7483a87] 2021-12-16: &lt;edit supp&gt;</code></pre>
+## Head:     [d873397] 2021-12-17: &lt;edit supp&gt;</code></pre>
 
 </div>
 </div>
