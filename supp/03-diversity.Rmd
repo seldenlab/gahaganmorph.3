@@ -8,7 +8,7 @@ This analysis of assemblage diversity is limited to Caddo mortuary contexts at t
 library(here)
 library(dplyr)
 # read data
-data <- read.csv("gahagan-diagnostics.csv")
+data <- read.csv("gahagan-diversity.csv")
 
 # table of diagnostics
 knitr::kable(data)
@@ -20,19 +20,19 @@ knitr::kable(data)
 library(vegan)
 
 # assemblage size (N)
-N <- rowSums(data[3:15])
+N <- rowSums(data[3:17])
 N ## assemblage sizes range from:
 
 # how many of each type were found?
-T <- colSums(data[3:15])
+T <- colSums(data[3:17])
 T
 
 ## richness (S) = number of types in assemblage
-S <- specnumber(data[3:15])
+S <- specnumber(data[3:17])
 S
 
 ## ubiquity (U) = number of assemblages that contain a particular type
-U <- specnumber(data[3:15])
+U <- specnumber(data[3:17])
 U
 ```
 
@@ -40,10 +40,10 @@ U
 
 ```{r relative.abundance}
 # mean number of observations for each type
-colMeans(data[3:15])
+colMeans(data[3:17])
 
 # data by percentage
-data.pct <- data[3:15]/N*100
+data.pct <- data[3:17]/N*100
 ## mean percent (Mp) of each type across assemblage
 Mp <- colMeans(data.pct)
 Mp
@@ -60,9 +60,9 @@ library(dplyr)
 library(ggplot2)
 library(wesanderson)
 
-pal <- wes_palette("Moonrise2", 13, type = "continuous")
+pal <- wes_palette("Moonrise2", 17, type = "continuous")
 
-gahagan_ct <- data[, -(1:2)]
+gahagan_ct <- data[3:17]
 labels <- paste0(data$context, " (", substr(data$region, 1, 1), ")")
 rownames(gahagan_ct) <- labels
 
@@ -83,8 +83,7 @@ plot1 <- artifacts %>%
   coord_flip() +
   scale_fill_manual(values = pal) +
   labs(x = "Context",
-       y = "Relative abundance (%)",
-       title = "Abundance of diagnostic types across Gahagan-bearing contexts")
+       y = "Relative abundance (%)")
 
 ## print
 plot1
@@ -95,12 +94,12 @@ plot1
 ```{r diversity.indices, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # diversity
 # Simpson diversity
-data$D1 <- diversity(data[3:15], index = "simpson")
+data$D1 <- diversity(data[3:17], index = "simpson")
 D1 <- data$D1
 
 # evenness
 # Shannon diversity
-data$H <- diversity(data[3:15])
+data$H <- diversity(data[3:17])
 H <- data$H
 
 # Pielou's J (Shannon diversity index divided by natural log of richness)
