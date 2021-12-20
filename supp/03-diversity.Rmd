@@ -56,7 +56,7 @@ Up
 
 ### Relative abundance by context
 
-```{r plot.burial.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r plot.burial.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all age categories from fetus to sub-adult. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 library(dplyr)
 library(reshape)
 library(ggplot2)
@@ -89,7 +89,7 @@ plot0 <- burials %>%
        fill = "Category")
 
 # relative abundance of burials by category
-pal <- wes_palette("Moonrise2", 8, type = "continuous")
+pal <- wes_palette("Moonrise2", 6, type = "continuous")
 
 burials <- data %>% 
   select(context, adult_male:uid_adult, juvenile_male:uid_juvenile) %>% 
@@ -121,9 +121,9 @@ figure <- ggarrange(plot0, plot00,
 figure
 ```
 
-```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 # relative abundance of lithics + ceramics
-pal <- wes_palette("Moonrise2")
+pal <- wes_palette("Moonrise2", 2, type = "continuous")
 
 cerlith <- data %>% 
   select(context, lithics, ceramics) %>% 
@@ -173,7 +173,7 @@ plot2 <- diagnostics %>%
 
 # render figure
 figure <- ggarrange(plot1, plot2,
-                      labels = c("a","b"),
+                      labels = c("c","d"),
                       ncol = 1, nrow = 2)
 
 # plot figure
