@@ -24,7 +24,7 @@ alpha-diversity
 relative-abundance
 relative-abundance-by-context
 diversity-indices
-beta-diversity
+beta-diversity---diagnostics
 diversity-through-time
 evenness-through-time
 dgm---modeling-geometry
