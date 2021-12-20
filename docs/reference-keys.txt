@@ -47,3 +47,12 @@ plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
 morphological-disparity
 mean-shapes
+dgm---diversity-morphology
+load-packages-data-1
+generalized-procrustes-analysis-1
+boxplot-1
+principal-components-analysis-1
+plot-pca-with-mean-shape-xy-maximaminima-1
+procrustes-anova-1
+morphological-disparity-1
+mean-shapes-1

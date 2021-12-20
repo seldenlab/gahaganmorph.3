@@ -1,67 +1,67 @@
-specimen,trinomial,sitename,context
-3Bb1,16CD12,Mounds Plantation,individual
-3Ba90,16CD12,Mounds Plantation,individual
-3Bb3,16CD12,Mounds Plantation,individual
-3Bb4,16CD12,Mounds Plantation,individual
-3Bb5,16CD12,Mounds Plantation,individual
-3Bb6,16CD12,Mounds Plantation,individual
-3Bb7,16CD12,Mounds Plantation,individual
-3Bb8,16CD12,Mounds Plantation,individual
-BlkThn,16CD12,Mounds Plantation,individual
-LGGray,16CD12,Mounds Plantation,individual
-Case2LG,16CD12,Mounds Plantation,individual
-Case2SM,16CD12,Mounds Plantation,individual
-666,16RR1,Gahagan Mound,individual
-551,16RR1,Gahagan Mound,cache
-622,16RR1,Gahagan Mound,cache
-614,16RR1,Gahagan Mound,cache
-613,16RR1,Gahagan Mound,cache
-612,16RR1,Gahagan Mound,cache
-611,16RR1,Gahagan Mound,cache
-610,16RR1,Gahagan Mound,cache
-609,16RR1,Gahagan Mound,cache
-608,16RR1,Gahagan Mound,cache
-607,16RR1,Gahagan Mound,cache
-606,16RR1,Gahagan Mound,cache
-605,16RR1,Gahagan Mound,cache
-593,16RR1,Gahagan Mound,individual
-569,16RR1,Gahagan Mound,individual
-550,16RR1,Gahagan Mound,cache
-549,16RR1,Gahagan Mound,cache
-548,16RR1,Gahagan Mound,cache
-547,16RR1,Gahagan Mound,cache
-546,16RR1,Gahagan Mound,cache
-545,16RR1,Gahagan Mound,cache
-544,16RR1,Gahagan Mound,cache
-543,16RR1,Gahagan Mound,cache
-542,16RR1,Gahagan Mound,cache
-541,16RR1,Gahagan Mound,cache
-533,16RR1,Gahagan Mound,cache
-532,16RR1,Gahagan Mound,cache
-490,16RR1,Gahagan Mound,cache
-489,16RR1,Gahagan Mound,cache
-4078-9,41CE19,George C Davis,cache
-424-39,41CE19,George C Davis,cache
-424-40,41CE19,George C Davis,cache
-424-41,41CE19,George C Davis,cache
-424-50,41CE19,George C Davis,cache
-424-53,41CE19,George C Davis,cache
-463-16,41CE19,George C Davis,individual
-4078-22,41CE19,George C Davis,cache
-4078-32,41CE19,George C Davis,cache
-4078-45,41CE19,George C Davis,cache
-4078-72,41CE19,George C Davis,cache
-424-169,41CE19,George C Davis,cache
-424-218,41CE19,George C Davis,cache
-424-221,41CE19,George C Davis,cache
-424-230,41CE19,George C Davis,cache
-424-33,41CE19,George C Davis,cache
-463-1,41CE19,George C Davis,cache
-463-23,41CE19,George C Davis,cache
-4078-8,41CE19,George C Davis,cache
-4078-11,41CE19,George C Davis,cache
-4078-12,41CE19,George C Davis,cache
-4078-13,41CE19,George C Davis,cache
-4078-14,41CE19,George C Davis,cache
-4078-14B,41CE19,George C Davis,cache
-4078-30,41CE19,George C Davis,cache
+specimen,trinomial,sitename,t.context,context
+489,16RR1,Gahagan Mound,subsequent,cache
+490,16RR1,Gahagan Mound,subsequent,cache
+532,16RR1,Gahagan Mound,subsequent,cache
+533,16RR1,Gahagan Mound,subsequent,cache
+541,16RR1,Gahagan Mound,subsequent,cache
+542,16RR1,Gahagan Mound,subsequent,cache
+543,16RR1,Gahagan Mound,subsequent,cache
+544,16RR1,Gahagan Mound,subsequent,cache
+545,16RR1,Gahagan Mound,subsequent,cache
+546,16RR1,Gahagan Mound,subsequent,cache
+547,16RR1,Gahagan Mound,subsequent,cache
+548,16RR1,Gahagan Mound,subsequent,cache
+549,16RR1,Gahagan Mound,subsequent,cache
+550,16RR1,Gahagan Mound,subsequent,cache
+551,16RR1,Gahagan Mound,subsequent,cache
+569,16RR1,Gahagan Mound,subsequent,individual
+593,16RR1,Gahagan Mound,initial,individual
+605,16RR1,Gahagan Mound,initial,cache
+606,16RR1,Gahagan Mound,initial,cache
+607,16RR1,Gahagan Mound,initial,cache
+608,16RR1,Gahagan Mound,initial,cache
+609,16RR1,Gahagan Mound,initial,cache
+610,16RR1,Gahagan Mound,initial,cache
+611,16RR1,Gahagan Mound,initial,cache
+612,16RR1,Gahagan Mound,initial,cache
+613,16RR1,Gahagan Mound,initial,cache
+614,16RR1,Gahagan Mound,initial,cache
+622,16RR1,Gahagan Mound,initial,cache
+666,16RR1,Gahagan Mound,initial,individual
+3Ba90,16CD12,Mounds Plantation,initial,individual
+3Bb1,16CD12,Mounds Plantation,subsequent,individual
+3Bb3,16CD12,Mounds Plantation,subsequent,individual
+3Bb4,16CD12,Mounds Plantation,subsequent,individual
+3Bb5,16CD12,Mounds Plantation,subsequent,individual
+3Bb6,16CD12,Mounds Plantation,subsequent,individual
+3Bb7,16CD12,Mounds Plantation,subsequent,individual
+3Bb8,16CD12,Mounds Plantation,subsequent,individual
+4078-11,41CE19,George C Davis,initial,cache
+4078-12,41CE19,George C Davis,initial,cache
+4078-13,41CE19,George C Davis,initial,cache
+4078-14,41CE19,George C Davis,initial,cache
+4078-14B,41CE19,George C Davis,initial,cache
+4078-22,41CE19,George C Davis,initial,cache
+4078-30,41CE19,George C Davis,initial,cache
+4078-32,41CE19,George C Davis,initial,cache
+4078-45,41CE19,George C Davis,initial,cache
+4078-72,41CE19,George C Davis,initial,cache
+4078-8,41CE19,George C Davis,initial,cache
+4078-9,41CE19,George C Davis,initial,cache
+424-169,41CE19,George C Davis,subsequent,cache
+424-218,41CE19,George C Davis,subsequent,cache
+424-221,41CE19,George C Davis,subsequent,cache
+424-230,41CE19,George C Davis,subsequent,cache
+424-33,41CE19,George C Davis,subsequent,cache
+424-39,41CE19,George C Davis,subsequent,cache
+424-40,41CE19,George C Davis,subsequent,cache
+424-41,41CE19,George C Davis,subsequent,cache
+424-50,41CE19,George C Davis,subsequent,cache
+424-53,41CE19,George C Davis,subsequent,cache
+463-1,41CE19,George C Davis,subsequent,cache
+463-16,41CE19,George C Davis,subsequent,individual
+463-23,41CE19,George C Davis,subsequent,cache
+BlkThn,16CD12,Mounds Plantation,subsequent,individual
+Case2LG,16CD12,Mounds Plantation,subsequent,individual
+Case2SM,16CD12,Mounds Plantation,subsequent,individual
+LGGray,16CD12,Mounds Plantation,subsequent,individual
