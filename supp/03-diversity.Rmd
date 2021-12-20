@@ -56,7 +56,7 @@ Up
 
 ### Relative abundance by context
 
-```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r plot.burial.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 library(dplyr)
 library(reshape)
 library(ggplot2)
@@ -64,6 +64,64 @@ library(ggpubr)
 library(ggExtra)
 library(wesanderson)
 
+# relative abundance of juvenile and adult burials
+pal <- wes_palette("Moonrise2", 2, type = "continuous")
+
+burials <- data %>% 
+  select(context, total_adult, total_juvenile) %>% 
+  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
+                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot0 <- burials %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x=context, y = value, fill = variable)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# relative abundance of burials by category
+pal <- wes_palette("Moonrise2", 8, type = "continuous")
+
+burials <- data %>% 
+  select(context, adult_male:uid_adult, juvenile_male:uid_juvenile) %>% 
+  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
+                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot00 <- burials %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x=context, y = value, fill = variable)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# render figure
+figure <- ggarrange(plot0, plot00,
+                      labels = c("a","b"),
+                      ncol = 1, nrow = 2)
+
+# plot figure
+figure
+```
+
+```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 # relative abundance of lithics + ceramics
 pal <- wes_palette("Moonrise2")
 
