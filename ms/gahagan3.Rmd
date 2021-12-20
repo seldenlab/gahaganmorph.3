@@ -18,7 +18,7 @@ affiliation:
       Heritage Research Center and Department of Biology, Stephen F. Austin State University; Cultural Heritage Department, Jean Monnet University
   - num: b
     address: |
-      Cox|McClain Environmental Consultants, Inc.
+      Stantec, Inc.
   - num: c
     address: |
       Department of Anthropology, Texas A&M University
