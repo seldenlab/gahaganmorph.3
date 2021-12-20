@@ -32,6 +32,7 @@ This hypothesis is tested using counts of associated diagnostic artefacts recove
 
 #### _Findings_:
 
+- Lithics comprise 75% or more---in three cases, 100%---of those Caddo burial assemblages where Gahagan bifaces were recovered
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater** diversity of associated diagnostics
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater** evenness across the types
 
@@ -41,9 +42,9 @@ knitr::include_graphics('images/relative-abundance.png')
 
 #### _Summary of results_
 
-The hypothesis was tested using counts of associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
+The hypothesis was tested using counts of associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assessed whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved. This follows with an expected increase in assemblage diversity during the cultural and subsistence-based transition from mobile horticulture to emergent--and more sedentary--agricultural communities.
 
-Results demonstrate a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated of a Caddo burial practice where Gahagan bifaces were included. These assemblages are dominated by lithic diagnostics, and ceramics are completely absent from three---possibly four---of the burial contexts. Further discussion related to diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
+Results demonstrate that lithics comprise 75% or more---in three cases, 100%---of those Caddo burial assemblages where Gahagan bifaces were recovered, as well as a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated with a Caddo burial practice. These assemblages are dominated by lithic diagnostics, and ceramics are absent from three of the burial contexts. Further discussion related to diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
 
 ### Shape preference as a function of burial practice
 
