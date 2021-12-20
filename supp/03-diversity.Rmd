@@ -21,19 +21,19 @@ knitr::kable(data)
 library(vegan)
 
 # assemblage size (N)
-N <- rowSums(data[3:17])
+N <- rowSums(data[11:25])
 N ## assemblage sizes range from:
 
 # how many of each type were found?
-T <- colSums(data[3:17])
+T <- colSums(data[11:25])
 T
 
 ## richness (S) = number of types in assemblage
-S <- specnumber(data[3:17])
+S <- specnumber(data[11:25])
 S
 
 ## ubiquity (U) = number of assemblages that contain a particular type
-U <- specnumber(data[3:17])
+U <- specnumber(data[11:25])
 U
 ```
 
@@ -41,10 +41,10 @@ U
 
 ```{r relative.abundance}
 # mean number of observations for each type
-colMeans(data[3:17])
+colMeans(data[11:25])
 
 # data by percentage
-data.pct <- data[3:17]/N*100
+data.pct <- data[11:25]/N*100
 ## mean percent (Mp) of each type across assemblage
 Mp <- colMeans(data.pct)
 Mp
@@ -185,12 +185,12 @@ figure
 ```{r diversity.indices, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # diversity
 # Simpson diversity
-data$D1 <- diversity(data[3:17], index = "simpson")
+data$D1 <- diversity(data[11:25], index = "simpson")
 D1 <- data$D1
 
 # evenness
 # Shannon diversity
-data$H <- diversity(data[3:17])
+data$H <- diversity(data[11:25])
 H <- data$H
 
 # Pielou's J (Shannon diversity index divided by natural log of richness)

@@ -245,12 +245,12 @@ div.csl-indent {
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="composition-diversity.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <pre><code>## here() starts at E:/github/gahaganmorph.3/supp</code></pre>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="composition-diversity.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## -- Attaching packages -------------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------------- tidyverse 1.3.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
 ## v tibble  3.1.6     v dplyr   1.0.7
 ## v tidyr   1.1.4     v stringr 1.4.0
 ## v readr   2.1.1     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ----------------------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter()     masks stats::filter()
 ## x dplyr::group_rows() masks kableExtra::group_rows()
 ## x dplyr::lag()        masks stats::lag()</code></pre>
@@ -1024,52 +1024,58 @@ North
 ##     permute</code></pre>
 <pre><code>## This is vegan 2.5-7</code></pre>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="composition-diversity.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assemblage size (N)</span></span>
-<span id="cb116-2"><a href="composition-diversity.html#cb116-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>])</span>
+<span id="cb116-2"><a href="composition-diversity.html#cb116-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb116-3"><a href="composition-diversity.html#cb116-3" aria-hidden="true" tabindex="-1"></a>N <span class="do">## assemblage sizes range from:</span></span></code></pre></div>
-<pre><code>## [1] 198  29  81 113  49  15  66   7</code></pre>
+<pre><code>## [1] 184  25 112 120  48  13  43  10</code></pre>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="composition-diversity.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how many of each type were found?</span></span>
-<span id="cb118-2"><a href="composition-diversity.html#cb118-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>])</span>
+<span id="cb118-2"><a href="composition-diversity.html#cb118-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb118-3"><a href="composition-diversity.html#cb118-3" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
-<pre><code>##      adult_male    adult_female       uid_adult     total_adult   juvenile_male 
-##               8              13              11              32               0 
-## juvenile_female    uid_juvenile  total_juvenile            alba            celt 
-##               1              12              13             330              31 
-##       catahoula          friley         gahagan           hayes         harrell 
-##               6               2              71              26               2</code></pre>
+<pre><code>##                alba                celt           catahoula              friley 
+##                 330                  31                   6                   2 
+##             gahagan               hayes             harrell                reed 
+##                  71                  26                   2                  16 
+##            scallorn         coles_creek    hickory_engraved holly_fine_engraved 
+##                  50                   1                   3                   6 
+##        kiam_incised      ceramic_bottle        ceramic_bowl 
+##                   1                   3                   7</code></pre>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="composition-diversity.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="do">## richness (S) = number of types in assemblage</span></span>
-<span id="cb120-2"><a href="composition-diversity.html#cb120-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>])</span>
+<span id="cb120-2"><a href="composition-diversity.html#cb120-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb120-3"><a href="composition-diversity.html#cb120-3" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
-<pre><code>## [1]  9  8 10  8 11  5 10  4</code></pre>
+<pre><code>## [1]  4  7 12  6 10  3  5  6</code></pre>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="composition-diversity.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ubiquity (U) = number of assemblages that contain a particular type</span></span>
-<span id="cb122-2"><a href="composition-diversity.html#cb122-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>])</span>
+<span id="cb122-2"><a href="composition-diversity.html#cb122-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb122-3"><a href="composition-diversity.html#cb122-3" aria-hidden="true" tabindex="-1"></a>U</span></code></pre></div>
-<pre><code>## [1]  9  8 10  8 11  5 10  4</code></pre>
+<pre><code>## [1]  4  7 12  6 10  3  5  6</code></pre>
 </div>
 <div id="relative-abundance" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Relative abundance</h2>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="composition-diversity.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean number of observations for each type</span></span>
-<span id="cb124-2"><a href="composition-diversity.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>])</span></code></pre></div>
-<pre><code>##      adult_male    adult_female       uid_adult     total_adult   juvenile_male 
-##           1.000           1.625           1.375           4.000           0.000 
-## juvenile_female    uid_juvenile  total_juvenile            alba            celt 
-##           0.125           1.500           1.625          41.250           3.875 
-##       catahoula          friley         gahagan           hayes         harrell 
-##           0.750           0.250           8.875           3.250           0.250</code></pre>
+<span id="cb124-2"><a href="composition-diversity.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span></code></pre></div>
+<pre><code>##                alba                celt           catahoula              friley 
+##              41.250               3.875               0.750               0.250 
+##             gahagan               hayes             harrell                reed 
+##               8.875               3.250               0.250               2.000 
+##            scallorn         coles_creek    hickory_engraved holly_fine_engraved 
+##               6.250               0.125               0.375               0.750 
+##        kiam_incised      ceramic_bottle        ceramic_bowl 
+##               0.125               0.375               0.875</code></pre>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="composition-diversity.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data by percentage</span></span>
-<span id="cb126-2"><a href="composition-diversity.html#cb126-2" aria-hidden="true" tabindex="-1"></a>data.pct <span class="ot">&lt;-</span> data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>]<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb126-2"><a href="composition-diversity.html#cb126-2" aria-hidden="true" tabindex="-1"></a>data.pct <span class="ot">&lt;-</span> data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>]<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb126-3"><a href="composition-diversity.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="do">## mean percent (Mp) of each type across assemblage</span></span>
 <span id="cb126-4"><a href="composition-diversity.html#cb126-4" aria-hidden="true" tabindex="-1"></a>Mp <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(data.pct)</span>
 <span id="cb126-5"><a href="composition-diversity.html#cb126-5" aria-hidden="true" tabindex="-1"></a>Mp</span></code></pre></div>
-<pre><code>##      adult_male    adult_female       uid_adult     total_adult   juvenile_male 
-##        1.673580        2.381091        4.288757        8.343428        0.000000 
-## juvenile_female    uid_juvenile  total_juvenile            alba            celt 
-##        0.154321        2.133398        2.287719       38.730504        4.671871 
-##       catahoula          friley         gahagan           hayes         harrell 
-##        7.653061        0.444496       19.397214        7.531919        0.308642</code></pre>
+<pre><code>##                alba                celt           catahoula              friley 
+##          39.4609095           4.3147645           5.5208333           0.5511143 
+##             gahagan               hayes             harrell                reed 
+##          20.2192905           8.7044748           0.2232143           1.7857143 
+##            scallorn         coles_creek    hickory_engraved holly_fine_engraved 
+##          10.0396249           0.2604167           1.6220238           2.7261905 
+##        kiam_incised      ceramic_bottle        ceramic_bowl 
+##           0.1116071           0.7157738           3.7440476</code></pre>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="composition-diversity.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="do">## percentage of sites that have each type</span></span>
 <span id="cb128-2"><a href="composition-diversity.html#cb128-2" aria-hidden="true" tabindex="-1"></a>Up <span class="ot">&lt;-</span> U<span class="sc">/</span><span class="fu">length</span>(N)<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb128-3"><a href="composition-diversity.html#cb128-3" aria-hidden="true" tabindex="-1"></a>Up</span></code></pre></div>
-<pre><code>## [1] 112.5 100.0 125.0 100.0 137.5  62.5 125.0  50.0</code></pre>
+<pre><code>## [1]  50.0  87.5 150.0  75.0 125.0  37.5  62.5  75.0</code></pre>
 <div id="relative-abundance-by-context" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Relative abundance by context</h3>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="composition-diversity.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -1216,12 +1222,12 @@ North
 <h2><span class="header-section-number">3.4</span> Diversity indices</h2>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="composition-diversity.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity</span></span>
 <span id="cb136-2"><a href="composition-diversity.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpson diversity</span></span>
-<span id="cb136-3"><a href="composition-diversity.html#cb136-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>], <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
+<span id="cb136-3"><a href="composition-diversity.html#cb136-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>], <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
 <span id="cb136-4"><a href="composition-diversity.html#cb136-4" aria-hidden="true" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> data<span class="sc">$</span>D1</span>
 <span id="cb136-5"><a href="composition-diversity.html#cb136-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-6"><a href="composition-diversity.html#cb136-6" aria-hidden="true" tabindex="-1"></a><span class="co"># evenness</span></span>
 <span id="cb136-7"><a href="composition-diversity.html#cb136-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shannon diversity</span></span>
-<span id="cb136-8"><a href="composition-diversity.html#cb136-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">3</span><span class="sc">:</span><span class="dv">17</span>])</span>
+<span id="cb136-8"><a href="composition-diversity.html#cb136-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb136-9"><a href="composition-diversity.html#cb136-9" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> data<span class="sc">$</span>H</span>
 <span id="cb136-10"><a href="composition-diversity.html#cb136-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-11"><a href="composition-diversity.html#cb136-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pielou&#39;s J (Shannon diversity index divided by natural log of richness)</span></span>
@@ -1366,9 +1372,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">0</td>
 <td align="right">184</td>
 <td align="right">0</td>
-<td align="right">0.3606775</td>
-<td align="right">0.8493787</td>
-<td align="right">0.3865689</td>
+<td align="right">0.2614012</td>
+<td align="right">0.5344039</td>
+<td align="right">0.3854909</td>
 </tr>
 <tr class="even">
 <td align="left">41CE19-F119</td>
@@ -1399,9 +1405,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">1</td>
 <td align="right">21</td>
 <td align="right">2</td>
-<td align="right">0.7609988</td>
-<td align="right">1.7089035</td>
-<td align="right">0.8218089</td>
+<td align="right">0.7040000</td>
+<td align="right">1.5169478</td>
+<td align="right">0.7795570</td>
 </tr>
 <tr class="odd">
 <td align="left">16RR1-BP2</td>
@@ -1432,9 +1438,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">2</td>
 <td align="right">106</td>
 <td align="right">3</td>
-<td align="right">0.7703094</td>
-<td align="right">1.7512218</td>
-<td align="right">0.7605460</td>
+<td align="right">0.8321110</td>
+<td align="right">1.9731801</td>
+<td align="right">0.7940661</td>
 </tr>
 <tr class="even">
 <td align="left">16RR1-BP3</td>
@@ -1465,9 +1471,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">0</td>
 <td align="right">118</td>
 <td align="right">1</td>
-<td align="right">0.3607174</td>
-<td align="right">0.7911797</td>
-<td align="right">0.3804770</td>
+<td align="right">0.4251389</td>
+<td align="right">0.8726411</td>
+<td align="right">0.4870303</td>
 </tr>
 <tr class="odd">
 <td align="left">16CD12-BP1</td>
@@ -1498,9 +1504,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">2</td>
 <td align="right">43</td>
 <td align="right">3</td>
-<td align="right">0.4798001</td>
-<td align="right">1.2284405</td>
-<td align="right">0.5122995</td>
+<td align="right">0.4583333</td>
+<td align="right">1.1523342</td>
+<td align="right">0.5004524</td>
 </tr>
 <tr class="even">
 <td align="left">16CD12-BP2</td>
@@ -1531,9 +1537,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">0</td>
 <td align="right">13</td>
 <td align="right">0</td>
-<td align="right">0.6311111</td>
-<td align="right">1.2293362</td>
-<td align="right">0.7638295</td>
+<td align="right">0.5207101</td>
+<td align="right">0.8587409</td>
+<td align="right">0.7816597</td>
 </tr>
 <tr class="odd">
 <td align="left">16CD12-BP5</td>
@@ -1564,9 +1570,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">0</td>
 <td align="right">43</td>
 <td align="right">0</td>
-<td align="right">0.8599633</td>
-<td align="right">2.0641928</td>
-<td align="right">0.8964676</td>
+<td align="right">0.6803678</td>
+<td align="right">1.2745830</td>
+<td align="right">0.7919429</td>
 </tr>
 <tr class="even">
 <td align="left">16CD12-BP8</td>
@@ -1597,9 +1603,9 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <td align="right">2</td>
 <td align="right">6</td>
 <td align="right">2</td>
-<td align="right">0.6122449</td>
-<td align="right">1.1537419</td>
-<td align="right">0.8322489</td>
+<td align="right">0.7600000</td>
+<td align="right">1.6094379</td>
+<td align="right">0.8982444</td>
 </tr>
 </tbody>
 </table>
@@ -1622,7 +1628,7 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  temp.D1
-## W = 0.92015, p-value = 0.4311</code></pre>
+## W = 0.955, p-value = 0.7613</code></pre>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="composition-diversity.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.D1, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpson.init.diversity-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="composition-diversity.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: D1 as a function of initial v. later contexts</span></span>
@@ -1632,8 +1638,8 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <span id="cb147-5"><a href="composition-diversity.html#cb147-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do temporal contexts differ by D1?</span></span>
 <span id="cb147-6"><a href="composition-diversity.html#cb147-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(temp.simpson)</span></code></pre></div>
 <pre><code>##             Df  Sum Sq Mean Sq F value  Pr(&gt;F)   
-## time         1 0.19991 0.19991   22.83 0.00307 **
-## Residuals    6 0.05253 0.00876                   
+## time         1 0.18938 0.18938   14.98 0.00826 **
+## Residuals    6 0.07583 0.01264                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -1655,7 +1661,7 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  temp.J
-## W = 0.84001, p-value = 0.07534</code></pre>
+## W = 0.84242, p-value = 0.07976</code></pre>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="composition-diversity.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.J, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpson.init.evenness-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="composition-diversity.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: J as a function of initial v. later contexts</span></span>
@@ -1678,13 +1684,13 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ## 
 ## Upper quantiles of permutations (null model):
 ##   90%   95% 97.5%   99% 
-## 0.333 0.405 0.446 1.000 
+## 0.221 0.272 0.436 1.000 
 ## 
 ## Dissimilarity ranks between and within classes:
 ##         0%   25%  50%   75% 100%  N
 ## Between 14 17.50 21.0 24.50   28 15
-## 1        3  7.50 12.0 12.50   13  3
-## 2        1  4.25  6.5  8.75   11 10</code></pre>
+## 1        7  9.50 12.0 12.50   13  3
+## 2        1  3.25  5.5  8.75   11 10</code></pre>
 
 </div>
 </div>
