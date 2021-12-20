@@ -38,7 +38,7 @@ spline-split-at-locations-of-lm2-and-lm3
 spline-split-at-location-of-lm4
 final-spline
 landmark-and-semilandmark-placement
-dgm---analysis
+dgm---individual-vs.-cache
 load-packages-data
 generalized-procrustes-analysis
 boxplot
@@ -47,7 +47,7 @@ plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
 morphological-disparity
 mean-shapes
-dgm---diversity-morphology
+dgm---morphology-through-time
 load-packages-data-1
 generalized-procrustes-analysis-1
 boxplot-1
