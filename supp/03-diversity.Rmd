@@ -211,6 +211,7 @@ ggplot(temp, aes(x = time, y = temp.J)) +
   scale_shape_manual(values = c(0:5,15,17)) +
   geom_smooth(method = "lm")
 
+# are data not normally distributed?
 shapiro.test(temp.J)
 hist(temp.J, col='steelblue')
 

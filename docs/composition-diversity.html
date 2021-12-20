@@ -1298,7 +1298,8 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <span id="cb148-7"><a href="composition-diversity.html#cb148-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="_main_files/figure-html/simpson.init.evenness-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="composition-diversity.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(temp.J)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="composition-diversity.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are data not normally distributed?</span></span>
+<span id="cb150-2"><a href="composition-diversity.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(temp.J)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
