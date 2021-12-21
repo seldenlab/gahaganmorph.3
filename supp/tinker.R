@@ -149,3 +149,161 @@ plotRefToTarget(mean$initial_cache,
                 mean$subsequent_cache, 
                 method = "points",
                 mag = 1)
+
+# Assemblage Diversity
+## Taxonomic composition
+
+library(here)
+library(tidyverse)
+
+# read data
+data <- read.csv("gahagan-diversity.csv")
+
+## Alpha diversity
+library(vegan)
+
+# assemblage size (N)
+N <- rowSums(data[11:25])
+N ## assemblage sizes range from:
+
+# how many of each type were found?
+T <- colSums(data[11:25])
+T
+
+## richness (S) = number of types in assemblage
+S <- specnumber(data[11:25])
+S
+
+## ubiquity (U) = number of assemblages that contain a particular type
+U <- specnumber(data[11:25])
+U
+
+## Relative abundance
+
+# mean number of observations for each type
+colMeans(data[11:25])
+
+# data by percentage
+data.pct <- data[11:25]/N*100
+## mean percent (Mp) of each type across assemblage
+Mp <- colMeans(data.pct)
+Mp
+
+## percentage of sites that have each type
+Up <- U/length(N)*100
+Up
+
+
+library(dplyr)
+library(reshape)
+library(ggplot2)
+library(ggpubr)
+library(ggExtra)
+library(wesanderson)
+
+# relative abundance of juvenile and adult burials
+pal <- wes_palette("Moonrise2", 2, type = "continuous")
+
+burials <- data %>% 
+  select(context, total_adult, total_juvenile) %>% 
+  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
+                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot0 <- burials %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+    "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+    "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+    "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x=context, y = value, fill = variable)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+
+# relative abundance of burials by category
+pal <- wes_palette("Moonrise2", 6, type = "continuous")
+
+burials <- data %>% 
+  select(context, adult_male:uid_adult, juvenile_male:uid_juvenile) %>% 
+  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
+                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot00 <- burials %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+    "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+    "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+    "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x=context, y = value, fill = variable)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# relative abundance of lithics + ceramics
+pal <- wes_palette("Moonrise2", 2, type = "continuous")
+
+cerlith <- data %>% 
+  select(context, lithics, ceramics) %>% 
+  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
+                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot1 <- cerlith %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+    "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+    "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+    "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x=context, y = value, fill = variable)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# relative abundance of diagnostic types
+pal <- wes_palette("Moonrise2", 17, type = "continuous")
+
+diagnostics <- data %>% 
+  select(context, alba:ceramic_bowl) %>% 
+  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
+                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot2 <- diagnostics %>% 
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+    "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+    "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+    "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot( aes(x=context, y = value, fill = variable)) + 
+  geom_bar(stat="identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Types") +
+  theme(legend.key.height = unit(0.05, "cm"))
+
+# render figure
+figure <- ggarrange(plot0, plot1, plot2,
+                    labels = c("a","b", "c"),
+                    ncol = 1, nrow = 3)
+
+# plot figure
+figure
+```
