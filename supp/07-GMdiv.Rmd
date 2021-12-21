@@ -12,7 +12,6 @@ This hypothesis is tested using Gahagan bifaces recovered from four discrete con
 # load libraries
 library(here)
 library(geomorph)
-library(tidyverse)
 library(tidyr)
 library(wesanderson)
 
@@ -25,7 +24,7 @@ coords <- readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
-qdata <- read.csv("qdata.csv",header = TRUE, row.names = 1)
+qdata <- read.csv("qdata.csv", header = TRUE, row.names = 1)
 qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 
 qdata <- qdata %>% 
@@ -37,21 +36,19 @@ qdata <- qdata %>%
 Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
 ```{r gpa.div, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-Y.gpa <- gpagen(coords, 
-              PrinAxes = TRUE, 
-              print.progress = FALSE)
+Y.gpa <- gpagen(coords,
+                PrinAxes = TRUE,
+                print.progress = FALSE)
 ## plot gpa
 plot(Y.gpa)
-outliers <- plotOutliers(Y.gpa$coords)
-plotRefToTarget(mshape(Y.gpa$coords), Y.gpa$coords[,,outliers[1]], method = "vector", label = TRUE)
 
 ## 3D gpa plot
 knitr::include_graphics('images/gpa3d.png')
 
 # geomorph data frame
-gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
-                         size = Y.gpa$Csize,
-                         merged = qdata$merged) 
+gdf <- geomorph.data.frame(shape = Y.gpa$coords,
+                           size = Y.gpa$Csize,
+                           merged = qdata$merged) 
 
 # add centroid size to qdata
 qdata$csz <- Y.gpa$Csize
@@ -95,11 +92,11 @@ col.hull.context <- c("#C27D38","#29211F","#798E87","#CCC591")
 
 ## plot pca by context 2
 pc.plot <- plot(pca, asp = 1,
-                  pch = pch.gps.context,
-                  col = col.gps.context)
-                  shapeHulls(pc.plot, 
-                             groups = merged,
-                             group.cols = col.hull.context)
+                pch = pch.gps.context,
+                col = col.gps.context)
+shapeHulls(pc.plot,
+           groups = merged,
+           group.cols = col.hull.context)
 ```
 
 ### Plot PCA with mean shape + x/y maxima/minima
@@ -116,9 +113,9 @@ A residual randomization permutation procedure (RRPP; n = 10,000 permutations) w
 ```{r define-models.div}
 # MODEL: shape as a function of context + time
 fit.shapecontemp <- procD.lm(shape ~ merged,
-                            data = gdf,
-                            print.progress = FALSE,
-                            iter = 9999)
+                             data = gdf,
+                             print.progress = FALSE,
+                             iter = 9999)
 
 # ANOVA: do gahagan biface shapes differ by context + time?
 anova(fit.shapecontemp)
@@ -132,16 +129,16 @@ summary(pairwise.shapecontemp,
 
 # MODEL: size as a function of context + time
 fit.sizecontemp <- procD.lm(size ~ merged,
-                           data = gdf,
-                           print.progress = FALSE,
-                           iter = 9999)
+                            data = gdf,
+                            print.progress = FALSE,
+                            iter = 9999)
 
 # ANOVA: do gahagan biface sizes differ by context + time?
 anova(fit.sizecontemp)
 
 # pairwise comparison of LS means = which differ?
 pairwise.sizecontemp <- pairwise(fit.sizecontemp,
-                                  groups = qdata$merged)
+                                 groups = qdata$merged)
 summary(pairwise.sizecontemp, 
         confidence = 0.95, 
         test.type = "dist")
