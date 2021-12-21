@@ -59,7 +59,7 @@ csz <- qdata$csz
 merged <- qdata$merged
 
 # palette
-pal <- wes_palette("Moonrise2")
+pal <- wes_palette("Moonrise2", 4, type = "continuous")
 ```
 
 ## Boxplot
@@ -104,7 +104,7 @@ shapeHulls(pc.plot,
 
 ```{r pca2.div, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
-#knitr::include_graphics('images/cacheind-pca-warpref.png')
+knitr::include_graphics('images/temporal-pca-warpref.png')
 ```
 
 ## Procrustes ANOVA
@@ -182,16 +182,16 @@ plotRefToTarget(mean$initial_cache,
                 method = "points",
                 mag = 1)
 
+plotRefToTarget(mean$subsequent_individual,
+                mean$initial_cache, 
+                method = "points",
+                mag = 1)
+
 plotRefToTarget(mean$initial_cache,
                 mean$subsequent_cache, 
                 method = "points",
                 mag = 1)
 
-plotRefToTarget(mean$subsequent_individual,
-                mean$subsequent_cache, 
-                method = "points",
-                mag = 1)
-
 ## 3D plot - final figure
-#knitr::include_graphics('images/mshape-cache-ind.jpg')
+knitr::include_graphics('images/comp.composite.jpg')
 ```
