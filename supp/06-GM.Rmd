@@ -127,26 +127,6 @@ fit.sizecontext <- procD.lm(size ~ context,
 anova(fit.sizecontext)
 ```
 
-## Morphological disparity
-
-```{r m-disparity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# does one context display greater **shape** variation among 
-# individuals relative to the other group?
-morphol.disparity(fit.shapecontext, 
-                  groups = qdata$context, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
-
-# does one context display greater **size** variation among 
-# individuals relative to the other group?
-morphol.disparity(fit.sizecontext, 
-                  groups = qdata$context, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
-```
-
 ## Mean shapes
 
 ```{r m-shapes.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}

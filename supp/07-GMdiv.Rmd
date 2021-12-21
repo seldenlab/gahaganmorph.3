@@ -13,6 +13,7 @@ This hypothesis is tested using Gahagan bifaces recovered from four discrete con
 library(here)
 library(geomorph)
 library(tidyr)
+library(ggplot2)
 library(wesanderson)
 
 source('readmulti.csv.R')
@@ -41,8 +42,6 @@ Y.gpa <- gpagen(coords,
                 print.progress = FALSE)
 ## plot gpa
 plot(Y.gpa)
-plot(Y.gpa$coords[,,18])
-plot(coords[,,18])
 
 ## 3D gpa plot
 knitr::include_graphics('images/gpa3d.png')
@@ -144,26 +143,6 @@ pairwise.sizecontemp <- pairwise(fit.sizecontemp,
 summary(pairwise.sizecontemp, 
         confidence = 0.95, 
         test.type = "dist")
-```
-
-## Morphological disparity
-
-```{r m-disparity.div, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# does one context display greater **shape** variation among 
-# individuals relative to the other group?
-morphol.disparity(fit.shapecontemp, 
-                  groups = qdata$merged, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
-
-# does one context display greater **size** variation among 
-# individuals relative to the other group?
-morphol.disparity(fit.sizecontemp, 
-                  groups = qdata$merged, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
 ```
 
 ## Mean shapes
