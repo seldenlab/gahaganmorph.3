@@ -42,6 +42,8 @@ Y.gpa <- gpagen(coords,
               print.progress = FALSE)
 ## plot gpa
 plot(Y.gpa)
+outliers <- plotOutliers(Y.gpa$coords)
+plotRefToTarget(mshape(Y.gpa$coords), Y.gpa$coords[,,outliers[1]], method = "vector", label = TRUE)
 
 ## 3D gpa plot
 knitr::include_graphics('images/gpa3d.png')
