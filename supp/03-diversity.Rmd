@@ -209,7 +209,6 @@ ggplot(data, aes(x = D1, y = J, color = region,
   geom_hline(aes(yintercept = median(J))) +
   theme(legend.position = c(0.87, 0.15)) +
   labs(color = "Behavioral Region")
-
 ```
 
 ### Diversity through time

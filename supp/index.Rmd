@@ -16,7 +16,7 @@ description: "Gahagan biface shape change."
 
 ## Basis of inquiry
 
-Contextual differences in Caddo burials that included Gahagan bifaces indicate two discrete burial traditions; one where a biface was placed _atop or alongside an individual_ and another where a cache of Gahagan bifaces was placed _along the northern wall of the burial feature_. This study asks whether assemblage diversity and evenness---for mortuary contexts associated with Gahagan bifaces---increases through time, and whether Gahagan biface morphology may differ based on differences in burial contexts. A seriation of mortuary contexts paired with an analysis of mortuary assemblage diversity highlights changes to Caddo burial assemblages through time, where the earliest contexts express lower diversity and evenness than later contexts. Results also indicate that Gahagan biface morphology differs between Caddo burial traditions, indicating discrete communities of practice related to both `object placement` and `shape preference`. These findings comprise the basis for a discussion of the establishment, maintenance, and evolution of the Caddo burial practice that included Gahagan bifaces.
+Contextual differences in Caddo burials that included Gahagan bifaces indicate two discrete burial traditions; one where a biface was placed _atop or alongside an individual_ and another where a cache of Gahagan bifaces was placed _along the northern wall of the burial feature_. This study asks whether assemblage diversity and evenness---for mortuary contexts associated with Gahagan bifaces---increases through time, and whether Gahagan biface morphology may differ based on context. A seriation of mortuary contexts paired with an analysis of mortuary assemblage diversity highlights changes in Caddo burial assemblages through time, where the earliest contexts express lower diversity and evenness than later contexts. Results also indicate that Gahagan biface morphology differs between Caddo burial traditions, indicating discrete communities of practice related to both `object placement` and `shape preference`. These findings comprise the basis for a discussion of the establishment, maintenance, and evolution of the Caddo burial practice that included Gahagan bifaces.
 
 ```{r gahagan bifaces 2D, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
 knitr::include_graphics('images/fig02.jpg')
@@ -30,6 +30,10 @@ knitr::include_graphics('images/fig02.jpg')
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
 
+```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of a, adults and juveniles (binned to encompass all age categories from sub-adult to fetus); b, lithic and ceramic artifacts; and c, diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based on results of seriation (see Chapter 2). The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+knitr::include_graphics('images/abundance.png')
+```
+
 #### _Findings_:
 
 - Juveniles were not included in the three latest assemblages that include Gahagan bifaces
@@ -37,8 +41,8 @@ This hypothesis is tested using counts of attributes and associated diagnostic a
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater** diversity of associated diagnostics
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater** evenness across the types
 
-```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of a, adults and juveniles (binned to encompass all age categories from sub-adult to fetus); b, lithic and ceramic artifacts; and c, diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based on results of seriation (see Chapter 2). The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
-knitr::include_graphics('images/abundance.png')
+```{r diversity.out, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and each represents the earliest context at each site to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
+knitr::include_graphics('images/diversity2-1.png')
 ```
 
 #### _Summary of results_
