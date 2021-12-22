@@ -1020,22 +1020,16 @@ North
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="composition-diversity.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how many of each type were found?</span></span>
 <span id="cb101-2"><a href="composition-diversity.html#cb101-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb101-3"><a href="composition-diversity.html#cb101-3" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
-<pre><code>##                alba                celt 
-##                 330                  31 
-##           catahoula              friley 
-##                   6                   2 
-##             gahagan               hayes 
-##                  71                  26 
-##             harrell                reed 
-##                   2                  16 
-##            scallorn         coles_creek 
-##                  50                   1 
-##    hickory_engraved holly_fine_engraved 
-##                   3                   6 
-##        kiam_incised      ceramic_bottle 
-##                   1                   3 
-##        ceramic_bowl 
-##                   7</code></pre>
+<pre><code>##                alba                celt           catahoula 
+##                 330                  31                   6 
+##              friley             gahagan               hayes 
+##                   2                  71                  26 
+##             harrell                reed            scallorn 
+##                   2                  16                  50 
+##         coles_creek    hickory_engraved holly_fine_engraved 
+##                   1                   3                   6 
+##        kiam_incised      ceramic_bottle        ceramic_bowl 
+##                   1                   3                   7</code></pre>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="composition-diversity.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="do">## richness (S) = number of types in assemblage</span></span>
 <span id="cb103-2"><a href="composition-diversity.html#cb103-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
 <span id="cb103-3"><a href="composition-diversity.html#cb103-3" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
@@ -1049,48 +1043,35 @@ North
 <h2><span class="header-section-number">3.3</span> Relative abundance</h2>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="composition-diversity.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean number of observations for each type</span></span>
 <span id="cb107-2"><a href="composition-diversity.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span></code></pre></div>
-<pre><code>##                alba                celt 
-##              41.250               3.875 
-##           catahoula              friley 
-##               0.750               0.250 
-##             gahagan               hayes 
-##               8.875               3.250 
-##             harrell                reed 
-##               0.250               2.000 
-##            scallorn         coles_creek 
-##               6.250               0.125 
-##    hickory_engraved holly_fine_engraved 
-##               0.375               0.750 
-##        kiam_incised      ceramic_bottle 
-##               0.125               0.375 
-##        ceramic_bowl 
-##               0.875</code></pre>
+<pre><code>##                alba                celt           catahoula 
+##              41.250               3.875               0.750 
+##              friley             gahagan               hayes 
+##               0.250               8.875               3.250 
+##             harrell                reed            scallorn 
+##               0.250               2.000               6.250 
+##         coles_creek    hickory_engraved holly_fine_engraved 
+##               0.125               0.375               0.750 
+##        kiam_incised      ceramic_bottle        ceramic_bowl 
+##               0.125               0.375               0.875</code></pre>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="composition-diversity.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data by percentage</span></span>
 <span id="cb109-2"><a href="composition-diversity.html#cb109-2" aria-hidden="true" tabindex="-1"></a>data.pct <span class="ot">&lt;-</span> data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>]<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb109-3"><a href="composition-diversity.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="do">## mean percent (Mp) of each type across assemblage</span></span>
 <span id="cb109-4"><a href="composition-diversity.html#cb109-4" aria-hidden="true" tabindex="-1"></a>Mp <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(data.pct)</span>
 <span id="cb109-5"><a href="composition-diversity.html#cb109-5" aria-hidden="true" tabindex="-1"></a>Mp</span></code></pre></div>
-<pre><code>##                alba                celt 
-##          39.4609095           4.3147645 
-##           catahoula              friley 
-##           5.5208333           0.5511143 
-##             gahagan               hayes 
-##          20.2192905           8.7044748 
-##             harrell                reed 
-##           0.2232143           1.7857143 
-##            scallorn         coles_creek 
-##          10.0396249           0.2604167 
-##    hickory_engraved holly_fine_engraved 
-##           1.6220238           2.7261905 
-##        kiam_incised      ceramic_bottle 
-##           0.1116071           0.7157738 
-##        ceramic_bowl 
-##           3.7440476</code></pre>
+<pre><code>##                alba                celt           catahoula 
+##          39.4609095           4.3147645           5.5208333 
+##              friley             gahagan               hayes 
+##           0.5511143          20.2192905           8.7044748 
+##             harrell                reed            scallorn 
+##           0.2232143           1.7857143          10.0396249 
+##         coles_creek    hickory_engraved holly_fine_engraved 
+##           0.2604167           1.6220238           2.7261905 
+##        kiam_incised      ceramic_bottle        ceramic_bowl 
+##           0.1116071           0.7157738           3.7440476</code></pre>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="composition-diversity.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="do">## percentage of sites that have each type</span></span>
 <span id="cb111-2"><a href="composition-diversity.html#cb111-2" aria-hidden="true" tabindex="-1"></a>Up <span class="ot">&lt;-</span> U<span class="sc">/</span><span class="fu">length</span>(N)<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb111-3"><a href="composition-diversity.html#cb111-3" aria-hidden="true" tabindex="-1"></a>Up</span></code></pre></div>
-<pre><code>## [1]  50.0  87.5 150.0  75.0 125.0  37.5  62.5
-## [8]  75.0</code></pre>
+<pre><code>## [1]  50.0  87.5 150.0  75.0 125.0  37.5  62.5  75.0</code></pre>
 <div id="relative-abundance-by-context" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Relative abundance by context</h3>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="composition-diversity.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -1636,8 +1617,7 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ## time         1 0.18938 0.18938   14.98 0.00826 **
 ## Residuals    6 0.07583 0.01264                   
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 <div id="evenness-through-time" class="section level3" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Evenness through time</h3>
