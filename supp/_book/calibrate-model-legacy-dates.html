@@ -246,17 +246,19 @@ div.csl-indent {
 <span id="cb11-2"><a href="calibrate-model-legacy-dates.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb11-3"><a href="calibrate-model-legacy-dates.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(oxcAAR)</span>
 <span id="cb11-4"><a href="calibrate-model-legacy-dates.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quickSetupOxcal</span>()</span></code></pre></div>
-<pre><code>## Oxcal is already installed correctly.</code></pre>
+<pre><code>## Oxcal doesn&#39;t seem to be installed. Downloading it now:</code></pre>
+<pre><code>## Oxcal stored successful at C:\Users\seldenjrz\AppData\Local\Temp\RtmpkxjsBm!</code></pre>
+<pre><code>## Oxcal path set!</code></pre>
 <pre><code>## NULL</code></pre>
 <div id="calibration-and-plots-for-dates-from-burial-pit-5-at-the-mounds-plantation-site" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Calibration and plots for dates from Burial Pit 5 at the Mounds Plantation site</h2>
 <p>Three dates (Tx-55, Tx-56, and M-1466) were reported from Burial Pit 5 at the Mounds Plantation site. More information about these dates can be found in the text, and those works cited within the text of the manuscript.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="calibrate-model-legacy-dates.html#cb14-1" aria-hidden="true" tabindex="-1"></a>moundspl<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">860</span>,<span class="dv">900</span>),</span>
-<span id="cb14-2"><a href="calibrate-model-legacy-dates.html#cb14-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">std=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">100</span>),</span>
-<span id="cb14-3"><a href="calibrate-model-legacy-dates.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-55&quot;</span>,<span class="st">&quot;M-1466&quot;</span>)</span>
-<span id="cb14-4"><a href="calibrate-model-legacy-dates.html#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-5"><a href="calibrate-model-legacy-dates.html#cb14-5" aria-hidden="true" tabindex="-1"></a>moundsplcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(moundspl<span class="sc">$</span>bp,moundspl<span class="sc">$</span>std,moundspl<span class="sc">$</span>names)</span>
-<span id="cb14-6"><a href="calibrate-model-legacy-dates.html#cb14-6" aria-hidden="true" tabindex="-1"></a>moundsplcal</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="calibrate-model-legacy-dates.html#cb16-1" aria-hidden="true" tabindex="-1"></a>moundspl<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">860</span>,<span class="dv">900</span>),</span>
+<span id="cb16-2"><a href="calibrate-model-legacy-dates.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">std=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">100</span>),</span>
+<span id="cb16-3"><a href="calibrate-model-legacy-dates.html#cb16-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-55&quot;</span>,<span class="st">&quot;M-1466&quot;</span>)</span>
+<span id="cb16-4"><a href="calibrate-model-legacy-dates.html#cb16-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-5"><a href="calibrate-model-legacy-dates.html#cb16-5" aria-hidden="true" tabindex="-1"></a>moundsplcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(moundspl<span class="sc">$</span>bp,moundspl<span class="sc">$</span>std,moundspl<span class="sc">$</span>names)</span>
+<span id="cb16-6"><a href="calibrate-model-legacy-dates.html#cb16-6" aria-hidden="true" tabindex="-1"></a>moundsplcal</span></code></pre></div>
 <pre><code>## List of 2 calibrated dates:
 ## 
 ## =============================
@@ -310,27 +312,21 @@ div.csl-indent {
 ## 
 ## Calibrated with:
 ##   Atmospheric data from Reimer et al (2020)</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="calibrate-model-legacy-dates.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moundsplcal)</span></code></pre></div>
-<<<<<<< HEAD
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide.
-## Please use `guide = &quot;none&quot;` instead.</code></pre>
-=======
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a
-## guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
->>>>>>> 9e9b7e7564a5c29a753cceeafdb2e69fd0b44575
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="calibrate-model-legacy-dates.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moundsplcal)</span></code></pre></div>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="_main_files/figure-html/mplcal-1.png" width="672" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="calibrate-model-legacy-dates.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(moundsplcal)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="calibrate-model-legacy-dates.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(moundsplcal)</span></code></pre></div>
 <p><img src="_main_files/figure-html/mplcal-2.png" width="672" /></p>
 </div>
 <div id="calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Calibration and plots for dates from Burial Pit 2 at the Gahagan Mound site</h2>
 <p>Three AMS dates (UGA12296, ISGS A0465, and ISGS A0466) were reported from Burial Pit 2 at the Gahagan Mound site. More information about these dates can be found in the text, and those works cited within the text of the manuscript.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="calibrate-model-legacy-dates.html#cb19-1" aria-hidden="true" tabindex="-1"></a>gahagan<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">950</span>,<span class="dv">910</span>),</span>
-<span id="cb19-2"><a href="calibrate-model-legacy-dates.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">std=</span><span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">35</span>),</span>
-<span id="cb19-3"><a href="calibrate-model-legacy-dates.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;UGA-12296&quot;</span>,<span class="st">&quot;ISGS-A0466&quot;</span>,<span class="st">&quot;ISGS-A0465&quot;</span>)</span>
-<span id="cb19-4"><a href="calibrate-model-legacy-dates.html#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-5"><a href="calibrate-model-legacy-dates.html#cb19-5" aria-hidden="true" tabindex="-1"></a>gahagancal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gahagan<span class="sc">$</span>bp,gahagan<span class="sc">$</span>std,gahagan<span class="sc">$</span>names)</span>
-<span id="cb19-6"><a href="calibrate-model-legacy-dates.html#cb19-6" aria-hidden="true" tabindex="-1"></a>gahagancal</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="calibrate-model-legacy-dates.html#cb21-1" aria-hidden="true" tabindex="-1"></a>gahagan<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">950</span>,<span class="dv">910</span>),</span>
+<span id="cb21-2"><a href="calibrate-model-legacy-dates.html#cb21-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">std=</span><span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">35</span>),</span>
+<span id="cb21-3"><a href="calibrate-model-legacy-dates.html#cb21-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;UGA-12296&quot;</span>,<span class="st">&quot;ISGS-A0466&quot;</span>,<span class="st">&quot;ISGS-A0465&quot;</span>)</span>
+<span id="cb21-4"><a href="calibrate-model-legacy-dates.html#cb21-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-5"><a href="calibrate-model-legacy-dates.html#cb21-5" aria-hidden="true" tabindex="-1"></a>gahagancal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gahagan<span class="sc">$</span>bp,gahagan<span class="sc">$</span>std,gahagan<span class="sc">$</span>names)</span>
+<span id="cb21-6"><a href="calibrate-model-legacy-dates.html#cb21-6" aria-hidden="true" tabindex="-1"></a>gahagancal</span></code></pre></div>
 <pre><code>## List of 3 calibrated dates:
 ## 
 ## =============================
@@ -409,27 +405,21 @@ div.csl-indent {
 ## 
 ## Calibrated with:
 ##   Atmospheric data from Reimer et al (2020)</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="calibrate-model-legacy-dates.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gahagancal)</span></code></pre></div>
-<<<<<<< HEAD
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide.
-## Please use `guide = &quot;none&quot;` instead.</code></pre>
-=======
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a
-## guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
->>>>>>> 9e9b7e7564a5c29a753cceeafdb2e69fd0b44575
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="calibrate-model-legacy-dates.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gahagancal)</span></code></pre></div>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="_main_files/figure-html/gahagancal-1.png" width="672" /></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="calibrate-model-legacy-dates.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gahagancal)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="calibrate-model-legacy-dates.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gahagancal)</span></code></pre></div>
 <p><img src="_main_files/figure-html/gahagancal-2.png" width="672" /></p>
 </div>
 <div id="calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-site" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Calibration and plots for the dates from F119 and F134 at the George C. Davis site</h2>
 <p>Two dates (Tx-913 and Tx-1206) were reported from Features 119 and 134, respectively. More information about these dates can be found in the text and cited references.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="calibrate-model-legacy-dates.html#cb24-1" aria-hidden="true" tabindex="-1"></a>gcd<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1150</span>,<span class="dv">986</span>),</span>
-<span id="cb24-2"><a href="calibrate-model-legacy-dates.html#cb24-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">std=</span><span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">90</span>),</span>
-<span id="cb24-3"><a href="calibrate-model-legacy-dates.html#cb24-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-913&quot;</span>,<span class="st">&quot;Tx-1206&quot;</span>)</span>
-<span id="cb24-4"><a href="calibrate-model-legacy-dates.html#cb24-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-5"><a href="calibrate-model-legacy-dates.html#cb24-5" aria-hidden="true" tabindex="-1"></a>gcdcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gcd<span class="sc">$</span>bp,gcd<span class="sc">$</span>std,gcd<span class="sc">$</span>names)</span>
-<span id="cb24-6"><a href="calibrate-model-legacy-dates.html#cb24-6" aria-hidden="true" tabindex="-1"></a>gcdcal</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="calibrate-model-legacy-dates.html#cb26-1" aria-hidden="true" tabindex="-1"></a>gcd<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">bp=</span><span class="fu">c</span>(<span class="dv">1150</span>,<span class="dv">986</span>),</span>
+<span id="cb26-2"><a href="calibrate-model-legacy-dates.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">std=</span><span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">90</span>),</span>
+<span id="cb26-3"><a href="calibrate-model-legacy-dates.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">names=</span><span class="fu">c</span>(<span class="st">&quot;Tx-913&quot;</span>,<span class="st">&quot;Tx-1206&quot;</span>)</span>
+<span id="cb26-4"><a href="calibrate-model-legacy-dates.html#cb26-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-5"><a href="calibrate-model-legacy-dates.html#cb26-5" aria-hidden="true" tabindex="-1"></a>gcdcal<span class="ot">&lt;-</span><span class="fu">oxcalCalibrate</span>(gcd<span class="sc">$</span>bp,gcd<span class="sc">$</span>std,gcd<span class="sc">$</span>names)</span>
+<span id="cb26-6"><a href="calibrate-model-legacy-dates.html#cb26-6" aria-hidden="true" tabindex="-1"></a>gcdcal</span></code></pre></div>
 <pre><code>## List of 2 calibrated dates:
 ## 
 ## =============================
@@ -480,88 +470,82 @@ div.csl-indent {
 ## 
 ## Calibrated with:
 ##   Atmospheric data from Reimer et al (2020)</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="calibrate-model-legacy-dates.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gcdcal)</span></code></pre></div>
-<<<<<<< HEAD
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide.
-## Please use `guide = &quot;none&quot;` instead.</code></pre>
-=======
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a
-## guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
->>>>>>> 9e9b7e7564a5c29a753cceeafdb2e69fd0b44575
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="calibrate-model-legacy-dates.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gcdcal)</span></code></pre></div>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="_main_files/figure-html/GCDcal-1.png" width="672" /></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="calibrate-model-legacy-dates.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gcdcal)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="calibrate-model-legacy-dates.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcurve_plot</span>(gcdcal)</span></code></pre></div>
 <p><img src="_main_files/figure-html/GCDcal-2.png" width="672" /></p>
 </div>
 <div id="chronological-model-for-burial-contexts-yielding-gahagan-bifaces" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Chronological model for burial contexts yielding Gahagan bifaces</h2>
 <p>For reasons discussed by Selden and colleagues <span class="citation">(<a href="#ref-RN21001" role="doc-biblioref">2020</a>)</span>, Tx-1206 and Tx-56 are included in the model as outliers.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="calibrate-model-legacy-dates.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chronological model</span></span>
-<span id="cb29-2"><a href="calibrate-model-legacy-dates.html#cb29-2" aria-hidden="true" tabindex="-1"></a>gahaganmod <span class="ot">&lt;-</span> <span class="st">&#39;Plot()</span></span>
-<span id="cb29-3"><a href="calibrate-model-legacy-dates.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="st"> {</span></span>
-<span id="cb29-4"><a href="calibrate-model-legacy-dates.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Phase(&quot;Burial contexts yielding Gahagan bifaces&quot;)</span></span>
-<span id="cb29-5"><a href="calibrate-model-legacy-dates.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="st">  {</span></span>
-<span id="cb29-6"><a href="calibrate-model-legacy-dates.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;George C. Davis&quot;)</span></span>
-<span id="cb29-7"><a href="calibrate-model-legacy-dates.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
-<span id="cb29-8"><a href="calibrate-model-legacy-dates.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start George C. Davis&quot;);</span></span>
-<span id="cb29-9"><a href="calibrate-model-legacy-dates.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F119&quot;)</span></span>
-<span id="cb29-10"><a href="calibrate-model-legacy-dates.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb29-11"><a href="calibrate-model-legacy-dates.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-913&quot;, 1150, 80);</span></span>
-<span id="cb29-12"><a href="calibrate-model-legacy-dates.html#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb29-13"><a href="calibrate-model-legacy-dates.html#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F134&quot;)</span></span>
-<span id="cb29-14"><a href="calibrate-model-legacy-dates.html#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb29-15"><a href="calibrate-model-legacy-dates.html#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-1206&quot;, 986, 90)</span></span>
-<span id="cb29-16"><a href="calibrate-model-legacy-dates.html#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
-<span id="cb29-17"><a href="calibrate-model-legacy-dates.html#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
-<span id="cb29-18"><a href="calibrate-model-legacy-dates.html#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
-<span id="cb29-19"><a href="calibrate-model-legacy-dates.html#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb29-20"><a href="calibrate-model-legacy-dates.html#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end George C. Davis&quot;);</span></span>
-<span id="cb29-21"><a href="calibrate-model-legacy-dates.html#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
-<span id="cb29-22"><a href="calibrate-model-legacy-dates.html#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Mounds Plantation&quot;)</span></span>
-<span id="cb29-23"><a href="calibrate-model-legacy-dates.html#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
-<span id="cb29-24"><a href="calibrate-model-legacy-dates.html#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Mounds Plantation&quot;);</span></span>
-<span id="cb29-25"><a href="calibrate-model-legacy-dates.html#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
-<span id="cb29-26"><a href="calibrate-model-legacy-dates.html#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb29-27"><a href="calibrate-model-legacy-dates.html#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Combine(&quot;Log 1&quot;)</span></span>
-<span id="cb29-28"><a href="calibrate-model-legacy-dates.html#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
-<span id="cb29-29"><a href="calibrate-model-legacy-dates.html#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;M-1466&quot;, 900, 100);</span></span>
-<span id="cb29-30"><a href="calibrate-model-legacy-dates.html#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;Tx-55&quot;, 860, 120);</span></span>
-<span id="cb29-31"><a href="calibrate-model-legacy-dates.html#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
-<span id="cb29-32"><a href="calibrate-model-legacy-dates.html#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-56&quot;, 475, 100)</span></span>
-<span id="cb29-33"><a href="calibrate-model-legacy-dates.html#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
-<span id="cb29-34"><a href="calibrate-model-legacy-dates.html#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
-<span id="cb29-35"><a href="calibrate-model-legacy-dates.html#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
-<span id="cb29-36"><a href="calibrate-model-legacy-dates.html#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb29-37"><a href="calibrate-model-legacy-dates.html#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Mounds Plantation&quot;);</span></span>
-<span id="cb29-38"><a href="calibrate-model-legacy-dates.html#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
-<span id="cb29-39"><a href="calibrate-model-legacy-dates.html#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Gahagan Mound&quot;)</span></span>
-<span id="cb29-40"><a href="calibrate-model-legacy-dates.html#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
-<span id="cb29-41"><a href="calibrate-model-legacy-dates.html#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Gahagan Mound&quot;);</span></span>
-<span id="cb29-42"><a href="calibrate-model-legacy-dates.html#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
-<span id="cb29-43"><a href="calibrate-model-legacy-dates.html#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
-<span id="cb29-44"><a href="calibrate-model-legacy-dates.html#cb29-44" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;UGA-12296&quot;, 1000, 40);</span></span>
-<span id="cb29-45"><a href="calibrate-model-legacy-dates.html#cb29-45" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0466&quot;, 950, 40);</span></span>
-<span id="cb29-46"><a href="calibrate-model-legacy-dates.html#cb29-46" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0465&quot;, 910, 35);</span></span>
-<span id="cb29-47"><a href="calibrate-model-legacy-dates.html#cb29-47" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb29-48"><a href="calibrate-model-legacy-dates.html#cb29-48" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Gahagan Mound&quot;);</span></span>
-<span id="cb29-49"><a href="calibrate-model-legacy-dates.html#cb29-49" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
-<span id="cb29-50"><a href="calibrate-model-legacy-dates.html#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="st">  };</span></span>
-<span id="cb29-51"><a href="calibrate-model-legacy-dates.html#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="st"> };</span></span>
-<span id="cb29-52"><a href="calibrate-model-legacy-dates.html#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb29-53"><a href="calibrate-model-legacy-dates.html#cb29-53" aria-hidden="true" tabindex="-1"></a>  gahaganmod_results <span class="ot">&lt;-</span> <span class="fu">executeOxcalScript</span>(gahaganmod) </span>
-<span id="cb29-54"><a href="calibrate-model-legacy-dates.html#cb29-54" aria-hidden="true" tabindex="-1"></a>  gahaganmod_text <span class="ot">&lt;-</span> <span class="fu">readOxcalOutput</span>(gahaganmod_results)</span>
-<span id="cb29-55"><a href="calibrate-model-legacy-dates.html#cb29-55" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="ot">&lt;-</span> <span class="fu">parseOxcalOutput</span>(gahaganmod_text, </span>
-<span id="cb29-56"><a href="calibrate-model-legacy-dates.html#cb29-56" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">only.R_Date =</span> F)</span>
-<span id="cb29-57"><a href="calibrate-model-legacy-dates.html#cb29-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(gahaganmod_result_data)</span>
-<span id="cb29-58"><a href="calibrate-model-legacy-dates.html#cb29-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(gahaganmod_result_data)</span>
-<span id="cb29-59"><a href="calibrate-model-legacy-dates.html#cb29-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(gahaganmod_result_data)</span>
-<span id="cb29-60"><a href="calibrate-model-legacy-dates.html#cb29-60" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb29-61"><a href="calibrate-model-legacy-dates.html#cb29-61" aria-hidden="true" tabindex="-1"></a><span class="co">#plot start/end boundaries for contexts yielding gahagan bifaces</span></span>
-<span id="cb29-62"><a href="calibrate-model-legacy-dates.html#cb29-62" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="sc">%&gt;%</span></span>
-<span id="cb29-63"><a href="calibrate-model-legacy-dates.html#cb29-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="cf">function</span>(x) x<span class="sc">$</span>type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Boundary&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb29-64"><a href="calibrate-model-legacy-dates.html#cb29-64" aria-hidden="true" tabindex="-1"></a>    gahaganmod_result_data[.] <span class="sc">%&gt;%</span></span>
-<span id="cb29-65"><a href="calibrate-model-legacy-dates.html#cb29-65" aria-hidden="true" tabindex="-1"></a>    oxcAAR<span class="sc">:::</span><span class="fu">plot.oxcAARCalibratedDatesList</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="calibrate-model-legacy-dates.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># embed image</span></span>
-<span id="cb30-2"><a href="calibrate-model-legacy-dates.html#cb30-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gahagan-chronology.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="calibrate-model-legacy-dates.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chronological model</span></span>
+<span id="cb31-2"><a href="calibrate-model-legacy-dates.html#cb31-2" aria-hidden="true" tabindex="-1"></a>gahaganmod <span class="ot">&lt;-</span> <span class="st">&#39;Plot()</span></span>
+<span id="cb31-3"><a href="calibrate-model-legacy-dates.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st"> {</span></span>
+<span id="cb31-4"><a href="calibrate-model-legacy-dates.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Phase(&quot;Burial contexts yielding Gahagan bifaces&quot;)</span></span>
+<span id="cb31-5"><a href="calibrate-model-legacy-dates.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="st">  {</span></span>
+<span id="cb31-6"><a href="calibrate-model-legacy-dates.html#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;George C. Davis&quot;)</span></span>
+<span id="cb31-7"><a href="calibrate-model-legacy-dates.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
+<span id="cb31-8"><a href="calibrate-model-legacy-dates.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start George C. Davis&quot;);</span></span>
+<span id="cb31-9"><a href="calibrate-model-legacy-dates.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F119&quot;)</span></span>
+<span id="cb31-10"><a href="calibrate-model-legacy-dates.html#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb31-11"><a href="calibrate-model-legacy-dates.html#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-913&quot;, 1150, 80);</span></span>
+<span id="cb31-12"><a href="calibrate-model-legacy-dates.html#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb31-13"><a href="calibrate-model-legacy-dates.html#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;F134&quot;)</span></span>
+<span id="cb31-14"><a href="calibrate-model-legacy-dates.html#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb31-15"><a href="calibrate-model-legacy-dates.html#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-1206&quot;, 986, 90)</span></span>
+<span id="cb31-16"><a href="calibrate-model-legacy-dates.html#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
+<span id="cb31-17"><a href="calibrate-model-legacy-dates.html#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
+<span id="cb31-18"><a href="calibrate-model-legacy-dates.html#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
+<span id="cb31-19"><a href="calibrate-model-legacy-dates.html#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb31-20"><a href="calibrate-model-legacy-dates.html#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end George C. Davis&quot;);</span></span>
+<span id="cb31-21"><a href="calibrate-model-legacy-dates.html#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
+<span id="cb31-22"><a href="calibrate-model-legacy-dates.html#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Mounds Plantation&quot;)</span></span>
+<span id="cb31-23"><a href="calibrate-model-legacy-dates.html#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
+<span id="cb31-24"><a href="calibrate-model-legacy-dates.html#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Mounds Plantation&quot;);</span></span>
+<span id="cb31-25"><a href="calibrate-model-legacy-dates.html#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
+<span id="cb31-26"><a href="calibrate-model-legacy-dates.html#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb31-27"><a href="calibrate-model-legacy-dates.html#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Combine(&quot;Log 1&quot;)</span></span>
+<span id="cb31-28"><a href="calibrate-model-legacy-dates.html#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
+<span id="cb31-29"><a href="calibrate-model-legacy-dates.html#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;M-1466&quot;, 900, 100);</span></span>
+<span id="cb31-30"><a href="calibrate-model-legacy-dates.html#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="st">      R_Date(&quot;Tx-55&quot;, 860, 120);</span></span>
+<span id="cb31-31"><a href="calibrate-model-legacy-dates.html#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
+<span id="cb31-32"><a href="calibrate-model-legacy-dates.html#cb31-32" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;Tx-56&quot;, 475, 100)</span></span>
+<span id="cb31-33"><a href="calibrate-model-legacy-dates.html#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="st">     {</span></span>
+<span id="cb31-34"><a href="calibrate-model-legacy-dates.html#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="st">      Outlier();</span></span>
+<span id="cb31-35"><a href="calibrate-model-legacy-dates.html#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="st">     };</span></span>
+<span id="cb31-36"><a href="calibrate-model-legacy-dates.html#cb31-36" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb31-37"><a href="calibrate-model-legacy-dates.html#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Mounds Plantation&quot;);</span></span>
+<span id="cb31-38"><a href="calibrate-model-legacy-dates.html#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
+<span id="cb31-39"><a href="calibrate-model-legacy-dates.html#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="st">   Sequence(&quot;Gahagan Mound&quot;)</span></span>
+<span id="cb31-40"><a href="calibrate-model-legacy-dates.html#cb31-40" aria-hidden="true" tabindex="-1"></a><span class="st">   {</span></span>
+<span id="cb31-41"><a href="calibrate-model-legacy-dates.html#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;start Gahagan Mound&quot;);</span></span>
+<span id="cb31-42"><a href="calibrate-model-legacy-dates.html#cb31-42" aria-hidden="true" tabindex="-1"></a><span class="st">    Phase(&quot;Burial Pit 2&quot;)</span></span>
+<span id="cb31-43"><a href="calibrate-model-legacy-dates.html#cb31-43" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb31-44"><a href="calibrate-model-legacy-dates.html#cb31-44" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;UGA-12296&quot;, 1000, 40);</span></span>
+<span id="cb31-45"><a href="calibrate-model-legacy-dates.html#cb31-45" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0466&quot;, 950, 40);</span></span>
+<span id="cb31-46"><a href="calibrate-model-legacy-dates.html#cb31-46" aria-hidden="true" tabindex="-1"></a><span class="st">     R_Date(&quot;ISGS-A0465&quot;, 910, 35);</span></span>
+<span id="cb31-47"><a href="calibrate-model-legacy-dates.html#cb31-47" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb31-48"><a href="calibrate-model-legacy-dates.html#cb31-48" aria-hidden="true" tabindex="-1"></a><span class="st">    Boundary(&quot;end Gahagan Mound&quot;);</span></span>
+<span id="cb31-49"><a href="calibrate-model-legacy-dates.html#cb31-49" aria-hidden="true" tabindex="-1"></a><span class="st">   };</span></span>
+<span id="cb31-50"><a href="calibrate-model-legacy-dates.html#cb31-50" aria-hidden="true" tabindex="-1"></a><span class="st">  };</span></span>
+<span id="cb31-51"><a href="calibrate-model-legacy-dates.html#cb31-51" aria-hidden="true" tabindex="-1"></a><span class="st"> };</span></span>
+<span id="cb31-52"><a href="calibrate-model-legacy-dates.html#cb31-52" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb31-53"><a href="calibrate-model-legacy-dates.html#cb31-53" aria-hidden="true" tabindex="-1"></a>  gahaganmod_results <span class="ot">&lt;-</span> <span class="fu">executeOxcalScript</span>(gahaganmod) </span>
+<span id="cb31-54"><a href="calibrate-model-legacy-dates.html#cb31-54" aria-hidden="true" tabindex="-1"></a>  gahaganmod_text <span class="ot">&lt;-</span> <span class="fu">readOxcalOutput</span>(gahaganmod_results)</span>
+<span id="cb31-55"><a href="calibrate-model-legacy-dates.html#cb31-55" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="ot">&lt;-</span> <span class="fu">parseOxcalOutput</span>(gahaganmod_text, </span>
+<span id="cb31-56"><a href="calibrate-model-legacy-dates.html#cb31-56" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">only.R_Date =</span> F)</span>
+<span id="cb31-57"><a href="calibrate-model-legacy-dates.html#cb31-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(gahaganmod_result_data)</span>
+<span id="cb31-58"><a href="calibrate-model-legacy-dates.html#cb31-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(gahaganmod_result_data)</span>
+<span id="cb31-59"><a href="calibrate-model-legacy-dates.html#cb31-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(gahaganmod_result_data)</span>
+<span id="cb31-60"><a href="calibrate-model-legacy-dates.html#cb31-60" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-61"><a href="calibrate-model-legacy-dates.html#cb31-61" aria-hidden="true" tabindex="-1"></a><span class="co">#plot start/end boundaries for contexts yielding gahagan bifaces</span></span>
+<span id="cb31-62"><a href="calibrate-model-legacy-dates.html#cb31-62" aria-hidden="true" tabindex="-1"></a>  gahaganmod_result_data <span class="sc">%&gt;%</span></span>
+<span id="cb31-63"><a href="calibrate-model-legacy-dates.html#cb31-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="cf">function</span>(x) x<span class="sc">$</span>type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Boundary&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-64"><a href="calibrate-model-legacy-dates.html#cb31-64" aria-hidden="true" tabindex="-1"></a>    gahaganmod_result_data[.] <span class="sc">%&gt;%</span></span>
+<span id="cb31-65"><a href="calibrate-model-legacy-dates.html#cb31-65" aria-hidden="true" tabindex="-1"></a>    oxcAAR<span class="sc">:::</span><span class="fu">plot.oxcAARCalibratedDatesList</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="calibrate-model-legacy-dates.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># embed image</span></span>
+<span id="cb32-2"><a href="calibrate-model-legacy-dates.html#cb32-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gahagan-chronology.jpg&#39;</span>)</span></code></pre></div>
 <p><img src="images/gahagan-chronology.jpg" width="100%" /></p>
 
 </div>
