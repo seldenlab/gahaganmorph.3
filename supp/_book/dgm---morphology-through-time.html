@@ -425,6 +425,7 @@ div.csl-indent {
 ## Eigenvalues            8.319440e-08 7.878405e-08 6.718766e-08
 ## Proportion of Variance 1.703732e-05 1.613413e-05 1.375932e-05
 ## Cumulative Proportion  9.999701e-01 9.999862e-01 1.000000e+00</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="dgm---morphology-through-time.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
 <span id="cb190-2"><a href="dgm---morphology-through-time.html#cb190-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(merged)]</span>
 <span id="cb190-3"><a href="dgm---morphology-through-time.html#cb190-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(merged)]</span>
@@ -437,6 +438,20 @@ div.csl-indent {
 <span id="cb190-10"><a href="dgm---morphology-through-time.html#cb190-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
 <span id="cb190-11"><a href="dgm---morphology-through-time.html#cb190-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> merged,</span>
 <span id="cb190-12"><a href="dgm---morphology-through-time.html#cb190-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+=======
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="dgm---morphology-through-time.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb159-2"><a href="dgm---morphology-through-time.html#cb159-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(merged)]</span>
+<span id="cb159-3"><a href="dgm---morphology-through-time.html#cb159-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(merged)]</span>
+<span id="cb159-4"><a href="dgm---morphology-through-time.html#cb159-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#29211F&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
+<span id="cb159-5"><a href="dgm---morphology-through-time.html#cb159-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-6"><a href="dgm---morphology-through-time.html#cb159-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb159-7"><a href="dgm---morphology-through-time.html#cb159-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb159-8"><a href="dgm---morphology-through-time.html#cb159-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb159-9"><a href="dgm---morphology-through-time.html#cb159-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
+<span id="cb159-10"><a href="dgm---morphology-through-time.html#cb159-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
+<span id="cb159-11"><a href="dgm---morphology-through-time.html#cb159-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> merged,</span>
+<span id="cb159-12"><a href="dgm---morphology-through-time.html#cb159-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+>>>>>>> 9e9b7e7564a5c29a753cceeafdb2e69fd0b44575
 <p><img src="_main_files/figure-html/pca1.div-1.png" width="100%" /></p>
 <div id="plot-pca-with-mean-shape-xy-maximaminima" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Plot PCA with mean shape + x/y maxima/minima</h3>
@@ -503,6 +518,7 @@ div.csl-indent {
 ## initial_individual:subsequent_cache       1.4408328 0.0857
 ## initial_individual:subsequent_individual  0.7341184 0.2490
 ## subsequent_cache:subsequent_individual    2.9828667 0.0001</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="dgm---morphology-through-time.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context + time</span></span>
 <span id="cb196-2"><a href="dgm---morphology-through-time.html#cb196-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
 <span id="cb196-3"><a href="dgm---morphology-through-time.html#cb196-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
@@ -511,6 +527,16 @@ div.csl-indent {
 <span id="cb196-6"><a href="dgm---morphology-through-time.html#cb196-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb196-7"><a href="dgm---morphology-through-time.html#cb196-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context + time?</span></span>
 <span id="cb196-8"><a href="dgm---morphology-through-time.html#cb196-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontemp)</span></code></pre></div>
+=======
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dgm---morphology-through-time.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context + time</span></span>
+<span id="cb165-2"><a href="dgm---morphology-through-time.html#cb165-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
+<span id="cb165-3"><a href="dgm---morphology-through-time.html#cb165-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
+<span id="cb165-4"><a href="dgm---morphology-through-time.html#cb165-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb165-5"><a href="dgm---morphology-through-time.html#cb165-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb165-6"><a href="dgm---morphology-through-time.html#cb165-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-7"><a href="dgm---morphology-through-time.html#cb165-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context + time?</span></span>
+<span id="cb165-8"><a href="dgm---morphology-through-time.html#cb165-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontemp)</span></code></pre></div>
+>>>>>>> 9e9b7e7564a5c29a753cceeafdb2e69fd0b44575
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -561,6 +587,7 @@ div.csl-indent {
 </div>
 <div id="mean-shapes" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> Mean shapes</h2>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dgm---morphology-through-time.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
 <span id="cb200-2"><a href="dgm---morphology-through-time.html#cb200-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
 <span id="cb200-3"><a href="dgm---morphology-through-time.html#cb200-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>merged)</span>
@@ -608,6 +635,55 @@ div.csl-indent {
 <span id="cb202-38"><a href="dgm---morphology-through-time.html#cb202-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb202-39"><a href="dgm---morphology-through-time.html#cb202-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
 <span id="cb202-40"><a href="dgm---morphology-through-time.html#cb202-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/comp.composite.jpg&#39;</span>)</span></code></pre></div>
+=======
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="dgm---morphology-through-time.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
+<span id="cb169-2"><a href="dgm---morphology-through-time.html#cb169-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb169-3"><a href="dgm---morphology-through-time.html#cb169-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb169-4"><a href="dgm---morphology-through-time.html#cb169-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-5"><a href="dgm---morphology-through-time.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
+<pre><code>## [1] &quot;initial_cache&quot;         &quot;initial_individual&quot;   
+## [3] &quot;subsequent_cache&quot;      &quot;subsequent_individual&quot;</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="dgm---morphology-through-time.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
+<span id="cb171-2"><a href="dgm---morphology-through-time.html#cb171-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
+<span id="cb171-3"><a href="dgm---morphology-through-time.html#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_cache)</span>
+<span id="cb171-4"><a href="dgm---morphology-through-time.html#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_individual)</span>
+<span id="cb171-5"><a href="dgm---morphology-through-time.html#cb171-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_cache)</span>
+<span id="cb171-6"><a href="dgm---morphology-through-time.html#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_individual)</span>
+<span id="cb171-7"><a href="dgm---morphology-through-time.html#cb171-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-8"><a href="dgm---morphology-through-time.html#cb171-8" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
+<span id="cb171-9"><a href="dgm---morphology-through-time.html#cb171-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb171-10"><a href="dgm---morphology-through-time.html#cb171-10" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
+<span id="cb171-11"><a href="dgm---morphology-through-time.html#cb171-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb171-12"><a href="dgm---morphology-through-time.html#cb171-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb171-13"><a href="dgm---morphology-through-time.html#cb171-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-14"><a href="dgm---morphology-through-time.html#cb171-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb171-15"><a href="dgm---morphology-through-time.html#cb171-15" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
+<span id="cb171-16"><a href="dgm---morphology-through-time.html#cb171-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb171-17"><a href="dgm---morphology-through-time.html#cb171-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb171-18"><a href="dgm---morphology-through-time.html#cb171-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-19"><a href="dgm---morphology-through-time.html#cb171-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb171-20"><a href="dgm---morphology-through-time.html#cb171-20" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
+<span id="cb171-21"><a href="dgm---morphology-through-time.html#cb171-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb171-22"><a href="dgm---morphology-through-time.html#cb171-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb171-23"><a href="dgm---morphology-through-time.html#cb171-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-24"><a href="dgm---morphology-through-time.html#cb171-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
+<span id="cb171-25"><a href="dgm---morphology-through-time.html#cb171-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
+<span id="cb171-26"><a href="dgm---morphology-through-time.html#cb171-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb171-27"><a href="dgm---morphology-through-time.html#cb171-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb171-28"><a href="dgm---morphology-through-time.html#cb171-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-29"><a href="dgm---morphology-through-time.html#cb171-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>subsequent_individual,</span>
+<span id="cb171-30"><a href="dgm---morphology-through-time.html#cb171-30" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
+<span id="cb171-31"><a href="dgm---morphology-through-time.html#cb171-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb171-32"><a href="dgm---morphology-through-time.html#cb171-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb171-33"><a href="dgm---morphology-through-time.html#cb171-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-34"><a href="dgm---morphology-through-time.html#cb171-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
+<span id="cb171-35"><a href="dgm---morphology-through-time.html#cb171-35" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
+<span id="cb171-36"><a href="dgm---morphology-through-time.html#cb171-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb171-37"><a href="dgm---morphology-through-time.html#cb171-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb171-38"><a href="dgm---morphology-through-time.html#cb171-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-39"><a href="dgm---morphology-through-time.html#cb171-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
+<span id="cb171-40"><a href="dgm---morphology-through-time.html#cb171-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/comp.composite.jpg&#39;</span>)</span></code></pre></div>
+>>>>>>> 9e9b7e7564a5c29a753cceeafdb2e69fd0b44575
 <p><img src="images/comp.composite.jpg" width="100%" /></p>
 
 </div>
