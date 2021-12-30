@@ -262,76 +262,76 @@ div.csl-indent {
 </ul>
 <div id="load-packages-data-1" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Load packages + data</h2>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dgm---temporal.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
-<span id="cb200-2"><a href="dgm---temporal.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb200-3"><a href="dgm---temporal.html#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
-<span id="cb200-4"><a href="dgm---temporal.html#cb200-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb200-5"><a href="dgm---temporal.html#cb200-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb200-6"><a href="dgm---temporal.html#cb200-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb200-7"><a href="dgm---temporal.html#cb200-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-8"><a href="dgm---temporal.html#cb200-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
-<span id="cb200-9"><a href="dgm---temporal.html#cb200-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-10"><a href="dgm---temporal.html#cb200-10" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
-<span id="cb200-11"><a href="dgm---temporal.html#cb200-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
-<span id="cb200-12"><a href="dgm---temporal.html#cb200-12" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb200-13"><a href="dgm---temporal.html#cb200-13" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
-<span id="cb200-14"><a href="dgm---temporal.html#cb200-14" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb200-15"><a href="dgm---temporal.html#cb200-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-16"><a href="dgm---temporal.html#cb200-16" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb200-17"><a href="dgm---temporal.html#cb200-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb200-18"><a href="dgm---temporal.html#cb200-18" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span>
-<span id="cb200-19"><a href="dgm---temporal.html#cb200-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-20"><a href="dgm---temporal.html#cb200-20" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata <span class="sc">%&gt;%</span> </span>
-<span id="cb200-21"><a href="dgm---temporal.html#cb200-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">&quot;merged&quot;</span>, t.context<span class="sc">:</span>context, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="dgm---temporal.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb169-2"><a href="dgm---temporal.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb169-3"><a href="dgm---temporal.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
+<span id="cb169-4"><a href="dgm---temporal.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb169-5"><a href="dgm---temporal.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb169-6"><a href="dgm---temporal.html#cb169-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb169-7"><a href="dgm---temporal.html#cb169-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-8"><a href="dgm---temporal.html#cb169-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
+<span id="cb169-9"><a href="dgm---temporal.html#cb169-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-10"><a href="dgm---temporal.html#cb169-10" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
+<span id="cb169-11"><a href="dgm---temporal.html#cb169-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
+<span id="cb169-12"><a href="dgm---temporal.html#cb169-12" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb169-13"><a href="dgm---temporal.html#cb169-13" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
+<span id="cb169-14"><a href="dgm---temporal.html#cb169-14" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb169-15"><a href="dgm---temporal.html#cb169-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-16"><a href="dgm---temporal.html#cb169-16" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb169-17"><a href="dgm---temporal.html#cb169-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb169-18"><a href="dgm---temporal.html#cb169-18" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span>
+<span id="cb169-19"><a href="dgm---temporal.html#cb169-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-20"><a href="dgm---temporal.html#cb169-20" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata <span class="sc">%&gt;%</span> </span>
+<span id="cb169-21"><a href="dgm---temporal.html#cb169-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">&quot;merged&quot;</span>, t.context<span class="sc">:</span>context, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="generalized-procrustes-analysis-1" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Generalized Procrustes Analysis</h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.0 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2021</a>)</span> using the <code>geomorph</code> library v. 4.0.0 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otárola-Castillo 2013</a>; <a href="#ref-RN9565" role="doc-biblioref">Baken et al. 2021</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="dgm---temporal.html#cb201-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
-<span id="cb201-2"><a href="dgm---temporal.html#cb201-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb201-3"><a href="dgm---temporal.html#cb201-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb201-4"><a href="dgm---temporal.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
-<span id="cb201-5"><a href="dgm---temporal.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
-<span id="cb201-6"><a href="dgm---temporal.html#cb201-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb201-7"><a href="dgm---temporal.html#cb201-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
-<span id="cb201-8"><a href="dgm---temporal.html#cb201-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dgm---temporal.html#cb170-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
+<span id="cb170-2"><a href="dgm---temporal.html#cb170-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb170-3"><a href="dgm---temporal.html#cb170-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb170-4"><a href="dgm---temporal.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
+<span id="cb170-5"><a href="dgm---temporal.html#cb170-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
+<span id="cb170-6"><a href="dgm---temporal.html#cb170-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-7"><a href="dgm---temporal.html#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
+<span id="cb170-8"><a href="dgm---temporal.html#cb170-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/gpa3d.png" width="100%" /></p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dgm---temporal.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb202-2"><a href="dgm---temporal.html#cb202-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb202-3"><a href="dgm---temporal.html#cb202-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb202-4"><a href="dgm---temporal.html#cb202-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">merged =</span> qdata<span class="sc">$</span>merged) </span>
-<span id="cb202-5"><a href="dgm---temporal.html#cb202-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-6"><a href="dgm---temporal.html#cb202-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb202-7"><a href="dgm---temporal.html#cb202-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
-<span id="cb202-8"><a href="dgm---temporal.html#cb202-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-9"><a href="dgm---temporal.html#cb202-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
-<span id="cb202-10"><a href="dgm---temporal.html#cb202-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
-<span id="cb202-11"><a href="dgm---temporal.html#cb202-11" aria-hidden="true" tabindex="-1"></a>merged <span class="ot">&lt;-</span> qdata<span class="sc">$</span>merged</span>
-<span id="cb202-12"><a href="dgm---temporal.html#cb202-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-13"><a href="dgm---temporal.html#cb202-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
-<span id="cb202-14"><a href="dgm---temporal.html#cb202-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">4</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="dgm---temporal.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb171-2"><a href="dgm---temporal.html#cb171-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb171-3"><a href="dgm---temporal.html#cb171-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb171-4"><a href="dgm---temporal.html#cb171-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">merged =</span> qdata<span class="sc">$</span>merged) </span>
+<span id="cb171-5"><a href="dgm---temporal.html#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-6"><a href="dgm---temporal.html#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb171-7"><a href="dgm---temporal.html#cb171-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
+<span id="cb171-8"><a href="dgm---temporal.html#cb171-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-9"><a href="dgm---temporal.html#cb171-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
+<span id="cb171-10"><a href="dgm---temporal.html#cb171-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
+<span id="cb171-11"><a href="dgm---temporal.html#cb171-11" aria-hidden="true" tabindex="-1"></a>merged <span class="ot">&lt;-</span> qdata<span class="sc">$</span>merged</span>
+<span id="cb171-12"><a href="dgm---temporal.html#cb171-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-13"><a href="dgm---temporal.html#cb171-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
+<span id="cb171-14"><a href="dgm---temporal.html#cb171-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">4</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span></code></pre></div>
 </div>
 <div id="boxplot-1" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Boxplot</h2>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dgm---temporal.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
-<span id="cb203-2"><a href="dgm---temporal.html#cb203-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> merged, <span class="at">y =</span> csz, <span class="at">color =</span> merged)) <span class="sc">+</span></span>
-<span id="cb203-3"><a href="dgm---temporal.html#cb203-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb203-4"><a href="dgm---temporal.html#cb203-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb203-5"><a href="dgm---temporal.html#cb203-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb203-6"><a href="dgm---temporal.html#cb203-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb203-7"><a href="dgm---temporal.html#cb203-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb203-8"><a href="dgm---temporal.html#cb203-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb203-9"><a href="dgm---temporal.html#cb203-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
-<span id="cb203-10"><a href="dgm---temporal.html#cb203-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="dgm---temporal.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
+<span id="cb172-2"><a href="dgm---temporal.html#cb172-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> merged, <span class="at">y =</span> csz, <span class="at">color =</span> merged)) <span class="sc">+</span></span>
+<span id="cb172-3"><a href="dgm---temporal.html#cb172-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb172-4"><a href="dgm---temporal.html#cb172-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb172-5"><a href="dgm---temporal.html#cb172-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb172-6"><a href="dgm---temporal.html#cb172-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb172-7"><a href="dgm---temporal.html#cb172-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb172-8"><a href="dgm---temporal.html#cb172-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-9"><a href="dgm---temporal.html#cb172-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
+<span id="cb172-10"><a href="dgm---temporal.html#cb172-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
 <pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/centsize.box.div-1.png" width="100%" /></p>
 </div>
 <div id="principal-components-analysis-1" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Principal Components Analysis</h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dgm---temporal.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb205-2"><a href="dgm---temporal.html#cb205-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb205-3"><a href="dgm---temporal.html#cb205-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="dgm---temporal.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb174-2"><a href="dgm---temporal.html#cb174-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb174-3"><a href="dgm---temporal.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering by OLS mean
@@ -384,37 +384,37 @@ div.csl-indent {
 ## Eigenvalues            1.298717e-07 1.099577e-07 1.054425e-07 8.319440e-08 7.878405e-08 6.718766e-08
 ## Proportion of Variance 2.659634e-05 2.251816e-05 2.159349e-05 1.703732e-05 1.613413e-05 1.375932e-05
 ## Cumulative Proportion  9.999090e-01 9.999315e-01 9.999531e-01 9.999701e-01 9.999862e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dgm---temporal.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
-<span id="cb207-2"><a href="dgm---temporal.html#cb207-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(merged)]</span>
-<span id="cb207-3"><a href="dgm---temporal.html#cb207-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(merged)]</span>
-<span id="cb207-4"><a href="dgm---temporal.html#cb207-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#29211F&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
-<span id="cb207-5"><a href="dgm---temporal.html#cb207-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-6"><a href="dgm---temporal.html#cb207-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
-<span id="cb207-7"><a href="dgm---temporal.html#cb207-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb207-8"><a href="dgm---temporal.html#cb207-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
-<span id="cb207-9"><a href="dgm---temporal.html#cb207-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
-<span id="cb207-10"><a href="dgm---temporal.html#cb207-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
-<span id="cb207-11"><a href="dgm---temporal.html#cb207-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> merged,</span>
-<span id="cb207-12"><a href="dgm---temporal.html#cb207-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="dgm---temporal.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb176-2"><a href="dgm---temporal.html#cb176-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(merged)]</span>
+<span id="cb176-3"><a href="dgm---temporal.html#cb176-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(merged)]</span>
+<span id="cb176-4"><a href="dgm---temporal.html#cb176-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#29211F&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
+<span id="cb176-5"><a href="dgm---temporal.html#cb176-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-6"><a href="dgm---temporal.html#cb176-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb176-7"><a href="dgm---temporal.html#cb176-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb176-8"><a href="dgm---temporal.html#cb176-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb176-9"><a href="dgm---temporal.html#cb176-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
+<span id="cb176-10"><a href="dgm---temporal.html#cb176-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
+<span id="cb176-11"><a href="dgm---temporal.html#cb176-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> merged,</span>
+<span id="cb176-12"><a href="dgm---temporal.html#cb176-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
 <p><img src="_main_files/figure-html/pca1.div-1.png" width="100%" /></p>
 <div id="plot-pca-with-mean-shape-xy-maximaminima-1" class="section level3" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Plot PCA with mean shape + x/y maxima/minima</h3>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dgm---temporal.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
-<span id="cb208-2"><a href="dgm---temporal.html#cb208-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/temporal-pca-warpref.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="dgm---temporal.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
+<span id="cb177-2"><a href="dgm---temporal.html#cb177-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/temporal-pca-warpref.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/temporal-pca-warpref.png" width="100%" /></p>
 </div>
 </div>
 <div id="procrustes-anova-1" class="section level2" number="7.5">
 <h2><span class="header-section-number">7.5</span> Procrustes ANOVA</h2>
 <p>A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">Michael L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dgm---temporal.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context + time</span></span>
-<span id="cb209-2"><a href="dgm---temporal.html#cb209-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> merged,</span>
-<span id="cb209-3"><a href="dgm---temporal.html#cb209-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
-<span id="cb209-4"><a href="dgm---temporal.html#cb209-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb209-5"><a href="dgm---temporal.html#cb209-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb209-6"><a href="dgm---temporal.html#cb209-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb209-7"><a href="dgm---temporal.html#cb209-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context + time?</span></span>
-<span id="cb209-8"><a href="dgm---temporal.html#cb209-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontemp)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dgm---temporal.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context + time</span></span>
+<span id="cb178-2"><a href="dgm---temporal.html#cb178-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> merged,</span>
+<span id="cb178-3"><a href="dgm---temporal.html#cb178-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
+<span id="cb178-4"><a href="dgm---temporal.html#cb178-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb178-5"><a href="dgm---temporal.html#cb178-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb178-6"><a href="dgm---temporal.html#cb178-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-7"><a href="dgm---temporal.html#cb178-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context + time?</span></span>
+<span id="cb178-8"><a href="dgm---temporal.html#cb178-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontemp)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -431,12 +431,12 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ merged, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dgm---temporal.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb211-2"><a href="dgm---temporal.html#cb211-2" aria-hidden="true" tabindex="-1"></a>pairwise.shapecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.shapecontemp,</span>
-<span id="cb211-3"><a href="dgm---temporal.html#cb211-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb211-4"><a href="dgm---temporal.html#cb211-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.shapecontemp, </span>
-<span id="cb211-5"><a href="dgm---temporal.html#cb211-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb211-6"><a href="dgm---temporal.html#cb211-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="dgm---temporal.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb180-2"><a href="dgm---temporal.html#cb180-2" aria-hidden="true" tabindex="-1"></a>pairwise.shapecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.shapecontemp,</span>
+<span id="cb180-3"><a href="dgm---temporal.html#cb180-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb180-4"><a href="dgm---temporal.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.shapecontemp, </span>
+<span id="cb180-5"><a href="dgm---temporal.html#cb180-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb180-6"><a href="dgm---temporal.html#cb180-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -455,14 +455,14 @@ div.csl-indent {
 ## initial_individual:subsequent_cache      0.05951226 0.06704768  1.4408328 0.0857
 ## initial_individual:subsequent_individual 0.04466037 0.07023648  0.7341184 0.2490
 ## subsequent_cache:subsequent_individual   0.08100191 0.04105631  2.9828667 0.0001</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dgm---temporal.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context + time</span></span>
-<span id="cb213-2"><a href="dgm---temporal.html#cb213-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
-<span id="cb213-3"><a href="dgm---temporal.html#cb213-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
-<span id="cb213-4"><a href="dgm---temporal.html#cb213-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb213-5"><a href="dgm---temporal.html#cb213-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb213-6"><a href="dgm---temporal.html#cb213-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-7"><a href="dgm---temporal.html#cb213-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context + time?</span></span>
-<span id="cb213-8"><a href="dgm---temporal.html#cb213-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontemp)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="dgm---temporal.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context + time</span></span>
+<span id="cb182-2"><a href="dgm---temporal.html#cb182-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
+<span id="cb182-3"><a href="dgm---temporal.html#cb182-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
+<span id="cb182-4"><a href="dgm---temporal.html#cb182-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb182-5"><a href="dgm---temporal.html#cb182-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb182-6"><a href="dgm---temporal.html#cb182-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-7"><a href="dgm---temporal.html#cb182-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context + time?</span></span>
+<span id="cb182-8"><a href="dgm---temporal.html#cb182-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontemp)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -479,12 +479,12 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = size ~ merged, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="dgm---temporal.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb215-2"><a href="dgm---temporal.html#cb215-2" aria-hidden="true" tabindex="-1"></a>pairwise.sizecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sizecontemp,</span>
-<span id="cb215-3"><a href="dgm---temporal.html#cb215-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb215-4"><a href="dgm---temporal.html#cb215-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.sizecontemp, </span>
-<span id="cb215-5"><a href="dgm---temporal.html#cb215-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb215-6"><a href="dgm---temporal.html#cb215-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="dgm---temporal.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb184-2"><a href="dgm---temporal.html#cb184-2" aria-hidden="true" tabindex="-1"></a>pairwise.sizecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sizecontemp,</span>
+<span id="cb184-3"><a href="dgm---temporal.html#cb184-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb184-4"><a href="dgm---temporal.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.sizecontemp, </span>
+<span id="cb184-5"><a href="dgm---temporal.html#cb184-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb184-6"><a href="dgm---temporal.html#cb184-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -506,52 +506,52 @@ div.csl-indent {
 </div>
 <div id="mean-shapes-1" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> Mean shapes</h2>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="dgm---temporal.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
-<span id="cb217-2"><a href="dgm---temporal.html#cb217-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb217-3"><a href="dgm---temporal.html#cb217-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb217-4"><a href="dgm---temporal.html#cb217-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-5"><a href="dgm---temporal.html#cb217-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dgm---temporal.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
+<span id="cb186-2"><a href="dgm---temporal.html#cb186-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb186-3"><a href="dgm---temporal.html#cb186-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb186-4"><a href="dgm---temporal.html#cb186-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-5"><a href="dgm---temporal.html#cb186-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
 <pre><code>## [1] &quot;initial_cache&quot;         &quot;initial_individual&quot;    &quot;subsequent_cache&quot;      &quot;subsequent_individual&quot;</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="dgm---temporal.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
-<span id="cb219-2"><a href="dgm---temporal.html#cb219-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
-<span id="cb219-3"><a href="dgm---temporal.html#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_cache)</span>
-<span id="cb219-4"><a href="dgm---temporal.html#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_individual)</span>
-<span id="cb219-5"><a href="dgm---temporal.html#cb219-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_cache)</span>
-<span id="cb219-6"><a href="dgm---temporal.html#cb219-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_individual)</span>
-<span id="cb219-7"><a href="dgm---temporal.html#cb219-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-8"><a href="dgm---temporal.html#cb219-8" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
-<span id="cb219-9"><a href="dgm---temporal.html#cb219-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
-<span id="cb219-10"><a href="dgm---temporal.html#cb219-10" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
-<span id="cb219-11"><a href="dgm---temporal.html#cb219-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb219-12"><a href="dgm---temporal.html#cb219-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb219-13"><a href="dgm---temporal.html#cb219-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-14"><a href="dgm---temporal.html#cb219-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
-<span id="cb219-15"><a href="dgm---temporal.html#cb219-15" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
-<span id="cb219-16"><a href="dgm---temporal.html#cb219-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb219-17"><a href="dgm---temporal.html#cb219-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb219-18"><a href="dgm---temporal.html#cb219-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-19"><a href="dgm---temporal.html#cb219-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
-<span id="cb219-20"><a href="dgm---temporal.html#cb219-20" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
-<span id="cb219-21"><a href="dgm---temporal.html#cb219-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb219-22"><a href="dgm---temporal.html#cb219-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb219-23"><a href="dgm---temporal.html#cb219-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-24"><a href="dgm---temporal.html#cb219-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
-<span id="cb219-25"><a href="dgm---temporal.html#cb219-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
-<span id="cb219-26"><a href="dgm---temporal.html#cb219-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb219-27"><a href="dgm---temporal.html#cb219-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb219-28"><a href="dgm---temporal.html#cb219-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-29"><a href="dgm---temporal.html#cb219-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>subsequent_individual,</span>
-<span id="cb219-30"><a href="dgm---temporal.html#cb219-30" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
-<span id="cb219-31"><a href="dgm---temporal.html#cb219-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb219-32"><a href="dgm---temporal.html#cb219-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb219-33"><a href="dgm---temporal.html#cb219-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-34"><a href="dgm---temporal.html#cb219-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
-<span id="cb219-35"><a href="dgm---temporal.html#cb219-35" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
-<span id="cb219-36"><a href="dgm---temporal.html#cb219-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb219-37"><a href="dgm---temporal.html#cb219-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb219-38"><a href="dgm---temporal.html#cb219-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-39"><a href="dgm---temporal.html#cb219-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
-<span id="cb219-40"><a href="dgm---temporal.html#cb219-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/comp.composite.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="dgm---temporal.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
+<span id="cb188-2"><a href="dgm---temporal.html#cb188-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
+<span id="cb188-3"><a href="dgm---temporal.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_cache)</span>
+<span id="cb188-4"><a href="dgm---temporal.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_individual)</span>
+<span id="cb188-5"><a href="dgm---temporal.html#cb188-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_cache)</span>
+<span id="cb188-6"><a href="dgm---temporal.html#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_individual)</span>
+<span id="cb188-7"><a href="dgm---temporal.html#cb188-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-8"><a href="dgm---temporal.html#cb188-8" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
+<span id="cb188-9"><a href="dgm---temporal.html#cb188-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb188-10"><a href="dgm---temporal.html#cb188-10" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
+<span id="cb188-11"><a href="dgm---temporal.html#cb188-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb188-12"><a href="dgm---temporal.html#cb188-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb188-13"><a href="dgm---temporal.html#cb188-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-14"><a href="dgm---temporal.html#cb188-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb188-15"><a href="dgm---temporal.html#cb188-15" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
+<span id="cb188-16"><a href="dgm---temporal.html#cb188-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb188-17"><a href="dgm---temporal.html#cb188-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb188-18"><a href="dgm---temporal.html#cb188-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-19"><a href="dgm---temporal.html#cb188-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb188-20"><a href="dgm---temporal.html#cb188-20" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
+<span id="cb188-21"><a href="dgm---temporal.html#cb188-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb188-22"><a href="dgm---temporal.html#cb188-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb188-23"><a href="dgm---temporal.html#cb188-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-24"><a href="dgm---temporal.html#cb188-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
+<span id="cb188-25"><a href="dgm---temporal.html#cb188-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
+<span id="cb188-26"><a href="dgm---temporal.html#cb188-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb188-27"><a href="dgm---temporal.html#cb188-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb188-28"><a href="dgm---temporal.html#cb188-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-29"><a href="dgm---temporal.html#cb188-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>subsequent_individual,</span>
+<span id="cb188-30"><a href="dgm---temporal.html#cb188-30" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
+<span id="cb188-31"><a href="dgm---temporal.html#cb188-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb188-32"><a href="dgm---temporal.html#cb188-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb188-33"><a href="dgm---temporal.html#cb188-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-34"><a href="dgm---temporal.html#cb188-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
+<span id="cb188-35"><a href="dgm---temporal.html#cb188-35" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
+<span id="cb188-36"><a href="dgm---temporal.html#cb188-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb188-37"><a href="dgm---temporal.html#cb188-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb188-38"><a href="dgm---temporal.html#cb188-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-39"><a href="dgm---temporal.html#cb188-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
+<span id="cb188-40"><a href="dgm---temporal.html#cb188-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/comp.composite.jpg&#39;</span>)</span></code></pre></div>
 <p><img src="images/comp.composite.jpg" width="100%" /></p>
 
 </div>
