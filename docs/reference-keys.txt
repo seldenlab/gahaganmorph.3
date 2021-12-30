@@ -9,9 +9,12 @@ primary-findings
 increase-in-mortuary-assemblage-diversity-as-a-function-of-time
 findings
 summary-of-results
-shape-preference-as-a-function-of-burial-practice
+does-gahagan-biface-morphology-differ-by-burial-context
 findings-1
 summary-of-results-1
+does-gahagan-biface-morphology-change-through-time
+findings-2
+summary-of-results-2
 calibrate-model-legacy-dates
 calibration-and-plots-for-dates-from-burial-pit-5-at-the-mounds-plantation-site
 calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site
