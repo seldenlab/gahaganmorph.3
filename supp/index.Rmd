@@ -18,11 +18,15 @@ description: "Gahagan biface shape change."
 
 Contextual differences in Caddo burials that included Gahagan bifaces indicate two discrete burial traditions; one where a biface was placed _atop or alongside an individual_ and another where a cache of Gahagan bifaces was placed _along the northern wall of the burial feature_. This study asks whether assemblage diversity and evenness---for mortuary contexts associated with Gahagan bifaces---increases through time, and whether Gahagan biface morphology may differ based on context. A seriation of mortuary contexts paired with an analysis of mortuary assemblage diversity highlights changes in Caddo burial assemblages through time, where the earliest contexts express lower diversity and evenness than later contexts. Results also indicate that Gahagan biface morphology differs between Caddo burial traditions, indicating discrete communities of practice related to both object placement and shape preference. These findings comprise the basis for a discussion of the establishment, maintenance, and evolution of the Caddo burial practice, which occurs during their transition from mobile horticulturists to emergent---and more sedentary---agriculturalists.
 
-```{r gahagan bifaces 2D, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
+```{r gahagan.bifaces, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
 knitr::include_graphics('images/fig02.jpg')
 ```
 
 ## Primary findings
+
+```{r hypotheses, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary as they intensified on an agricultural subsistence strategy; and b, an increase in morphological diversity through the technological life cycle."}
+knitr::include_graphics('images/h.a-b.png')
+```
 
 ### Increase in mortuary assemblage diversity as a function of time
 
@@ -30,7 +34,7 @@ knitr::include_graphics('images/fig02.jpg')
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
 
-```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of a, adults and juveniles (binned to encompass all age categories from sub-adult to fetus); b, lithic and ceramic artifacts; and c, diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based on results of seriation (see Chapter 2). The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of a, adults and juveniles (binned to include all non-adults); b, lithic and ceramic artifacts; and c, diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based on results of seriation (see Chapter 2). The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 knitr::include_graphics('images/abundance.png')
 ```
 
