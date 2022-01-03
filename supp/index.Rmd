@@ -24,7 +24,7 @@ knitr::include_graphics('images/fig02.jpg')
 
 ## Primary findings
 
-```{r hypotheses, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary as they intensified on an agricultural subsistence strategy; and b, an increase in morphological diversity through the technological life cycle."}
+```{r hypotheses, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary during their shift from a horticulturalist to emergent agriculturalist lifeway; and b, an increase in morphological diversity through the technological life cycle."}
 knitr::include_graphics('images/h.a-b.png')
 ```
 
