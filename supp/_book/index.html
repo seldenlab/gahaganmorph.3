@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2022-01-01" />
+<meta name="date" content="2022-01-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,7 +216,8 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.1" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#plot-pca-with-mean-shape-xy-maximaminima"><i class="fa fa-check"></i><b>6.4.1</b> Plot PCA with mean shape + x/y maxima/minima</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#procrustes-anova"><i class="fa fa-check"></i><b>6.5</b> Procrustes ANOVA</a></li>
-<li class="chapter" data-level="6.6" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#mean-shapes"><i class="fa fa-check"></i><b>6.6</b> Mean shapes</a></li>
+<li class="chapter" data-level="6.6" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#morphological-disparity"><i class="fa fa-check"></i><b>6.6</b> Morphological disparity</a></li>
+<li class="chapter" data-level="6.7" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#mean-shapes"><i class="fa fa-check"></i><b>6.7</b> Mean shapes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dgm---temporal.html"><a href="dgm---temporal.html"><i class="fa fa-check"></i><b>7</b> 3DGM - Temporal</a>
 <ul>
@@ -228,7 +229,8 @@ div.csl-indent {
 <li class="chapter" data-level="7.4.1" data-path="dgm---temporal.html"><a href="dgm---temporal.html#plot-pca-with-mean-shape-xy-maximaminima-1"><i class="fa fa-check"></i><b>7.4.1</b> Plot PCA with mean shape + x/y maxima/minima</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="dgm---temporal.html"><a href="dgm---temporal.html#procrustes-anova-1"><i class="fa fa-check"></i><b>7.5</b> Procrustes ANOVA</a></li>
-<li class="chapter" data-level="7.6" data-path="dgm---temporal.html"><a href="dgm---temporal.html#mean-shapes-1"><i class="fa fa-check"></i><b>7.6</b> Mean shapes</a></li>
+<li class="chapter" data-level="7.6" data-path="dgm---temporal.html"><a href="dgm---temporal.html#morphological-disparity-1"><i class="fa fa-check"></i><b>7.6</b> Morphological disparity</a></li>
+<li class="chapter" data-level="7.7" data-path="dgm---temporal.html"><a href="dgm---temporal.html#mean-shapes-1"><i class="fa fa-check"></i><b>7.7</b> Mean shapes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -251,7 +253,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Mortuary assemblage diversity, Gahagan biface morphology, and the evolution of a Caddo burial tradition in the American Southeast</h1>
 <p class="author"><em>Robert Z. Selden, Jr.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, John E. Dockall<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, and David L. Carlson<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></em></p>
-<p class="date"><em>2022-01-01</em></p>
+<p class="date"><em>2022-01-04</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -320,6 +322,7 @@ Figure 0.2: Relative abundance of a, adults and juveniles (binned to include all
 <ul>
 <li>Gahagan bifaces <strong>differ significantly in <em>shape</em></strong> between cache and individual contexts</li>
 <li>Gahagan bifaces do not differ in <em>size</em> between cache and individual contexts</li>
+<li>Gahagan bifaces from individual contexts exhibit <strong>significantly greater variation in size</strong></li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-cache-ind.jpg&#39;</span>)</span></code></pre></div>
 <div class="figure">
@@ -371,8 +374,8 @@ Figure 0.2: Relative abundance of a, adults and juveniles (binned to include all
 </div>
 <div id="acknowledgments" class="section level2 unnumbered">
 <h2>Acknowledgments</h2>
-<p>RZS extends his gratitude to the Caddo Nation of Oklahoma, the Caddo Nation Tribal Council, Tribal Chairman, and Tribal Historic Preservation Office for their guidance related to the development of the 3D scanning protocols, for permission and access to NAGPRA and previously repatriated collections, and for frank discussions related to language surrounding burial contexts associated with Caddo children. Additional thanks to the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, Brazos Valley Museum of Natural History, Texas Parks and Wildlife Department, and Sam Noble Oklahoma Museum of Natural Science for providing access to the Gahagan bifaces. RZS expresses his gratitude to Carmen G. Montaña for discussions and guidance regarding measures of biological diversity and their applications, and to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments and constructive criticisms on the analyses of Gahagan biface morphology.</p>
-<p>We wish to thank Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms of the landmarking protocol used in this study (<a href="https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md"><code>LM3d1</code></a>), as well as the landmarking protocol for Gahagan bifaces that will be used in subsequent analytical efforts (<a href="https://github.com/seldenlab/gahaganmorph.3/blob/main/lm3d2/03-landmarking-protocol.Rmd"><code>LM3d2</code></a>); to Martin Hinz for fielding questions related to the <code>oxcAAR</code> package, and to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, general comments, and suggestions throughout the development of this research program.</p>
+<p>RZS extends his gratitude to the Caddo Nation of Oklahoma, the Caddo Nation Tribal Council, Tribal Chairman, and Tribal Historic Preservation Office for their guidance related to the development of the 3D scanning protocols, for permission and access to NAGPRA and previously repatriated collections, and for frank discussions related to language surrounding burial contexts associated with Caddo children. Additional thanks to the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, Brazos Valley Museum of Natural History, Texas Parks and Wildlife Department, and Sam Noble Oklahoma Museum of Natural Science for providing access to the Gahagan bifaces. RZS expresses his gratitude to Carmen G. Montaña for discussions and guidance regarding measures of biological diversity and their application, and to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments and constructive criticisms on the analyses of Gahagan biface morphology.</p>
+<p>RZS thanks Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms of the landmarking protocol used in this study (<a href="https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md"><code>LM3d1</code></a>), as well as the landmarking protocol for Gahagan bifaces that will be used in subsequent analytical efforts (<a href="https://github.com/seldenlab/gahaganmorph.3/blob/main/lm3d2/03-landmarking-protocol.Rmd"><code>LM3d2</code></a>); to Martin Hinz for fielding questions related to the <code>oxcAAR</code> package, and to Emma Sherratt, Kersten Bergstrom, Dean C. Adams, and Michael L. Collyer for their constructive criticisms, general comments, and suggestions throughout the development of this research program.</p>
 </div>
 <div id="funding" class="section level2 unnumbered">
 <h2>Funding</h2>
@@ -386,10 +389,10 @@ Figure 0.2: Relative abundance of a, adults and juveniles (binned to include all
 </div>
 <div id="colophon" class="section level2 unnumbered">
 <h2>Colophon</h2>
-<p>This version of the analysis was generated on 2022-01-01 05:32:34 using the following computational environment and dependencies:</p>
+<p>This version of the analysis was generated on 2022-01-04 04:06:34 using the following computational environment and dependencies:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># which R packages and versions were used?</span></span>
 <span id="cb7-2"><a href="index.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()) devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## - Session info ----------------------------------------------------
+<pre><code>## - Session info --------------------------------------------------------------
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
 ##  os       Windows 10 x64 (build 19043)
@@ -399,11 +402,11 @@ Figure 0.2: Relative abundance of a, adults and juveniles (binned to include all
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2022-01-01
+##  date     2022-01-04
 ##  rstudio  2021.09.0+351 Ghost Orchid (desktop)
 ##  pandoc   2.14.0.3 @ C:/Program Files/RStudio/bin/pandoc/ (via rmarkdown)
 ## 
-## - Packages --------------------------------------------------------
+## - Packages ------------------------------------------------------------------
 ##  package     * version    date (UTC) lib source
 ##  bookdown      0.24       2021-09-02 [1] CRAN (R 4.1.1)
 ##  bslib         0.3.1      2021-10-06 [1] CRAN (R 4.1.1)
@@ -454,13 +457,13 @@ Figure 0.2: Relative abundance of a, adults and juveniles (binned to include all
 ##  [1] C:/Users/seldenjrz/Documents/R/win-library/4.1
 ##  [2] C:/Program Files/R/R-4.1.2/library
 ## 
-## -------------------------------------------------------------------</code></pre>
+## -----------------------------------------------------------------------------</code></pre>
 <p>Current Git commit details are:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># where can I find this commit? </span></span>
 <span id="cb9-2"><a href="index.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;git2r&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>() <span class="sc">&amp;</span> git2r<span class="sc">::</span><span class="fu">in_repository</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>)) git2r<span class="sc">::</span><span class="fu">repository</span>(here<span class="sc">::</span><span class="fu">here</span>())  </span></code></pre></div>
 <pre><code>## Local:    main E:/github/gahaganmorph.3
 ## Remote:   main @ origin (https://github.com/seldenlab/gahaganmorph.3)
-## Head:     [dbbb6ba] 2021-12-31: &lt;edit vis&gt;</code></pre>
+## Head:     [354de43] 2022-01-01: &lt;edit index&gt;</code></pre>
 
 </div>
 </div>

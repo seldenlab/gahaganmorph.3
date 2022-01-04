@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2022-01-01" />
+<meta name="date" content="2022-01-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,7 +216,8 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.1" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#plot-pca-with-mean-shape-xy-maximaminima"><i class="fa fa-check"></i><b>6.4.1</b> Plot PCA with mean shape + x/y maxima/minima</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#procrustes-anova"><i class="fa fa-check"></i><b>6.5</b> Procrustes ANOVA</a></li>
-<li class="chapter" data-level="6.6" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#mean-shapes"><i class="fa fa-check"></i><b>6.6</b> Mean shapes</a></li>
+<li class="chapter" data-level="6.6" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#morphological-disparity"><i class="fa fa-check"></i><b>6.6</b> Morphological disparity</a></li>
+<li class="chapter" data-level="6.7" data-path="dgm---individual-vs.-cache.html"><a href="dgm---individual-vs.-cache.html#mean-shapes"><i class="fa fa-check"></i><b>6.7</b> Mean shapes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dgm---temporal.html"><a href="dgm---temporal.html"><i class="fa fa-check"></i><b>7</b> 3DGM - Temporal</a>
 <ul>
@@ -228,7 +229,8 @@ div.csl-indent {
 <li class="chapter" data-level="7.4.1" data-path="dgm---temporal.html"><a href="dgm---temporal.html#plot-pca-with-mean-shape-xy-maximaminima-1"><i class="fa fa-check"></i><b>7.4.1</b> Plot PCA with mean shape + x/y maxima/minima</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="dgm---temporal.html"><a href="dgm---temporal.html#procrustes-anova-1"><i class="fa fa-check"></i><b>7.5</b> Procrustes ANOVA</a></li>
-<li class="chapter" data-level="7.6" data-path="dgm---temporal.html"><a href="dgm---temporal.html#mean-shapes-1"><i class="fa fa-check"></i><b>7.6</b> Mean shapes</a></li>
+<li class="chapter" data-level="7.6" data-path="dgm---temporal.html"><a href="dgm---temporal.html#morphological-disparity-1"><i class="fa fa-check"></i><b>7.6</b> Morphological disparity</a></li>
+<li class="chapter" data-level="7.7" data-path="dgm---temporal.html"><a href="dgm---temporal.html#mean-shapes-1"><i class="fa fa-check"></i><b>7.7</b> Mean shapes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -256,12 +258,12 @@ div.csl-indent {
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="composition-diversity.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <pre><code>## here() starts at E:/github/gahaganmorph.3/supp</code></pre>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="composition-diversity.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## -- Attaching packages ---------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## -- Attaching packages -------------------------------------- tidyverse 1.3.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
 ## v tibble  3.1.6     v dplyr   1.0.7
 ## v tidyr   1.1.4     v stringr 1.4.0
 ## v readr   2.1.1     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ----------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter()     masks stats::filter()
 ## x dplyr::group_rows() masks kableExtra::group_rows()
 ## x dplyr::lag()        masks stats::lag()</code></pre>
@@ -1062,7 +1064,7 @@ North
 </div>
 <div id="relative-abundance" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Relative abundance</h2>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="composition-diversity.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean number of observations for each type</span></span>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="composition-diversity.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mean number of observations for each type</span></span>
 <span id="cb125-2"><a href="composition-diversity.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula 
 ##              41.250               3.875               0.750 
@@ -1074,7 +1076,7 @@ North
 ##               0.125               0.375               0.750 
 ##        kiam_incised      ceramic_bottle        ceramic_bowl 
 ##               0.125               0.375               0.875</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="composition-diversity.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data by percentage</span></span>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="composition-diversity.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to percentage</span></span>
 <span id="cb127-2"><a href="composition-diversity.html#cb127-2" aria-hidden="true" tabindex="-1"></a>data.pct <span class="ot">&lt;-</span> data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>]<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb127-3"><a href="composition-diversity.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="do">## mean percent (Mp) of each type across assemblage</span></span>
 <span id="cb127-4"><a href="composition-diversity.html#cb127-4" aria-hidden="true" tabindex="-1"></a>Mp <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(data.pct)</span>
@@ -1120,7 +1122,7 @@ North
 <span id="cb135-13"><a href="composition-diversity.html#cb135-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
 <span id="cb135-14"><a href="composition-diversity.html#cb135-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb135-15"><a href="composition-diversity.html#cb135-15" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb135-16"><a href="composition-diversity.html#cb135-16" aria-hidden="true" tabindex="-1"></a>plot0 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
+<span id="cb135-16"><a href="composition-diversity.html#cb135-16" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
 <span id="cb135-17"><a href="composition-diversity.html#cb135-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
 <span id="cb135-18"><a href="composition-diversity.html#cb135-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
 <span id="cb135-19"><a href="composition-diversity.html#cb135-19" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
@@ -1144,7 +1146,7 @@ North
 <span id="cb135-37"><a href="composition-diversity.html#cb135-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
 <span id="cb135-38"><a href="composition-diversity.html#cb135-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb135-39"><a href="composition-diversity.html#cb135-39" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb135-40"><a href="composition-diversity.html#cb135-40" aria-hidden="true" tabindex="-1"></a>plot00 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
+<span id="cb135-40"><a href="composition-diversity.html#cb135-40" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
 <span id="cb135-41"><a href="composition-diversity.html#cb135-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
 <span id="cb135-42"><a href="composition-diversity.html#cb135-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
 <span id="cb135-43"><a href="composition-diversity.html#cb135-43" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
@@ -1159,16 +1161,16 @@ North
 <span id="cb135-52"><a href="composition-diversity.html#cb135-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
 <span id="cb135-53"><a href="composition-diversity.html#cb135-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb135-54"><a href="composition-diversity.html#cb135-54" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
-<span id="cb135-55"><a href="composition-diversity.html#cb135-55" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot0, plot00,</span>
+<span id="cb135-55"><a href="composition-diversity.html#cb135-55" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot1, plot2,</span>
 <span id="cb135-56"><a href="composition-diversity.html#cb135-56" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),</span>
 <span id="cb135-57"><a href="composition-diversity.html#cb135-57" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
 <span id="cb135-58"><a href="composition-diversity.html#cb135-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-59"><a href="composition-diversity.html#cb135-59" aria-hidden="true" tabindex="-1"></a><span class="co"># plot figure</span></span>
+<span id="cb135-59"><a href="composition-diversity.html#cb135-59" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
 <span id="cb135-60"><a href="composition-diversity.html#cb135-60" aria-hidden="true" tabindex="-1"></a>figure</span></code></pre></div>
 <div class="figure">
-<img src="_main_files/figure-html/plot.burial.diversity-1.png" alt="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all age categories from fetus to sub-adult. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable." width="100%" />
+<img src="_main_files/figure-html/plot.burial.diversity-1.png" alt="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable." width="100%" />
 <p class="caption">
-(#fig:plot.burial.diversity)Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all age categories from fetus to sub-adult. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable.
+(#fig:plot.burial.diversity)Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable.
 </p>
 </div>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="composition-diversity.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of lithics + ceramics</span></span>
@@ -1181,7 +1183,7 @@ North
 <span id="cb136-8"><a href="composition-diversity.html#cb136-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
 <span id="cb136-9"><a href="composition-diversity.html#cb136-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-10"><a href="composition-diversity.html#cb136-10" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb136-11"><a href="composition-diversity.html#cb136-11" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> cerlith <span class="sc">%&gt;%</span></span>
+<span id="cb136-11"><a href="composition-diversity.html#cb136-11" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> cerlith <span class="sc">%&gt;%</span></span>
 <span id="cb136-12"><a href="composition-diversity.html#cb136-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
 <span id="cb136-13"><a href="composition-diversity.html#cb136-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
 <span id="cb136-14"><a href="composition-diversity.html#cb136-14" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
@@ -1205,7 +1207,7 @@ North
 <span id="cb136-32"><a href="composition-diversity.html#cb136-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
 <span id="cb136-33"><a href="composition-diversity.html#cb136-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-34"><a href="composition-diversity.html#cb136-34" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb136-35"><a href="composition-diversity.html#cb136-35" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> diagnostics <span class="sc">%&gt;%</span> </span>
+<span id="cb136-35"><a href="composition-diversity.html#cb136-35" aria-hidden="true" tabindex="-1"></a>plot4 <span class="ot">&lt;-</span> diagnostics <span class="sc">%&gt;%</span> </span>
 <span id="cb136-36"><a href="composition-diversity.html#cb136-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
 <span id="cb136-37"><a href="composition-diversity.html#cb136-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
 <span id="cb136-38"><a href="composition-diversity.html#cb136-38" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
@@ -1221,16 +1223,16 @@ North
 <span id="cb136-48"><a href="composition-diversity.html#cb136-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="fl">0.05</span>, <span class="st">&quot;cm&quot;</span>))</span>
 <span id="cb136-49"><a href="composition-diversity.html#cb136-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-50"><a href="composition-diversity.html#cb136-50" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
-<span id="cb136-51"><a href="composition-diversity.html#cb136-51" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot1, plot2,</span>
+<span id="cb136-51"><a href="composition-diversity.html#cb136-51" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot3, plot4,</span>
 <span id="cb136-52"><a href="composition-diversity.html#cb136-52" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>),</span>
 <span id="cb136-53"><a href="composition-diversity.html#cb136-53" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
 <span id="cb136-54"><a href="composition-diversity.html#cb136-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-55"><a href="composition-diversity.html#cb136-55" aria-hidden="true" tabindex="-1"></a><span class="co"># plot figure</span></span>
+<span id="cb136-55"><a href="composition-diversity.html#cb136-55" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
 <span id="cb136-56"><a href="composition-diversity.html#cb136-56" aria-hidden="true" tabindex="-1"></a>figure</span></code></pre></div>
 <div class="figure">
-<img src="_main_files/figure-html/plot.alpha.diversity-1.png" alt="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable." width="100%" />
+<img src="_main_files/figure-html/plot.alpha.diversity-1.png" alt="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable." width="100%" />
 <p class="caption">
-(#fig:plot.alpha.diversity)Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable.
+(#fig:plot.alpha.diversity)Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable.
 </p>
 </div>
 </div>
@@ -1271,12 +1273,14 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <h3><span class="header-section-number">3.5.1</span> Diversity through time</h3>
 <p>The figure above shows higher diversity and evenness in later contexts. Is there a significant increase in diversity between the initial burial context at each site that included Gahagan bifaces, and those that occur later?</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="composition-diversity.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity</span></span>
-<span id="cb139-2"><a href="composition-diversity.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate data to add temporal assignment</span></span>
-<span id="cb139-3"><a href="composition-diversity.html#cb139-3" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb139-4"><a href="composition-diversity.html#cb139-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temporal =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="at">.after =</span> region)</span>
-<span id="cb139-5"><a href="composition-diversity.html#cb139-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-6"><a href="composition-diversity.html#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="co"># table of diagnostics</span></span>
-<span id="cb139-7"><a href="composition-diversity.html#cb139-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(temp, <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
+<span id="cb139-2"><a href="composition-diversity.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RRPP)</span>
+<span id="cb139-3"><a href="composition-diversity.html#cb139-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-4"><a href="composition-diversity.html#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate data to add temporal assignment</span></span>
+<span id="cb139-5"><a href="composition-diversity.html#cb139-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb139-6"><a href="composition-diversity.html#cb139-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temporal =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="at">.after =</span> region)</span>
+<span id="cb139-7"><a href="composition-diversity.html#cb139-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-8"><a href="composition-diversity.html#cb139-8" aria-hidden="true" tabindex="-1"></a><span class="co"># table of diagnostics</span></span>
+<span id="cb139-9"><a href="composition-diversity.html#cb139-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(temp, <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="3%" />
@@ -1633,20 +1637,33 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ## 
 ## data:  temp.D1
 ## W = 0.955, p-value = 0.7613</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="composition-diversity.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot distribution</span></span>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="composition-diversity.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot distribution</span></span>
 <span id="cb144-2"><a href="composition-diversity.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.D1, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpson.init.diversity-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="composition-diversity.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: D1 as a function of initial v. later contexts</span></span>
-<span id="cb145-2"><a href="composition-diversity.html#cb145-2" aria-hidden="true" tabindex="-1"></a>temp.simpson <span class="ot">&lt;-</span> <span class="fu">aov</span>(temp.D1 <span class="sc">~</span> time, </span>
-<span id="cb145-3"><a href="composition-diversity.html#cb145-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> temp)</span>
-<span id="cb145-4"><a href="composition-diversity.html#cb145-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb145-5"><a href="composition-diversity.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do temporal contexts differ by D1?</span></span>
-<span id="cb145-6"><a href="composition-diversity.html#cb145-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(temp.simpson)</span></code></pre></div>
-<pre><code>##             Df  Sum Sq Mean Sq F value  Pr(&gt;F)   
-## time         1 0.18938 0.18938   14.98 0.00826 **
-## Residuals    6 0.07583 0.01264                   
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="composition-diversity.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: temp.D1 as a function of time</span></span>
+<span id="cb145-2"><a href="composition-diversity.html#cb145-2" aria-hidden="true" tabindex="-1"></a>temp.simpson <span class="ot">&lt;-</span> <span class="fu">lm.rrpp</span>(temp.D1 <span class="sc">~</span> time,</span>
+<span id="cb145-3"><a href="composition-diversity.html#cb145-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> temp,</span>
+<span id="cb145-4"><a href="composition-diversity.html#cb145-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb145-5"><a href="composition-diversity.html#cb145-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb145-6"><a href="composition-diversity.html#cb145-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-7"><a href="composition-diversity.html#cb145-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA: increase in diversity through time?</span></span>
+<span id="cb145-8"><a href="composition-diversity.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(temp.simpson)</span></code></pre></div>
+<pre><code>## 
+## Analysis of Variance, using Residual Randomization
+## Permutation procedure: Randomization of null model residuals 
+## Number of permutations: 10000 
+## Estimation method: Ordinary Least Squares 
+## Sums of Squares and Cross-products: Type I 
+## Effect sizes (Z) based on F distributions
+## 
+##           Df       SS       MS     Rsq      F      Z  Pr(&gt;F)   
+## time       1 0.189385 0.189385 0.71408 14.985 2.3179 0.00605 **
+## Residuals  6 0.075829 0.012638 0.28592                         
+## Total      7 0.265214                                          
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Call: lm.rrpp(f1 = temp.D1 ~ time, iter = 9999, data = temp, print.progress = FALSE)</code></pre>
 </div>
 <div id="evenness-through-time" class="section level3" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Evenness through time</h3>
@@ -1667,7 +1684,7 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ## 
 ## data:  temp.J
 ## W = 0.84242, p-value = 0.07976</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="composition-diversity.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot distribution</span></span>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="composition-diversity.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot distribution</span></span>
 <span id="cb151-2"><a href="composition-diversity.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.J, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpson.init.evenness-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="composition-diversity.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: J as a function of initial v. later contexts</span></span>
@@ -1675,7 +1692,7 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 <span id="cb152-3"><a href="composition-diversity.html#cb152-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">grouping =</span> time, </span>
 <span id="cb152-4"><a href="composition-diversity.html#cb152-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">permutations =</span> <span class="dv">10000</span>)</span>
 <span id="cb152-5"><a href="composition-diversity.html#cb152-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-6"><a href="composition-diversity.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOSIM: do temporal contexts differ by J?</span></span>
+<span id="cb152-6"><a href="composition-diversity.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ANOSIM: do temporal contexts differ by J?</span></span>
 <span id="cb152-7"><a href="composition-diversity.html#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(temporal.J)</span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -1683,14 +1700,14 @@ Figure 3.1: Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F13
 ## Dissimilarity: bray 
 ## 
 ## ANOSIM statistic R:     1 
-##       Significance: 0.016298 
+##       Significance: 0.017998 
 ## 
 ## Permutation: free
 ## Number of permutations: 10000
 ## 
 ## Upper quantiles of permutations (null model):
 ##   90%   95% 97.5%   99% 
-## 0.221 0.272 0.436 1.000 
+## 0.221 0.303 0.436 1.000 
 ## 
 ## Dissimilarity ranks between and within classes:
 ##         0%   25%  50%   75% 100%  N
