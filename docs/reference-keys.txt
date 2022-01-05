@@ -13,7 +13,7 @@ summary-of-results
 object-placement
 findings-1
 summary-of-results-1
-trajectories-of-change
+temporal-trajectories
 findings-2
 summary-of-results-2
 recalibrate-legacy-dates
@@ -26,8 +26,7 @@ taxonomic-composition
 alpha-diversity
 relative-abundance
 relative-abundance-by-context
-diversity-indices
-beta-diversity---diagnostics
+beta-diversity
 diversity-through-time
 evenness-through-time
 dgm---modeling-geometry

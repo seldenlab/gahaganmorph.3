@@ -79,7 +79,7 @@ knitr::include_graphics('images/mshape-cache-ind.jpg')
 
 Contextual differences suggest two distinct Caddo burial traditions associated with Gahagan bifaces; one more prevalent in the northern behavioral region where Gahagan bifaces were placed _atop or alongside an individual_, and one more prevalent in the southern behavioral region where six Gahagan bifaces were buried atop or alongside an individual, and the remainder were _included as a cache offering along the northern periphery of the burial_. Each burial tradition appears to have been bounded by its' own community of practice relating both to biface placement, and the design (shape) of Gahagan bifaces interred in each context.
 
-### TRAJECTORIES OF CHANGE
+### TEMPORAL TRAJECTORIES
 
 **_Research question_: Does Gahagan biface morphology change through time as mortuary assemblage diversity increases?**
 
