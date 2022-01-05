@@ -7,13 +7,13 @@ fig:fig4078-72-init
 fig:fig4078-72-mod
 basis-of-inquiry
 primary-findings
-increase-in-mortuary-assemblage-diversity-as-a-function-of-time
+assemblage-diversity
 findings
 summary-of-results
-does-gahagan-biface-morphology-differ-by-burial-context
+object-placement
 findings-1
 summary-of-results-1
-does-gahagan-biface-morphology-change-through-time
+trajectories-of-change
 findings-2
 summary-of-results-2
 recalibrate-legacy-dates
@@ -48,6 +48,8 @@ boxplot
 principal-components-analysis
 plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
+modularity
+morphological-integration
 morphological-disparity
 mean-shapes
 dgm---temporal

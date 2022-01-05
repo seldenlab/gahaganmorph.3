@@ -3,7 +3,9 @@
 Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001]. A table of associated diagnostic artifacts is included as a means of providing information related to relative dates.
 
 ```{r install, echo = TRUE}
+# check for update
 devtools::install_github('ISAAKiel/oxcAAR')
+
 # load oxcAAR and OxCal
 library(kableExtra)
 library(oxcAAR)

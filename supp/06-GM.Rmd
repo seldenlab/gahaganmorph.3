@@ -9,6 +9,10 @@ This hypothesis is tested using Gahagan bifaces recovered from two discrete cont
 ## Load packages + data
 
 ```{r load geomorph.h2, setwd, and load data, echo=TRUE, warning=FALSE}
+# check for update
+devtools::install_github("geomorphR/geomorph", ref = "Stable")
+devtools::install_github("mlcollyer/RRPP")
+
 # load libraries
 library(here)
 library(geomorph)
@@ -30,7 +34,7 @@ qdata <- qdata[match(dimnames(coords)[[3]], rownames(qdata)),]
 
 ## Generalized Procrustes Analysis
 
-Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.0 [@R] using the `geomorph` library v. 4.0.0 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
+Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.2 [@R] using the `geomorph` library v. 4.0.1 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
 ```{r gpa.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 Y.gpa <- gpagen(coords,
@@ -125,6 +129,42 @@ fit.sizecontext <- procD.lm(size ~ context,
 
 # ANOVA: do gahagan biface sizes differ by context?
 anova(fit.sizecontext)
+```
+
+## Modularity
+
+```{r mod, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
+land.gps <- c("A","A","A","A",
+              "B","B","B","B","B","B","B","B","B","B","B","B","B","B","B",
+              "B","B","B","B","B","B","B","B","B","B","B","B","B","B","B",
+              "B","B","B","B","B","B","B","B","B","B","B","B","B","B","B",
+              "B","B","B","B","B")
+
+mod <- modularity.test(Y.gpa$coords,
+                       partition.gp = land.gps,
+                       iter = 9999,
+                       seed = NULL,
+                       opt.rot = TRUE,
+                       print.progress = FALSE)
+
+summary(mod)
+
+## modularity plot
+plot(mod)
+```
+
+## Morphological integration
+
+```{r integ, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
+it <- integration.test(Y.gpa$coords,
+                       partition.gp = land.gps,
+                       print.progress = FALSE,
+                       iter = 9999)
+
+summary(it)
+
+## integration plot
+plot(it)
 ```
 
 ## Morphological disparity
