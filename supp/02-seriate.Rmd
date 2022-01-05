@@ -5,12 +5,18 @@ Load the data and summarize row and column sums. Also create gahagan_ct with onl
 ```{r load}
 library(ca)
 library(plotrix)
+library(kableExtra)
 # gahagan <- read.csv("gahagan-diagnostics.csv")
 # save(gahagan, file="gahagan-diagnostics.RData")
 load("gahagan-diagnostics.RData")
 # Structure of the data frame
 str(gahagan, give.attr=FALSE)
-print(gahagan)
+
+# data
+knitr::kable(gahagan) %>% 
+  kable_styling() %>% 
+  scroll_box(width = "100%", box_css = "border: 0px;")
+
 # Row sums
 (RS <- rowSums(gahagan[, -(1:2)]))
 # Column sums

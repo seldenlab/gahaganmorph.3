@@ -7,12 +7,15 @@ This analysis of assemblage diversity is limited to Caddo mortuary contexts at t
 ```{r composistion}
 library(here)
 library(tidyverse)
+library(kableExtra)
 
 # read data
 data <- read.csv("gahagan-diversity.csv")
 
 # table of diagnostics
-knitr::kable(data)
+knitr::kable(data) %>% 
+  kable_styling() %>% 
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 ## Alpha diversity
@@ -212,9 +215,13 @@ ggplot(data, aes(x = D1, y = J, color = region,
   labs(color = "Behavioral Region")
 ```
 
-### Diversity through time
+## Diversity through time
 
-The figure above shows higher diversity and evenness in later contexts. Is there a significant increase in diversity between the initial burial context at each site that included Gahagan bifaces, and those that occur later?
+**_Research question_: Does mortuary assemblage diversity increase through time?**
+
+**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use as mortuary offerings.**
+
+This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
 
 ```{r simpson.init.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # diversity
@@ -224,8 +231,10 @@ library(RRPP)
 temp <- data %>%
   mutate(temporal = c(1, 2, 2, 1, 1, 2, 2, 2), .after = region)
 
-# table of diagnostics
-knitr::kable(temp, "pipe")
+# revised table of diagnostics
+knitr::kable(temp) %>% 
+  kable_styling() %>% 
+  scroll_box(width = "100%", box_css = "border: 0px;")
 
 # attributes for plots
 temp.D1 <- temp$D1
@@ -256,8 +265,6 @@ anova(temp.simpson)
 ```
 
 ### Evenness through time
-
-The figure above shows higher diversity and evenness in later contexts. Is there a significant increase in evenness between the initial burial context at each site that included Gahagan bifaces, and those that occur later?
 
 ```{r simpson.init.evenness, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # evenness
