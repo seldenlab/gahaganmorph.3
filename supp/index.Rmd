@@ -30,9 +30,9 @@ knitr::include_graphics('images/h.a-b.png')
 
 ### ASSEMBLAGE DIVERSITY
 
-**_Research question_: Is there an increase in mortuary assemblage diversity through time?**
+**_Research question_: Does mortuary assemblage diversity increase through time?**
 
-**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity following initial deposition.**
+**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use as mortuary offerings.**
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
 
@@ -61,7 +61,7 @@ Results demonstrate that lithics comprise 75% or more---in three cases, 100%---o
 
 **_Research question_: Does Gahagan biface morphology differ by burial context?**
 
-**_Hypothesis_: Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**
+**_Hypothesis_: Gahagan bifaces included in Caddo burials as part of a cache differ in morphology from those placed atop or alongside an individual.**
 
 This hypothesis is tested using Gahagan bifaces recovered from two discrete contexts; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential `shape preference`.
 
@@ -83,7 +83,7 @@ Contextual differences suggest two distinct Caddo burial traditions associated w
 
 **_Research question_: Does Gahagan biface morphology change through time as mortuary assemblage diversity increases?**
 
-**_Hypothesis_: Gahagan bifaces from individual and cache contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
+**_Hypothesis_: Gahagan bifaces from _individual_ and _cache_ contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
 
 This hypothesis is tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ in the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential shape preference as the diversity of Caddo mortuary assemblages increased.
 
