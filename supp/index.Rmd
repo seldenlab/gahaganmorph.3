@@ -16,7 +16,7 @@ description: "Gahagan biface shape change."
 
 ## Basis of inquiry
 
-Contextual differences in Caddo burials that included Gahagan bifaces indicate two discrete burial traditions; one where a biface was placed _atop or alongside an individual_ and another where a cache of Gahagan bifaces was placed _along the northern wall of the burial feature_. This exploratory study asks whether assemblage diversity and evenness, for mortuary contexts associated with Gahagan bifaces, increases through time, and whether Gahagan biface morphology may differ based on context. A seriation of mortuary contexts paired with an analysis of mortuary assemblage diversity highlights changes in Caddo burial assemblages through time, where the earliest contexts express lower diversity and evenness than later contexts. Results also indicate that Gahagan biface morphology differs between Caddo burial traditions, indicating discrete communities of practice related to object placement and shape preference. These findings provide the basis for a discussion of the establishment, maintenance, and evolution of a Caddo burial practice that occurs during the transition from a mobile horticulturist lifeway to one of emergent---and more sedentary---agriculturalists.
+Exchange networks and interaction spheres functioned to establish, maintain, and formalize regional boundaries, traditions, and intergroup relationships. In the American Southeast, large formal bifaces and associated diagnostics represent stylistic items reflective of spatial and temporal change. Contextual differences in Caddo burials that included Gahagan bifaces indicate two discrete burial traditions; one where a biface was placed _atop or alongside an individual_ and another where a cache of Gahagan bifaces was placed _along the northern wall of the burial feature_. This exploratory study asks whether assemblage diversity and evenness, for mortuary contexts associated with Gahagan bifaces, increases through time, and whether Gahagan biface morphology may differ based on context. A seriation of mortuary contexts paired with an analysis of mortuary assemblage diversity highlights changes in Caddo burial assemblages through time, where the earliest contexts express lower diversity and evenness than later contexts. Results also indicate that Gahagan biface morphology differs between Caddo burial traditions, indicating discrete communities of practice related to object placement and shape preference. These findings provide the basis for a discussion of the establishment, maintenance, and evolution of a Caddo burial practice that occurs during the transition from a mobile horticulturist lifeway to one of emergent---and more sedentary---agriculturalists.
 
 ```{r gahagan.bifaces, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
 knitr::include_graphics('images/fig02.jpg')
@@ -30,8 +30,6 @@ knitr::include_graphics('images/h.a-b.png')
 
 ### ASSEMBLAGE DIVERSITY
 
-**_Research question_: Does mortuary assemblage diversity increase through time?**
-
 **_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use as mortuary offerings.**
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
@@ -42,7 +40,7 @@ knitr::include_graphics('images/abundance.png')
 
 #### _Findings_:
 
-- Juveniles were not included in the three latest assemblages that include Gahagan bifaces
+- Juveniles are not present in the three latest assemblages that include Gahagan bifaces
 - Lithics comprise 75% or more---in three cases, 100%---of those Caddo burial assemblages where Gahagan bifaces were recovered
 - Caddo mortuary contexts that occur following initial deposition include a **significantly greater diversity** of associated diagnostics
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater evenness** across the types
@@ -58,8 +56,6 @@ The hypothesis was tested using counts of associated diagnostic artefacts recove
 Results demonstrate that lithics comprise 75% or more---in three cases, 100%---of those Caddo burial assemblages where Gahagan bifaces were recovered, as well as a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated with a Caddo burial practice. These assemblages are dominated by lithic diagnostics, and ceramics are absent from three of the burial contexts. Further discussion related to diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
 
 ### OBJECT PLACEMENT
-
-**_Research question_: Does Gahagan biface morphology differ by burial context?**
 
 **_Hypothesis_: Gahagan bifaces included in Caddo burials as part of a cache differ in morphology from those placed atop or alongside an individual.**
 
@@ -80,8 +76,6 @@ knitr::include_graphics('images/mshape-cache-ind.jpg')
 Contextual differences suggest two distinct Caddo burial traditions associated with Gahagan bifaces; one more prevalent in the northern behavioral region where Gahagan bifaces were placed _atop or alongside an individual_, and one more prevalent in the southern behavioral region where six Gahagan bifaces were buried atop or alongside an individual, and the remainder were _included as a cache offering along the northern periphery of the burial_. Each burial tradition appears to have been bounded by its' own community of practice relating both to biface placement, and the design (shape) of Gahagan bifaces interred in each context.
 
 ### TEMPORAL TRAJECTORIES
-
-**_Research question_: Does Gahagan biface morphology change through time as mortuary assemblage diversity increases?**
 
 **_Hypothesis_: Gahagan bifaces from _individual_ and _cache_ contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
 
@@ -111,6 +105,7 @@ knitr::include_graphics('images/comp.composite.jpg')
 This hypothesis was tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ in the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential preference as Caddo mortuary assemblage diversity increased. 
 
 - Results demonstrate that in the earliest Caddo burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **size** (are larger) when compared with those placed in caches along the northern wall of the burial pit.
+
 - In the later burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **shape** when compared with those placed in caches along the northern wall of the burial pit.
 - Caches of Gahagan bifaces found along the northern wall of Caddo burial pits exhibit morphological stability through time in that they neither differ in shape nor size as the diversity of Caddo mortuary assemblages increases.
 
