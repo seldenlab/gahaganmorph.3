@@ -102,23 +102,31 @@ knitr::include_graphics('img/fig03.png')
 
 ## Assemblage diversity
 
+**Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use as mortuary offerings.**
+
 ## 3D geometric morphometrics
-
-**Gahagan bifaces included in Caddo burials as a cache differ in morphology from those placed atop or alongside an individual.**
-
-This hypothesis was tested using Gahagan bifaces from two discrete Caddo burial practices; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential design intent.
 
 Data collection procedures are outlined in \cite{RN8154} and \cite{RN8318}. Characteristic points and tangents used in the landmarking protocol were inspired by the work of \cite{RN5700}, and the landmarking protocol is discussed in detail in the [supplementary materials](https://seldenlab.github.io/gahaganmorph.3/). 
 
 Landmarks were aligned to a global coordinate system \citep{RN8102,RN8587,RN8384}, achieved through generalized Procrustes superimposition \citep{RN8525}, performed in R 4.1.1 \citep{RN8584} using the `geomorph` package v4.0.1 \citep{RN8565,RN9565}. Procrustes superimposition translates, scales, and rotates coordinate data allowing for comparisons among objects \citep{RN5698,RN8525}. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space \citep{RN8511,RN8384}.
 
-Principal components analysis \citep{RN8576,RN10875} was used to visualize shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of the landmarks or the reference 3D mesh \citep{RN8555,RN8553}. A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs \citep{RN8579,RN8334}, which has higher statistical power and a greater ability to identify patterns in the data should they be present \citep{RN6995}. To assess whether shape differs by context, Procrustes ANOVAs \citep{RN7046} were run that enlist effect-sizes (z-scores) computed as standard deviates of the generated sampling distributions \citep{RN8477}. Procrustes variance was used to discriminate between groups and compare the amount of shape variation (morphological disparity) across sites \citep{RN5694}, which is estimated as the Procrustes variance using residuals of linear model fit \citep{RN8565,RN9565}. A comparison of mean consensus configurations was used to characterize shape variation in Gahagan bifaces recovered from contexts where they were found atop or beside an individual or as part of a cache along the northern wall of the burial pit.
+### Object placement
 
-Procrustes ANOVA results indicate a significant difference in Gahagan biface shape by context (RRPP = 10,000; Rsq = 0.21033; Pr(>F) = 1e-04) (Figure 4), and the test for Gahagan biface (centroid) size by context did not yield a significant result (RRPP = 10,000; Rsq = 0.01138; Pr(>F) = 0.3933). The test for morphological disparity by biface size also yielded a significant result, indicating that the size of bifaces interred atop or alongside an individual occupy a significantly greater range of morphospace than those interred as part of a cache.
+**Gahagan bifaces included in Caddo burials as part of a cache differ in morphology from those placed atop or alongside an individual.**
+
+This hypothesis was tested using Gahagan bifaces from two discrete Caddo burial practices; one interred as part of a _cache_, and the other placed atop or alongside _individuals_. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential design intent.
+
+Principal components analysis \citep{RN8576,RN10875} was used to visualize shape variation among bifaces from _individual_ and _cache_ contexts. Shape differences described by each principal axis are commonly visualized using thin-plate spline warping of landmarks or the reference 3D mesh \citep{RN8555,RN8553}. A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for Procrustes ANOVAs \citep{RN8579,RN8334}, which has higher statistical power and a greater ability to identify patterns in the data should they be present \citep{RN6995}. To assess whether shape differs by context, Procrustes ANOVAs \citep{RN7046} were run that enlist effect-sizes (z-scores) computed as standard deviates of the generated sampling distributions \citep{RN8477}. Procrustes variance was used to discriminate between contexts for a comparison of shape variance (morphological disparity) \citep{RN5694}, estimated as Procrustes variance using residuals of linear model fit \citep{RN8565,RN9565}. The omparison of mean consensus configurations was subsequently used to visualize shape variation in Gahagan bifaces recovered from the two burial contexts.
+
+Procrustes ANOVA results indicate a significant difference in Gahagan biface shape by context (RRPP = 10,000; Rsq = 0.21033; Pr(>F) = 1e-04) (Figure 4), and the test for differences in (centroid) size by context did not yield a significant result (RRPP = 10,000; Rsq = 0.01138; Pr(>F) = 0.3933). The test for morphological disparity by biface size yielded a significant result, indicating that the size of bifaces interred atop or alongside an _individual_ occupy a significantly greater range of morphospace than those interred as part of a _cache_.
 
 ```{r mshape.bpractice, out.width = "90%", fig.align="center", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="The difference between Gahagan bifaces from cache and individual contexts is characterized by a narrower base, and a reduction in the flexuous blade shape (recurve) for bifaces found atop or alongside Caddo individuals. In the comparison of mean shapes by context, caches are presented in gray, and individuals in black."}
 knitr::include_graphics('img/fig05.jpg')
 ```
+
+### Temporal trajectories
+
+**Gahagan bifaces from _individual_ and _cache_ contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
 
 # Discussion
 
