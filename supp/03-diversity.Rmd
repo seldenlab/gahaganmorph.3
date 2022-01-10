@@ -126,7 +126,7 @@ figure
 
 ```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 # relative abundance of lithics + ceramics
-pal <- wes_palette("Moonrise2", 2, type = "continuous")
+pal1 <- wes_palette("Moonrise2", 2, type = "continuous")
 
 cerlith <- data %>% 
   select(context, lithics, ceramics) %>% 
@@ -144,7 +144,7 @@ plot3 <- cerlith %>%
   ggplot(aes(x=context, y = value, fill = variable)) + 
   geom_bar(stat="identity", position = "fill") + 
   coord_flip() +
-  scale_fill_manual(values = pal) +
+  scale_fill_manual(values = pal1) +
   labs(x = "Context",
        y = "Relative abundance (%)",
        fill = "Category")
@@ -209,9 +209,9 @@ ggplot(data, aes(x = D1, y = J)) +
   geom_vline(aes(xintercept = median(D1))) +
   geom_hline(aes(yintercept = median(J))) +
   theme(legend.position = c(0.87, 0.15)) +
-  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  scale_colour_manual(values = pal1) +
   labs(color = "Behavioral Region",
-       caption = "(J, Peilou's J; D1, Simpson diversity)")
+       caption = "(J = Peilou's J; D1 = Simpson diversity)")
 ```
 
 ## Diversity through time
@@ -242,12 +242,14 @@ time <- temp$temporal
 #diversity
 ## plot diversity
 ggplot(temp, aes(x = time, y = temp.D1)) +
-  geom_point(aes(shape = factor(context))) +
-  scale_shape_manual(values = c(0:5,15,17)) +
+  geom_point(aes(shape = factor(context), colour = region)) +
+  scale_shape_manual(values = c(0:3,15:18)) +
   geom_smooth(method = "auto") +
+  scale_colour_manual(values = pal1) +
   labs(x = "Time",
-       y = "Simpson Diversity Index",
-       shape = "Context")
+       y = "Simpson Diversity",
+       shape = "Context",
+       colour = "Region")
 
 # are data not normally distributed?
 shapiro.test(temp.D1)
@@ -272,12 +274,14 @@ anova(temp.simpson)
 
 ## plot evenness
 ggplot(temp, aes(x = time, y = temp.J)) +
-  geom_point(aes(shape = factor(context))) +
-  scale_shape_manual(values = c(0:5,15,17)) +
+  geom_point(aes(shape = factor(context), colour = region)) +
+  scale_shape_manual(values = c(0:3,15:18)) +
   geom_smooth(method = "auto") +
+  scale_colour_manual(values = pal1) +
   labs(x = "Time",
        y = "Peilou's J",
-       shape = "Context")
+       shape = "Context",
+       colour = "Region")
 
 # are data not normally distributed?
 shapiro.test(temp.J)
