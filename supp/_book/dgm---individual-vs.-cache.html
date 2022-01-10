@@ -261,79 +261,94 @@ div.csl-indent {
 <p>This hypothesis is tested using Gahagan bifaces recovered from two discrete contexts; one interred as part of a <em>cache</em>, and the other placed atop or alongside <em>individuals</em>. Distinct Caddo burial practices may have constrained local morphological requirements, highlighting differential <code>shape preference</code>.</p>
 <div id="load-packages-data" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Load packages + data</h2>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="dgm---individual-vs.-cache.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check for update</span></span>
-<span id="cb151-2"><a href="dgm---individual-vs.-cache.html#cb151-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;geomorphR/geomorph&quot;</span>, <span class="at">ref =</span> <span class="st">&quot;Stable&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="dgm---individual-vs.-cache.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check for update</span></span>
+<span id="cb173-2"><a href="dgm---individual-vs.-cache.html#cb173-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;geomorphR/geomorph&quot;</span>, <span class="at">ref =</span> <span class="st">&quot;Stable&quot;</span>)</span></code></pre></div>
 <pre><code>## Skipping install of &#39;geomorph&#39; from a github remote, the SHA1 (98166098) has not changed since last install.
 ##   Use `force = TRUE` to force installation</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="dgm---individual-vs.-cache.html#cb153-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;mlcollyer/RRPP&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="dgm---individual-vs.-cache.html#cb175-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;mlcollyer/RRPP&quot;</span>)</span></code></pre></div>
 <pre><code>## Skipping install of &#39;RRPP&#39; from a github remote, the SHA1 (96cab18f) has not changed since last install.
 ##   Use `force = TRUE` to force installation</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="dgm---individual-vs.-cache.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
-<span id="cb155-2"><a href="dgm---individual-vs.-cache.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb155-3"><a href="dgm---individual-vs.-cache.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
-<span id="cb155-4"><a href="dgm---individual-vs.-cache.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb155-5"><a href="dgm---individual-vs.-cache.html#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb155-6"><a href="dgm---individual-vs.-cache.html#cb155-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-7"><a href="dgm---individual-vs.-cache.html#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
-<span id="cb155-8"><a href="dgm---individual-vs.-cache.html#cb155-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-9"><a href="dgm---individual-vs.-cache.html#cb155-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
-<span id="cb155-10"><a href="dgm---individual-vs.-cache.html#cb155-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
-<span id="cb155-11"><a href="dgm---individual-vs.-cache.html#cb155-11" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb155-12"><a href="dgm---individual-vs.-cache.html#cb155-12" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
-<span id="cb155-13"><a href="dgm---individual-vs.-cache.html#cb155-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb155-14"><a href="dgm---individual-vs.-cache.html#cb155-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-15"><a href="dgm---individual-vs.-cache.html#cb155-15" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb155-16"><a href="dgm---individual-vs.-cache.html#cb155-16" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb155-17"><a href="dgm---individual-vs.-cache.html#cb155-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="dgm---individual-vs.-cache.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb177-2"><a href="dgm---individual-vs.-cache.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb177-3"><a href="dgm---individual-vs.-cache.html#cb177-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span></code></pre></div>
+<pre><code>## Loading required package: rgl</code></pre>
+<pre><code>## 
+## Attaching package: &#39;rgl&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plotrix&#39;:
+## 
+##     mtext3d</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Matrix&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:reshape&#39;:
+## 
+##     expand</code></pre>
+<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
+## 
+##     expand, pack, unpack</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="dgm---individual-vs.-cache.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb185-2"><a href="dgm---individual-vs.-cache.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb185-3"><a href="dgm---individual-vs.-cache.html#cb185-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-4"><a href="dgm---individual-vs.-cache.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
+<span id="cb185-5"><a href="dgm---individual-vs.-cache.html#cb185-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-6"><a href="dgm---individual-vs.-cache.html#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
+<span id="cb185-7"><a href="dgm---individual-vs.-cache.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
+<span id="cb185-8"><a href="dgm---individual-vs.-cache.html#cb185-8" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb185-9"><a href="dgm---individual-vs.-cache.html#cb185-9" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
+<span id="cb185-10"><a href="dgm---individual-vs.-cache.html#cb185-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb185-11"><a href="dgm---individual-vs.-cache.html#cb185-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-12"><a href="dgm---individual-vs.-cache.html#cb185-12" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb185-13"><a href="dgm---individual-vs.-cache.html#cb185-13" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb185-14"><a href="dgm---individual-vs.-cache.html#cb185-14" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span></code></pre></div>
 </div>
 <div id="generalized-procrustes-analysis" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Generalized Procrustes Analysis</h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.2 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2021</a>)</span> using the <code>geomorph</code> library v. 4.0.1 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otárola-Castillo 2013</a>; <a href="#ref-RN9565" role="doc-biblioref">Baken et al. 2021</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="dgm---individual-vs.-cache.html#cb156-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
-<span id="cb156-2"><a href="dgm---individual-vs.-cache.html#cb156-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb156-3"><a href="dgm---individual-vs.-cache.html#cb156-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb156-4"><a href="dgm---individual-vs.-cache.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
-<span id="cb156-5"><a href="dgm---individual-vs.-cache.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
-<span id="cb156-6"><a href="dgm---individual-vs.-cache.html#cb156-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb156-7"><a href="dgm---individual-vs.-cache.html#cb156-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
-<span id="cb156-8"><a href="dgm---individual-vs.-cache.html#cb156-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dgm---individual-vs.-cache.html#cb186-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
+<span id="cb186-2"><a href="dgm---individual-vs.-cache.html#cb186-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-3"><a href="dgm---individual-vs.-cache.html#cb186-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb186-4"><a href="dgm---individual-vs.-cache.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
+<span id="cb186-5"><a href="dgm---individual-vs.-cache.html#cb186-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
+<span id="cb186-6"><a href="dgm---individual-vs.-cache.html#cb186-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-7"><a href="dgm---individual-vs.-cache.html#cb186-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
+<span id="cb186-8"><a href="dgm---individual-vs.-cache.html#cb186-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/gpa3d.png" width="100%" /></p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="dgm---individual-vs.-cache.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb157-2"><a href="dgm---individual-vs.-cache.html#cb157-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb157-3"><a href="dgm---individual-vs.-cache.html#cb157-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb157-4"><a href="dgm---individual-vs.-cache.html#cb157-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">context =</span> qdata<span class="sc">$</span>context) </span>
-<span id="cb157-5"><a href="dgm---individual-vs.-cache.html#cb157-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-6"><a href="dgm---individual-vs.-cache.html#cb157-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb157-7"><a href="dgm---individual-vs.-cache.html#cb157-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
-<span id="cb157-8"><a href="dgm---individual-vs.-cache.html#cb157-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-9"><a href="dgm---individual-vs.-cache.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
-<span id="cb157-10"><a href="dgm---individual-vs.-cache.html#cb157-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
-<span id="cb157-11"><a href="dgm---individual-vs.-cache.html#cb157-11" aria-hidden="true" tabindex="-1"></a>context <span class="ot">&lt;-</span> qdata<span class="sc">$</span>context</span>
-<span id="cb157-12"><a href="dgm---individual-vs.-cache.html#cb157-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-13"><a href="dgm---individual-vs.-cache.html#cb157-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
-<span id="cb157-14"><a href="dgm---individual-vs.-cache.html#cb157-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="dgm---individual-vs.-cache.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb187-2"><a href="dgm---individual-vs.-cache.html#cb187-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb187-3"><a href="dgm---individual-vs.-cache.html#cb187-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb187-4"><a href="dgm---individual-vs.-cache.html#cb187-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">context =</span> qdata<span class="sc">$</span>context) </span>
+<span id="cb187-5"><a href="dgm---individual-vs.-cache.html#cb187-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-6"><a href="dgm---individual-vs.-cache.html#cb187-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb187-7"><a href="dgm---individual-vs.-cache.html#cb187-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
+<span id="cb187-8"><a href="dgm---individual-vs.-cache.html#cb187-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-9"><a href="dgm---individual-vs.-cache.html#cb187-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
+<span id="cb187-10"><a href="dgm---individual-vs.-cache.html#cb187-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
+<span id="cb187-11"><a href="dgm---individual-vs.-cache.html#cb187-11" aria-hidden="true" tabindex="-1"></a>context <span class="ot">&lt;-</span> qdata<span class="sc">$</span>context</span>
+<span id="cb187-12"><a href="dgm---individual-vs.-cache.html#cb187-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-13"><a href="dgm---individual-vs.-cache.html#cb187-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
+<span id="cb187-14"><a href="dgm---individual-vs.-cache.html#cb187-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="boxplot" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Boxplot</h2>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="dgm---individual-vs.-cache.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
-<span id="cb158-2"><a href="dgm---individual-vs.-cache.html#cb158-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> csz, <span class="at">color =</span> context)) <span class="sc">+</span></span>
-<span id="cb158-3"><a href="dgm---individual-vs.-cache.html#cb158-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb158-4"><a href="dgm---individual-vs.-cache.html#cb158-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb158-5"><a href="dgm---individual-vs.-cache.html#cb158-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb158-6"><a href="dgm---individual-vs.-cache.html#cb158-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb158-7"><a href="dgm---individual-vs.-cache.html#cb158-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb158-8"><a href="dgm---individual-vs.-cache.html#cb158-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-9"><a href="dgm---individual-vs.-cache.html#cb158-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
-<span id="cb158-10"><a href="dgm---individual-vs.-cache.html#cb158-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="dgm---individual-vs.-cache.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
+<span id="cb188-2"><a href="dgm---individual-vs.-cache.html#cb188-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> csz, <span class="at">color =</span> context)) <span class="sc">+</span></span>
+<span id="cb188-3"><a href="dgm---individual-vs.-cache.html#cb188-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb188-4"><a href="dgm---individual-vs.-cache.html#cb188-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb188-5"><a href="dgm---individual-vs.-cache.html#cb188-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb188-6"><a href="dgm---individual-vs.-cache.html#cb188-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb188-7"><a href="dgm---individual-vs.-cache.html#cb188-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb188-8"><a href="dgm---individual-vs.-cache.html#cb188-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-9"><a href="dgm---individual-vs.-cache.html#cb188-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
+<span id="cb188-10"><a href="dgm---individual-vs.-cache.html#cb188-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
 <pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/centsize.box.h2-1.png" width="100%" /></p>
 </div>
 <div id="principal-components-analysis" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Principal Components Analysis</h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="dgm---individual-vs.-cache.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb160-2"><a href="dgm---individual-vs.-cache.html#cb160-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb160-3"><a href="dgm---individual-vs.-cache.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="dgm---individual-vs.-cache.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb190-2"><a href="dgm---individual-vs.-cache.html#cb190-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb190-3"><a href="dgm---individual-vs.-cache.html#cb190-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering by OLS mean
@@ -342,125 +357,105 @@ div.csl-indent {
 ## Number of vectors 66 
 ## 
 ## Importance of Components:
-##                              Comp1        Comp2        Comp3
-## Eigenvalues            0.003550166 0.0004871729 0.0002149155
-## Proportion of Variance 0.727035959 0.0997678103 0.0440123963
-## Cumulative Proportion  0.727035959 0.8268037697 0.8708161660
-##                               Comp4        Comp5        Comp6
-## Eigenvalues            0.0001309349 0.0001134924 8.438744e-05
-## Proportion of Variance 0.0268140702 0.0232420407 1.728164e-02
-## Cumulative Proportion  0.8976302363 0.9208722770 9.381539e-01
-##                               Comp7        Comp8        Comp9
-## Eigenvalues            6.613192e-05 5.004219e-05 4.347195e-05
-## Proportion of Variance 1.354311e-02 1.024810e-02 8.902591e-03
-## Cumulative Proportion  9.516970e-01 9.619451e-01 9.708477e-01
-##                              Comp10       Comp11       Comp12
-## Eigenvalues            1.879715e-05 1.710494e-05 1.271118e-05
-## Proportion of Variance 3.849455e-03 3.502910e-03 2.603114e-03
-## Cumulative Proportion  9.746972e-01 9.782001e-01 9.808032e-01
-##                              Comp13       Comp14       Comp15
-## Eigenvalues            1.084702e-05 9.137279e-06 7.637070e-06
-## Proportion of Variance 2.221354e-03 1.871217e-03 1.563990e-03
-## Cumulative Proportion  9.830246e-01 9.848958e-01 9.864598e-01
-##                              Comp16       Comp17       Comp18
-## Eigenvalues            7.190245e-06 5.591484e-06 5.147335e-06
-## Proportion of Variance 1.472485e-03 1.145076e-03 1.054119e-03
-## Cumulative Proportion  9.879323e-01 9.890773e-01 9.901314e-01
-##                              Comp19       Comp20       Comp21
-## Eigenvalues            4.677345e-06 3.848612e-06 3.213207e-06
-## Proportion of Variance 9.578703e-04 7.881545e-04 6.580306e-04
-## Cumulative Proportion  9.910893e-01 9.918775e-01 9.925355e-01
-##                              Comp22       Comp23       Comp24
-## Eigenvalues            2.972832e-06 2.866993e-06 2.628820e-06
-## Proportion of Variance 6.088042e-04 5.871295e-04 5.383542e-04
-## Cumulative Proportion  9.931443e-01 9.937314e-01 9.942698e-01
-##                              Comp25       Comp26       Comp27
-## Eigenvalues            2.345589e-06 2.143701e-06 1.939816e-06
-## Proportion of Variance 4.803516e-04 4.390070e-04 3.972537e-04
-## Cumulative Proportion  9.947501e-01 9.951892e-01 9.955864e-01
-##                              Comp28       Comp29       Comp30
-## Eigenvalues            1.764678e-06 1.564872e-06 1.464723e-06
-## Proportion of Variance 3.613872e-04 3.204690e-04 2.999596e-04
-## Cumulative Proportion  9.959478e-01 9.962683e-01 9.965682e-01
-##                              Comp31       Comp32       Comp33
-## Eigenvalues            1.443770e-06 1.190857e-06 1.130362e-06
-## Proportion of Variance 2.956687e-04 2.438747e-04 2.314861e-04
-## Cumulative Proportion  9.968639e-01 9.971078e-01 9.973392e-01
-##                              Comp34       Comp35       Comp36
-## Eigenvalues            1.082492e-06 9.925155e-07 9.333496e-07
-## Proportion of Variance 2.216828e-04 2.032566e-04 1.911400e-04
-## Cumulative Proportion  9.975609e-01 9.977642e-01 9.979553e-01
-##                              Comp37       Comp38       Comp39
-## Eigenvalues            8.191094e-07 7.800693e-07 6.362789e-07
-## Proportion of Variance 1.677448e-04 1.597499e-04 1.303031e-04
-## Cumulative Proportion  9.981231e-01 9.982828e-01 9.984131e-01
-##                              Comp40       Comp41       Comp42
-## Eigenvalues            6.171966e-07 5.736439e-07 5.117498e-07
-## Proportion of Variance 1.263953e-04 1.174761e-04 1.048009e-04
-## Cumulative Proportion  9.985395e-01 9.986570e-01 9.987618e-01
-##                              Comp43       Comp44       Comp45
-## Eigenvalues            5.019392e-07 4.641774e-07 4.429005e-07
-## Proportion of Variance 1.027918e-04 9.505857e-05 9.070128e-05
-## Cumulative Proportion  9.988646e-01 9.989596e-01 9.990504e-01
-##                              Comp46       Comp47       Comp48
-## Eigenvalues            4.315733e-07 4.143465e-07 3.720453e-07
-## Proportion of Variance 8.838159e-05 8.485373e-05 7.619091e-05
-## Cumulative Proportion  9.991387e-01 9.992236e-01 9.992998e-01
-##                              Comp49       Comp50       Comp51
-## Eigenvalues            3.485554e-07 3.170829e-07 3.098429e-07
-## Proportion of Variance 7.138041e-05 6.493519e-05 6.345251e-05
-## Cumulative Proportion  9.993712e-01 9.994361e-01 9.994995e-01
-##                              Comp52       Comp53       Comp54
-## Eigenvalues            2.661885e-07 2.582105e-07 2.335530e-07
-## Proportion of Variance 5.451255e-05 5.287875e-05 4.782915e-05
-## Cumulative Proportion  9.995541e-01 9.996069e-01 9.996548e-01
-##                              Comp55       Comp56       Comp57
-## Eigenvalues            2.229159e-07 2.203664e-07 2.017245e-07
-## Proportion of Variance 4.565079e-05 4.512867e-05 4.131103e-05
-## Cumulative Proportion  9.997004e-01 9.997455e-01 9.997869e-01
-##                              Comp58       Comp59       Comp60
-## Eigenvalues            1.681597e-07 1.541280e-07 1.440693e-07
-## Proportion of Variance 3.443731e-05 3.156378e-05 2.950385e-05
-## Cumulative Proportion  9.998213e-01 9.998529e-01 9.998824e-01
-##                              Comp61       Comp62       Comp63
-## Eigenvalues            1.298717e-07 1.099577e-07 1.054425e-07
-## Proportion of Variance 2.659634e-05 2.251816e-05 2.159349e-05
-## Cumulative Proportion  9.999090e-01 9.999315e-01 9.999531e-01
-##                              Comp64       Comp65       Comp66
-## Eigenvalues            8.319440e-08 7.878405e-08 6.718766e-08
-## Proportion of Variance 1.703732e-05 1.613413e-05 1.375932e-05
-## Cumulative Proportion  9.999701e-01 9.999862e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="dgm---individual-vs.-cache.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
-<span id="cb162-2"><a href="dgm---individual-vs.-cache.html#cb162-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="fu">as.factor</span>(context)]</span>
-<span id="cb162-3"><a href="dgm---individual-vs.-cache.html#cb162-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(context)]</span>
-<span id="cb162-4"><a href="dgm---individual-vs.-cache.html#cb162-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
-<span id="cb162-5"><a href="dgm---individual-vs.-cache.html#cb162-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb162-6"><a href="dgm---individual-vs.-cache.html#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
-<span id="cb162-7"><a href="dgm---individual-vs.-cache.html#cb162-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb162-8"><a href="dgm---individual-vs.-cache.html#cb162-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
-<span id="cb162-9"><a href="dgm---individual-vs.-cache.html#cb162-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
-<span id="cb162-10"><a href="dgm---individual-vs.-cache.html#cb162-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
-<span id="cb162-11"><a href="dgm---individual-vs.-cache.html#cb162-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> context,</span>
-<span id="cb162-12"><a href="dgm---individual-vs.-cache.html#cb162-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+##                              Comp1        Comp2        Comp3        Comp4
+## Eigenvalues            0.003550166 0.0004871729 0.0002149155 0.0001309349
+## Proportion of Variance 0.727035959 0.0997678103 0.0440123963 0.0268140702
+## Cumulative Proportion  0.727035959 0.8268037697 0.8708161660 0.8976302363
+##                               Comp5        Comp6        Comp7        Comp8
+## Eigenvalues            0.0001134924 8.438744e-05 6.613192e-05 5.004219e-05
+## Proportion of Variance 0.0232420407 1.728164e-02 1.354311e-02 1.024810e-02
+## Cumulative Proportion  0.9208722770 9.381539e-01 9.516970e-01 9.619451e-01
+##                               Comp9       Comp10       Comp11       Comp12
+## Eigenvalues            4.347195e-05 1.879715e-05 1.710494e-05 1.271118e-05
+## Proportion of Variance 8.902591e-03 3.849455e-03 3.502910e-03 2.603114e-03
+## Cumulative Proportion  9.708477e-01 9.746972e-01 9.782001e-01 9.808032e-01
+##                              Comp13       Comp14       Comp15       Comp16
+## Eigenvalues            1.084702e-05 9.137279e-06 7.637070e-06 7.190245e-06
+## Proportion of Variance 2.221354e-03 1.871217e-03 1.563990e-03 1.472485e-03
+## Cumulative Proportion  9.830246e-01 9.848958e-01 9.864598e-01 9.879323e-01
+##                              Comp17       Comp18       Comp19       Comp20
+## Eigenvalues            5.591484e-06 5.147335e-06 4.677345e-06 3.848612e-06
+## Proportion of Variance 1.145076e-03 1.054119e-03 9.578703e-04 7.881545e-04
+## Cumulative Proportion  9.890773e-01 9.901314e-01 9.910893e-01 9.918775e-01
+##                              Comp21       Comp22       Comp23       Comp24
+## Eigenvalues            3.213207e-06 2.972832e-06 2.866993e-06 2.628820e-06
+## Proportion of Variance 6.580306e-04 6.088042e-04 5.871295e-04 5.383542e-04
+## Cumulative Proportion  9.925355e-01 9.931443e-01 9.937314e-01 9.942698e-01
+##                              Comp25       Comp26       Comp27       Comp28
+## Eigenvalues            2.345589e-06 2.143701e-06 1.939816e-06 1.764678e-06
+## Proportion of Variance 4.803516e-04 4.390070e-04 3.972537e-04 3.613872e-04
+## Cumulative Proportion  9.947501e-01 9.951892e-01 9.955864e-01 9.959478e-01
+##                              Comp29       Comp30       Comp31       Comp32
+## Eigenvalues            1.564872e-06 1.464723e-06 1.443770e-06 1.190857e-06
+## Proportion of Variance 3.204690e-04 2.999596e-04 2.956687e-04 2.438747e-04
+## Cumulative Proportion  9.962683e-01 9.965682e-01 9.968639e-01 9.971078e-01
+##                              Comp33       Comp34       Comp35       Comp36
+## Eigenvalues            1.130362e-06 1.082492e-06 9.925155e-07 9.333496e-07
+## Proportion of Variance 2.314861e-04 2.216828e-04 2.032566e-04 1.911400e-04
+## Cumulative Proportion  9.973392e-01 9.975609e-01 9.977642e-01 9.979553e-01
+##                              Comp37       Comp38       Comp39       Comp40
+## Eigenvalues            8.191094e-07 7.800693e-07 6.362789e-07 6.171966e-07
+## Proportion of Variance 1.677448e-04 1.597499e-04 1.303031e-04 1.263953e-04
+## Cumulative Proportion  9.981231e-01 9.982828e-01 9.984131e-01 9.985395e-01
+##                              Comp41       Comp42       Comp43       Comp44
+## Eigenvalues            5.736439e-07 5.117498e-07 5.019392e-07 4.641774e-07
+## Proportion of Variance 1.174761e-04 1.048009e-04 1.027918e-04 9.505857e-05
+## Cumulative Proportion  9.986570e-01 9.987618e-01 9.988646e-01 9.989596e-01
+##                              Comp45       Comp46       Comp47       Comp48
+## Eigenvalues            4.429005e-07 4.315733e-07 4.143465e-07 3.720453e-07
+## Proportion of Variance 9.070128e-05 8.838159e-05 8.485373e-05 7.619091e-05
+## Cumulative Proportion  9.990504e-01 9.991387e-01 9.992236e-01 9.992998e-01
+##                              Comp49       Comp50       Comp51       Comp52
+## Eigenvalues            3.485554e-07 3.170829e-07 3.098429e-07 2.661885e-07
+## Proportion of Variance 7.138041e-05 6.493519e-05 6.345251e-05 5.451255e-05
+## Cumulative Proportion  9.993712e-01 9.994361e-01 9.994995e-01 9.995541e-01
+##                              Comp53       Comp54       Comp55       Comp56
+## Eigenvalues            2.582105e-07 2.335530e-07 2.229159e-07 2.203664e-07
+## Proportion of Variance 5.287875e-05 4.782915e-05 4.565079e-05 4.512867e-05
+## Cumulative Proportion  9.996069e-01 9.996548e-01 9.997004e-01 9.997455e-01
+##                              Comp57       Comp58       Comp59       Comp60
+## Eigenvalues            2.017245e-07 1.681597e-07 1.541280e-07 1.440693e-07
+## Proportion of Variance 4.131103e-05 3.443731e-05 3.156378e-05 2.950385e-05
+## Cumulative Proportion  9.997869e-01 9.998213e-01 9.998529e-01 9.998824e-01
+##                              Comp61       Comp62       Comp63       Comp64
+## Eigenvalues            1.298717e-07 1.099577e-07 1.054425e-07 8.319440e-08
+## Proportion of Variance 2.659634e-05 2.251816e-05 2.159349e-05 1.703732e-05
+## Cumulative Proportion  9.999090e-01 9.999315e-01 9.999531e-01 9.999701e-01
+##                              Comp65       Comp66
+## Eigenvalues            7.878405e-08 6.718766e-08
+## Proportion of Variance 1.613413e-05 1.375932e-05
+## Cumulative Proportion  9.999862e-01 1.000000e+00</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="dgm---individual-vs.-cache.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb192-2"><a href="dgm---individual-vs.-cache.html#cb192-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="fu">as.factor</span>(context)]</span>
+<span id="cb192-3"><a href="dgm---individual-vs.-cache.html#cb192-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(context)]</span>
+<span id="cb192-4"><a href="dgm---individual-vs.-cache.html#cb192-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
+<span id="cb192-5"><a href="dgm---individual-vs.-cache.html#cb192-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-6"><a href="dgm---individual-vs.-cache.html#cb192-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb192-7"><a href="dgm---individual-vs.-cache.html#cb192-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb192-8"><a href="dgm---individual-vs.-cache.html#cb192-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb192-9"><a href="dgm---individual-vs.-cache.html#cb192-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
+<span id="cb192-10"><a href="dgm---individual-vs.-cache.html#cb192-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
+<span id="cb192-11"><a href="dgm---individual-vs.-cache.html#cb192-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> context,</span>
+<span id="cb192-12"><a href="dgm---individual-vs.-cache.html#cb192-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
 <p><img src="_main_files/figure-html/pca1.h2-1.png" width="100%" /></p>
 <div id="plot-pca-with-mean-shape-xy-maximaminima" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Plot PCA with mean shape + x/y maxima/minima</h3>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dgm---individual-vs.-cache.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
-<span id="cb163-2"><a href="dgm---individual-vs.-cache.html#cb163-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/cacheind-pca-warpref.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="dgm---individual-vs.-cache.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
+<span id="cb193-2"><a href="dgm---individual-vs.-cache.html#cb193-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/cacheind-pca-warpref.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/cacheind-pca-warpref.png" width="100%" /></p>
 </div>
 </div>
 <div id="procrustes-anova" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Procrustes ANOVA</h2>
 <p>A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">Michael L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="dgm---individual-vs.-cache.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context</span></span>
-<span id="cb164-2"><a href="dgm---individual-vs.-cache.html#cb164-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> context,</span>
-<span id="cb164-3"><a href="dgm---individual-vs.-cache.html#cb164-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
-<span id="cb164-4"><a href="dgm---individual-vs.-cache.html#cb164-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb164-5"><a href="dgm---individual-vs.-cache.html#cb164-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb164-6"><a href="dgm---individual-vs.-cache.html#cb164-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-7"><a href="dgm---individual-vs.-cache.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
-<span id="cb164-8"><a href="dgm---individual-vs.-cache.html#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontext)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dgm---individual-vs.-cache.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context</span></span>
+<span id="cb194-2"><a href="dgm---individual-vs.-cache.html#cb194-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> context,</span>
+<span id="cb194-3"><a href="dgm---individual-vs.-cache.html#cb194-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
+<span id="cb194-4"><a href="dgm---individual-vs.-cache.html#cb194-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb194-5"><a href="dgm---individual-vs.-cache.html#cb194-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb194-6"><a href="dgm---individual-vs.-cache.html#cb194-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-7"><a href="dgm---individual-vs.-cache.html#cb194-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
+<span id="cb194-8"><a href="dgm---individual-vs.-cache.html#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontext)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -477,14 +472,14 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ context, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="dgm---individual-vs.-cache.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context</span></span>
-<span id="cb166-2"><a href="dgm---individual-vs.-cache.html#cb166-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> context,</span>
-<span id="cb166-3"><a href="dgm---individual-vs.-cache.html#cb166-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
-<span id="cb166-4"><a href="dgm---individual-vs.-cache.html#cb166-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb166-5"><a href="dgm---individual-vs.-cache.html#cb166-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb166-6"><a href="dgm---individual-vs.-cache.html#cb166-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb166-7"><a href="dgm---individual-vs.-cache.html#cb166-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
-<span id="cb166-8"><a href="dgm---individual-vs.-cache.html#cb166-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontext)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="dgm---individual-vs.-cache.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context</span></span>
+<span id="cb196-2"><a href="dgm---individual-vs.-cache.html#cb196-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontext <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> context,</span>
+<span id="cb196-3"><a href="dgm---individual-vs.-cache.html#cb196-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
+<span id="cb196-4"><a href="dgm---individual-vs.-cache.html#cb196-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb196-5"><a href="dgm---individual-vs.-cache.html#cb196-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb196-6"><a href="dgm---individual-vs.-cache.html#cb196-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-7"><a href="dgm---individual-vs.-cache.html#cb196-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
+<span id="cb196-8"><a href="dgm---individual-vs.-cache.html#cb196-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontext)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -504,20 +499,20 @@ div.csl-indent {
 </div>
 <div id="modularity" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> Modularity</h2>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="dgm---individual-vs.-cache.html#cb168-1" aria-hidden="true" tabindex="-1"></a>land.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,</span>
-<span id="cb168-2"><a href="dgm---individual-vs.-cache.html#cb168-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,</span>
-<span id="cb168-3"><a href="dgm---individual-vs.-cache.html#cb168-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,</span>
-<span id="cb168-4"><a href="dgm---individual-vs.-cache.html#cb168-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,</span>
-<span id="cb168-5"><a href="dgm---individual-vs.-cache.html#cb168-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>)</span>
-<span id="cb168-6"><a href="dgm---individual-vs.-cache.html#cb168-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-7"><a href="dgm---individual-vs.-cache.html#cb168-7" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">modularity.test</span>(Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb168-8"><a href="dgm---individual-vs.-cache.html#cb168-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">partition.gp =</span> land.gps,</span>
-<span id="cb168-9"><a href="dgm---individual-vs.-cache.html#cb168-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">iter =</span> <span class="dv">9999</span>,</span>
-<span id="cb168-10"><a href="dgm---individual-vs.-cache.html#cb168-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">seed =</span> <span class="cn">NULL</span>,</span>
-<span id="cb168-11"><a href="dgm---individual-vs.-cache.html#cb168-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">opt.rot =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb168-12"><a href="dgm---individual-vs.-cache.html#cb168-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb168-13"><a href="dgm---individual-vs.-cache.html#cb168-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-14"><a href="dgm---individual-vs.-cache.html#cb168-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="dgm---individual-vs.-cache.html#cb198-1" aria-hidden="true" tabindex="-1"></a>land.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,</span>
+<span id="cb198-2"><a href="dgm---individual-vs.-cache.html#cb198-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,</span>
+<span id="cb198-3"><a href="dgm---individual-vs.-cache.html#cb198-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,</span>
+<span id="cb198-4"><a href="dgm---individual-vs.-cache.html#cb198-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,</span>
+<span id="cb198-5"><a href="dgm---individual-vs.-cache.html#cb198-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>)</span>
+<span id="cb198-6"><a href="dgm---individual-vs.-cache.html#cb198-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-7"><a href="dgm---individual-vs.-cache.html#cb198-7" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">modularity.test</span>(Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb198-8"><a href="dgm---individual-vs.-cache.html#cb198-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">partition.gp =</span> land.gps,</span>
+<span id="cb198-9"><a href="dgm---individual-vs.-cache.html#cb198-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">iter =</span> <span class="dv">9999</span>,</span>
+<span id="cb198-10"><a href="dgm---individual-vs.-cache.html#cb198-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">seed =</span> <span class="cn">NULL</span>,</span>
+<span id="cb198-11"><a href="dgm---individual-vs.-cache.html#cb198-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">opt.rot =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb198-12"><a href="dgm---individual-vs.-cache.html#cb198-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb198-13"><a href="dgm---individual-vs.-cache.html#cb198-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-14"><a href="dgm---individual-vs.-cache.html#cb198-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## modularity.test(A = Y.gpa$coords, partition.gp = land.gps, iter = 9999,  
@@ -532,18 +527,18 @@ div.csl-indent {
 ## Effect Size: -2.42142
 ## 
 ## Based on 10000 random permutations</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dgm---individual-vs.-cache.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="do">## modularity plot</span></span>
-<span id="cb170-2"><a href="dgm---individual-vs.-cache.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dgm---individual-vs.-cache.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="do">## modularity plot</span></span>
+<span id="cb200-2"><a href="dgm---individual-vs.-cache.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod)</span></code></pre></div>
 <p><img src="_main_files/figure-html/mod-1.png" width="100%" /></p>
 </div>
 <div id="morphological-integration" class="section level2" number="6.7">
 <h2><span class="header-section-number">6.7</span> Morphological integration</h2>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="dgm---individual-vs.-cache.html#cb171-1" aria-hidden="true" tabindex="-1"></a>it <span class="ot">&lt;-</span> <span class="fu">integration.test</span>(Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb171-2"><a href="dgm---individual-vs.-cache.html#cb171-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">partition.gp =</span> land.gps,</span>
-<span id="cb171-3"><a href="dgm---individual-vs.-cache.html#cb171-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb171-4"><a href="dgm---individual-vs.-cache.html#cb171-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb171-5"><a href="dgm---individual-vs.-cache.html#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-6"><a href="dgm---individual-vs.-cache.html#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(it)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="dgm---individual-vs.-cache.html#cb201-1" aria-hidden="true" tabindex="-1"></a>it <span class="ot">&lt;-</span> <span class="fu">integration.test</span>(Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb201-2"><a href="dgm---individual-vs.-cache.html#cb201-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">partition.gp =</span> land.gps,</span>
+<span id="cb201-3"><a href="dgm---individual-vs.-cache.html#cb201-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb201-4"><a href="dgm---individual-vs.-cache.html#cb201-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb201-5"><a href="dgm---individual-vs.-cache.html#cb201-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-6"><a href="dgm---individual-vs.-cache.html#cb201-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(it)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## integration.test(A = Y.gpa$coords, partition.gp = land.gps, iter = 9999,  
@@ -558,18 +553,18 @@ div.csl-indent {
 ## P-value: 1e-04
 ## 
 ## Based on 10000 random permutations</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="dgm---individual-vs.-cache.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="do">## integration plot</span></span>
-<span id="cb173-2"><a href="dgm---individual-vs.-cache.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(it)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dgm---individual-vs.-cache.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="do">## integration plot</span></span>
+<span id="cb203-2"><a href="dgm---individual-vs.-cache.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(it)</span></code></pre></div>
 <p><img src="_main_files/figure-html/integ-1.png" width="100%" /></p>
 </div>
 <div id="morphological-disparity" class="section level2" number="6.8">
 <h2><span class="header-section-number">6.8</span> Morphological disparity</h2>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="dgm---individual-vs.-cache.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by shape</span></span>
-<span id="cb174-2"><a href="dgm---individual-vs.-cache.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.shapecontext, </span>
-<span id="cb174-3"><a href="dgm---individual-vs.-cache.html#cb174-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
-<span id="cb174-4"><a href="dgm---individual-vs.-cache.html#cb174-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb174-5"><a href="dgm---individual-vs.-cache.html#cb174-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb174-6"><a href="dgm---individual-vs.-cache.html#cb174-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="dgm---individual-vs.-cache.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by shape</span></span>
+<span id="cb204-2"><a href="dgm---individual-vs.-cache.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.shapecontext, </span>
+<span id="cb204-3"><a href="dgm---individual-vs.-cache.html#cb204-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
+<span id="cb204-4"><a href="dgm---individual-vs.-cache.html#cb204-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb204-5"><a href="dgm---individual-vs.-cache.html#cb204-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb204-6"><a href="dgm---individual-vs.-cache.html#cb204-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapecontext, groups = qdata$context,  
@@ -595,12 +590,12 @@ div.csl-indent {
 ##            cache individual
 ## cache      1.000      0.486
 ## individual 0.486      1.000</code></pre>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="dgm---individual-vs.-cache.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by size</span></span>
-<span id="cb176-2"><a href="dgm---individual-vs.-cache.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.sizecontext, </span>
-<span id="cb176-3"><a href="dgm---individual-vs.-cache.html#cb176-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
-<span id="cb176-4"><a href="dgm---individual-vs.-cache.html#cb176-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb176-5"><a href="dgm---individual-vs.-cache.html#cb176-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb176-6"><a href="dgm---individual-vs.-cache.html#cb176-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dgm---individual-vs.-cache.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by size</span></span>
+<span id="cb206-2"><a href="dgm---individual-vs.-cache.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.sizecontext, </span>
+<span id="cb206-3"><a href="dgm---individual-vs.-cache.html#cb206-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>context, </span>
+<span id="cb206-4"><a href="dgm---individual-vs.-cache.html#cb206-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb206-5"><a href="dgm---individual-vs.-cache.html#cb206-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb206-6"><a href="dgm---individual-vs.-cache.html#cb206-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizecontext, groups = qdata$context,  
@@ -629,25 +624,25 @@ div.csl-indent {
 </div>
 <div id="mean-shapes" class="section level2" number="6.9">
 <h2><span class="header-section-number">6.9</span> Mean shapes</h2>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dgm---individual-vs.-cache.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
-<span id="cb178-2"><a href="dgm---individual-vs.-cache.html#cb178-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb178-3"><a href="dgm---individual-vs.-cache.html#cb178-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>context)</span>
-<span id="cb178-4"><a href="dgm---individual-vs.-cache.html#cb178-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-5"><a href="dgm---individual-vs.-cache.html#cb178-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dgm---individual-vs.-cache.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
+<span id="cb208-2"><a href="dgm---individual-vs.-cache.html#cb208-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb208-3"><a href="dgm---individual-vs.-cache.html#cb208-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>context)</span>
+<span id="cb208-4"><a href="dgm---individual-vs.-cache.html#cb208-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb208-5"><a href="dgm---individual-vs.-cache.html#cb208-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
 <pre><code>## [1] &quot;cache&quot;      &quot;individual&quot;</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="dgm---individual-vs.-cache.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
-<span id="cb180-2"><a href="dgm---individual-vs.-cache.html#cb180-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
-<span id="cb180-3"><a href="dgm---individual-vs.-cache.html#cb180-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>cache)</span>
-<span id="cb180-4"><a href="dgm---individual-vs.-cache.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>individual)</span>
-<span id="cb180-5"><a href="dgm---individual-vs.-cache.html#cb180-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-6"><a href="dgm---individual-vs.-cache.html#cb180-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
-<span id="cb180-7"><a href="dgm---individual-vs.-cache.html#cb180-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
-<span id="cb180-8"><a href="dgm---individual-vs.-cache.html#cb180-8" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>individual, </span>
-<span id="cb180-9"><a href="dgm---individual-vs.-cache.html#cb180-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb180-10"><a href="dgm---individual-vs.-cache.html#cb180-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb180-11"><a href="dgm---individual-vs.-cache.html#cb180-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-12"><a href="dgm---individual-vs.-cache.html#cb180-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
-<span id="cb180-13"><a href="dgm---individual-vs.-cache.html#cb180-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-cache-ind.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dgm---individual-vs.-cache.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
+<span id="cb210-2"><a href="dgm---individual-vs.-cache.html#cb210-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
+<span id="cb210-3"><a href="dgm---individual-vs.-cache.html#cb210-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>cache)</span>
+<span id="cb210-4"><a href="dgm---individual-vs.-cache.html#cb210-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>individual)</span>
+<span id="cb210-5"><a href="dgm---individual-vs.-cache.html#cb210-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-6"><a href="dgm---individual-vs.-cache.html#cb210-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
+<span id="cb210-7"><a href="dgm---individual-vs.-cache.html#cb210-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>cache,</span>
+<span id="cb210-8"><a href="dgm---individual-vs.-cache.html#cb210-8" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>individual, </span>
+<span id="cb210-9"><a href="dgm---individual-vs.-cache.html#cb210-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb210-10"><a href="dgm---individual-vs.-cache.html#cb210-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb210-11"><a href="dgm---individual-vs.-cache.html#cb210-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-12"><a href="dgm---individual-vs.-cache.html#cb210-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
+<span id="cb210-13"><a href="dgm---individual-vs.-cache.html#cb210-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/mshape-cache-ind.jpg&#39;</span>)</span></code></pre></div>
 <p><img src="images/mshape-cache-ind.jpg" width="100%" /></p>
 
 </div>

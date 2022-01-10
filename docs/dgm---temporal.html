@@ -268,76 +268,76 @@ div.csl-indent {
 </ul>
 <div id="load-packages-data-1" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Load packages + data</h2>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="dgm---temporal.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
-<span id="cb181-2"><a href="dgm---temporal.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb181-3"><a href="dgm---temporal.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
-<span id="cb181-4"><a href="dgm---temporal.html#cb181-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb181-5"><a href="dgm---temporal.html#cb181-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb181-6"><a href="dgm---temporal.html#cb181-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb181-7"><a href="dgm---temporal.html#cb181-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-8"><a href="dgm---temporal.html#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
-<span id="cb181-9"><a href="dgm---temporal.html#cb181-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-10"><a href="dgm---temporal.html#cb181-10" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
-<span id="cb181-11"><a href="dgm---temporal.html#cb181-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
-<span id="cb181-12"><a href="dgm---temporal.html#cb181-12" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb181-13"><a href="dgm---temporal.html#cb181-13" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
-<span id="cb181-14"><a href="dgm---temporal.html#cb181-14" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb181-15"><a href="dgm---temporal.html#cb181-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-16"><a href="dgm---temporal.html#cb181-16" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb181-17"><a href="dgm---temporal.html#cb181-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb181-18"><a href="dgm---temporal.html#cb181-18" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span>
-<span id="cb181-19"><a href="dgm---temporal.html#cb181-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-20"><a href="dgm---temporal.html#cb181-20" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata <span class="sc">%&gt;%</span> </span>
-<span id="cb181-21"><a href="dgm---temporal.html#cb181-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">&quot;merged&quot;</span>, t.context<span class="sc">:</span>context, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dgm---temporal.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb211-2"><a href="dgm---temporal.html#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb211-3"><a href="dgm---temporal.html#cb211-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
+<span id="cb211-4"><a href="dgm---temporal.html#cb211-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb211-5"><a href="dgm---temporal.html#cb211-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb211-6"><a href="dgm---temporal.html#cb211-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb211-7"><a href="dgm---temporal.html#cb211-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-8"><a href="dgm---temporal.html#cb211-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
+<span id="cb211-9"><a href="dgm---temporal.html#cb211-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-10"><a href="dgm---temporal.html#cb211-10" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
+<span id="cb211-11"><a href="dgm---temporal.html#cb211-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./data&quot;</span>)</span>
+<span id="cb211-12"><a href="dgm---temporal.html#cb211-12" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb211-13"><a href="dgm---temporal.html#cb211-13" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
+<span id="cb211-14"><a href="dgm---temporal.html#cb211-14" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb211-15"><a href="dgm---temporal.html#cb211-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-16"><a href="dgm---temporal.html#cb211-16" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb211-17"><a href="dgm---temporal.html#cb211-17" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb211-18"><a href="dgm---temporal.html#cb211-18" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(qdata)),]</span>
+<span id="cb211-19"><a href="dgm---temporal.html#cb211-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-20"><a href="dgm---temporal.html#cb211-20" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> qdata <span class="sc">%&gt;%</span> </span>
+<span id="cb211-21"><a href="dgm---temporal.html#cb211-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">&quot;merged&quot;</span>, t.context<span class="sc">:</span>context, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="generalized-procrustes-analysis-1" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Generalized Procrustes Analysis</h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.2 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2021</a>)</span> using the <code>geomorph</code> library v. 4.0.1 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otárola-Castillo 2013</a>; <a href="#ref-RN9565" role="doc-biblioref">Baken et al. 2021</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="dgm---temporal.html#cb182-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
-<span id="cb182-2"><a href="dgm---temporal.html#cb182-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb182-3"><a href="dgm---temporal.html#cb182-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb182-4"><a href="dgm---temporal.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
-<span id="cb182-5"><a href="dgm---temporal.html#cb182-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
-<span id="cb182-6"><a href="dgm---temporal.html#cb182-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb182-7"><a href="dgm---temporal.html#cb182-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
-<span id="cb182-8"><a href="dgm---temporal.html#cb182-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dgm---temporal.html#cb212-1" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
+<span id="cb212-2"><a href="dgm---temporal.html#cb212-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb212-3"><a href="dgm---temporal.html#cb212-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb212-4"><a href="dgm---temporal.html#cb212-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
+<span id="cb212-5"><a href="dgm---temporal.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.gpa)</span>
+<span id="cb212-6"><a href="dgm---temporal.html#cb212-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-7"><a href="dgm---temporal.html#cb212-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D gpa plot</span></span>
+<span id="cb212-8"><a href="dgm---temporal.html#cb212-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/gpa3d.png" width="100%" /></p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="dgm---temporal.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb183-2"><a href="dgm---temporal.html#cb183-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb183-3"><a href="dgm---temporal.html#cb183-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb183-4"><a href="dgm---temporal.html#cb183-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">merged =</span> qdata<span class="sc">$</span>merged) </span>
-<span id="cb183-5"><a href="dgm---temporal.html#cb183-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb183-6"><a href="dgm---temporal.html#cb183-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb183-7"><a href="dgm---temporal.html#cb183-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
-<span id="cb183-8"><a href="dgm---temporal.html#cb183-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb183-9"><a href="dgm---temporal.html#cb183-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
-<span id="cb183-10"><a href="dgm---temporal.html#cb183-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
-<span id="cb183-11"><a href="dgm---temporal.html#cb183-11" aria-hidden="true" tabindex="-1"></a>merged <span class="ot">&lt;-</span> qdata<span class="sc">$</span>merged</span>
-<span id="cb183-12"><a href="dgm---temporal.html#cb183-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb183-13"><a href="dgm---temporal.html#cb183-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
-<span id="cb183-14"><a href="dgm---temporal.html#cb183-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">4</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dgm---temporal.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb213-2"><a href="dgm---temporal.html#cb213-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb213-3"><a href="dgm---temporal.html#cb213-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb213-4"><a href="dgm---temporal.html#cb213-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">merged =</span> qdata<span class="sc">$</span>merged) </span>
+<span id="cb213-5"><a href="dgm---temporal.html#cb213-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-6"><a href="dgm---temporal.html#cb213-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb213-7"><a href="dgm---temporal.html#cb213-7" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
+<span id="cb213-8"><a href="dgm---temporal.html#cb213-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-9"><a href="dgm---temporal.html#cb213-9" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for boxplot</span></span>
+<span id="cb213-10"><a href="dgm---temporal.html#cb213-10" aria-hidden="true" tabindex="-1"></a>csz <span class="ot">&lt;-</span> qdata<span class="sc">$</span>csz</span>
+<span id="cb213-11"><a href="dgm---temporal.html#cb213-11" aria-hidden="true" tabindex="-1"></a>merged <span class="ot">&lt;-</span> qdata<span class="sc">$</span>merged</span>
+<span id="cb213-12"><a href="dgm---temporal.html#cb213-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-13"><a href="dgm---temporal.html#cb213-13" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
+<span id="cb213-14"><a href="dgm---temporal.html#cb213-14" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">4</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span></code></pre></div>
 </div>
 <div id="boxplot-1" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Boxplot</h2>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="dgm---temporal.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
-<span id="cb184-2"><a href="dgm---temporal.html#cb184-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> merged, <span class="at">y =</span> csz, <span class="at">color =</span> merged)) <span class="sc">+</span></span>
-<span id="cb184-3"><a href="dgm---temporal.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb184-4"><a href="dgm---temporal.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb184-5"><a href="dgm---temporal.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb184-6"><a href="dgm---temporal.html#cb184-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb184-7"><a href="dgm---temporal.html#cb184-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb184-8"><a href="dgm---temporal.html#cb184-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb184-9"><a href="dgm---temporal.html#cb184-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
-<span id="cb184-10"><a href="dgm---temporal.html#cb184-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dgm---temporal.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot - centroid size by context</span></span>
+<span id="cb214-2"><a href="dgm---temporal.html#cb214-2" aria-hidden="true" tabindex="-1"></a>csz.temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qdata, <span class="fu">aes</span>(<span class="at">x =</span> merged, <span class="at">y =</span> csz, <span class="at">color =</span> merged)) <span class="sc">+</span></span>
+<span id="cb214-3"><a href="dgm---temporal.html#cb214-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb214-4"><a href="dgm---temporal.html#cb214-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">dotsize =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb214-5"><a href="dgm---temporal.html#cb214-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb214-6"><a href="dgm---temporal.html#cb214-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb214-7"><a href="dgm---temporal.html#cb214-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Context&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb214-8"><a href="dgm---temporal.html#cb214-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-9"><a href="dgm---temporal.html#cb214-9" aria-hidden="true" tabindex="-1"></a><span class="do">## render plot</span></span>
+<span id="cb214-10"><a href="dgm---temporal.html#cb214-10" aria-hidden="true" tabindex="-1"></a>csz.temp</span></code></pre></div>
 <pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/centsize.box.div-1.png" width="100%" /></p>
 </div>
 <div id="principal-components-analysis-1" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Principal Components Analysis</h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dgm---temporal.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb186-2"><a href="dgm---temporal.html#cb186-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb186-3"><a href="dgm---temporal.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="dgm---temporal.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb216-2"><a href="dgm---temporal.html#cb216-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb216-3"><a href="dgm---temporal.html#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering by OLS mean
@@ -346,125 +346,105 @@ div.csl-indent {
 ## Number of vectors 66 
 ## 
 ## Importance of Components:
-##                              Comp1        Comp2        Comp3
-## Eigenvalues            0.003550166 0.0004871729 0.0002149155
-## Proportion of Variance 0.727035959 0.0997678103 0.0440123963
-## Cumulative Proportion  0.727035959 0.8268037697 0.8708161660
-##                               Comp4        Comp5        Comp6
-## Eigenvalues            0.0001309349 0.0001134924 8.438744e-05
-## Proportion of Variance 0.0268140702 0.0232420407 1.728164e-02
-## Cumulative Proportion  0.8976302363 0.9208722770 9.381539e-01
-##                               Comp7        Comp8        Comp9
-## Eigenvalues            6.613192e-05 5.004219e-05 4.347195e-05
-## Proportion of Variance 1.354311e-02 1.024810e-02 8.902591e-03
-## Cumulative Proportion  9.516970e-01 9.619451e-01 9.708477e-01
-##                              Comp10       Comp11       Comp12
-## Eigenvalues            1.879715e-05 1.710494e-05 1.271118e-05
-## Proportion of Variance 3.849455e-03 3.502910e-03 2.603114e-03
-## Cumulative Proportion  9.746972e-01 9.782001e-01 9.808032e-01
-##                              Comp13       Comp14       Comp15
-## Eigenvalues            1.084702e-05 9.137279e-06 7.637070e-06
-## Proportion of Variance 2.221354e-03 1.871217e-03 1.563990e-03
-## Cumulative Proportion  9.830246e-01 9.848958e-01 9.864598e-01
-##                              Comp16       Comp17       Comp18
-## Eigenvalues            7.190245e-06 5.591484e-06 5.147335e-06
-## Proportion of Variance 1.472485e-03 1.145076e-03 1.054119e-03
-## Cumulative Proportion  9.879323e-01 9.890773e-01 9.901314e-01
-##                              Comp19       Comp20       Comp21
-## Eigenvalues            4.677345e-06 3.848612e-06 3.213207e-06
-## Proportion of Variance 9.578703e-04 7.881545e-04 6.580306e-04
-## Cumulative Proportion  9.910893e-01 9.918775e-01 9.925355e-01
-##                              Comp22       Comp23       Comp24
-## Eigenvalues            2.972832e-06 2.866993e-06 2.628820e-06
-## Proportion of Variance 6.088042e-04 5.871295e-04 5.383542e-04
-## Cumulative Proportion  9.931443e-01 9.937314e-01 9.942698e-01
-##                              Comp25       Comp26       Comp27
-## Eigenvalues            2.345589e-06 2.143701e-06 1.939816e-06
-## Proportion of Variance 4.803516e-04 4.390070e-04 3.972537e-04
-## Cumulative Proportion  9.947501e-01 9.951892e-01 9.955864e-01
-##                              Comp28       Comp29       Comp30
-## Eigenvalues            1.764678e-06 1.564872e-06 1.464723e-06
-## Proportion of Variance 3.613872e-04 3.204690e-04 2.999596e-04
-## Cumulative Proportion  9.959478e-01 9.962683e-01 9.965682e-01
-##                              Comp31       Comp32       Comp33
-## Eigenvalues            1.443770e-06 1.190857e-06 1.130362e-06
-## Proportion of Variance 2.956687e-04 2.438747e-04 2.314861e-04
-## Cumulative Proportion  9.968639e-01 9.971078e-01 9.973392e-01
-##                              Comp34       Comp35       Comp36
-## Eigenvalues            1.082492e-06 9.925155e-07 9.333496e-07
-## Proportion of Variance 2.216828e-04 2.032566e-04 1.911400e-04
-## Cumulative Proportion  9.975609e-01 9.977642e-01 9.979553e-01
-##                              Comp37       Comp38       Comp39
-## Eigenvalues            8.191094e-07 7.800693e-07 6.362789e-07
-## Proportion of Variance 1.677448e-04 1.597499e-04 1.303031e-04
-## Cumulative Proportion  9.981231e-01 9.982828e-01 9.984131e-01
-##                              Comp40       Comp41       Comp42
-## Eigenvalues            6.171966e-07 5.736439e-07 5.117498e-07
-## Proportion of Variance 1.263953e-04 1.174761e-04 1.048009e-04
-## Cumulative Proportion  9.985395e-01 9.986570e-01 9.987618e-01
-##                              Comp43       Comp44       Comp45
-## Eigenvalues            5.019392e-07 4.641774e-07 4.429005e-07
-## Proportion of Variance 1.027918e-04 9.505857e-05 9.070128e-05
-## Cumulative Proportion  9.988646e-01 9.989596e-01 9.990504e-01
-##                              Comp46       Comp47       Comp48
-## Eigenvalues            4.315733e-07 4.143465e-07 3.720453e-07
-## Proportion of Variance 8.838159e-05 8.485373e-05 7.619091e-05
-## Cumulative Proportion  9.991387e-01 9.992236e-01 9.992998e-01
-##                              Comp49       Comp50       Comp51
-## Eigenvalues            3.485554e-07 3.170829e-07 3.098429e-07
-## Proportion of Variance 7.138041e-05 6.493519e-05 6.345251e-05
-## Cumulative Proportion  9.993712e-01 9.994361e-01 9.994995e-01
-##                              Comp52       Comp53       Comp54
-## Eigenvalues            2.661885e-07 2.582105e-07 2.335530e-07
-## Proportion of Variance 5.451255e-05 5.287875e-05 4.782915e-05
-## Cumulative Proportion  9.995541e-01 9.996069e-01 9.996548e-01
-##                              Comp55       Comp56       Comp57
-## Eigenvalues            2.229159e-07 2.203664e-07 2.017245e-07
-## Proportion of Variance 4.565079e-05 4.512867e-05 4.131103e-05
-## Cumulative Proportion  9.997004e-01 9.997455e-01 9.997869e-01
-##                              Comp58       Comp59       Comp60
-## Eigenvalues            1.681597e-07 1.541280e-07 1.440693e-07
-## Proportion of Variance 3.443731e-05 3.156378e-05 2.950385e-05
-## Cumulative Proportion  9.998213e-01 9.998529e-01 9.998824e-01
-##                              Comp61       Comp62       Comp63
-## Eigenvalues            1.298717e-07 1.099577e-07 1.054425e-07
-## Proportion of Variance 2.659634e-05 2.251816e-05 2.159349e-05
-## Cumulative Proportion  9.999090e-01 9.999315e-01 9.999531e-01
-##                              Comp64       Comp65       Comp66
-## Eigenvalues            8.319440e-08 7.878405e-08 6.718766e-08
-## Proportion of Variance 1.703732e-05 1.613413e-05 1.375932e-05
-## Cumulative Proportion  9.999701e-01 9.999862e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="dgm---temporal.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
-<span id="cb188-2"><a href="dgm---temporal.html#cb188-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(merged)]</span>
-<span id="cb188-3"><a href="dgm---temporal.html#cb188-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(merged)]</span>
-<span id="cb188-4"><a href="dgm---temporal.html#cb188-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#29211F&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
-<span id="cb188-5"><a href="dgm---temporal.html#cb188-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-6"><a href="dgm---temporal.html#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
-<span id="cb188-7"><a href="dgm---temporal.html#cb188-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb188-8"><a href="dgm---temporal.html#cb188-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
-<span id="cb188-9"><a href="dgm---temporal.html#cb188-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
-<span id="cb188-10"><a href="dgm---temporal.html#cb188-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
-<span id="cb188-11"><a href="dgm---temporal.html#cb188-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> merged,</span>
-<span id="cb188-12"><a href="dgm---temporal.html#cb188-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
+##                              Comp1        Comp2        Comp3        Comp4
+## Eigenvalues            0.003550166 0.0004871729 0.0002149155 0.0001309349
+## Proportion of Variance 0.727035959 0.0997678103 0.0440123963 0.0268140702
+## Cumulative Proportion  0.727035959 0.8268037697 0.8708161660 0.8976302363
+##                               Comp5        Comp6        Comp7        Comp8
+## Eigenvalues            0.0001134924 8.438744e-05 6.613192e-05 5.004219e-05
+## Proportion of Variance 0.0232420407 1.728164e-02 1.354311e-02 1.024810e-02
+## Cumulative Proportion  0.9208722770 9.381539e-01 9.516970e-01 9.619451e-01
+##                               Comp9       Comp10       Comp11       Comp12
+## Eigenvalues            4.347195e-05 1.879715e-05 1.710494e-05 1.271118e-05
+## Proportion of Variance 8.902591e-03 3.849455e-03 3.502910e-03 2.603114e-03
+## Cumulative Proportion  9.708477e-01 9.746972e-01 9.782001e-01 9.808032e-01
+##                              Comp13       Comp14       Comp15       Comp16
+## Eigenvalues            1.084702e-05 9.137279e-06 7.637070e-06 7.190245e-06
+## Proportion of Variance 2.221354e-03 1.871217e-03 1.563990e-03 1.472485e-03
+## Cumulative Proportion  9.830246e-01 9.848958e-01 9.864598e-01 9.879323e-01
+##                              Comp17       Comp18       Comp19       Comp20
+## Eigenvalues            5.591484e-06 5.147335e-06 4.677345e-06 3.848612e-06
+## Proportion of Variance 1.145076e-03 1.054119e-03 9.578703e-04 7.881545e-04
+## Cumulative Proportion  9.890773e-01 9.901314e-01 9.910893e-01 9.918775e-01
+##                              Comp21       Comp22       Comp23       Comp24
+## Eigenvalues            3.213207e-06 2.972832e-06 2.866993e-06 2.628820e-06
+## Proportion of Variance 6.580306e-04 6.088042e-04 5.871295e-04 5.383542e-04
+## Cumulative Proportion  9.925355e-01 9.931443e-01 9.937314e-01 9.942698e-01
+##                              Comp25       Comp26       Comp27       Comp28
+## Eigenvalues            2.345589e-06 2.143701e-06 1.939816e-06 1.764678e-06
+## Proportion of Variance 4.803516e-04 4.390070e-04 3.972537e-04 3.613872e-04
+## Cumulative Proportion  9.947501e-01 9.951892e-01 9.955864e-01 9.959478e-01
+##                              Comp29       Comp30       Comp31       Comp32
+## Eigenvalues            1.564872e-06 1.464723e-06 1.443770e-06 1.190857e-06
+## Proportion of Variance 3.204690e-04 2.999596e-04 2.956687e-04 2.438747e-04
+## Cumulative Proportion  9.962683e-01 9.965682e-01 9.968639e-01 9.971078e-01
+##                              Comp33       Comp34       Comp35       Comp36
+## Eigenvalues            1.130362e-06 1.082492e-06 9.925155e-07 9.333496e-07
+## Proportion of Variance 2.314861e-04 2.216828e-04 2.032566e-04 1.911400e-04
+## Cumulative Proportion  9.973392e-01 9.975609e-01 9.977642e-01 9.979553e-01
+##                              Comp37       Comp38       Comp39       Comp40
+## Eigenvalues            8.191094e-07 7.800693e-07 6.362789e-07 6.171966e-07
+## Proportion of Variance 1.677448e-04 1.597499e-04 1.303031e-04 1.263953e-04
+## Cumulative Proportion  9.981231e-01 9.982828e-01 9.984131e-01 9.985395e-01
+##                              Comp41       Comp42       Comp43       Comp44
+## Eigenvalues            5.736439e-07 5.117498e-07 5.019392e-07 4.641774e-07
+## Proportion of Variance 1.174761e-04 1.048009e-04 1.027918e-04 9.505857e-05
+## Cumulative Proportion  9.986570e-01 9.987618e-01 9.988646e-01 9.989596e-01
+##                              Comp45       Comp46       Comp47       Comp48
+## Eigenvalues            4.429005e-07 4.315733e-07 4.143465e-07 3.720453e-07
+## Proportion of Variance 9.070128e-05 8.838159e-05 8.485373e-05 7.619091e-05
+## Cumulative Proportion  9.990504e-01 9.991387e-01 9.992236e-01 9.992998e-01
+##                              Comp49       Comp50       Comp51       Comp52
+## Eigenvalues            3.485554e-07 3.170829e-07 3.098429e-07 2.661885e-07
+## Proportion of Variance 7.138041e-05 6.493519e-05 6.345251e-05 5.451255e-05
+## Cumulative Proportion  9.993712e-01 9.994361e-01 9.994995e-01 9.995541e-01
+##                              Comp53       Comp54       Comp55       Comp56
+## Eigenvalues            2.582105e-07 2.335530e-07 2.229159e-07 2.203664e-07
+## Proportion of Variance 5.287875e-05 4.782915e-05 4.565079e-05 4.512867e-05
+## Cumulative Proportion  9.996069e-01 9.996548e-01 9.997004e-01 9.997455e-01
+##                              Comp57       Comp58       Comp59       Comp60
+## Eigenvalues            2.017245e-07 1.681597e-07 1.541280e-07 1.440693e-07
+## Proportion of Variance 4.131103e-05 3.443731e-05 3.156378e-05 2.950385e-05
+## Cumulative Proportion  9.997869e-01 9.998213e-01 9.998529e-01 9.998824e-01
+##                              Comp61       Comp62       Comp63       Comp64
+## Eigenvalues            1.298717e-07 1.099577e-07 1.054425e-07 8.319440e-08
+## Proportion of Variance 2.659634e-05 2.251816e-05 2.159349e-05 1.703732e-05
+## Cumulative Proportion  9.999090e-01 9.999315e-01 9.999531e-01 9.999701e-01
+##                              Comp65       Comp66
+## Eigenvalues            7.878405e-08 6.718766e-08
+## Proportion of Variance 1.613413e-05 1.375932e-05
+## Cumulative Proportion  9.999862e-01 1.000000e+00</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="dgm---temporal.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb218-2"><a href="dgm---temporal.html#cb218-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(merged)]</span>
+<span id="cb218-3"><a href="dgm---temporal.html#cb218-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(merged)]</span>
+<span id="cb218-4"><a href="dgm---temporal.html#cb218-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#29211F&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
+<span id="cb218-5"><a href="dgm---temporal.html#cb218-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-6"><a href="dgm---temporal.html#cb218-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb218-7"><a href="dgm---temporal.html#cb218-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb218-8"><a href="dgm---temporal.html#cb218-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb218-9"><a href="dgm---temporal.html#cb218-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
+<span id="cb218-10"><a href="dgm---temporal.html#cb218-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
+<span id="cb218-11"><a href="dgm---temporal.html#cb218-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> merged,</span>
+<span id="cb218-12"><a href="dgm---temporal.html#cb218-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code></pre></div>
 <p><img src="_main_files/figure-html/pca1.div-1.png" width="100%" /></p>
 <div id="plot-pca-with-mean-shape-xy-maximaminima-1" class="section level3" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Plot PCA with mean shape + x/y maxima/minima</h3>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="dgm---temporal.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
-<span id="cb189-2"><a href="dgm---temporal.html#cb189-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/temporal-pca-warpref.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="dgm---temporal.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot PCA with mean shape (gray) and x/y maxima/minima (black)</span></span>
+<span id="cb219-2"><a href="dgm---temporal.html#cb219-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/temporal-pca-warpref.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/temporal-pca-warpref.png" width="100%" /></p>
 </div>
 </div>
 <div id="procrustes-anova-1" class="section level2" number="7.5">
 <h2><span class="header-section-number">7.5</span> Procrustes ANOVA</h2>
 <p>A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">Michael L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>. To assess whether shape changes with size (allometry), and differs by context (context), Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="dgm---temporal.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context + time</span></span>
-<span id="cb190-2"><a href="dgm---temporal.html#cb190-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> merged,</span>
-<span id="cb190-3"><a href="dgm---temporal.html#cb190-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
-<span id="cb190-4"><a href="dgm---temporal.html#cb190-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb190-5"><a href="dgm---temporal.html#cb190-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb190-6"><a href="dgm---temporal.html#cb190-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb190-7"><a href="dgm---temporal.html#cb190-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context + time?</span></span>
-<span id="cb190-8"><a href="dgm---temporal.html#cb190-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontemp)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dgm---temporal.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context + time</span></span>
+<span id="cb220-2"><a href="dgm---temporal.html#cb220-2" aria-hidden="true" tabindex="-1"></a>fit.shapecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> merged,</span>
+<span id="cb220-3"><a href="dgm---temporal.html#cb220-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
+<span id="cb220-4"><a href="dgm---temporal.html#cb220-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb220-5"><a href="dgm---temporal.html#cb220-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb220-6"><a href="dgm---temporal.html#cb220-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-7"><a href="dgm---temporal.html#cb220-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context + time?</span></span>
+<span id="cb220-8"><a href="dgm---temporal.html#cb220-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shapecontemp)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -481,12 +461,12 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ merged, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="dgm---temporal.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb192-2"><a href="dgm---temporal.html#cb192-2" aria-hidden="true" tabindex="-1"></a>pairwise.shapecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.shapecontemp,</span>
-<span id="cb192-3"><a href="dgm---temporal.html#cb192-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb192-4"><a href="dgm---temporal.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.shapecontemp, </span>
-<span id="cb192-5"><a href="dgm---temporal.html#cb192-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb192-6"><a href="dgm---temporal.html#cb192-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dgm---temporal.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb222-2"><a href="dgm---temporal.html#cb222-2" aria-hidden="true" tabindex="-1"></a>pairwise.shapecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.shapecontemp,</span>
+<span id="cb222-3"><a href="dgm---temporal.html#cb222-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb222-4"><a href="dgm---temporal.html#cb222-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.shapecontemp, </span>
+<span id="cb222-5"><a href="dgm---temporal.html#cb222-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb222-6"><a href="dgm---temporal.html#cb222-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -498,28 +478,21 @@ div.csl-indent {
 ## Vectors hidden (use show.vectors = TRUE to view)
 ## 
 ## Pairwise distances between means, plus statistics
-##                                                   d  UCL (95%)
-## initial_cache:initial_individual         0.05689191 0.06789423
-## initial_cache:subsequent_cache           0.01516509 0.03446703
-## initial_cache:subsequent_individual      0.08386209 0.04232262
-## initial_individual:subsequent_cache      0.05951226 0.06704768
-## initial_individual:subsequent_individual 0.04466037 0.07023648
-## subsequent_cache:subsequent_individual   0.08100191 0.04105631
-##                                                   Z Pr &gt; d
-## initial_cache:initial_individual          1.3220896 0.1042
-## initial_cache:subsequent_cache           -0.1269755 0.5384
-## initial_cache:subsequent_individual       2.9240533 0.0002
-## initial_individual:subsequent_cache       1.4408328 0.0857
-## initial_individual:subsequent_individual  0.7341184 0.2490
-## subsequent_cache:subsequent_individual    2.9828667 0.0001</code></pre>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dgm---temporal.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context + time</span></span>
-<span id="cb194-2"><a href="dgm---temporal.html#cb194-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
-<span id="cb194-3"><a href="dgm---temporal.html#cb194-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
-<span id="cb194-4"><a href="dgm---temporal.html#cb194-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb194-5"><a href="dgm---temporal.html#cb194-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb194-6"><a href="dgm---temporal.html#cb194-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-7"><a href="dgm---temporal.html#cb194-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context + time?</span></span>
-<span id="cb194-8"><a href="dgm---temporal.html#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontemp)</span></code></pre></div>
+##                                                   d  UCL (95%)          Z Pr &gt; d
+## initial_cache:initial_individual         0.05689191 0.06789423  1.3220896 0.1042
+## initial_cache:subsequent_cache           0.01516509 0.03446703 -0.1269755 0.5384
+## initial_cache:subsequent_individual      0.08386209 0.04232262  2.9240533 0.0002
+## initial_individual:subsequent_cache      0.05951226 0.06704768  1.4408328 0.0857
+## initial_individual:subsequent_individual 0.04466037 0.07023648  0.7341184 0.2490
+## subsequent_cache:subsequent_individual   0.08100191 0.04105631  2.9828667 0.0001</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dgm---temporal.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context + time</span></span>
+<span id="cb224-2"><a href="dgm---temporal.html#cb224-2" aria-hidden="true" tabindex="-1"></a>fit.sizecontemp <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
+<span id="cb224-3"><a href="dgm---temporal.html#cb224-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> gdf,</span>
+<span id="cb224-4"><a href="dgm---temporal.html#cb224-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb224-5"><a href="dgm---temporal.html#cb224-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb224-6"><a href="dgm---temporal.html#cb224-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-7"><a href="dgm---temporal.html#cb224-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context + time?</span></span>
+<span id="cb224-8"><a href="dgm---temporal.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sizecontemp)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -536,12 +509,12 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = size ~ merged, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="dgm---temporal.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb196-2"><a href="dgm---temporal.html#cb196-2" aria-hidden="true" tabindex="-1"></a>pairwise.sizecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sizecontemp,</span>
-<span id="cb196-3"><a href="dgm---temporal.html#cb196-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb196-4"><a href="dgm---temporal.html#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.sizecontemp, </span>
-<span id="cb196-5"><a href="dgm---temporal.html#cb196-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb196-6"><a href="dgm---temporal.html#cb196-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="dgm---temporal.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb226-2"><a href="dgm---temporal.html#cb226-2" aria-hidden="true" tabindex="-1"></a>pairwise.sizecontemp <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sizecontemp,</span>
+<span id="cb226-3"><a href="dgm---temporal.html#cb226-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb226-4"><a href="dgm---temporal.html#cb226-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pairwise.sizecontemp, </span>
+<span id="cb226-5"><a href="dgm---temporal.html#cb226-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb226-6"><a href="dgm---temporal.html#cb226-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -553,29 +526,22 @@ div.csl-indent {
 ## Vectors hidden (use show.vectors = TRUE to view)
 ## 
 ## Pairwise distances between means, plus statistics
-##                                                   d UCL (95%)
-## initial_cache:initial_individual         420.367335 153.20598
-## initial_cache:subsequent_cache            63.857495  77.82881
-## initial_cache:subsequent_individual        4.252466  96.92282
-## initial_individual:subsequent_cache      356.509840 154.07650
-## initial_individual:subsequent_individual 416.114869 163.99286
-## subsequent_cache:subsequent_individual    59.605029  94.06328
-##                                                   Z Pr &gt; d
-## initial_cache:initial_individual          3.6341959 0.0001
-## initial_cache:subsequent_cache            1.2287925 0.1126
-## initial_cache:subsequent_individual      -1.5609099 0.9317
-## initial_individual:subsequent_cache       3.2832616 0.0002
-## initial_individual:subsequent_individual  3.4679877 0.0001
-## subsequent_cache:subsequent_individual    0.8294343 0.2222</code></pre>
+##                                                   d UCL (95%)          Z Pr &gt; d
+## initial_cache:initial_individual         420.367335 153.20598  3.6341959 0.0001
+## initial_cache:subsequent_cache            63.857495  77.82881  1.2287925 0.1126
+## initial_cache:subsequent_individual        4.252466  96.92282 -1.5609099 0.9317
+## initial_individual:subsequent_cache      356.509840 154.07650  3.2832616 0.0002
+## initial_individual:subsequent_individual 416.114869 163.99286  3.4679877 0.0001
+## subsequent_cache:subsequent_individual    59.605029  94.06328  0.8294343 0.2222</code></pre>
 </div>
 <div id="morphological-disparity-1" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> Morphological disparity</h2>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="dgm---temporal.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by shape</span></span>
-<span id="cb198-2"><a href="dgm---temporal.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.shapecontemp, </span>
-<span id="cb198-3"><a href="dgm---temporal.html#cb198-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
-<span id="cb198-4"><a href="dgm---temporal.html#cb198-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb198-5"><a href="dgm---temporal.html#cb198-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb198-6"><a href="dgm---temporal.html#cb198-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="dgm---temporal.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by shape</span></span>
+<span id="cb228-2"><a href="dgm---temporal.html#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.shapecontemp, </span>
+<span id="cb228-3"><a href="dgm---temporal.html#cb228-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
+<span id="cb228-4"><a href="dgm---temporal.html#cb228-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb228-5"><a href="dgm---temporal.html#cb228-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb228-6"><a href="dgm---temporal.html#cb228-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapecontemp, groups = qdata$merged,  
@@ -594,35 +560,35 @@ div.csl-indent {
 ## 
 ## 
 ## Pairwise absolute differences between variances
-##                       initial_cache initial_individual
-## initial_cache          0.000000e+00       5.012766e-06
-## initial_individual     5.012766e-06       0.000000e+00
-## subsequent_cache       2.546168e-03       2.551181e-03
-## subsequent_individual  6.033093e-06       1.104586e-05
-##                       subsequent_cache subsequent_individual
-## initial_cache              0.002546168          6.033093e-06
-## initial_individual         0.002551181          1.104586e-05
-## subsequent_cache           0.000000000          2.540135e-03
-## subsequent_individual      0.002540135          0.000000e+00
+##                       initial_cache initial_individual subsequent_cache
+## initial_cache          0.000000e+00       5.012766e-06      0.002546168
+## initial_individual     5.012766e-06       0.000000e+00      0.002551181
+## subsequent_cache       2.546168e-03       2.551181e-03      0.000000000
+## subsequent_individual  6.033093e-06       1.104586e-05      0.002540135
+##                       subsequent_individual
+## initial_cache                  6.033093e-06
+## initial_individual             1.104586e-05
+## subsequent_cache               2.540135e-03
+## subsequent_individual          0.000000e+00
 ## 
 ## 
 ## P-Values
-##                       initial_cache initial_individual
-## initial_cache                1.0000             0.9974
-## initial_individual           0.9974             1.0000
-## subsequent_cache             0.0693             0.2657
-## subsequent_individual        0.9974             0.9958
-##                       subsequent_cache subsequent_individual
-## initial_cache                   0.0693                0.9974
-## initial_individual              0.2657                0.9958
-## subsequent_cache                1.0000                0.1263
-## subsequent_individual           0.1263                1.0000</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dgm---temporal.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by size</span></span>
-<span id="cb200-2"><a href="dgm---temporal.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.sizecontemp, </span>
-<span id="cb200-3"><a href="dgm---temporal.html#cb200-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
-<span id="cb200-4"><a href="dgm---temporal.html#cb200-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb200-5"><a href="dgm---temporal.html#cb200-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb200-6"><a href="dgm---temporal.html#cb200-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+##                       initial_cache initial_individual subsequent_cache
+## initial_cache                1.0000             0.9974           0.0693
+## initial_individual           0.9974             1.0000           0.2657
+## subsequent_cache             0.0693             0.2657           1.0000
+## subsequent_individual        0.9974             0.9958           0.1263
+##                       subsequent_individual
+## initial_cache                        0.9974
+## initial_individual                   0.9958
+## subsequent_cache                     0.1263
+## subsequent_individual                1.0000</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="dgm---temporal.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by size</span></span>
+<span id="cb230-2"><a href="dgm---temporal.html#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.sizecontemp, </span>
+<span id="cb230-3"><a href="dgm---temporal.html#cb230-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
+<span id="cb230-4"><a href="dgm---temporal.html#cb230-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb230-5"><a href="dgm---temporal.html#cb230-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb230-6"><a href="dgm---temporal.html#cb230-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizecontemp, groups = qdata$merged,  
@@ -641,79 +607,79 @@ div.csl-indent {
 ## 
 ## 
 ## Pairwise absolute differences between variances
-##                       initial_cache initial_individual
-## initial_cache                 0.000           31393.82
-## initial_individual        31393.824               0.00
-## subsequent_cache           7236.812           24157.01
-## subsequent_individual      6793.493           24600.33
-##                       subsequent_cache subsequent_individual
-## initial_cache                7236.8122             6793.4930
-## initial_individual          24157.0118            24600.3310
-## subsequent_cache                0.0000              443.3192
-## subsequent_individual         443.3192                0.0000
+##                       initial_cache initial_individual subsequent_cache
+## initial_cache                 0.000           31393.82        7236.8122
+## initial_individual        31393.824               0.00       24157.0118
+## subsequent_cache           7236.812           24157.01           0.0000
+## subsequent_individual      6793.493           24600.33         443.3192
+##                       subsequent_individual
+## initial_cache                     6793.4930
+## initial_individual               24600.3310
+## subsequent_cache                   443.3192
+## subsequent_individual                0.0000
 ## 
 ## 
 ## P-Values
-##                       initial_cache initial_individual
-## initial_cache                1.0000             0.0059
-## initial_individual           0.0059             1.0000
-## subsequent_cache             0.1489             0.0229
-## subsequent_individual        0.2731             0.0232
-##                       subsequent_cache subsequent_individual
-## initial_cache                   0.1489                0.2731
-## initial_individual              0.0229                0.0232
-## subsequent_cache                1.0000                0.9435
-## subsequent_individual           0.9435                1.0000</code></pre>
+##                       initial_cache initial_individual subsequent_cache
+## initial_cache                1.0000             0.0059           0.1489
+## initial_individual           0.0059             1.0000           0.0229
+## subsequent_cache             0.1489             0.0229           1.0000
+## subsequent_individual        0.2731             0.0232           0.9435
+##                       subsequent_individual
+## initial_cache                        0.2731
+## initial_individual                   0.0232
+## subsequent_cache                     0.9435
+## subsequent_individual                1.0000</code></pre>
 </div>
 <div id="mean-shapes-1" class="section level2" number="7.7">
 <h2><span class="header-section-number">7.7</span> Mean shapes</h2>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dgm---temporal.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
-<span id="cb202-2"><a href="dgm---temporal.html#cb202-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
-<span id="cb202-3"><a href="dgm---temporal.html#cb202-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb202-4"><a href="dgm---temporal.html#cb202-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-5"><a href="dgm---temporal.html#cb202-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
-<pre><code>## [1] &quot;initial_cache&quot;         &quot;initial_individual&quot;   
-## [3] &quot;subsequent_cache&quot;      &quot;subsequent_individual&quot;</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="dgm---temporal.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
-<span id="cb204-2"><a href="dgm---temporal.html#cb204-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
-<span id="cb204-3"><a href="dgm---temporal.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_cache)</span>
-<span id="cb204-4"><a href="dgm---temporal.html#cb204-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_individual)</span>
-<span id="cb204-5"><a href="dgm---temporal.html#cb204-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_cache)</span>
-<span id="cb204-6"><a href="dgm---temporal.html#cb204-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_individual)</span>
-<span id="cb204-7"><a href="dgm---temporal.html#cb204-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-8"><a href="dgm---temporal.html#cb204-8" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
-<span id="cb204-9"><a href="dgm---temporal.html#cb204-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
-<span id="cb204-10"><a href="dgm---temporal.html#cb204-10" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
-<span id="cb204-11"><a href="dgm---temporal.html#cb204-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb204-12"><a href="dgm---temporal.html#cb204-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb204-13"><a href="dgm---temporal.html#cb204-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-14"><a href="dgm---temporal.html#cb204-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
-<span id="cb204-15"><a href="dgm---temporal.html#cb204-15" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
-<span id="cb204-16"><a href="dgm---temporal.html#cb204-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb204-17"><a href="dgm---temporal.html#cb204-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb204-18"><a href="dgm---temporal.html#cb204-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-19"><a href="dgm---temporal.html#cb204-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
-<span id="cb204-20"><a href="dgm---temporal.html#cb204-20" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
-<span id="cb204-21"><a href="dgm---temporal.html#cb204-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb204-22"><a href="dgm---temporal.html#cb204-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb204-23"><a href="dgm---temporal.html#cb204-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-24"><a href="dgm---temporal.html#cb204-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
-<span id="cb204-25"><a href="dgm---temporal.html#cb204-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
-<span id="cb204-26"><a href="dgm---temporal.html#cb204-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb204-27"><a href="dgm---temporal.html#cb204-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb204-28"><a href="dgm---temporal.html#cb204-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-29"><a href="dgm---temporal.html#cb204-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>subsequent_individual,</span>
-<span id="cb204-30"><a href="dgm---temporal.html#cb204-30" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
-<span id="cb204-31"><a href="dgm---temporal.html#cb204-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb204-32"><a href="dgm---temporal.html#cb204-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb204-33"><a href="dgm---temporal.html#cb204-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-34"><a href="dgm---temporal.html#cb204-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
-<span id="cb204-35"><a href="dgm---temporal.html#cb204-35" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
-<span id="cb204-36"><a href="dgm---temporal.html#cb204-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
-<span id="cb204-37"><a href="dgm---temporal.html#cb204-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
-<span id="cb204-38"><a href="dgm---temporal.html#cb204-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-39"><a href="dgm---temporal.html#cb204-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
-<span id="cb204-40"><a href="dgm---temporal.html#cb204-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/comp.composite.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="dgm---temporal.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset landmark coordinates to produce mean shapes for contexts</span></span>
+<span id="cb232-2"><a href="dgm---temporal.html#cb232-2" aria-hidden="true" tabindex="-1"></a>new.coords <span class="ot">&lt;-</span> <span class="fu">coords.subset</span>(<span class="at">A =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb232-3"><a href="dgm---temporal.html#cb232-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb232-4"><a href="dgm---temporal.html#cb232-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-5"><a href="dgm---temporal.html#cb232-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.coords)</span></code></pre></div>
+<pre><code>## [1] &quot;initial_cache&quot;         &quot;initial_individual&quot;    &quot;subsequent_cache&quot;     
+## [4] &quot;subsequent_individual&quot;</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="dgm---temporal.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot shape means</span></span>
+<span id="cb234-2"><a href="dgm---temporal.html#cb234-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new.coords, mshape)</span>
+<span id="cb234-3"><a href="dgm---temporal.html#cb234-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_cache)</span>
+<span id="cb234-4"><a href="dgm---temporal.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>initial_individual)</span>
+<span id="cb234-5"><a href="dgm---temporal.html#cb234-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_cache)</span>
+<span id="cb234-6"><a href="dgm---temporal.html#cb234-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean<span class="sc">$</span>subsequent_individual)</span>
+<span id="cb234-7"><a href="dgm---temporal.html#cb234-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-8"><a href="dgm---temporal.html#cb234-8" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison plots</span></span>
+<span id="cb234-9"><a href="dgm---temporal.html#cb234-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb234-10"><a href="dgm---temporal.html#cb234-10" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
+<span id="cb234-11"><a href="dgm---temporal.html#cb234-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb234-12"><a href="dgm---temporal.html#cb234-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb234-13"><a href="dgm---temporal.html#cb234-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-14"><a href="dgm---temporal.html#cb234-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb234-15"><a href="dgm---temporal.html#cb234-15" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
+<span id="cb234-16"><a href="dgm---temporal.html#cb234-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb234-17"><a href="dgm---temporal.html#cb234-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb234-18"><a href="dgm---temporal.html#cb234-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-19"><a href="dgm---temporal.html#cb234-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_individual,</span>
+<span id="cb234-20"><a href="dgm---temporal.html#cb234-20" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
+<span id="cb234-21"><a href="dgm---temporal.html#cb234-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb234-22"><a href="dgm---temporal.html#cb234-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb234-23"><a href="dgm---temporal.html#cb234-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-24"><a href="dgm---temporal.html#cb234-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
+<span id="cb234-25"><a href="dgm---temporal.html#cb234-25" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_individual, </span>
+<span id="cb234-26"><a href="dgm---temporal.html#cb234-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb234-27"><a href="dgm---temporal.html#cb234-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb234-28"><a href="dgm---temporal.html#cb234-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-29"><a href="dgm---temporal.html#cb234-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>subsequent_individual,</span>
+<span id="cb234-30"><a href="dgm---temporal.html#cb234-30" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>initial_cache, </span>
+<span id="cb234-31"><a href="dgm---temporal.html#cb234-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb234-32"><a href="dgm---temporal.html#cb234-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb234-33"><a href="dgm---temporal.html#cb234-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-34"><a href="dgm---temporal.html#cb234-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(mean<span class="sc">$</span>initial_cache,</span>
+<span id="cb234-35"><a href="dgm---temporal.html#cb234-35" aria-hidden="true" tabindex="-1"></a>                mean<span class="sc">$</span>subsequent_cache, </span>
+<span id="cb234-36"><a href="dgm---temporal.html#cb234-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;points&quot;</span>,</span>
+<span id="cb234-37"><a href="dgm---temporal.html#cb234-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">mag =</span> <span class="dv">1</span>)</span>
+<span id="cb234-38"><a href="dgm---temporal.html#cb234-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-39"><a href="dgm---temporal.html#cb234-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 3D plot - final figure</span></span>
+<span id="cb234-40"><a href="dgm---temporal.html#cb234-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/comp.composite.jpg&#39;</span>)</span></code></pre></div>
 <p><img src="images/comp.composite.jpg" width="100%" /></p>
 
 </div>

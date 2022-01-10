@@ -210,14 +210,13 @@ ggplot(data, aes(x = D1, y = J, color = region,
   geom_vline(aes(xintercept = median(D1))) +
   geom_hline(aes(yintercept = median(J))) +
   theme(legend.position = c(0.87, 0.15)) +
-  labs(color = "Behavioral Region")
+  labs(color = "Behavioral Region",
+       caption = "(J, Peilou's J; D1, Simpson diversity)")
 ```
 
 ## Diversity through time
 
-**_Research question_: Does mortuary assemblage diversity increase through time?**
-
-**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use as mortuary offerings.**
+**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
 
@@ -227,7 +226,8 @@ library(RRPP)
 
 # mutate data to add temporal assignment
 temp <- data %>%
-  mutate(temporal = c(1, 2, 2, 1, 1, 2, 2, 2), .after = region)
+  mutate(temporal = c(1, 2, 2, 1, 1, 2, 2, 2), 
+         .after = region)
 
 # revised table of diagnostics
 knitr::kable(temp) %>% 
@@ -244,7 +244,10 @@ time <- temp$temporal
 ggplot(temp, aes(x = time, y = temp.D1)) +
   geom_point(aes(shape = factor(context))) +
   scale_shape_manual(values = c(0:5,15,17)) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "auto") +
+  labs(x = "Time",
+       y = "Simpson Diversity Index",
+       shape = "Context")
 
 # are data not normally distributed?
 shapiro.test(temp.D1)
@@ -271,7 +274,10 @@ anova(temp.simpson)
 ggplot(temp, aes(x = time, y = temp.J)) +
   geom_point(aes(shape = factor(context))) +
   scale_shape_manual(values = c(0:5,15,17)) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "auto") +
+  labs(x = "Time",
+       y = "Peilou's J",
+       shape = "Context")
 
 # are data not normally distributed?
 shapiro.test(temp.J)
@@ -279,11 +285,12 @@ shapiro.test(temp.J)
 ## plot distribution
 hist(temp.J, col='steelblue')
 
-# MODEL: J as a function of initial v. later contexts
-temporal.J <- anosim(temp.J, 
-                     grouping = time, 
-                     permutations = 10000)
+# MODEL: temp.J as a function of time
+temporal.J <- lm.rrpp(temp.J ~ time,
+                        data = temp,
+                        print.progress = FALSE,
+                        iter = 9999)
 
-## ANOSIM: do temporal contexts differ by J?
-summary(temporal.J)
+## ANOVA: increase in evenness through time?
+anova(temporal.J)
 ```
