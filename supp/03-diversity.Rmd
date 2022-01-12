@@ -28,17 +28,17 @@ data <- raw %>%
                            "16RR1-BP2", "16CD12-BP5", "16RR1-BP3", 
                            "41CE19-F134","16CD12-BP1")))
 
-# internments (scroll right for more)
+## internments (scroll right for more)
 knitr::kable(data[c(1:5, 7:9, 6, 10)]) %>%
 kable_styling() %>%
 scroll_box(width = "100%", box_css = "border: 0px;")
 
-# lithic offerings (scroll right for more)
+## lithic offerings (scroll right for more)
 knitr::kable(data[c(1:2, 11:19, 26)]) %>%
 kable_styling() %>%
 scroll_box(width = "100%", box_css = "border: 0px;")
 
-# ceramic offerings (scroll right for more)
+## ceramic offerings (scroll right for more)
 knitr::kable(data[c(1:2, 20:25, 27)]) %>%
 kable_styling() %>%
 scroll_box(width = "100%", box_css = "border: 0px;")
@@ -49,9 +49,9 @@ scroll_box(width = "100%", box_css = "border: 0px;")
 ```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 library(vegan)
 
-# assemblage size (N)
+## assemblage size (N)
 N <- rowSums(data[11:25])
-N ## context assemblage sizes
+N
 
 # number of each type recovered
 T <- colSums(data[11:25])
