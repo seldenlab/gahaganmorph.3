@@ -23,6 +23,7 @@ calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-si
 seriation
 composition-diversity
 taxonomic-composition
+reorder-contexts-based-on-seriation
 alpha-diversity
 relative-abundance
 relative-abundance-by-context

@@ -1,6 +1,10 @@
 # Composition & Diversity
 
-This analysis of assemblage diversity is limited to Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were recovered.
+The analysis of mortuary assemblage diversity is limited to Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were recovered. We begin by looking at taxonomic composition, where the rows are reordered based on seriation results. Then to Alpha diversity and relative abundance, followed by Beta diversity. The Alpha and Beta diversity results raised the question of a potential increase in diversity through time.
+
+**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
+
+This hypothesis was tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as Caddo burial practices evolved.
 
 ## Taxonomic composition
 
@@ -10,12 +14,33 @@ library(tidyverse)
 library(kableExtra)
 
 # read data
-data <- read.csv("gahagan-diversity.csv")
+raw <- read.csv("gahagan-diversity.csv")
+```
 
-# table of diagnostics
-knitr::kable(data) %>% 
-  kable_styling() %>% 
-  scroll_box(width = "100%", box_css = "border: 0px;")
+### Reorder contexts based on seriation
+
+Data were reordered based on seriation results from the previous chapter (order of middle two rows are interchangeable). In the following three tables, all contexts are arranged from oldest (bottom) to youngest (top). All three are wide tables, and the columns at right can be viewed by scrolling to the right.
+
+```{r arrange.rows}
+# arrange contexts based on seriation results
+data <- raw %>% 
+  arrange(match(context, c("16CD12-BP8", "16CD12-BP2", "41CE19-F119", 
+                 "16RR1-BP2", "16CD12-BP5", "16RR1-BP3", "41CE19-F134","16CD12-BP1")))
+
+# internments (scroll right for more)
+knitr::kable(data[c(1:5, 7:9, 6, 10)]) %>%
+kable_styling() %>%
+scroll_box(width = "100%", box_css = "border: 0px;")
+
+# lithic offerings (scroll right for more)
+knitr::kable(data[c(1:2, 11:19, 26)]) %>%
+kable_styling() %>%
+scroll_box(width = "100%", box_css = "border: 0px;")
+
+# ceramic offerings (scroll right for more)
+knitr::kable(data[c(1:2, 20:25, 27)]) %>%
+kable_styling() %>%
+scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 ## Alpha diversity
@@ -25,18 +50,18 @@ library(vegan)
 
 # assemblage size (N)
 N <- rowSums(data[11:25])
-N ## assemblage sizes range from:
+N ## context assemblage sizes
 
-# how many of each type were found?
+# number of each type recovered
 T <- colSums(data[11:25])
 T
 
-## richness (S) = number of types in assemblage
+## richness (S) = number of types from each mortuary context
 S <- specnumber(data[11:25])
 S
 
-## ubiquity (U) = number of assemblages that contain a particular type
-U <- specnumber(data[11:25])
+## ubiquity (U) = number of mortuary contexts that contain each type
+U <- specnumber(data[11:25], MARGIN = 2)
 U
 ```
 
@@ -48,11 +73,11 @@ colMeans(data[11:25])
 
 # convert to percentage
 data.pct <- data[11:25]/N*100
-## mean percent (Mp) of each type across assemblage
+## mean percent (Mp) of each type
 Mp <- colMeans(data.pct)
 Mp
 
-## percentage of sites that have each type
+## percentage of sites that include each type
 Up <- U/length(N)*100
 Up
 ```
@@ -67,13 +92,13 @@ library(ggpubr)
 library(ggExtra)
 library(wesanderson)
 
-# relative abundance of juvenile and adult burials
+# relative abundance of Caddo adult and juvenile burials
 pal <- wes_palette("Moonrise2", 2, type = "continuous")
 
 burials <- data %>% 
   select(context, total_adult, total_juvenile) %>% 
-  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
-                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
   melt(id.vars = "context")
 
 # configure plot
@@ -83,21 +108,21 @@ plot1 <- burials %>%
                             "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
                             "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
                             "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
-  ggplot(aes(x=context, y = value, fill = variable)) + 
-  geom_bar(stat="identity", position = "fill") + 
+  ggplot(aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
   coord_flip() +
   scale_fill_manual(values = pal) +
   labs(x = "Context",
        y = "Relative abundance (%)",
        fill = "Category")
 
-# relative abundance of burials by category
+# relative abundance of burials by age (where known)
 pal <- wes_palette("Moonrise2", 6, type = "continuous")
 
 burials <- data %>% 
   select(context, adult_male:uid_adult, juvenile_male:uid_juvenile) %>% 
-  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
-                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
   melt(id.vars = "context")
 
 # configure plot
@@ -107,8 +132,8 @@ plot2 <- burials %>%
                             "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
                             "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
                             "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
-  ggplot(aes(x=context, y = value, fill = variable)) + 
-  geom_bar(stat="identity", position = "fill") + 
+  ggplot(aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
   coord_flip() +
   scale_fill_manual(values = pal) +
   labs(x = "Context",
@@ -130,8 +155,8 @@ pal1 <- wes_palette("Moonrise2", 2, type = "continuous")
 
 cerlith <- data %>% 
   select(context, lithics, ceramics) %>% 
-  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
-                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
   melt(id.vars = "context")
 
 # configure plot
@@ -141,8 +166,8 @@ plot3 <- cerlith %>%
                             "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
                             "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
                             "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
-  ggplot(aes(x=context, y = value, fill = variable)) + 
-  geom_bar(stat="identity", position = "fill") + 
+  ggplot(aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
   coord_flip() +
   scale_fill_manual(values = pal1) +
   labs(x = "Context",
@@ -154,8 +179,8 @@ pal <- wes_palette("Moonrise2", 17, type = "continuous")
 
 diagnostics <- data %>% 
   select(context, alba:ceramic_bowl) %>% 
-  mutate(context = paste(context, c("(S)", "(S)", "(S)", "(S)",
-                                    "(N)", "(N)", "(N)", "(N)"))) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
   melt(id.vars = "context")
 
 # configure plot
@@ -165,8 +190,8 @@ plot4 <- diagnostics %>%
                             "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
                             "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
                             "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
-  ggplot( aes(x=context, y = value, fill = variable)) + 
-  geom_bar(stat="identity", position = "fill") + 
+  ggplot( aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
   coord_flip() +
   scale_fill_manual(values = pal) +
   labs(x = "Context",
@@ -201,7 +226,7 @@ data$J <- H/log(S)
 J <- data$J
 ```
 
-```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and each represents the earliest context at each site to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
+```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8; 2, 16CD12-BP2; 3, 41CE19-F119; 4, 16RR1-BP2; 5, 16CD12-BP5; 6, 16RR1-BP3; 7, 41CE19-F134; 8, 16CD12-BP1. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and represent the three earliest contexts to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
 
 # identify high & low diversity assemblages
 ggplot(data, aes(x = D1, y = J)) +
@@ -218,7 +243,7 @@ ggplot(data, aes(x = D1, y = J)) +
 
 **_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
 
-This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
+This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as Caddo burial practices evolved.
 
 ```{r simpson.init.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # diversity
@@ -226,7 +251,7 @@ library(RRPP)
 
 # mutate data to add temporal assignment
 temp <- data %>%
-  mutate(temporal = c(1, 2, 2, 1, 1, 2, 2, 2), 
+  mutate(temporal = c(2, 2, 2, 2, 2, 1, 1, 1), 
          .after = region)
 
 # revised table of diagnostics

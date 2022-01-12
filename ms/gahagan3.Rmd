@@ -35,7 +35,7 @@ header-includes: |
 output: rticles::tf_article
 ---
 
->Studying the history of paper exposes a number of historical misconceptions, the most important of which is this technological fallacy: the idea that technology changes society. It is exactly the reverse. Society develops technology to address the chages that are taking place within it \citep[xiv]{RN10878}.
+>Studying the history of paper exposes a number of historical misconceptions, the most important of which is this technological fallacy: the idea that technology changes society. It is exactly the reverse. Society develops technology to address the changes that are taking place within it \citep[xiv]{RN10878}.
 
 # Introduction
 
