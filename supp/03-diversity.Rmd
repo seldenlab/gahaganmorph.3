@@ -17,7 +17,7 @@ library(kableExtra)
 raw <- read.csv("gahagan-diversity.csv")
 ```
 
-### Reorder contexts based on seriation
+### Reorder contexts based on seriation results
 
 Data were reordered based on seriation results from the previous chapter (order of middle two rows are interchangeable). In the following three tables, all contexts are arranged from oldest (bottom) to youngest (top). All three are wide tables, and the columns at right can be viewed by scrolling to the right.
 
@@ -25,7 +25,8 @@ Data were reordered based on seriation results from the previous chapter (order 
 # arrange contexts based on seriation results
 data <- raw %>% 
   arrange(match(context, c("16CD12-BP8", "16CD12-BP2", "41CE19-F119", 
-                 "16RR1-BP2", "16CD12-BP5", "16RR1-BP3", "41CE19-F134","16CD12-BP1")))
+                           "16RR1-BP2", "16CD12-BP5", "16RR1-BP3", 
+                           "41CE19-F134","16CD12-BP1")))
 
 # internments (scroll right for more)
 knitr::kable(data[c(1:5, 7:9, 6, 10)]) %>%

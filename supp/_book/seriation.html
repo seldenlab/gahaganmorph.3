@@ -186,7 +186,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.1" data-path="composition-diversity.html"><a href="composition-diversity.html#taxonomic-composition"><i class="fa fa-check"></i><b>3.1</b> Taxonomic composition</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="composition-diversity.html"><a href="composition-diversity.html#reorder-contexts-based-on-seriation"><i class="fa fa-check"></i><b>3.1.1</b> Reorder contexts based on seriation</a></li>
+<li class="chapter" data-level="3.1.1" data-path="composition-diversity.html"><a href="composition-diversity.html#reorder-contexts-based-on-seriation-results"><i class="fa fa-check"></i><b>3.1.1</b> Reorder contexts based on seriation results</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="composition-diversity.html"><a href="composition-diversity.html#alpha-diversity"><i class="fa fa-check"></i><b>3.2</b> Alpha diversity</a></li>
 <li class="chapter" data-level="3.3" data-path="composition-diversity.html"><a href="composition-diversity.html#relative-abundance"><i class="fa fa-check"></i><b>3.3</b> Relative abundance</a>
@@ -789,14 +789,22 @@ North
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="seriation.html#cb58-1" aria-hidden="true" tabindex="-1"></a>gahagan_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(gahagan_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
 <span id="cb58-2"><a href="seriation.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance matrix:</span></span>
 <span id="cb58-3"><a href="seriation.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(gahagan_dist, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##                 41CE19-F134 (S) 41CE19-F119 (S) 16RR1-BP2 (S) 16RR1-BP3 (S) 16CD12-BP1 (N) 16CD12-BP2 (N) 16CD12-BP5 (N)
-## 41CE19-F119 (S)           127.2                                                                                         
-## 16RR1-BP2 (S)             113.8            90.9                                                                         
-## 16RR1-BP3 (S)              28.0           124.6          92.7                                                           
-## 16CD12-BP1 (N)             38.0           134.8         117.7          40.0                                             
-## 16CD12-BP2 (N)            166.1            71.6         140.6         159.4          167.2                              
-## 16CD12-BP5 (N)            133.8           138.5          85.3         116.4          122.4          133.5               
-## 16CD12-BP8 (N)            182.6           157.6         146.3         154.8          178.3          175.0          165.7</code></pre>
+<pre><code>##                 41CE19-F134 (S) 41CE19-F119 (S) 16RR1-BP2 (S) 16RR1-BP3 (S) 16CD12-BP1 (N)
+## 41CE19-F119 (S)           127.2                                                           
+## 16RR1-BP2 (S)             113.8            90.9                                           
+## 16RR1-BP3 (S)              28.0           124.6          92.7                             
+## 16CD12-BP1 (N)             38.0           134.8         117.7          40.0               
+## 16CD12-BP2 (N)            166.1            71.6         140.6         159.4          167.2
+## 16CD12-BP5 (N)            133.8           138.5          85.3         116.4          122.4
+## 16CD12-BP8 (N)            182.6           157.6         146.3         154.8          178.3
+##                 16CD12-BP2 (N) 16CD12-BP5 (N)
+## 41CE19-F119 (S)                              
+## 16RR1-BP2 (S)                                
+## 16RR1-BP3 (S)                                
+## 16CD12-BP1 (N)                               
+## 16CD12-BP2 (N)                               
+## 16CD12-BP5 (N)           133.5               
+## 16CD12-BP8 (N)           175.0          165.7</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="seriation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb60-2"><a href="seriation.html#cb60-2" aria-hidden="true" tabindex="-1"></a>gahagan_ser1 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;ARSA&quot;</span>)</span>
 <span id="cb60-3"><a href="seriation.html#cb60-3" aria-hidden="true" tabindex="-1"></a>gahagan_ser2 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;BBURCG&quot;</span>)</span>
@@ -806,10 +814,14 @@ North
 <span id="cb60-7"><a href="seriation.html#cb60-7" aria-hidden="true" tabindex="-1"></a>ord3 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser3)</span>
 <span id="cb60-8"><a href="seriation.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Suggested orderings</span></span>
 <span id="cb60-9"><a href="seriation.html#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(ord1, ord2, ord3)</span></code></pre></div>
-<pre><code>##      16CD12-BP1 (N) 41CE19-F134 (S) 16RR1-BP3 (S) 16CD12-BP5 (N) 16RR1-BP2 (S) 41CE19-F119 (S) 16CD12-BP2 (N) 16CD12-BP8 (N)
-## ord1              5               1             4              7             3               2              6              8
-## ord2              5               1             4              3             7               2              6              8
-## ord3              5               1             4              7             3               2              6              8</code></pre>
+<pre><code>##      16CD12-BP1 (N) 41CE19-F134 (S) 16RR1-BP3 (S) 16CD12-BP5 (N) 16RR1-BP2 (S) 41CE19-F119 (S)
+## ord1              5               1             4              7             3               2
+## ord2              5               1             4              3             7               2
+## ord3              5               1             4              7             3               2
+##      16CD12-BP2 (N) 16CD12-BP8 (N)
+## ord1              6              8
+## ord2              6              8
+## ord3              6              8</code></pre>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="seriation.html#cb62-1" aria-hidden="true" tabindex="-1"></a>Crit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AR_events&quot;</span>, <span class="st">&quot;AR_deviations&quot;</span>, <span class="st">&quot;Gradient_raw&quot;</span>, <span class="st">&quot;Gradient_weighted&quot;</span>)</span>
 <span id="cb62-2"><a href="seriation.html#cb62-2" aria-hidden="true" tabindex="-1"></a>gahagan_ord1 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord1)</span>
 <span id="cb62-3"><a href="seriation.html#cb62-3" aria-hidden="true" tabindex="-1"></a>gahagan_ord2 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord2)</span>
