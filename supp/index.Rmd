@@ -45,7 +45,7 @@ knitr::include_graphics('images/abundance.png')
 - Caddo mortuary contexts that occur following initial deposition include a **significantly greater diversity** of associated diagnostics
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater evenness** across the types
 
-```{r diversity.out, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 41CE19-F134; 2, 41CE19-F119; 3, 16RR1-BP2; 4, 16RR1-BP3; 5, 16CD12-BP1; 6, 16CD12-BP2; 7, 16CD12-BP5; 8, 16CD12-BP8. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and each represents the earliest context at each site to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
+```{r diversity.out, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8; 2, 16CD12-BP2; 3, 41CE19-F119; 4, 16RR1-BP2; 5, 16CD12-BP5; 6, 16RR1-BP3; 7, 41CE19-F134; 8, 16CD12-BP1. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and represent the three earliest contexts to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
 knitr::include_graphics('images/diversity2-1.png')
 ```
 
