@@ -52,7 +52,7 @@ modularity
 morphological-integration
 morphological-disparity
 mean-shapes
-dgm---temporal
+dgm---contexts-through-time
 load-packages-data-1
 generalized-procrustes-analysis-1
 boxplot-1
