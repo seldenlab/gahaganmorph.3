@@ -56,7 +56,9 @@ knitr::include_graphics('images/gpa3d.png')
 # geomorph data frame
 gdf <- geomorph.data.frame(shape = Y.gpa$coords,
                            size = Y.gpa$Csize,
-                           merged = qdata$merged) 
+                           merged = qdata$merged,
+                           temporal = qdata$t.context,
+                           context = qdata$context) 
 
 # add centroid size to qdata
 qdata$csz <- Y.gpa$Csize
@@ -168,6 +170,32 @@ morphol.disparity(fit.sizecontemp,
                   data = gdf, 
                   print.progress = FALSE, 
                   iter = 9999)
+```
+
+## Trajectory analysis
+
+```{r trajectory, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# trajectory analysis::shape
+TA <- trajectory.analysis(fit.shapecontemp, 
+                          groups = qdata$context, 
+                          traj.pts = qdata$temporal, 
+                          print.progress = FALSE)
+
+# magnitude difference
+summary(TA, attribute = "MD")
+summary(TA, attribute = "TC", angle.type = "deg")
+
+# plot
+TP <- plot(TA, 
+           pch = as.numeric(qdata$context), 
+           bg = as.numeric(qdata$temporal),
+           cex = 0.9,
+           col = "gray")
+add.trajectories(TP, traj.pch = c(15, 19),
+                 start.bg = 1, 
+                 end.bg = 2)
+
+#knitr::include_graphics('images/trajectory.jpg')
 ```
 
 ## Mean shapes

@@ -60,4 +60,5 @@ principal-components-analysis-1
 plot-pca-with-mean-shape-xy-maximaminima-1
 procrustes-anova-1
 morphological-disparity-1
+trajectory-analysis
 mean-shapes-1
