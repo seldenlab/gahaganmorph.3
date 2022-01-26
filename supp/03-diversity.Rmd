@@ -8,7 +8,7 @@ This hypothesis was tested using counts of attributes and associated diagnostic 
 
 ## Taxonomic composition
 
-```{r composistion}
+```{r composition}
 library(here)
 library(tidyverse)
 library(kableExtra)
@@ -252,7 +252,7 @@ library(RRPP)
 
 # mutate data to add temporal assignment
 temp <- data %>%
-  mutate(temporal = c(2, 2, 2, 2, 2, 1, 1, 1), 
+  mutate(temporal = c("Late", "Late", "Late", "Late", "Late", "Early", "Early", "Early"), 
          .after = region)
 
 # revised table of diagnostics
@@ -270,7 +270,6 @@ time <- temp$temporal
 ggplot(temp, aes(x = time, y = temp.D1)) +
   geom_point(aes(shape = factor(context), colour = region)) +
   scale_shape_manual(values = c(0:3,15:18)) +
-  geom_smooth(method = "auto") +
   scale_colour_manual(values = pal1) +
   labs(x = "Time",
        y = "Simpson Diversity",
@@ -299,10 +298,7 @@ anova(temp.simpson)
 # evenness
 ## plot evenness
 ggplot(temp, aes(x = time, y = temp.J)) +
-  geom_point(aes(shape = factor(context), colour = region)) +
-  scale_shape_manual(values = c(0:3,15:18)) +
-  geom_smooth(method = "auto") +
-  scale_colour_manual(values = pal1) +
+  geom_jitter(position = position_jitter(0.05), shape = factor(temp$context)) +
   labs(x = "Time",
        y = "Peilou's J",
        shape = "Context",
