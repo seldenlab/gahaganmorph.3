@@ -10,3 +10,4 @@ View the analysis here: [https://seldenlab.github.io/gahaganmorph.3/](https://se
 
 ![](ms/img/fig01.png)
 ![](ms/img/fig02.jpg)
+![](supp/images/abundance.png)
