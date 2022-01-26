@@ -8,4 +8,5 @@ Exchange networks and interaction spheres functioned to establish, maintain, and
 
 View the analysis here: [https://seldenlab.github.io/gahaganmorph.3/](https://seldenlab.github.io/gahaganmorph.3/)
 
+![](ms/img/fig01.png)
 ![](ms/img/fig02.jpg)
