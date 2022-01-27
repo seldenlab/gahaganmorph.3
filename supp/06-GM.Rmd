@@ -131,41 +131,6 @@ fit.sizecontext <- procD.lm(size ~ context,
 anova(fit.sizecontext)
 ```
 
-## Modularity
-
-```{r mod, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
-land.gps <- c("A","A","A","A",
-              "B","B","B","B","B","B","B","B","B","B","B","B","B","B","B",
-              "B","B","B","B","B","B","B","B","B","B","B","B","B","B","B",
-              "B","B","B","B","B","B","B","B","B","B","B","B","B","B","B",
-              "B","B","B","B","B")
-
-mod <- modularity.test(Y.gpa$coords,
-                       partition.gp = land.gps,
-                       iter = 9999,
-                       seed = NULL,
-                       opt.rot = TRUE,
-                       print.progress = FALSE)
-
-summary(mod)
-
-## modularity plot
-plot(mod)
-```
-
-## Morphological integration
-
-```{r integ, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
-it <- integration.test(Y.gpa$coords,
-                       partition.gp = land.gps,
-                       print.progress = FALSE,
-                       iter = 9999)
-
-summary(it)
-
-## integration plot
-plot(it)
-```
 
 ## Morphological disparity
 

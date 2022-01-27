@@ -14,17 +14,21 @@ description: "Gahagan biface shape change."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
+```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with assemblages included in the study."}
+knitr::include_graphics('images/fig01.png')
+```
+
 ## Basis of inquiry
 
 Exchange networks and interaction spheres functioned to establish, maintain, and formalize regional traditions, boundaries, and intergroup relationships. Large formal bifaces and associated diagnostics included as mortuary offerings provide evidence of material culture shifts, conveying the spatial and temporal dynamics of local and regional burial traditions. Among the constituent groups associated with the Caddo Confederacy in the American Southeast, contextual differences in burial practices associated with Gahagan bifaces are indicative of two discrete burial traditions; one where a Gahagan biface was placed _atop or alongside an individual_, and another where a cache of Gahagan bifaces was included _along the northern wall of the burial feature_. This study asks whether mortuary assemblage diversity increases through time, whether Gahagan biface morphology differs by burial tradition, and whether the morphology of Gahagan bifaces associated with each burial tradition changed through time. A seriation of mortuary contexts followed by an analysis of mortuary assemblage diversity highlights a significant increase in mortuary assemblage diversity and evenness through time, where assemblages of the earliest mortuary offerings express lower diversity and evenness than later contexts. Results also indicate that Gahagan biface shape differs between the two Caddo burial traditions, indicating discrete communities of practice delimited by placement and morphology. Bifaces included as offerings with _individuals_ differ through time from those placed in _caches_; initially in size, and subsequently in shape. Bifaces found in _caches_ express morphological stability through time as the burial traditions mature, and Caddo mortuary offerings become both more diverse and evenly distributed among the diagnostic types. These findings provide the basis for a discussion of the establishment, maintenance, and evolution of a unique Caddo burial practice that occurs during their transition from a more mobile horticulturist lifeway to one of emergent---and increasingly sedentary---agriculturalists.
 
-```{r gahagan.bifaces, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. For reference to scale, the Gahagan biface at bottom left (m3) measures just over 48cm. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
+```{r gahagan.bifaces, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Gahagan bifaces from the northern and southern `Caddo behavioral regions`. Bifaces recovered atop or alongside an individual denoted by black dot. For reference to scale, the Gahagan biface at bottom left (m3) measures just over 48cm. Additional information for each biface, including the option to download full-resolution 2D images of individual bifaces, can be found at [https://scholarworks.sfasu.edu/ita-gahaganbiface/](https://scholarworks.sfasu.edu/ita-gahaganbiface/)."}
 knitr::include_graphics('images/fig02.jpg')
 ```
 
 ## Primary findings
 
-```{r hypotheses, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary during their shift from horticulturalism to an emergent agriculturalist lifeway; and b, an increase in morphological diversity through the technological life cycle."}
+```{r hypotheses, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary during their shift from horticulturalism to an emergent agriculturalist lifeway; and b, an increase in morphological diversity through the technological life cycle."}
 knitr::include_graphics('images/h.a-b.png')
 ```
 
@@ -34,7 +38,7 @@ knitr::include_graphics('images/h.a-b.png')
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds site where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved.
 
-```{r abundance, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of a, adults and juveniles (binned to include all non-adults); b, lithic and ceramic artifacts; and c, diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based on results of seriation (see Chapter 2). The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r abundance, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Relative abundance of a, adults and juveniles (binned to include all non-adults); b, lithic and ceramic artifacts; and c, diagnostic artefact types recovered from Caddo mortuary contexts that included a Gahagan biface. Contexts ordered temporally from bottom to top based on results of seriation (see Chapter 2). The middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 knitr::include_graphics('images/abundance.png')
 ```
 
@@ -45,7 +49,7 @@ knitr::include_graphics('images/abundance.png')
 - Caddo mortuary contexts that occur following initial deposition include a **significantly greater diversity** of associated diagnostics
 - Caddo mortuary contexts that occur following initial deposition include **significantly greater evenness** across the types
 
-```{r diversity.out, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8; 2, 16CD12-BP2; 3, 41CE19-F119; 4, 16RR1-BP2; 5, 16CD12-BP5; 6, 16RR1-BP3; 7, 41CE19-F134; 8, 16CD12-BP1. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and represent the three earliest contexts to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
+```{r diversity.out, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8; 2, 16CD12-BP2; 3, 41CE19-F119; 4, 16RR1-BP2; 5, 16CD12-BP5; 6, 16RR1-BP3; 7, 41CE19-F134; 8, 16CD12-BP1. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and represent the three earliest contexts to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
 knitr::include_graphics('images/diversity2-1.png')
 ```
 
@@ -65,9 +69,9 @@ This hypothesis is tested using Gahagan bifaces recovered from two discrete cont
 
 - Gahagan bifaces **differ significantly in _shape_** between cache and individual contexts
 - Gahagan bifaces do not differ in _size_ between cache and individual contexts
-- Gahagan bifaces from individual contexts exhibit **significantly greater variation in size**
+- Gahagan bifaces from individual contexts exhibit **significantly greater size diversity**
 
-```{r b.context, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Comparison of Gahagan bifaces from cache and individual contexts. In the comparison of mean shapes, gray dots represent cache contexts, and black dots represent individual contexts."}
+```{r b.context, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Comparison of Gahagan bifaces from cache and individual contexts. In the comparison of mean shapes, gray dots represent cache contexts, and black dots represent individual contexts."}
 knitr::include_graphics('images/mshape-cache-ind.jpg')
 ```
 
@@ -90,13 +94,20 @@ The analysis employs _four discrete categories_ to assess morphological changes 
 
 #### _Findings_:
 
+**Morphology**:
+
 -   Gahagan bifaces from _Initial Cache_ and _Subsequent Individual_ contexts **differ significantly in _shape_**
 -   Gahagan bifaces from _Subsequent Cache_ and _Subsequent Individual_ contexts **differ significantly in _shape_**
 -   Gahagan bifaces from _Initial Cache_ and _Initial Individual_ contexts **differ significantly in _size_**
 -   Gahagan bifaces from _Initial Individual_ and _Subsequent Cache_ contexts **differ significantly in _size_**
 -   Gahagan bifaces from _Initial Individual_ and _Subsequent Individual_ contexts **differ significantly in _size_**
 
-```{r b.context.temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="In the comparison of Gahagan bifaces from discrete burial contexts, gray dots represent the mean shape at the top of the column, and black dots represent the mean shape at right. All comparisons in the first column differ significantly in size, those in the second column differ significantly in shape, and those in the third column do not differ in shape or size."}
+**Diversity**:
+
+-   Gahagan bifaces from subsequent contexts are not more diverse in shape than those from initial contexts
+-   Gahagan bifaces from _initial_ contexts placed atop/alongside individuals exhibit **significantly greater size diversity** than those from _initial_ cache contexts, as well as those from _subsequent_ individual and cache contexts
+
+```{r b.context.temporal, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="In the comparison of Gahagan bifaces from discrete burial contexts, gray dots represent the mean shape at the top of the column, and black dots represent the mean shape at right. All comparisons in the first column differ significantly in size, those in the second column differ significantly in shape, and those in the third column do not differ in shape or size."}
 knitr::include_graphics('images/comp.composite.jpg')
 ```
 

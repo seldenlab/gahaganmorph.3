@@ -1,3 +1,4 @@
+fig:MAP
 fig:hypotheses
 fig:abundance
 fig:diversity2
@@ -48,8 +49,6 @@ boxplot
 principal-components-analysis
 plot-pca-with-mean-shape-xy-maximaminima
 procrustes-anova
-modularity
-morphological-integration
 morphological-disparity
 mean-shapes
 dgm---contexts-through-time
@@ -60,5 +59,4 @@ principal-components-analysis-1
 plot-pca-with-mean-shape-xy-maximaminima-1
 procrustes-anova-1
 morphological-disparity-1
-trajectory-analysis
 mean-shapes-1
