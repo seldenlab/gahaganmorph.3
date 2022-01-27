@@ -1,3 +1,6 @@
+fig:hypotheses
+fig:abundance
+fig:diversity2
 fig:fig4078-8-init
 fig:fig4078-8-mod
 fig:fig4078-72-init
@@ -59,4 +62,3 @@ procrustes-anova-1
 morphological-disparity-1
 trajectory-analysis
 mean-shapes-1
-fig:diversity2

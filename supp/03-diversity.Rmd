@@ -252,7 +252,8 @@ library(RRPP)
 
 # mutate data to add temporal assignment
 temp <- data %>%
-  mutate(temporal = c("Late", "Late", "Late", "Late", "Late", "Early", "Early", "Early"), 
+  mutate(temporal = c("Subsequent", "Subsequent", "Subsequent", "Subsequent",
+                      "Subsequent", "Initial", "Initial", "Initial"), 
          .after = region)
 
 # revised table of diagnostics
@@ -268,13 +269,10 @@ time <- temp$temporal
 #diversity
 ## plot diversity
 ggplot(temp, aes(x = time, y = temp.D1)) +
-  geom_point(aes(shape = factor(context), colour = region)) +
-  scale_shape_manual(values = c(0:3,15:18)) +
-  scale_colour_manual(values = pal1) +
+  geom_jitter(position=position_jitter(0), cex = 3, shape = as.character(1:8)) +
   labs(x = "Time",
        y = "Simpson Diversity",
-       shape = "Context",
-       colour = "Region")
+       shape = "Context")
 
 # are data not normally distributed?
 shapiro.test(temp.D1)
@@ -298,11 +296,11 @@ anova(temp.simpson)
 # evenness
 ## plot evenness
 ggplot(temp, aes(x = time, y = temp.J)) +
-  geom_jitter(position = position_jitter(0.05), shape = factor(temp$context)) +
+  geom_jitter(position=position_jitter(0.03), cex = 3, shape = as.character(1:8)) +
+  scale_shape_manual(values = c(0:3,15:18)) +
   labs(x = "Time",
        y = "Peilou's J",
-       shape = "Context",
-       colour = "Region")
+       shape = "Context")
 
 # are data not normally distributed?
 shapiro.test(temp.J)
