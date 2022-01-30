@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Install analysis packages
 
+More on how to run Python from R [here](https://www.r-bloggers.com/2020/04/how-to-run-pythons-scikit-learn-in-r-in-5-minutes/).
+
 ```{r}
 library(tidyverse)
 library(reticulate)
