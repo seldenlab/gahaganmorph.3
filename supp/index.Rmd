@@ -14,7 +14,7 @@ description: "Gahagan biface shape change."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with assemblages included in the study."}
+```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with assemblages included in the study. Ancestral Caddo area outlined in white."}
 knitr::include_graphics('images/fig01.png')
 ```
 
@@ -81,9 +81,11 @@ Contextual differences suggest two distinct Caddo burial traditions associated w
 
 ### TEMPORAL TRAJECTORIES
 
-**_Hypothesis_: Gahagan bifaces from _individual_ and _cache_ contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
+**_Hypothesis 1 (Morphology)_: Gahagan bifaces from _individual_ and _cache_ contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
 
-This hypothesis is tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ in the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential shape preference as the diversity of Caddo mortuary assemblages increased.
+**_Hypothesis 2 (Morphological Diversity)_: The morphological diversity of Gahagan bifaces increases through the technological life cycle**
+
+These hypotheses are tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ in the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential shape preference as the diversity of Caddo mortuary assemblages increased.
 
 The analysis employs _four discrete categories_ to assess morphological changes through time:
 
@@ -118,7 +120,10 @@ This hypothesis was tested using Gahagan bifaces recovered from four discrete co
 - Results demonstrate that in the earliest Caddo burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **size** (are larger) when compared with those placed in caches along the northern wall of the burial pit.
 
 - In the later burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **shape** when compared with those placed in caches along the northern wall of the burial pit.
+
 - Caches of Gahagan bifaces found along the northern wall of Caddo burial pits exhibit morphological stability through time in that they neither differ in shape nor size as the diversity of Caddo mortuary assemblages increases.
+
+- The hypothesis that the morphological diversity of Gahagan bifaces increases through the technological life cycle is rejected. Those Gahagan bifaces from _initial_ contexts placed atop or alongside an individual expressed a greater diversity in size than all other categories. Thus, for the comparison of Gahagan biface morphological diversity through time among contexts, those found with individuals express stability shape diversity, but the inverse of the hypothesis in size (becoming less diverse in size through time), while those from cache contexts express morphological stability in shape and size through time.
 
 The temporal attribute used for the GM analysis is comprised of the same _initial_ and _subsequent_ contexts used in the analysis of assemblage diversity. That there are no cache offerings of Gahagan bifaces associated with the northern behavioral region raises questions regarding whether the spatial boundary may have been permeable, but in only one direction.
 
