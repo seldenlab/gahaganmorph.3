@@ -104,7 +104,7 @@ The analysis employs _four discrete categories_ to assess morphological changes 
 -   Gahagan bifaces from _Initial Individual_ and _Subsequent Cache_ contexts **differ significantly in _size_**
 -   Gahagan bifaces from _Initial Individual_ and _Subsequent Individual_ contexts **differ significantly in _size_**
 
-**Diversity**:
+**Morphological Diversity**:
 
 -   Gahagan bifaces from subsequent contexts are not more diverse in shape than those from initial contexts
 -   Gahagan bifaces from _initial_ contexts placed atop/alongside individuals exhibit **significantly greater size diversity** than those from _initial_ cache contexts, as well as those from _subsequent_ individual and cache contexts
