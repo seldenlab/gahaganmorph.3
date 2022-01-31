@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2022-01-30" />
+<meta name="date" content="2022-01-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,14 +257,14 @@ div.csl-indent {
 <div id="seriation" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Seriation</h1>
 <p>Load the data and summarize row and column sums. Also create gahagan_ct with only the counts using context and region as rownames. Finally create gahagan_pct with percentages.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="seriation.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ca)</span>
-<span id="cb27-2"><a href="seriation.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotrix)</span>
-<span id="cb27-3"><a href="seriation.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb27-4"><a href="seriation.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># gahagan &lt;- read.csv(&quot;gahagan-diagnostics.csv&quot;)</span></span>
-<span id="cb27-5"><a href="seriation.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># save(gahagan, file=&quot;gahagan-diagnostics.RData&quot;)</span></span>
-<span id="cb27-6"><a href="seriation.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;gahagan-diagnostics.RData&quot;</span>)</span>
-<span id="cb27-7"><a href="seriation.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Structure of the data frame</span></span>
-<span id="cb27-8"><a href="seriation.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gahagan, <span class="at">give.attr=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="seriation.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ca)</span>
+<span id="cb23-2"><a href="seriation.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotrix)</span>
+<span id="cb23-3"><a href="seriation.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb23-4"><a href="seriation.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># gahagan &lt;- read.csv(&quot;gahagan-diagnostics.csv&quot;)</span></span>
+<span id="cb23-5"><a href="seriation.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># save(gahagan, file=&quot;gahagan-diagnostics.RData&quot;)</span></span>
+<span id="cb23-6"><a href="seriation.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;gahagan-diagnostics.RData&quot;</span>)</span>
+<span id="cb23-7"><a href="seriation.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Structure of the data frame</span></span>
+<span id="cb23-8"><a href="seriation.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gahagan, <span class="at">give.attr=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    8 obs. of  15 variables:
 ##  $ context            : chr  &quot;41CE19-F134&quot; &quot;41CE19-F119&quot; &quot;16RR1-BP2&quot; &quot;16RR1-BP3&quot; ...
 ##  $ region             : chr  &quot;South&quot; &quot;South&quot; &quot;South&quot; &quot;South&quot; ...
@@ -281,10 +281,10 @@ div.csl-indent {
 ##  $ hickory_engraved   : int  0 0 1 0 1 0 0 1
 ##  $ holly_fine_engraved: int  0 2 1 1 1 0 0 1
 ##  $ kiam_incised       : int  0 0 1 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="seriation.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data</span></span>
-<span id="cb29-2"><a href="seriation.html#cb29-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(gahagan) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-3"><a href="seriation.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb29-4"><a href="seriation.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="seriation.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data</span></span>
+<span id="cb25-2"><a href="seriation.html#cb25-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(gahagan) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="seriation.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="seriation.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -716,12 +716,12 @@ North
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="seriation.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Row sums</span></span>
-<span id="cb30-2"><a href="seriation.html#cb30-2" aria-hidden="true" tabindex="-1"></a>(RS <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]))</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="seriation.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Row sums</span></span>
+<span id="cb26-2"><a href="seriation.html#cb26-2" aria-hidden="true" tabindex="-1"></a>(RS <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]))</span></code></pre></div>
 <pre><code>## [1] 184  23 109 119  46  13  43   8</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="seriation.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column sums</span></span>
-<span id="cb32-2"><a href="seriation.html#cb32-2" aria-hidden="true" tabindex="-1"></a>CS <span class="ot">&lt;-</span> <span class="fu">colSums</span>(gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)])</span>
-<span id="cb32-3"><a href="seriation.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(CS)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="seriation.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column sums</span></span>
+<span id="cb28-2"><a href="seriation.html#cb28-2" aria-hidden="true" tabindex="-1"></a>CS <span class="ot">&lt;-</span> <span class="fu">colSums</span>(gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)])</span>
+<span id="cb28-3"><a href="seriation.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(CS)</span></code></pre></div>
 <pre><code>##                     [,1]
 ## alba                 330
 ## celt                  31
@@ -736,35 +736,39 @@ North
 ## hickory_engraved       3
 ## holly_fine_engraved    6
 ## kiam_incised           1</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="seriation.html#cb34-1" aria-hidden="true" tabindex="-1"></a>gahagan_ct <span class="ot">&lt;-</span> gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]</span>
-<span id="cb34-2"><a href="seriation.html#cb34-2" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(gahagan<span class="sc">$</span>context, <span class="st">&quot; (&quot;</span>, <span class="fu">substr</span>(gahagan<span class="sc">$</span>region, <span class="dv">1</span>, <span class="dv">1</span>), <span class="st">&quot;)&quot;</span>)</span>
-<span id="cb34-3"><a href="seriation.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(gahagan_ct) <span class="ot">&lt;-</span> labels</span>
-<span id="cb34-4"><a href="seriation.html#cb34-4" aria-hidden="true" tabindex="-1"></a>gahagan_pct <span class="ot">&lt;-</span> gahagan_ct <span class="sc">/</span> RS  <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="seriation.html#cb30-1" aria-hidden="true" tabindex="-1"></a>gahagan_ct <span class="ot">&lt;-</span> gahagan[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]</span>
+<span id="cb30-2"><a href="seriation.html#cb30-2" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(gahagan<span class="sc">$</span>context, <span class="st">&quot; (&quot;</span>, <span class="fu">substr</span>(gahagan<span class="sc">$</span>region, <span class="dv">1</span>, <span class="dv">1</span>), <span class="st">&quot;)&quot;</span>)</span>
+<span id="cb30-3"><a href="seriation.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(gahagan_ct) <span class="ot">&lt;-</span> labels</span>
+<span id="cb30-4"><a href="seriation.html#cb30-4" aria-hidden="true" tabindex="-1"></a>gahagan_pct <span class="ot">&lt;-</span> gahagan_ct <span class="sc">/</span> RS  <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 <p>Use the first dimension of a corresponce analysis on gahagan_ct to provide an initial ordering of the data (ca_ord).</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="seriation.html#cb35-1" aria-hidden="true" tabindex="-1"></a>gahagan_ca <span class="ot">&lt;-</span> <span class="fu">ca</span>(gahagan_ct)</span>
-<span id="cb35-2"><a href="seriation.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.ca</span>(gahagan_ca, <span class="at">labels=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="at">cex =</span> .<span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="seriation.html#cb31-1" aria-hidden="true" tabindex="-1"></a>gahagan_ca <span class="ot">&lt;-</span> <span class="fu">ca</span>(gahagan_ct)</span>
+<span id="cb31-2"><a href="seriation.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.ca</span>(gahagan_ca, <span class="at">labels=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="at">cex =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/ca-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="seriation.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correspondence Analysis Ordering on Dimension 1</span></span>
-<span id="cb36-2"><a href="seriation.html#cb36-2" aria-hidden="true" tabindex="-1"></a>(ca_ord <span class="ot">&lt;-</span> <span class="fu">order</span>(gahagan_ca<span class="sc">$</span>rowcoord[, <span class="dv">1</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="seriation.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correspondence Analysis Ordering on Dimension 1</span></span>
+<span id="cb32-2"><a href="seriation.html#cb32-2" aria-hidden="true" tabindex="-1"></a>(ca_ord <span class="ot">&lt;-</span> <span class="fu">order</span>(gahagan_ca<span class="sc">$</span>rowcoord[, <span class="dv">1</span>]))</span></code></pre></div>
 <pre><code>## [1] 1 4 3 6 7 2 5 8</code></pre>
 <p>Use the first projection of a detrended corresponce analysis on gahagan_ct to provide an alternate ordering of the data (dec_ord). Use correlation to compare the two sequences. Detach packages that contain functions that interfere with the seriation package.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="seriation.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="seriation.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code></pre></div>
 <pre><code>## Loading required package: permute</code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;permute&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:seriation&#39;:
+## 
+##     permute</code></pre>
 <pre><code>## This is vegan 2.5-7</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;vegan&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:rcarbon&#39;:
 ## 
 ##     calibrate</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="seriation.html#cb44-1" aria-hidden="true" tabindex="-1"></a>gahagan_dec <span class="ot">&lt;-</span> <span class="fu">decorana</span>(gahagan_ct)</span>
-<span id="cb44-2"><a href="seriation.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gahagan_dec, <span class="at">display=</span><span class="st">&quot;species&quot;</span>)</span>
-<span id="cb44-3"><a href="seriation.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(gahagan_dec, <span class="at">display=</span><span class="st">&quot;sites&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="seriation.html#cb41-1" aria-hidden="true" tabindex="-1"></a>gahagan_dec <span class="ot">&lt;-</span> <span class="fu">decorana</span>(gahagan_ct)</span>
+<span id="cb41-2"><a href="seriation.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gahagan_dec, <span class="at">display=</span><span class="st">&quot;species&quot;</span>)</span>
+<span id="cb41-3"><a href="seriation.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(gahagan_dec, <span class="at">display=</span><span class="st">&quot;sites&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/decorana-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="seriation.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Decorana Ordering on Projection 1</span></span>
-<span id="cb45-2"><a href="seriation.html#cb45-2" aria-hidden="true" tabindex="-1"></a>(dec_ord <span class="ot">&lt;-</span> <span class="fu">order</span>(gahagan_dec<span class="sc">$</span>rproj[, <span class="dv">1</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="seriation.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Decorana Ordering on Projection 1</span></span>
+<span id="cb42-2"><a href="seriation.html#cb42-2" aria-hidden="true" tabindex="-1"></a>(dec_ord <span class="ot">&lt;-</span> <span class="fu">order</span>(gahagan_dec<span class="sc">$</span>rproj[, <span class="dv">1</span>]))</span></code></pre></div>
 <pre><code>## [1] 1 4 5 3 2 6 7 8</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="seriation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">cor.test</span>(ca_ord, dec_ord, <span class="at">method=</span><span class="st">&quot;kendall&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="seriation.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">cor.test</span>(ca_ord, dec_ord, <span class="at">method=</span><span class="st">&quot;kendall&quot;</span>))</span></code></pre></div>
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 
@@ -774,142 +778,130 @@ North
 ## sample estimates:
 ##       tau 
 ## 0.1428571</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="seriation.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">&quot;package:vegan&quot;</span>)</span>
-<span id="cb49-2"><a href="seriation.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">&quot;package:permute&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="seriation.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">&quot;package:vegan&quot;</span>)</span>
+<span id="cb46-2"><a href="seriation.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">&quot;package:permute&quot;</span>)</span></code></pre></div>
 <p>Load the seriation package to use the the manhattan distance matrices to compare the orderings. Robinson developed the method of seriation by permuting distance matrices. He used a similarity matrix where 200 was the index value for an ordering with itself. A perfect matrix should show consistent <em>decreases</em> from the diagonal horizontally and vertically. The seriation package implements this as a manhattan distance matrix where 0 is the index value for an ordering with itself. A perfect matrix should show consistent <em>increases</em> from the diagonal horizontally and vertically. The AR measure (Anti-Robinson) counts the number of times there is a decrease between adjacent values. The AR_deviation measure weights the index by the difference in values. These are loss measures meaning that low values are better. The Gradient_raw and Gradient_weighted indices are similar, but look at triplets. These are merit measures meaning that higher values are better. There are other options, but these are relatively straightforward.</p>
 <p>The seriation package has multiple methods for seriating distance matrices. The ARSA (Anti-Robinson seriation by simulated annealing) method attempts to minimize the linear seriation criterion defined by Robinson. Two other methods use branch and bound algorithms (BBURCG and BBWRCG) focus on the gradient measures.</p>
 <p>The five ordinations are then compared to the original order of the data. The detrended correspondence ordering is better than the correspondence ordering, but the permutation orderings are better. The ARSA and BBWRCG oderings are the same and the BBURCG ordering differs only by the switching of the positions of 16RR1-BP2 (S) and 16CD12-BP5 (N). The first (and third) orderings have the best values for AR_deviations (lowest) and Gradient_weighted (highest) whereas the second ordering has the best values for AR_events (lowest) and Gradient_raw (highest).</p>
 <p>The battleship plot shows the first ordering.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="seriation.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seriation)</span></code></pre></div>
-<pre><code>## Registered S3 method overwritten by &#39;seriation&#39;:
-##   method         from 
-##   reorder.hclust vegan</code></pre>
-<pre><code>## 
-## Attaching package: &#39;seriation&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:lattice&#39;:
-## 
-##     panel.lines</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="seriation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>gahagan_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(gahagan_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
-<span id="cb54-2"><a href="seriation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance matrix:</span></span>
-<span id="cb54-3"><a href="seriation.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(gahagan_dist, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##                 41CE19-F134 (S) 41CE19-F119 (S) 16RR1-BP2 (S) 16RR1-BP3 (S) 16CD12-BP1 (N) 16CD12-BP2 (N)
-## 41CE19-F119 (S)           127.2                                                                          
-## 16RR1-BP2 (S)             113.8            90.9                                                          
-## 16RR1-BP3 (S)              28.0           124.6          92.7                                            
-## 16CD12-BP1 (N)             38.0           134.8         117.7          40.0                              
-## 16CD12-BP2 (N)            166.1            71.6         140.6         159.4          167.2               
-## 16CD12-BP5 (N)            133.8           138.5          85.3         116.4          122.4          133.5
-## 16CD12-BP8 (N)            182.6           157.6         146.3         154.8          178.3          175.0
-##                 16CD12-BP5 (N)
-## 41CE19-F119 (S)               
-## 16RR1-BP2 (S)                 
-## 16RR1-BP3 (S)                 
-## 16CD12-BP1 (N)                
-## 16CD12-BP2 (N)                
-## 16CD12-BP5 (N)                
-## 16CD12-BP8 (N)           165.7</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="seriation.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb56-2"><a href="seriation.html#cb56-2" aria-hidden="true" tabindex="-1"></a>gahagan_ser1 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;ARSA&quot;</span>)</span>
-<span id="cb56-3"><a href="seriation.html#cb56-3" aria-hidden="true" tabindex="-1"></a>gahagan_ser2 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;BBURCG&quot;</span>)</span>
-<span id="cb56-4"><a href="seriation.html#cb56-4" aria-hidden="true" tabindex="-1"></a>gahagan_ser3 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;BBWRCG&quot;</span>)</span>
-<span id="cb56-5"><a href="seriation.html#cb56-5" aria-hidden="true" tabindex="-1"></a>ord1 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser1)</span>
-<span id="cb56-6"><a href="seriation.html#cb56-6" aria-hidden="true" tabindex="-1"></a>ord2 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser2)</span>
-<span id="cb56-7"><a href="seriation.html#cb56-7" aria-hidden="true" tabindex="-1"></a>ord3 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser3)</span>
-<span id="cb56-8"><a href="seriation.html#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Suggested orderings</span></span>
-<span id="cb56-9"><a href="seriation.html#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(ord1, ord2, ord3)</span></code></pre></div>
-<pre><code>##      16CD12-BP1 (N) 41CE19-F134 (S) 16RR1-BP3 (S) 16CD12-BP5 (N) 16RR1-BP2 (S) 41CE19-F119 (S) 16CD12-BP2 (N)
-## ord1              5               1             4              7             3               2              6
-## ord2              5               1             4              3             7               2              6
-## ord3              5               1             4              7             3               2              6
-##      16CD12-BP8 (N)
-## ord1              8
-## ord2              8
-## ord3              8</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="seriation.html#cb58-1" aria-hidden="true" tabindex="-1"></a>Crit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AR_events&quot;</span>, <span class="st">&quot;AR_deviations&quot;</span>, <span class="st">&quot;Gradient_raw&quot;</span>, <span class="st">&quot;Gradient_weighted&quot;</span>)</span>
-<span id="cb58-2"><a href="seriation.html#cb58-2" aria-hidden="true" tabindex="-1"></a>gahagan_ord1 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord1)</span>
-<span id="cb58-3"><a href="seriation.html#cb58-3" aria-hidden="true" tabindex="-1"></a>gahagan_ord2 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord2)</span>
-<span id="cb58-4"><a href="seriation.html#cb58-4" aria-hidden="true" tabindex="-1"></a>gahagan_ord3 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord3)</span>
-<span id="cb58-5"><a href="seriation.html#cb58-5" aria-hidden="true" tabindex="-1"></a>gahagan_dec_ord <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, dec_ord)</span>
-<span id="cb58-6"><a href="seriation.html#cb58-6" aria-hidden="true" tabindex="-1"></a>gahagan_ca_ord <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ca_ord)</span>
-<span id="cb58-7"><a href="seriation.html#cb58-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-8"><a href="seriation.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparison between original and ordered:</span></span>
-<span id="cb58-9"><a href="seriation.html#cb58-9" aria-hidden="true" tabindex="-1"></a>Results <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Original=</span>gahagan_dist, <span class="at">Ordered1=</span>gahagan_ord1, <span class="at">Ordered2=</span>gahagan_ord2, <span class="at">Ordered3=</span>gahagan_ord3, <span class="at">CA=</span>gahagan_ca_ord, <span class="at">DEC=</span>gahagan_dec_ord)</span>
-<span id="cb58-10"><a href="seriation.html#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sapply</span>(Results, criterion, <span class="at">method=</span>Crit), <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="seriation.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seriation)</span>
+<span id="cb47-2"><a href="seriation.html#cb47-2" aria-hidden="true" tabindex="-1"></a>gahagan_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(gahagan_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
+<span id="cb47-3"><a href="seriation.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance matrix:</span></span>
+<span id="cb47-4"><a href="seriation.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(gahagan_dist, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##                 41CE19-F134 (S) 41CE19-F119 (S) 16RR1-BP2 (S) 16RR1-BP3 (S)
+## 41CE19-F119 (S)           127.2                                            
+## 16RR1-BP2 (S)             113.8            90.9                            
+## 16RR1-BP3 (S)              28.0           124.6          92.7              
+## 16CD12-BP1 (N)             38.0           134.8         117.7          40.0
+## 16CD12-BP2 (N)            166.1            71.6         140.6         159.4
+## 16CD12-BP5 (N)            133.8           138.5          85.3         116.4
+## 16CD12-BP8 (N)            182.6           157.6         146.3         154.8
+##                 16CD12-BP1 (N) 16CD12-BP2 (N) 16CD12-BP5 (N)
+## 41CE19-F119 (S)                                             
+## 16RR1-BP2 (S)                                               
+## 16RR1-BP3 (S)                                               
+## 16CD12-BP1 (N)                                              
+## 16CD12-BP2 (N)           167.2                              
+## 16CD12-BP5 (N)           122.4          133.5               
+## 16CD12-BP8 (N)           178.3          175.0          165.7</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="seriation.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb49-2"><a href="seriation.html#cb49-2" aria-hidden="true" tabindex="-1"></a>gahagan_ser1 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;ARSA&quot;</span>)</span>
+<span id="cb49-3"><a href="seriation.html#cb49-3" aria-hidden="true" tabindex="-1"></a>gahagan_ser2 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;BBURCG&quot;</span>)</span>
+<span id="cb49-4"><a href="seriation.html#cb49-4" aria-hidden="true" tabindex="-1"></a>gahagan_ser3 <span class="ot">&lt;-</span> <span class="fu">seriate</span>(gahagan_dist, <span class="at">method=</span><span class="st">&quot;BBWRCG&quot;</span>)</span>
+<span id="cb49-5"><a href="seriation.html#cb49-5" aria-hidden="true" tabindex="-1"></a>ord1 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser1)</span>
+<span id="cb49-6"><a href="seriation.html#cb49-6" aria-hidden="true" tabindex="-1"></a>ord2 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser2)</span>
+<span id="cb49-7"><a href="seriation.html#cb49-7" aria-hidden="true" tabindex="-1"></a>ord3 <span class="ot">&lt;-</span> <span class="fu">get_order</span>(gahagan_ser3)</span>
+<span id="cb49-8"><a href="seriation.html#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Suggested orderings</span></span>
+<span id="cb49-9"><a href="seriation.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(ord1, ord2, ord3)</span></code></pre></div>
+<pre><code>##      16CD12-BP1 (N) 41CE19-F134 (S) 16RR1-BP3 (S) 16CD12-BP5 (N) 16RR1-BP2 (S)
+## ord1              5               1             4              7             3
+## ord2              5               1             4              3             7
+## ord3              5               1             4              7             3
+##      41CE19-F119 (S) 16CD12-BP2 (N) 16CD12-BP8 (N)
+## ord1               2              6              8
+## ord2               2              6              8
+## ord3               2              6              8</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="seriation.html#cb51-1" aria-hidden="true" tabindex="-1"></a>Crit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AR_events&quot;</span>, <span class="st">&quot;AR_deviations&quot;</span>, <span class="st">&quot;Gradient_raw&quot;</span>, <span class="st">&quot;Gradient_weighted&quot;</span>)</span>
+<span id="cb51-2"><a href="seriation.html#cb51-2" aria-hidden="true" tabindex="-1"></a>gahagan_ord1 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord1)</span>
+<span id="cb51-3"><a href="seriation.html#cb51-3" aria-hidden="true" tabindex="-1"></a>gahagan_ord2 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord2)</span>
+<span id="cb51-4"><a href="seriation.html#cb51-4" aria-hidden="true" tabindex="-1"></a>gahagan_ord3 <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ord3)</span>
+<span id="cb51-5"><a href="seriation.html#cb51-5" aria-hidden="true" tabindex="-1"></a>gahagan_dec_ord <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, dec_ord)</span>
+<span id="cb51-6"><a href="seriation.html#cb51-6" aria-hidden="true" tabindex="-1"></a>gahagan_ca_ord <span class="ot">&lt;-</span> <span class="fu">permute</span>(gahagan_dist, ca_ord)</span>
+<span id="cb51-7"><a href="seriation.html#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-8"><a href="seriation.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparison between original and ordered:</span></span>
+<span id="cb51-9"><a href="seriation.html#cb51-9" aria-hidden="true" tabindex="-1"></a>Results <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Original=</span>gahagan_dist, <span class="at">Ordered1=</span>gahagan_ord1, <span class="at">Ordered2=</span>gahagan_ord2, <span class="at">Ordered3=</span>gahagan_ord3, <span class="at">CA=</span>gahagan_ca_ord, <span class="at">DEC=</span>gahagan_dec_ord)</span>
+<span id="cb51-10"><a href="seriation.html#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sapply</span>(Results, criterion, <span class="at">method=</span>Crit), <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##                   Original Ordered1 Ordered2 Ordered3     CA    DEC
 ## AR_events             44.0     19.0     17.0     19.0   49.0   32.0
 ## AR_deviations       1709.3    217.0    228.4    217.0 2335.2  584.1
 ## Gradient_raw          24.0     74.0     78.0     74.0   14.0   48.0
 ## Gradient_weighted   1227.1   3990.6   3956.5   3990.6  253.6 3176.5</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="seriation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(gahagan_pct[ord1, ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="seriation.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(gahagan_pct[ord1, ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/seriation-1.png" width="100%" /></p>
 <p>Since there are only eight contexts, it is feasible to consider all possible orderings to see if the preceding analysis found the best ordering. With 8 rows, there are 40,320 permutations, but half of these are reversals so we only need to consider the first 20,160 permutations. This takes a few minutes but it allows us to get the best ordering for each criterion. In this case the two “best” orderings are the same two that the seriation function provided.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="seriation.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code></pre></div>
-<pre><code>## Registered S3 methods overwritten by &#39;proxy&#39;:
-##   method               from    
-##   print.registry_field registry
-##   print.registry_entry registry</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="seriation.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seriation)</span>
-<span id="cb63-2"><a href="seriation.html#cb63-2" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gahagan_pct)</span>
-<span id="cb63-3"><a href="seriation.html#cb63-3" aria-hidden="true" tabindex="-1"></a>perm <span class="ot">&lt;-</span> <span class="fu">permutations</span>(rows)</span>
-<span id="cb63-4"><a href="seriation.html#cb63-4" aria-hidden="true" tabindex="-1"></a>nperm <span class="ot">&lt;-</span> <span class="fu">factorial</span>(rows) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb63-5"><a href="seriation.html#cb63-5" aria-hidden="true" tabindex="-1"></a>all_perms <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(nperm), <span class="cf">function</span>(i) <span class="fu">criterion</span>(gahagan_dist, perm[i,], <span class="at">method=</span>Crit)))</span>
-<span id="cb63-6"><a href="seriation.html#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-7"><a href="seriation.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutations which minimize AR (first two) or maximize Gradient (second two) measures:</span></span>
-<span id="cb63-8"><a href="seriation.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with mimimum AR events:</span></span>
-<span id="cb63-9"><a href="seriation.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="fu">which.min</span>(all_perms[, <span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="seriation.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb54-2"><a href="seriation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seriation)</span>
+<span id="cb54-3"><a href="seriation.html#cb54-3" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gahagan_pct)</span>
+<span id="cb54-4"><a href="seriation.html#cb54-4" aria-hidden="true" tabindex="-1"></a>perm <span class="ot">&lt;-</span> <span class="fu">permutations</span>(rows)</span>
+<span id="cb54-5"><a href="seriation.html#cb54-5" aria-hidden="true" tabindex="-1"></a>nperm <span class="ot">&lt;-</span> <span class="fu">factorial</span>(rows) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb54-6"><a href="seriation.html#cb54-6" aria-hidden="true" tabindex="-1"></a>all_perms <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(nperm), <span class="cf">function</span>(i) <span class="fu">criterion</span>(gahagan_dist, perm[i,], <span class="at">method=</span>Crit)))</span>
+<span id="cb54-7"><a href="seriation.html#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-8"><a href="seriation.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutations which minimize AR (first two) or maximize Gradient (second two) measures:</span></span>
+<span id="cb54-9"><a href="seriation.html#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with mimimum AR events:</span></span>
+<span id="cb54-10"><a href="seriation.html#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="fu">which.min</span>(all_perms[, <span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 2034</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="seriation.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with mimimum AR deviations:</span></span>
-<span id="cb65-2"><a href="seriation.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which.min</span>(all_perms[, <span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="seriation.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with mimimum AR deviations:</span></span>
+<span id="cb56-2"><a href="seriation.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which.min</span>(all_perms[, <span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 2634</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="seriation.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with maximum Gradient raw score:</span></span>
-<span id="cb67-2"><a href="seriation.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(all_perms[, <span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="seriation.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with maximum Gradient raw score:</span></span>
+<span id="cb58-2"><a href="seriation.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(all_perms[, <span class="dv">3</span>])</span></code></pre></div>
 <pre><code>## [1] 2034</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="seriation.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with maximum Gradient weighted score:</span></span>
-<span id="cb69-2"><a href="seriation.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(all_perms[, <span class="dv">4</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="seriation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation with maximum Gradient weighted score:</span></span>
+<span id="cb60-2"><a href="seriation.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(all_perms[, <span class="dv">4</span>])</span></code></pre></div>
 <pre><code>## [1] 2634</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="seriation.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best order for event/raw count:</span></span>
-<span id="cb71-2"><a href="seriation.html#cb71-2" aria-hidden="true" tabindex="-1"></a>perm[<span class="dv">2034</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="seriation.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best order for event/raw count:</span></span>
+<span id="cb62-2"><a href="seriation.html#cb62-2" aria-hidden="true" tabindex="-1"></a>perm[<span class="dv">2034</span>, ]</span></code></pre></div>
 <pre><code>## [1] 5 1 4 3 7 2 6 8</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="seriation.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best order for deviation/weighted score:</span></span>
-<span id="cb73-2"><a href="seriation.html#cb73-2" aria-hidden="true" tabindex="-1"></a>perm[<span class="dv">2634</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="seriation.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best order for deviation/weighted score:</span></span>
+<span id="cb64-2"><a href="seriation.html#cb64-2" aria-hidden="true" tabindex="-1"></a>perm[<span class="dv">2634</span>, ]</span></code></pre></div>
 <pre><code>## [1] 5 1 4 7 3 2 6 8</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="seriation.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles for all measures:</span></span>
-<span id="cb75-2"><a href="seriation.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="co"># AR events (lower is better):</span></span>
-<span id="cb75-3"><a href="seriation.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(all_perms[, <span class="dv">1</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="seriation.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles for all measures:</span></span>
+<span id="cb66-2"><a href="seriation.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co"># AR events (lower is better):</span></span>
+<span id="cb66-3"><a href="seriation.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(all_perms[, <span class="dv">1</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>##   0%   1%  25%  50%  75%  99% 100% 
 ##   17   32   49   57   63   76   84</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="seriation.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AR deviations (lower is better):</span></span>
-<span id="cb77-2"><a href="seriation.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">quantile</span>(all_perms[, <span class="dv">2</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="seriation.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AR deviations (lower is better):</span></span>
+<span id="cb68-2"><a href="seriation.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">quantile</span>(all_perms[, <span class="dv">2</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>)))</span></code></pre></div>
 <pre><code>##   0%   1%  25%  50%  75%  99% 100% 
 ##  217  729 1875 2423 3040 3823 4261</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="seriation.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gradient raw score (higher is better):</span></span>
-<span id="cb79-2"><a href="seriation.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(all_perms[, <span class="dv">3</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="seriation.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gradient raw score (higher is better):</span></span>
+<span id="cb70-2"><a href="seriation.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(all_perms[, <span class="dv">3</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>##   0%   1%  25%  50%  75%  99% 100% 
 ##  -56  -40  -14   -2   14   48   78</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="seriation.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gradient weighted score (higher is better):</span></span>
-<span id="cb81-2"><a href="seriation.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">quantile</span>(all_perms[, <span class="dv">4</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="seriation.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gradient weighted score (higher is better):</span></span>
+<span id="cb72-2"><a href="seriation.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">quantile</span>(all_perms[, <span class="dv">4</span>], <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">01</span>, .<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>, .<span class="dv">99</span>, <span class="dv">1</span>)))</span></code></pre></div>
 <pre><code>##    0%    1%   25%   50%   75%   99%  100% 
 ## -2986 -2271  -980   -38   867  2875  3991</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="seriation.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(gahagan_pct[perm[<span class="dv">2034</span>, ], ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="seriation.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(gahagan_pct[perm[<span class="dv">2034</span>, ], ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/exhaustive-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="seriation.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(gahagan_pct[perm[<span class="dv">2634</span>, ], ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="seriation.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(gahagan_pct[perm[<span class="dv">2634</span>, ], ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/exhaustive-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="seriation.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gahagan.dst &lt;- round(dist(gahagan_pct[perm[2034, ], ], method=&quot;manhattan&quot;, diag=TRUE, upper=TRUE), 1)</span></span>
-<span id="cb85-2"><a href="seriation.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="co"># par(mar=c(0, 0, 0, 0))</span></span>
-<span id="cb85-3"><a href="seriation.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="co"># image(as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt=&quot;n&quot;, yaxt=&quot;n&quot;, frame.plot=FALSE)</span></span>
-<span id="cb85-4"><a href="seriation.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="co"># image(200 - as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt=&quot;n&quot;, yaxt=&quot;n&quot;, frame.plot=FALSE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="seriation.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gahagan.dst &lt;- round(dist(gahagan_pct[perm[2034, ], ], method=&quot;manhattan&quot;, diag=TRUE, upper=TRUE), 1)</span></span>
+<span id="cb76-2"><a href="seriation.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># par(mar=c(0, 0, 0, 0))</span></span>
+<span id="cb76-3"><a href="seriation.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co"># image(as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt=&quot;n&quot;, yaxt=&quot;n&quot;, frame.plot=FALSE)</span></span>
+<span id="cb76-4"><a href="seriation.html#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># image(200 - as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt=&quot;n&quot;, yaxt=&quot;n&quot;, frame.plot=FALSE)</span></span></code></pre></div>
 <p>We can conclude that (5 1 4 [3 7] 2 6 8) and (5 1 4 [7 3] 2 6 8) are the best seriations for these data. The brackets indicate the only difference between the two. However, given the relatively small sample sizes, it may be that sampling fluctuations could make other orderings better.</p>
 <p>Running the North and South groups separately produces the same orderings (although South is reversed). Since the tied contexts were one North and one South, it did not have any effect on the separate orderings.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="seriation.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># North contexts</span></span>
-<span id="cb86-2"><a href="seriation.html#cb86-2" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;(N)&quot;</span>, <span class="fu">rownames</span>(gahagan_pct))</span>
-<span id="cb86-3"><a href="seriation.html#cb86-3" aria-hidden="true" tabindex="-1"></a>north_pct <span class="ot">&lt;-</span> gahagan_pct[north, ]</span>
-<span id="cb86-4"><a href="seriation.html#cb86-4" aria-hidden="true" tabindex="-1"></a>north_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(north_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
-<span id="cb86-5"><a href="seriation.html#cb86-5" aria-hidden="true" tabindex="-1"></a>northrows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(north_pct)</span>
-<span id="cb86-6"><a href="seriation.html#cb86-6" aria-hidden="true" tabindex="-1"></a>northperm <span class="ot">&lt;-</span> <span class="fu">permutations</span>(northrows)</span>
-<span id="cb86-7"><a href="seriation.html#cb86-7" aria-hidden="true" tabindex="-1"></a>northnperm <span class="ot">&lt;-</span> <span class="fu">factorial</span>(northrows) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb86-8"><a href="seriation.html#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="co"># There are only 12 permutations to check</span></span>
-<span id="cb86-9"><a href="seriation.html#cb86-9" aria-hidden="true" tabindex="-1"></a>north_perms <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(northnperm), <span class="cf">function</span>(i) <span class="fu">criterion</span>(north_dist, northperm[i,], <span class="at">method=</span>Crit)))</span>
-<span id="cb86-10"><a href="seriation.html#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(north_perms, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="seriation.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># North contexts</span></span>
+<span id="cb77-2"><a href="seriation.html#cb77-2" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;(N)&quot;</span>, <span class="fu">rownames</span>(gahagan_pct))</span>
+<span id="cb77-3"><a href="seriation.html#cb77-3" aria-hidden="true" tabindex="-1"></a>north_pct <span class="ot">&lt;-</span> gahagan_pct[north, ]</span>
+<span id="cb77-4"><a href="seriation.html#cb77-4" aria-hidden="true" tabindex="-1"></a>north_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(north_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
+<span id="cb77-5"><a href="seriation.html#cb77-5" aria-hidden="true" tabindex="-1"></a>northrows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(north_pct)</span>
+<span id="cb77-6"><a href="seriation.html#cb77-6" aria-hidden="true" tabindex="-1"></a>northperm <span class="ot">&lt;-</span> <span class="fu">permutations</span>(northrows)</span>
+<span id="cb77-7"><a href="seriation.html#cb77-7" aria-hidden="true" tabindex="-1"></a>northnperm <span class="ot">&lt;-</span> <span class="fu">factorial</span>(northrows) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb77-8"><a href="seriation.html#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co"># There are only 12 permutations to check</span></span>
+<span id="cb77-9"><a href="seriation.html#cb77-9" aria-hidden="true" tabindex="-1"></a>north_perms <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(northnperm), <span class="cf">function</span>(i) <span class="fu">criterion</span>(north_dist, northperm[i,], <span class="at">method=</span>Crit)))</span>
+<span id="cb77-10"><a href="seriation.html#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(north_perms, <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##       AR_events AR_deviations Gradient_raw Gradient_weighted
 ##  [1,]         2          55.8            4              77.7
 ##  [2,]         2          37.0            4             101.0
@@ -923,26 +915,26 @@ North
 ## [10,]         7         183.0           -6            -150.7
 ## [11,]         6         228.6           -4            -214.3
 ## [12,]         6         209.9           -4            -191.1</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="seriation.html#cb88-1" aria-hidden="true" tabindex="-1"></a>northbest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">which.min</span>(north_perms[, <span class="st">&quot;AR_events&quot;</span>]), <span class="fu">which.min</span>(north_perms[, <span class="st">&quot;AR_deviations&quot;</span>]),</span>
-<span id="cb88-2"><a href="seriation.html#cb88-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">which.max</span>(north_perms[, <span class="st">&quot;Gradient_raw&quot;</span>]), <span class="fu">which.max</span>(north_perms[, <span class="st">&quot;Gradient_weighted&quot;</span>]))</span>
-<span id="cb88-3"><a href="seriation.html#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All four criteria agree on permutation 4</span></span>
-<span id="cb88-4"><a href="seriation.html#cb88-4" aria-hidden="true" tabindex="-1"></a>northbest</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="seriation.html#cb79-1" aria-hidden="true" tabindex="-1"></a>northbest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">which.min</span>(north_perms[, <span class="st">&quot;AR_events&quot;</span>]), <span class="fu">which.min</span>(north_perms[, <span class="st">&quot;AR_deviations&quot;</span>]),</span>
+<span id="cb79-2"><a href="seriation.html#cb79-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">which.max</span>(north_perms[, <span class="st">&quot;Gradient_raw&quot;</span>]), <span class="fu">which.max</span>(north_perms[, <span class="st">&quot;Gradient_weighted&quot;</span>]))</span>
+<span id="cb79-3"><a href="seriation.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All four criteria agree on permutation 4</span></span>
+<span id="cb79-4"><a href="seriation.html#cb79-4" aria-hidden="true" tabindex="-1"></a>northbest</span></code></pre></div>
 <pre><code>## [1] 4 4 4 4</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="seriation.html#cb90-1" aria-hidden="true" tabindex="-1"></a>north_ser <span class="ot">&lt;-</span> northperm[northbest[<span class="dv">1</span>], ]</span>
-<span id="cb90-2"><a href="seriation.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(north_pct)[north_ser]</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="seriation.html#cb81-1" aria-hidden="true" tabindex="-1"></a>north_ser <span class="ot">&lt;-</span> northperm[northbest[<span class="dv">1</span>], ]</span>
+<span id="cb81-2"><a href="seriation.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(north_pct)[north_ser]</span></code></pre></div>
 <pre><code>## [1] &quot;16CD12-BP1 (N)&quot; &quot;16CD12-BP5 (N)&quot; &quot;16CD12-BP2 (N)&quot; &quot;16CD12-BP8 (N)&quot;</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="seriation.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(north_pct[north_ser, ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="seriation.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(north_pct[north_ser, ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/twogroups-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="seriation.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># South contexts</span></span>
-<span id="cb93-2"><a href="seriation.html#cb93-2" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;(S)&quot;</span>, <span class="fu">rownames</span>(gahagan_pct))</span>
-<span id="cb93-3"><a href="seriation.html#cb93-3" aria-hidden="true" tabindex="-1"></a>south_pct <span class="ot">&lt;-</span> gahagan_pct[south, ]</span>
-<span id="cb93-4"><a href="seriation.html#cb93-4" aria-hidden="true" tabindex="-1"></a>south_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(south_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
-<span id="cb93-5"><a href="seriation.html#cb93-5" aria-hidden="true" tabindex="-1"></a>southrows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(south_pct)</span>
-<span id="cb93-6"><a href="seriation.html#cb93-6" aria-hidden="true" tabindex="-1"></a>southperm <span class="ot">&lt;-</span> <span class="fu">permutations</span>(southrows)</span>
-<span id="cb93-7"><a href="seriation.html#cb93-7" aria-hidden="true" tabindex="-1"></a>southnperm <span class="ot">&lt;-</span> <span class="fu">factorial</span>(southrows) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb93-8"><a href="seriation.html#cb93-8" aria-hidden="true" tabindex="-1"></a><span class="co"># There are only 12 permutations to check</span></span>
-<span id="cb93-9"><a href="seriation.html#cb93-9" aria-hidden="true" tabindex="-1"></a>south_perms <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(southnperm), <span class="cf">function</span>(i) <span class="fu">criterion</span>(south_dist, southperm[i,], <span class="at">method=</span>Crit)))</span>
-<span id="cb93-10"><a href="seriation.html#cb93-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(south_perms, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="seriation.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># South contexts</span></span>
+<span id="cb84-2"><a href="seriation.html#cb84-2" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;(S)&quot;</span>, <span class="fu">rownames</span>(gahagan_pct))</span>
+<span id="cb84-3"><a href="seriation.html#cb84-3" aria-hidden="true" tabindex="-1"></a>south_pct <span class="ot">&lt;-</span> gahagan_pct[south, ]</span>
+<span id="cb84-4"><a href="seriation.html#cb84-4" aria-hidden="true" tabindex="-1"></a>south_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(south_pct, <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span>
+<span id="cb84-5"><a href="seriation.html#cb84-5" aria-hidden="true" tabindex="-1"></a>southrows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(south_pct)</span>
+<span id="cb84-6"><a href="seriation.html#cb84-6" aria-hidden="true" tabindex="-1"></a>southperm <span class="ot">&lt;-</span> <span class="fu">permutations</span>(southrows)</span>
+<span id="cb84-7"><a href="seriation.html#cb84-7" aria-hidden="true" tabindex="-1"></a>southnperm <span class="ot">&lt;-</span> <span class="fu">factorial</span>(southrows) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb84-8"><a href="seriation.html#cb84-8" aria-hidden="true" tabindex="-1"></a><span class="co"># There are only 12 permutations to check</span></span>
+<span id="cb84-9"><a href="seriation.html#cb84-9" aria-hidden="true" tabindex="-1"></a>south_perms <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(southnperm), <span class="cf">function</span>(i) <span class="fu">criterion</span>(south_dist, southperm[i,], <span class="at">method=</span>Crit)))</span>
+<span id="cb84-10"><a href="seriation.html#cb84-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(south_perms, <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##       AR_events AR_deviations Gradient_raw Gradient_weighted
 ##  [1,]         5         359.7           -2            -271.3
 ##  [2,]         5         212.1           -2             -50.0
@@ -956,16 +948,16 @@ North
 ## [10,]         2          45.3            4             187.9
 ## [11,]         5         244.6           -2            -114.9
 ## [12,]         5          97.0           -2             106.4</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="seriation.html#cb95-1" aria-hidden="true" tabindex="-1"></a>southbest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">which.min</span>(south_perms[, <span class="st">&quot;AR_events&quot;</span>]), <span class="fu">which.min</span>(south_perms[, <span class="st">&quot;AR_deviations&quot;</span>]),</span>
-<span id="cb95-2"><a href="seriation.html#cb95-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">which.max</span>(south_perms[, <span class="st">&quot;Gradient_raw&quot;</span>]), <span class="fu">which.max</span>(south_perms[, <span class="st">&quot;Gradient_weighted&quot;</span>]))</span>
-<span id="cb95-3"><a href="seriation.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All four criteria agree on permuation 7</span></span>
-<span id="cb95-4"><a href="seriation.html#cb95-4" aria-hidden="true" tabindex="-1"></a>southbest</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="seriation.html#cb86-1" aria-hidden="true" tabindex="-1"></a>southbest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">which.min</span>(south_perms[, <span class="st">&quot;AR_events&quot;</span>]), <span class="fu">which.min</span>(south_perms[, <span class="st">&quot;AR_deviations&quot;</span>]),</span>
+<span id="cb86-2"><a href="seriation.html#cb86-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">which.max</span>(south_perms[, <span class="st">&quot;Gradient_raw&quot;</span>]), <span class="fu">which.max</span>(south_perms[, <span class="st">&quot;Gradient_weighted&quot;</span>]))</span>
+<span id="cb86-3"><a href="seriation.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All four criteria agree on permuation 7</span></span>
+<span id="cb86-4"><a href="seriation.html#cb86-4" aria-hidden="true" tabindex="-1"></a>southbest</span></code></pre></div>
 <pre><code>## [1] 7 7 7 7</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="seriation.html#cb97-1" aria-hidden="true" tabindex="-1"></a>south_ser <span class="ot">&lt;-</span> southperm[southbest[<span class="dv">1</span>], ]</span>
-<span id="cb97-2"><a href="seriation.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(south_pct)[south_ser]</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="seriation.html#cb88-1" aria-hidden="true" tabindex="-1"></a>south_ser <span class="ot">&lt;-</span> southperm[southbest[<span class="dv">1</span>], ]</span>
+<span id="cb88-2"><a href="seriation.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(south_pct)[south_ser]</span></code></pre></div>
 <pre><code>## [1] &quot;41CE19-F119 (S)&quot; &quot;16RR1-BP2 (S)&quot;   &quot;16RR1-BP3 (S)&quot;   &quot;41CE19-F134 (S)&quot;</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="seriation.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse South for battlship plot</span></span>
-<span id="cb99-2"><a href="seriation.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(south_pct[<span class="fu">rev</span>(south_ser), ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="seriation.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse South for battlship plot</span></span>
+<span id="cb90-2"><a href="seriation.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">battleship.plot</span>(south_pct[<span class="fu">rev</span>(south_ser), ], <span class="at">col=</span><span class="st">&quot;gray&quot;</span>, <span class="at">cex.labels =</span> .<span class="dv">75</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/twogroups-2.png" width="100%" /></p>
 
 </div>
