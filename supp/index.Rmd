@@ -14,7 +14,7 @@ description: "Gahagan biface shape change."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with mortuary assemblages included in the study and geographic extent of the southern Caddo area outlined in white."}
+```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with mortuary assemblages included in the study and geographic extent of the southern Caddo area outlined/in white."}
 knitr::include_graphics('images/fig01.png')
 ```
 
