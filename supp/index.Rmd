@@ -71,6 +71,10 @@ This hypothesis is tested using Gahagan bifaces recovered from two discrete cont
 - Gahagan bifaces do not differ in _size_ between cache and individual contexts
 - Gahagan bifaces from individual contexts exhibit **significantly greater size diversity**
 
+```{r pca1, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE}
+knitr::include_graphics('images/cacheind-pca-warpref.png')
+```
+
 ```{r b.context, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Comparison of Gahagan bifaces from cache and individual contexts. In the comparison of mean shapes, gray dots represent cache contexts, and black dots represent individual contexts."}
 knitr::include_graphics('images/mshape-cache-ind.jpg')
 ```
@@ -108,6 +112,10 @@ The analysis employs _four discrete categories_ to assess morphological changes 
 
 -   Gahagan bifaces from subsequent contexts are not more diverse in shape than those from initial contexts
 -   Gahagan bifaces from _initial_ contexts placed atop/alongside individuals exhibit **significantly greater size diversity** than those from _initial_ cache contexts, as well as those from _subsequent_ individual and cache contexts
+
+```{r pca2, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE}
+knitr::include_graphics('images/temporal-pca-warpref.png')
+```
 
 ```{r b.context.temporal, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="In the comparison of Gahagan bifaces from discrete burial contexts, gray dots represent the mean shape at the top of the column, and black dots represent the mean shape at right. All comparisons in the first column differ significantly in size, those in the second column differ significantly in shape, and the comparison in the third column does not differ in shape or size."}
 knitr::include_graphics('images/comp.composite.jpg')
