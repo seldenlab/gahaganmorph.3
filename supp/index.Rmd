@@ -14,7 +14,7 @@ description: "Gahagan biface shape change."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with assemblages included in the study. Ancestral Caddo area outlined in white."}
+```{r MAP, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Location of sites with mortuary assemblages included in the study and geographic extent of the southern Caddo area outlined/in white."}
 knitr::include_graphics('images/fig01.png')
 ```
 
@@ -28,7 +28,7 @@ knitr::include_graphics('images/fig02.jpg')
 
 ## Primary findings
 
-```{r hypotheses, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary during their shift from horticulturalism to an emergent agriculturalist lifeway; and b, an increase in morphological diversity through the technological life cycle."}
+```{r hypotheses, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="Explanatory hypotheses include a, an increase in mortuary assemblage diversity as the Caddo became more sedentary during their shift from a horticulturalist lifeway to one of emergent agriculturalist; and b, an increase in morphological diversity through the technological life cycle."}
 knitr::include_graphics('images/h.a-b.png')
 ```
 
@@ -55,9 +55,9 @@ knitr::include_graphics('images/diversity2-1.png')
 
 #### _Summary of results_
 
-The hypothesis was tested using counts of associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assessed whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved. This follows with an expected increase in assemblage diversity during the cultural and subsistence-based transition from mobile horticulture to emergent--and more sedentary--agricultural communities.
+The hypothesis was tested using counts of associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assessed whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as burial practices evolved. Results follow with an expected increase in assemblage diversity during the cultural and subsistence-based transition from mobile horticulture to emergent---and more sedentary---agricultural communities.
 
-Results demonstrate that lithics comprise 75% or more---in three cases, 100%---of those Caddo burial assemblages where Gahagan bifaces were recovered, as well as a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated with a Caddo burial practice. These assemblages are dominated by lithic diagnostics, and ceramics are absent from three of the burial contexts. Further discussion related to diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
+Results demonstrate that lithics comprise 75% or more, in three cases, 100%, of those Caddo burial assemblages where Gahagan bifaces were recovered, as well as a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated with a Caddo burial practice. These assemblages are dominated by lithic diagnostics, and ceramics are absent from three of the burial contexts. Further discussion related to those diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
 
 ### OBJECT PLACEMENT
 
@@ -77,13 +77,13 @@ knitr::include_graphics('images/mshape-cache-ind.jpg')
 
 #### Summary of results
 
-Contextual differences suggest two distinct Caddo burial traditions associated with Gahagan bifaces; one more prevalent in the northern behavioral region where Gahagan bifaces were placed _atop or alongside an individual_, and one more prevalent in the southern behavioral region where six Gahagan bifaces were buried atop or alongside an individual, and the remainder were _included as a cache offering along the northern periphery of the burial_. Each burial tradition appears to have been bounded by its' own community of practice relating both to biface placement, and the design (shape) of Gahagan bifaces interred in each context.
+Contextual differences suggest two distinct Caddo burial traditions associated with Gahagan bifaces; one more prevalent in the northern behavioral region where Gahagan bifaces were placed _atop or alongside an individual_, and one more prevalent in the southern behavioral region where all but six Gahagan bifaces were _included as a cache offering along the northern periphery of the burial_. Each burial tradition appears to have been bounded by its' own community of practice relating both to placement and the design (shape) of Gahagan bifaces interred in each context.
 
 ### TEMPORAL TRAJECTORIES
 
 **_Hypothesis 1 (Morphology)_: Gahagan bifaces from _individual_ and _cache_ contexts differ through time---_initial_ vs. _subsequent_ deposition---as mortuary assemblage diversity increases.**
 
-**_Hypothesis 2 (Morphological Diversity)_: The morphological diversity of Gahagan bifaces increases through the technological life cycle**
+**_Hypothesis 2 (Morphological Diversity)_: Morphological diversity in Gahagan bifaces increases through the technological life cycle**
 
 These hypotheses are tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ in the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential shape preference as the diversity of Caddo mortuary assemblages increased.
 
@@ -104,7 +104,7 @@ The analysis employs _four discrete categories_ to assess morphological changes 
 -   Gahagan bifaces from _Initial Individual_ and _Subsequent Cache_ contexts **differ significantly in _size_**
 -   Gahagan bifaces from _Initial Individual_ and _Subsequent Individual_ contexts **differ significantly in _size_**
 
-**Diversity**:
+**Morphological Diversity**:
 
 -   Gahagan bifaces from subsequent contexts are not more diverse in shape than those from initial contexts
 -   Gahagan bifaces from _initial_ contexts placed atop/alongside individuals exhibit **significantly greater size diversity** than those from _initial_ cache contexts, as well as those from _subsequent_ individual and cache contexts
@@ -115,17 +115,17 @@ knitr::include_graphics('images/comp.composite.jpg')
 
 #### Summary of results
 
-This hypothesis was tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ in the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential preference as Caddo mortuary assemblage diversity increased. 
+These hypotheses were tested using Gahagan bifaces recovered from four discrete contexts; the first interred with an _individual_ from the earliest (_initial_) burial context at each site, the second interred as part of a _cache_ in the earliest (_initial_) burial context at each site, the third interred with an _individual_ in _subsequent_ burial contexts, and the fourth interred as a _cache_ in _subsequent_ burial contexts. Distinct Caddo burial practices may have been constrained by local morphological requirements, highlighting aspects of differential preference as Caddo mortuary assemblage diversity increased.
 
-- Results demonstrate that in the earliest Caddo burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **size** (are larger) when compared with those placed in caches along the northern wall of the burial pit.
+- Results demonstrate that in the earliest Caddo burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **size** (are larger) when compared with those placed in caches found along the northern wall of the burial pit.
 
-- In the later burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **shape** when compared with those placed in caches along the northern wall of the burial pit.
+- In the later burials that included Gahagan bifaces, those bifaces placed atop or alongside an individual differ significantly in **shape** when compared with those placed in caches found along the northern wall of the burial pit.
 
-- Caches of Gahagan bifaces found along the northern wall of Caddo burial pits exhibit morphological stability through time in that they neither differ in shape nor size as the diversity of Caddo mortuary assemblages increases.
+- Caches of Gahagan bifaces found along the northern wall of Caddo burial pits exhibit morphological stability through time in that they differ neither in shape nor size as the diversity of Caddo mortuary assemblages increases.
 
-- The hypothesis that the morphological diversity of Gahagan bifaces increases through the technological life cycle is rejected. Gahagan bifaces from _initial_ contexts that were placed atop or alongside an individual expressed a greater diversity in size than all other categories. Thus, for the comparison of Gahagan biface morphological diversity through time among contexts, those found with individuals express stability in shape, but the inverse of the hypothesis in size (becoming less diverse in size through time), while those from cache contexts express morphological stability in both shape and size through time.
+- The hypothesis that morphological diversity in Gahagan bifaces increases through the technological life cycle is rejected. Gahagan bifaces from _initial_ contexts that were placed atop or alongside an individual expressed a greater diversity in size than all other categories. Thus, for the comparison of Gahagan biface morphological diversity through time among contexts, those found with individuals express stability in shape, but the inverse of the hypothesis in size (becoming less diverse in size through time), while those from cache contexts express morphological stability in both shape and size through time.
 
-The temporal attribute used for the GM analysis is comprised of the same _initial_ and _subsequent_ contexts used in the analysis of assemblage diversity. That there are no cache offerings of Gahagan bifaces associated with the northern behavioral region raises questions regarding whether the spatial boundary may have been permeable, but in only one direction.
+The temporal attribute used for the GM analysis is comprised of the same _initial_ and _subsequent_ contexts used in the analysis of Caddo mortuary assemblage diversity. That there are no cache offerings of Gahagan bifaces associated with the northern behavioural region raises questions regarding whether the spatial boundary may have been permeable, but in only one direction.
 
 ## Acknowledgments {-}
 
@@ -139,7 +139,7 @@ Components of this analytical work flow were developed and funded by a Preservat
 
 ## Data management {-}
 
-This volume is written in _Markdown_, and all files needed to reproduce the analytical findings are included in the [GitHub](https://github.com/seldenlab/gahaganmorph.3) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/Y7B39](https://osf.io/y7b39/). The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
+The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/seldenlab/gahaganmorph.3) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/Y7B39](https://osf.io/y7b39/). The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
 Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN11783;@RN21001;@RN9364], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
 
