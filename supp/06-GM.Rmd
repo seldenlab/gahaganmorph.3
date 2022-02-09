@@ -64,7 +64,7 @@ pal <- wes_palette("Moonrise2")
 
 ## Boxplot
 
-```{r centsize.box.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r centsizeboxh2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # boxplot - centroid size by context
 csz.temp <- ggplot(qdata, aes(x = context, y = csz, color = context)) +
   geom_boxplot() +
@@ -81,7 +81,7 @@ csz.temp
 
 Principal components analysis [@RN1746] was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479]. 
 
-```{r pca1.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r pcah2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # principal components analysis
 pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
@@ -102,7 +102,7 @@ shapeHulls(pc.plot,
 
 ### Plot PCA with mean shape + x/y maxima/minima
 
-```{r pca2.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r pca2h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
 knitr::include_graphics('images/cacheind-pca-warpref.png')
 ```

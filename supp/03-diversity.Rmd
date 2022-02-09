@@ -85,7 +85,7 @@ Up
 
 ### Relative abundance by context
 
-```{r plot.burial.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r plotburialdiversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 library(dplyr)
 library(reshape)
 library(ggplot2)
@@ -150,7 +150,7 @@ figure <- ggarrange(plot1, plot2,
 figure
 ```
 
-```{r plot.alpha.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+```{r plotalphadiversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
 # relative abundance of lithics + ceramics
 pal1 <- wes_palette("Moonrise2", 2, type = "continuous")
 
@@ -246,7 +246,7 @@ ggplot(data, aes(x = D1, y = J)) +
 
 This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as Caddo burial practices evolved.
 
-```{r simpson.init.diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r simpsoninitdiversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # diversity
 library(RRPP)
 
@@ -292,7 +292,7 @@ anova(temp.simpson)
 
 ### Evenness through time
 
-```{r simpson.init.evenness, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r simpsoninitevenness, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # evenness
 ## plot evenness
 ggplot(temp, aes(x = time, y = temp.J)) +
