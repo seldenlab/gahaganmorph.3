@@ -17,7 +17,7 @@ More on how to run Python from R [here](https://www.r-bloggers.com/2020/04/how-t
 library(tidyverse)
 library(reticulate)
 # run the following in terminal
-#conda create -n py3.8 python=3.9 scikit-learn pandas numpy matplotlib
+#conda create -n py3.8 python=3.9 scikit-learn-intelex pandas numpy matplotlib
 use_condaenv("py3.9", required = TRUE)
 ```
 
