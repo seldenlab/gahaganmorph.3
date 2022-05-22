@@ -23,7 +23,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2022-04-19" />
+<meta name="date" content="2022-05-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -264,35 +264,38 @@ div.csl-indent {
 <div id="taxonomic-composition" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Taxonomic composition<a href="composition-diversity.html#taxonomic-composition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="composition-diversity.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
-<pre><code>## here() starts at E:/github/gahaganmorph.3/supp</code></pre>
+<pre><code>## here() starts at C:/Users/selde/Desktop/github/gahaganmorph.3/supp</code></pre>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="composition-diversity.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## -- Attaching packages -------------------------------------- tidyverse 1.3.1.9000 --</code></pre>
-<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
-## v tibble  3.1.6     v dplyr   1.0.8
+<pre><code>## -- Attaching packages ----------------------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.6     v purrr   0.3.4
+## v tibble  3.1.7     v dplyr   1.0.9
 ## v tidyr   1.2.0     v stringr 1.4.0
 ## v readr   2.1.2     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ---------------------------------------------- tidyverse_conflicts() --
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::combine()    masks rcarbon::combine()
 ## x dplyr::filter()     masks stats::filter()
 ## x dplyr::group_rows() masks kableExtra::group_rows()
 ## x dplyr::lag()        masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="composition-diversity.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb104-2"><a href="composition-diversity.html#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-3"><a href="composition-diversity.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb104-4"><a href="composition-diversity.html#cb104-4" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gahagan-diversity.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="composition-diversity.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb107-2"><a href="composition-diversity.html#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="composition-diversity.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb107-4"><a href="composition-diversity.html#cb107-4" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gahagan-diversity.csv&quot;</span>)</span></code></pre></div>
 <div id="reorder-contexts-based-on-seriation-results" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Reorder contexts based on seriation results<a href="composition-diversity.html#reorder-contexts-based-on-seriation-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Data were reordered based on seriation results from the previous chapter (order of middle two rows are interchangeable). In the following three tables, all contexts are arranged from oldest (bottom) to youngest (top). All three are wide tables, and the columns at right can be viewed by scrolling to the right.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="composition-diversity.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange contexts based on seriation results</span></span>
-<span id="cb105-2"><a href="composition-diversity.html#cb105-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span> </span>
-<span id="cb105-3"><a href="composition-diversity.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">match</span>(context, <span class="fu">c</span>(<span class="st">&quot;16CD12-BP8&quot;</span>, <span class="st">&quot;16CD12-BP2&quot;</span>, <span class="st">&quot;41CE19-F119&quot;</span>, </span>
-<span id="cb105-4"><a href="composition-diversity.html#cb105-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;16RR1-BP2&quot;</span>, <span class="st">&quot;16CD12-BP5&quot;</span>, <span class="st">&quot;16RR1-BP3&quot;</span>, </span>
-<span id="cb105-5"><a href="composition-diversity.html#cb105-5" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;41CE19-F134&quot;</span>,<span class="st">&quot;16CD12-BP1&quot;</span>)))</span>
-<span id="cb105-6"><a href="composition-diversity.html#cb105-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-7"><a href="composition-diversity.html#cb105-7" aria-hidden="true" tabindex="-1"></a><span class="do">## internments (scroll right for more)</span></span>
-<span id="cb105-8"><a href="composition-diversity.html#cb105-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">10</span>)]) <span class="sc">%&gt;%</span></span>
-<span id="cb105-9"><a href="composition-diversity.html#cb105-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb105-10"><a href="composition-diversity.html#cb105-10" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="composition-diversity.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange contexts based on seriation results</span></span>
+<span id="cb108-2"><a href="composition-diversity.html#cb108-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span> </span>
+<span id="cb108-3"><a href="composition-diversity.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">match</span>(context, <span class="fu">c</span>(<span class="st">&quot;16CD12-BP8&quot;</span>, <span class="st">&quot;16CD12-BP2&quot;</span>, <span class="st">&quot;41CE19-F119&quot;</span>, </span>
+<span id="cb108-4"><a href="composition-diversity.html#cb108-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;16RR1-BP2&quot;</span>, <span class="st">&quot;16CD12-BP5&quot;</span>, <span class="st">&quot;16RR1-BP3&quot;</span>, </span>
+<span id="cb108-5"><a href="composition-diversity.html#cb108-5" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;41CE19-F134&quot;</span>,<span class="st">&quot;16CD12-BP1&quot;</span>)))</span>
+<span id="cb108-6"><a href="composition-diversity.html#cb108-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-7"><a href="composition-diversity.html#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="do">## internments (scroll right for more)</span></span>
+<span id="cb108-8"><a href="composition-diversity.html#cb108-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">10</span>)]) <span class="sc">%&gt;%</span></span>
+<span id="cb108-9"><a href="composition-diversity.html#cb108-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb108-10"><a href="composition-diversity.html#cb108-10" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -589,10 +592,10 @@ North
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="composition-diversity.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="do">## lithic offerings (scroll right for more)</span></span>
-<span id="cb106-2"><a href="composition-diversity.html#cb106-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="dv">26</span>)]) <span class="sc">%&gt;%</span></span>
-<span id="cb106-3"><a href="composition-diversity.html#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb106-4"><a href="composition-diversity.html#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="composition-diversity.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="do">## lithic offerings (scroll right for more)</span></span>
+<span id="cb109-2"><a href="composition-diversity.html#cb109-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="dv">26</span>)]) <span class="sc">%&gt;%</span></span>
+<span id="cb109-3"><a href="composition-diversity.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb109-4"><a href="composition-diversity.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -943,10 +946,10 @@ North
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="composition-diversity.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ceramic offerings (scroll right for more)</span></span>
-<span id="cb107-2"><a href="composition-diversity.html#cb107-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">20</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">27</span>)]) <span class="sc">%&gt;%</span></span>
-<span id="cb107-3"><a href="composition-diversity.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb107-4"><a href="composition-diversity.html#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="composition-diversity.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ceramic offerings (scroll right for more)</span></span>
+<span id="cb110-2"><a href="composition-diversity.html#cb110-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">20</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">27</span>)]) <span class="sc">%&gt;%</span></span>
+<span id="cb110-3"><a href="composition-diversity.html#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb110-4"><a href="composition-diversity.html#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -1220,7 +1223,7 @@ North
 </div>
 <div id="alpha-diversity" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Alpha diversity<a href="composition-diversity.html#alpha-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="composition-diversity.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="composition-diversity.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code></pre></div>
 <pre><code>## Loading required package: permute</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;permute&#39;</code></pre>
@@ -1233,13 +1236,13 @@ North
 <pre><code>## The following object is masked from &#39;package:rcarbon&#39;:
 ## 
 ##     calibrate</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="composition-diversity.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assemblage size (N)</span></span>
-<span id="cb115-2"><a href="composition-diversity.html#cb115-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
-<span id="cb115-3"><a href="composition-diversity.html#cb115-3" aria-hidden="true" tabindex="-1"></a>N</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="composition-diversity.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assemblage size (N)</span></span>
+<span id="cb118-2"><a href="composition-diversity.html#cb118-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
+<span id="cb118-3"><a href="composition-diversity.html#cb118-3" aria-hidden="true" tabindex="-1"></a>N</span></code></pre></div>
 <pre><code>## [1]  10  13  25 112  43 120 184  48</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="composition-diversity.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of each type recovered</span></span>
-<span id="cb117-2"><a href="composition-diversity.html#cb117-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
-<span id="cb117-3"><a href="composition-diversity.html#cb117-3" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="composition-diversity.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of each type recovered</span></span>
+<span id="cb120-2"><a href="composition-diversity.html#cb120-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">colSums</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
+<span id="cb120-3"><a href="composition-diversity.html#cb120-3" aria-hidden="true" tabindex="-1"></a>T</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula              friley 
 ##                 330                  31                   6                   2 
 ##             gahagan               hayes             harrell                reed 
@@ -1248,13 +1251,13 @@ North
 ##                  50                   1                   3                   6 
 ##        kiam_incised      ceramic_bottle        ceramic_bowl 
 ##                   1                   3                   7</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="composition-diversity.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="do">## richness (S) = number of types from each mortuary context</span></span>
-<span id="cb119-2"><a href="composition-diversity.html#cb119-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
-<span id="cb119-3"><a href="composition-diversity.html#cb119-3" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="composition-diversity.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="do">## richness (S) = number of types from each mortuary context</span></span>
+<span id="cb122-2"><a href="composition-diversity.html#cb122-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
+<span id="cb122-3"><a href="composition-diversity.html#cb122-3" aria-hidden="true" tabindex="-1"></a>S</span></code></pre></div>
 <pre><code>## [1]  6  3  7 12  5  6  4 10</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="composition-diversity.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ubiquity (U) = number of mortuary contexts that contain each type</span></span>
-<span id="cb121-2"><a href="composition-diversity.html#cb121-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>], <span class="at">MARGIN =</span> <span class="dv">2</span>)</span>
-<span id="cb121-3"><a href="composition-diversity.html#cb121-3" aria-hidden="true" tabindex="-1"></a>U</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="composition-diversity.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ubiquity (U) = number of mortuary contexts that contain each type</span></span>
+<span id="cb124-2"><a href="composition-diversity.html#cb124-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>], <span class="at">MARGIN =</span> <span class="dv">2</span>)</span>
+<span id="cb124-3"><a href="composition-diversity.html#cb124-3" aria-hidden="true" tabindex="-1"></a>U</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula              friley 
 ##                   7                   5                   2                   2 
 ##             gahagan               hayes             harrell                reed 
@@ -1266,8 +1269,8 @@ North
 </div>
 <div id="relative-abundance" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Relative abundance<a href="composition-diversity.html#relative-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="composition-diversity.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mean number of observations for each type</span></span>
-<span id="cb123-2"><a href="composition-diversity.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="composition-diversity.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mean number of observations for each type</span></span>
+<span id="cb126-2"><a href="composition-diversity.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula              friley 
 ##              41.250               3.875               0.750               0.250 
 ##             gahagan               hayes             harrell                reed 
@@ -1276,11 +1279,11 @@ North
 ##               6.250               0.125               0.375               0.750 
 ##        kiam_incised      ceramic_bottle        ceramic_bowl 
 ##               0.125               0.375               0.875</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="composition-diversity.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to percentage</span></span>
-<span id="cb125-2"><a href="composition-diversity.html#cb125-2" aria-hidden="true" tabindex="-1"></a>data.pct <span class="ot">&lt;-</span> data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>]<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb125-3"><a href="composition-diversity.html#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="do">## mean percent (Mp) of each type</span></span>
-<span id="cb125-4"><a href="composition-diversity.html#cb125-4" aria-hidden="true" tabindex="-1"></a>Mp <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(data.pct)</span>
-<span id="cb125-5"><a href="composition-diversity.html#cb125-5" aria-hidden="true" tabindex="-1"></a>Mp</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="composition-diversity.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to percentage</span></span>
+<span id="cb128-2"><a href="composition-diversity.html#cb128-2" aria-hidden="true" tabindex="-1"></a>data.pct <span class="ot">&lt;-</span> data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>]<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb128-3"><a href="composition-diversity.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="do">## mean percent (Mp) of each type</span></span>
+<span id="cb128-4"><a href="composition-diversity.html#cb128-4" aria-hidden="true" tabindex="-1"></a>Mp <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(data.pct)</span>
+<span id="cb128-5"><a href="composition-diversity.html#cb128-5" aria-hidden="true" tabindex="-1"></a>Mp</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula              friley 
 ##          39.4609095           4.3147645           5.5208333           0.5511143 
 ##             gahagan               hayes             harrell                reed 
@@ -1289,9 +1292,9 @@ North
 ##          10.0396249           0.2604167           1.6220238           2.7261905 
 ##        kiam_incised      ceramic_bottle        ceramic_bowl 
 ##           0.1116071           0.7157738           3.7440476</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="composition-diversity.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="do">## percentage of sites that include each type</span></span>
-<span id="cb127-2"><a href="composition-diversity.html#cb127-2" aria-hidden="true" tabindex="-1"></a>Up <span class="ot">&lt;-</span> U<span class="sc">/</span><span class="fu">length</span>(N)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb127-3"><a href="composition-diversity.html#cb127-3" aria-hidden="true" tabindex="-1"></a>Up</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="composition-diversity.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="do">## percentage of sites that include each type</span></span>
+<span id="cb130-2"><a href="composition-diversity.html#cb130-2" aria-hidden="true" tabindex="-1"></a>Up <span class="ot">&lt;-</span> U<span class="sc">/</span><span class="fu">length</span>(N)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb130-3"><a href="composition-diversity.html#cb130-3" aria-hidden="true" tabindex="-1"></a>Up</span></code></pre></div>
 <pre><code>##                alba                celt           catahoula              friley 
 ##                87.5                62.5                25.0                25.0 
 ##             gahagan               hayes             harrell                reed 
@@ -1302,8 +1305,8 @@ North
 ##                12.5                37.5                50.0</code></pre>
 <div id="relative-abundance-by-context" class="section level3 hasAnchor" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Relative abundance by context<a href="composition-diversity.html#relative-abundance-by-context" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="composition-diversity.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb129-2"><a href="composition-diversity.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="composition-diversity.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb132-2"><a href="composition-diversity.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;reshape&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
@@ -1312,128 +1315,128 @@ North
 <pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
 ## 
 ##     expand, smiths</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="composition-diversity.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb133-2"><a href="composition-diversity.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb133-3"><a href="composition-diversity.html#cb133-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
-<span id="cb133-4"><a href="composition-diversity.html#cb133-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb133-5"><a href="composition-diversity.html#cb133-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-6"><a href="composition-diversity.html#cb133-6" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of Caddo adult and juvenile burials</span></span>
-<span id="cb133-7"><a href="composition-diversity.html#cb133-7" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb133-8"><a href="composition-diversity.html#cb133-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-9"><a href="composition-diversity.html#cb133-9" aria-hidden="true" tabindex="-1"></a>burials <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb133-10"><a href="composition-diversity.html#cb133-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, total_adult, total_juvenile) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-11"><a href="composition-diversity.html#cb133-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
-<span id="cb133-12"><a href="composition-diversity.html#cb133-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-13"><a href="composition-diversity.html#cb133-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
-<span id="cb133-14"><a href="composition-diversity.html#cb133-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-15"><a href="composition-diversity.html#cb133-15" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb133-16"><a href="composition-diversity.html#cb133-16" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
-<span id="cb133-17"><a href="composition-diversity.html#cb133-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-18"><a href="composition-diversity.html#cb133-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb133-19"><a href="composition-diversity.html#cb133-19" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
-<span id="cb133-20"><a href="composition-diversity.html#cb133-20" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
-<span id="cb133-21"><a href="composition-diversity.html#cb133-21" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-22"><a href="composition-diversity.html#cb133-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
-<span id="cb133-23"><a href="composition-diversity.html#cb133-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb133-24"><a href="composition-diversity.html#cb133-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb133-25"><a href="composition-diversity.html#cb133-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb133-26"><a href="composition-diversity.html#cb133-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
-<span id="cb133-27"><a href="composition-diversity.html#cb133-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
-<span id="cb133-28"><a href="composition-diversity.html#cb133-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
-<span id="cb133-29"><a href="composition-diversity.html#cb133-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-30"><a href="composition-diversity.html#cb133-30" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of burials by age (where known)</span></span>
-<span id="cb133-31"><a href="composition-diversity.html#cb133-31" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">6</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb133-32"><a href="composition-diversity.html#cb133-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-33"><a href="composition-diversity.html#cb133-33" aria-hidden="true" tabindex="-1"></a>burials <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb133-34"><a href="composition-diversity.html#cb133-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, adult_male<span class="sc">:</span>uid_adult, juvenile_male<span class="sc">:</span>uid_juvenile) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-35"><a href="composition-diversity.html#cb133-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
-<span id="cb133-36"><a href="composition-diversity.html#cb133-36" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-37"><a href="composition-diversity.html#cb133-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
-<span id="cb133-38"><a href="composition-diversity.html#cb133-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-39"><a href="composition-diversity.html#cb133-39" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb133-40"><a href="composition-diversity.html#cb133-40" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
-<span id="cb133-41"><a href="composition-diversity.html#cb133-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-42"><a href="composition-diversity.html#cb133-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb133-43"><a href="composition-diversity.html#cb133-43" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
-<span id="cb133-44"><a href="composition-diversity.html#cb133-44" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
-<span id="cb133-45"><a href="composition-diversity.html#cb133-45" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb133-46"><a href="composition-diversity.html#cb133-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
-<span id="cb133-47"><a href="composition-diversity.html#cb133-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb133-48"><a href="composition-diversity.html#cb133-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb133-49"><a href="composition-diversity.html#cb133-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb133-50"><a href="composition-diversity.html#cb133-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
-<span id="cb133-51"><a href="composition-diversity.html#cb133-51" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
-<span id="cb133-52"><a href="composition-diversity.html#cb133-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
-<span id="cb133-53"><a href="composition-diversity.html#cb133-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-54"><a href="composition-diversity.html#cb133-54" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
-<span id="cb133-55"><a href="composition-diversity.html#cb133-55" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot1, plot2,</span>
-<span id="cb133-56"><a href="composition-diversity.html#cb133-56" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),</span>
-<span id="cb133-57"><a href="composition-diversity.html#cb133-57" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
-<span id="cb133-58"><a href="composition-diversity.html#cb133-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-59"><a href="composition-diversity.html#cb133-59" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
-<span id="cb133-60"><a href="composition-diversity.html#cb133-60" aria-hidden="true" tabindex="-1"></a>figure</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="composition-diversity.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb136-2"><a href="composition-diversity.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb136-3"><a href="composition-diversity.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
+<span id="cb136-4"><a href="composition-diversity.html#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb136-5"><a href="composition-diversity.html#cb136-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-6"><a href="composition-diversity.html#cb136-6" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of Caddo adult and juvenile burials</span></span>
+<span id="cb136-7"><a href="composition-diversity.html#cb136-7" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb136-8"><a href="composition-diversity.html#cb136-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-9"><a href="composition-diversity.html#cb136-9" aria-hidden="true" tabindex="-1"></a>burials <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb136-10"><a href="composition-diversity.html#cb136-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, total_adult, total_juvenile) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-11"><a href="composition-diversity.html#cb136-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
+<span id="cb136-12"><a href="composition-diversity.html#cb136-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-13"><a href="composition-diversity.html#cb136-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
+<span id="cb136-14"><a href="composition-diversity.html#cb136-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-15"><a href="composition-diversity.html#cb136-15" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
+<span id="cb136-16"><a href="composition-diversity.html#cb136-16" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
+<span id="cb136-17"><a href="composition-diversity.html#cb136-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-18"><a href="composition-diversity.html#cb136-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb136-19"><a href="composition-diversity.html#cb136-19" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
+<span id="cb136-20"><a href="composition-diversity.html#cb136-20" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
+<span id="cb136-21"><a href="composition-diversity.html#cb136-21" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-22"><a href="composition-diversity.html#cb136-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
+<span id="cb136-23"><a href="composition-diversity.html#cb136-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb136-24"><a href="composition-diversity.html#cb136-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb136-25"><a href="composition-diversity.html#cb136-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb136-26"><a href="composition-diversity.html#cb136-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
+<span id="cb136-27"><a href="composition-diversity.html#cb136-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
+<span id="cb136-28"><a href="composition-diversity.html#cb136-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
+<span id="cb136-29"><a href="composition-diversity.html#cb136-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-30"><a href="composition-diversity.html#cb136-30" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of burials by age (where known)</span></span>
+<span id="cb136-31"><a href="composition-diversity.html#cb136-31" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">6</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb136-32"><a href="composition-diversity.html#cb136-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-33"><a href="composition-diversity.html#cb136-33" aria-hidden="true" tabindex="-1"></a>burials <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb136-34"><a href="composition-diversity.html#cb136-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, adult_male<span class="sc">:</span>uid_adult, juvenile_male<span class="sc">:</span>uid_juvenile) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-35"><a href="composition-diversity.html#cb136-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
+<span id="cb136-36"><a href="composition-diversity.html#cb136-36" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-37"><a href="composition-diversity.html#cb136-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
+<span id="cb136-38"><a href="composition-diversity.html#cb136-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-39"><a href="composition-diversity.html#cb136-39" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
+<span id="cb136-40"><a href="composition-diversity.html#cb136-40" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> burials <span class="sc">%&gt;%</span></span>
+<span id="cb136-41"><a href="composition-diversity.html#cb136-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-42"><a href="composition-diversity.html#cb136-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb136-43"><a href="composition-diversity.html#cb136-43" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
+<span id="cb136-44"><a href="composition-diversity.html#cb136-44" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
+<span id="cb136-45"><a href="composition-diversity.html#cb136-45" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-46"><a href="composition-diversity.html#cb136-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
+<span id="cb136-47"><a href="composition-diversity.html#cb136-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb136-48"><a href="composition-diversity.html#cb136-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb136-49"><a href="composition-diversity.html#cb136-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb136-50"><a href="composition-diversity.html#cb136-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
+<span id="cb136-51"><a href="composition-diversity.html#cb136-51" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
+<span id="cb136-52"><a href="composition-diversity.html#cb136-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
+<span id="cb136-53"><a href="composition-diversity.html#cb136-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-54"><a href="composition-diversity.html#cb136-54" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
+<span id="cb136-55"><a href="composition-diversity.html#cb136-55" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot1, plot2,</span>
+<span id="cb136-56"><a href="composition-diversity.html#cb136-56" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),</span>
+<span id="cb136-57"><a href="composition-diversity.html#cb136-57" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb136-58"><a href="composition-diversity.html#cb136-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-59"><a href="composition-diversity.html#cb136-59" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
+<span id="cb136-60"><a href="composition-diversity.html#cb136-60" aria-hidden="true" tabindex="-1"></a>figure</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plotburialdiversity"></span>
 <img src="_main_files/figure-html/plotburialdiversity-1.png" alt="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable." width="100%" />
 <p class="caption">
 Figure 3.1: Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable.
 </p>
 </div>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="composition-diversity.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of lithics + ceramics</span></span>
-<span id="cb134-2"><a href="composition-diversity.html#cb134-2" aria-hidden="true" tabindex="-1"></a>pal1 <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb134-3"><a href="composition-diversity.html#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-4"><a href="composition-diversity.html#cb134-4" aria-hidden="true" tabindex="-1"></a>cerlith <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb134-5"><a href="composition-diversity.html#cb134-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, lithics, ceramics) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-6"><a href="composition-diversity.html#cb134-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
-<span id="cb134-7"><a href="composition-diversity.html#cb134-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-8"><a href="composition-diversity.html#cb134-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
-<span id="cb134-9"><a href="composition-diversity.html#cb134-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-10"><a href="composition-diversity.html#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb134-11"><a href="composition-diversity.html#cb134-11" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> cerlith <span class="sc">%&gt;%</span></span>
-<span id="cb134-12"><a href="composition-diversity.html#cb134-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-13"><a href="composition-diversity.html#cb134-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb134-14"><a href="composition-diversity.html#cb134-14" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
-<span id="cb134-15"><a href="composition-diversity.html#cb134-15" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
-<span id="cb134-16"><a href="composition-diversity.html#cb134-16" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-17"><a href="composition-diversity.html#cb134-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
-<span id="cb134-18"><a href="composition-diversity.html#cb134-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb134-19"><a href="composition-diversity.html#cb134-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb134-20"><a href="composition-diversity.html#cb134-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal1) <span class="sc">+</span></span>
-<span id="cb134-21"><a href="composition-diversity.html#cb134-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
-<span id="cb134-22"><a href="composition-diversity.html#cb134-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
-<span id="cb134-23"><a href="composition-diversity.html#cb134-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
-<span id="cb134-24"><a href="composition-diversity.html#cb134-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-25"><a href="composition-diversity.html#cb134-25" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of diagnostic types</span></span>
-<span id="cb134-26"><a href="composition-diversity.html#cb134-26" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">17</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb134-27"><a href="composition-diversity.html#cb134-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-28"><a href="composition-diversity.html#cb134-28" aria-hidden="true" tabindex="-1"></a>diagnostics <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb134-29"><a href="composition-diversity.html#cb134-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, alba<span class="sc">:</span>ceramic_bowl) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-30"><a href="composition-diversity.html#cb134-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
-<span id="cb134-31"><a href="composition-diversity.html#cb134-31" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-32"><a href="composition-diversity.html#cb134-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
-<span id="cb134-33"><a href="composition-diversity.html#cb134-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-34"><a href="composition-diversity.html#cb134-34" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
-<span id="cb134-35"><a href="composition-diversity.html#cb134-35" aria-hidden="true" tabindex="-1"></a>plot4 <span class="ot">&lt;-</span> diagnostics <span class="sc">%&gt;%</span> </span>
-<span id="cb134-36"><a href="composition-diversity.html#cb134-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-37"><a href="composition-diversity.html#cb134-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb134-38"><a href="composition-diversity.html#cb134-38" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
-<span id="cb134-39"><a href="composition-diversity.html#cb134-39" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
-<span id="cb134-40"><a href="composition-diversity.html#cb134-40" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb134-41"><a href="composition-diversity.html#cb134-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
-<span id="cb134-42"><a href="composition-diversity.html#cb134-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb134-43"><a href="composition-diversity.html#cb134-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb134-44"><a href="composition-diversity.html#cb134-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb134-45"><a href="composition-diversity.html#cb134-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
-<span id="cb134-46"><a href="composition-diversity.html#cb134-46" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
-<span id="cb134-47"><a href="composition-diversity.html#cb134-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Types&quot;</span>) <span class="sc">+</span></span>
-<span id="cb134-48"><a href="composition-diversity.html#cb134-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="fl">0.05</span>, <span class="st">&quot;cm&quot;</span>))</span>
-<span id="cb134-49"><a href="composition-diversity.html#cb134-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-50"><a href="composition-diversity.html#cb134-50" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
-<span id="cb134-51"><a href="composition-diversity.html#cb134-51" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot3, plot4,</span>
-<span id="cb134-52"><a href="composition-diversity.html#cb134-52" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>),</span>
-<span id="cb134-53"><a href="composition-diversity.html#cb134-53" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
-<span id="cb134-54"><a href="composition-diversity.html#cb134-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-55"><a href="composition-diversity.html#cb134-55" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
-<span id="cb134-56"><a href="composition-diversity.html#cb134-56" aria-hidden="true" tabindex="-1"></a>figure</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="composition-diversity.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of lithics + ceramics</span></span>
+<span id="cb137-2"><a href="composition-diversity.html#cb137-2" aria-hidden="true" tabindex="-1"></a>pal1 <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb137-3"><a href="composition-diversity.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="composition-diversity.html#cb137-4" aria-hidden="true" tabindex="-1"></a>cerlith <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb137-5"><a href="composition-diversity.html#cb137-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, lithics, ceramics) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-6"><a href="composition-diversity.html#cb137-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
+<span id="cb137-7"><a href="composition-diversity.html#cb137-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-8"><a href="composition-diversity.html#cb137-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
+<span id="cb137-9"><a href="composition-diversity.html#cb137-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-10"><a href="composition-diversity.html#cb137-10" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
+<span id="cb137-11"><a href="composition-diversity.html#cb137-11" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> cerlith <span class="sc">%&gt;%</span></span>
+<span id="cb137-12"><a href="composition-diversity.html#cb137-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-13"><a href="composition-diversity.html#cb137-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb137-14"><a href="composition-diversity.html#cb137-14" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
+<span id="cb137-15"><a href="composition-diversity.html#cb137-15" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
+<span id="cb137-16"><a href="composition-diversity.html#cb137-16" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-17"><a href="composition-diversity.html#cb137-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
+<span id="cb137-18"><a href="composition-diversity.html#cb137-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb137-19"><a href="composition-diversity.html#cb137-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb137-20"><a href="composition-diversity.html#cb137-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal1) <span class="sc">+</span></span>
+<span id="cb137-21"><a href="composition-diversity.html#cb137-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
+<span id="cb137-22"><a href="composition-diversity.html#cb137-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
+<span id="cb137-23"><a href="composition-diversity.html#cb137-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Category&quot;</span>)</span>
+<span id="cb137-24"><a href="composition-diversity.html#cb137-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-25"><a href="composition-diversity.html#cb137-25" aria-hidden="true" tabindex="-1"></a><span class="co"># relative abundance of diagnostic types</span></span>
+<span id="cb137-26"><a href="composition-diversity.html#cb137-26" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">17</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb137-27"><a href="composition-diversity.html#cb137-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-28"><a href="composition-diversity.html#cb137-28" aria-hidden="true" tabindex="-1"></a>diagnostics <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb137-29"><a href="composition-diversity.html#cb137-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(context, alba<span class="sc">:</span>ceramic_bowl) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-30"><a href="composition-diversity.html#cb137-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">paste</span>(context, <span class="fu">c</span>(<span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>,</span>
+<span id="cb137-31"><a href="composition-diversity.html#cb137-31" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;(N)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(S)&quot;</span>, <span class="st">&quot;(N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-32"><a href="composition-diversity.html#cb137-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="st">&quot;context&quot;</span>)</span>
+<span id="cb137-33"><a href="composition-diversity.html#cb137-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-34"><a href="composition-diversity.html#cb137-34" aria-hidden="true" tabindex="-1"></a><span class="co"># configure plot</span></span>
+<span id="cb137-35"><a href="composition-diversity.html#cb137-35" aria-hidden="true" tabindex="-1"></a>plot4 <span class="ot">&lt;-</span> diagnostics <span class="sc">%&gt;%</span> </span>
+<span id="cb137-36"><a href="composition-diversity.html#cb137-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(context) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-37"><a href="composition-diversity.html#cb137-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb137-38"><a href="composition-diversity.html#cb137-38" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP1 (N)&quot;</span>, <span class="st">&quot;41CE19-F134 (S)&quot;</span>, <span class="st">&quot;16RR1-BP3 (S)&quot;</span>,</span>
+<span id="cb137-39"><a href="composition-diversity.html#cb137-39" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP5 (N)&quot;</span>, <span class="st">&quot;16RR1-BP2 (S)&quot;</span>, <span class="st">&quot;41CE19-F119 (S)&quot;</span>, </span>
+<span id="cb137-40"><a href="composition-diversity.html#cb137-40" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;16CD12-BP2 (N)&quot;</span>, <span class="st">&quot;16CD12-BP8 (N)&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb137-41"><a href="composition-diversity.html#cb137-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> value, <span class="at">fill =</span> variable)) <span class="sc">+</span> </span>
+<span id="cb137-42"><a href="composition-diversity.html#cb137-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb137-43"><a href="composition-diversity.html#cb137-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb137-44"><a href="composition-diversity.html#cb137-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb137-45"><a href="composition-diversity.html#cb137-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Context&quot;</span>,</span>
+<span id="cb137-46"><a href="composition-diversity.html#cb137-46" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</span>
+<span id="cb137-47"><a href="composition-diversity.html#cb137-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Types&quot;</span>) <span class="sc">+</span></span>
+<span id="cb137-48"><a href="composition-diversity.html#cb137-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="fl">0.05</span>, <span class="st">&quot;cm&quot;</span>))</span>
+<span id="cb137-49"><a href="composition-diversity.html#cb137-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-50"><a href="composition-diversity.html#cb137-50" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
+<span id="cb137-51"><a href="composition-diversity.html#cb137-51" aria-hidden="true" tabindex="-1"></a>figure <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(plot3, plot4,</span>
+<span id="cb137-52"><a href="composition-diversity.html#cb137-52" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>),</span>
+<span id="cb137-53"><a href="composition-diversity.html#cb137-53" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb137-54"><a href="composition-diversity.html#cb137-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-55"><a href="composition-diversity.html#cb137-55" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
+<span id="cb137-56"><a href="composition-diversity.html#cb137-56" aria-hidden="true" tabindex="-1"></a>figure</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plotalphadiversity"></span>
 <img src="_main_files/figure-html/plotalphadiversity-1.png" alt="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable." width="100%" />
 <p class="caption">
@@ -1444,28 +1447,28 @@ Figure 3.2: Relative abundance of associated diagnostics. Contexts ordered tempo
 </div>
 <div id="beta-diversity" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Beta diversity<a href="composition-diversity.html#beta-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="composition-diversity.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity - diagnostics</span></span>
-<span id="cb135-2"><a href="composition-diversity.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpson diversity</span></span>
-<span id="cb135-3"><a href="composition-diversity.html#cb135-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>], <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
-<span id="cb135-4"><a href="composition-diversity.html#cb135-4" aria-hidden="true" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> data<span class="sc">$</span>D1</span>
-<span id="cb135-5"><a href="composition-diversity.html#cb135-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-6"><a href="composition-diversity.html#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="co"># evenness - diagnostics</span></span>
-<span id="cb135-7"><a href="composition-diversity.html#cb135-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shannon diversity</span></span>
-<span id="cb135-8"><a href="composition-diversity.html#cb135-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
-<span id="cb135-9"><a href="composition-diversity.html#cb135-9" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> data<span class="sc">$</span>H</span>
-<span id="cb135-10"><a href="composition-diversity.html#cb135-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-11"><a href="composition-diversity.html#cb135-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pielou&#39;s J (Shannon diversity index divided by natural log of richness)</span></span>
-<span id="cb135-12"><a href="composition-diversity.html#cb135-12" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>J <span class="ot">&lt;-</span> H<span class="sc">/</span><span class="fu">log</span>(S)</span>
-<span id="cb135-13"><a href="composition-diversity.html#cb135-13" aria-hidden="true" tabindex="-1"></a>J <span class="ot">&lt;-</span> data<span class="sc">$</span>J</span></code></pre></div>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="composition-diversity.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identify high &amp; low diversity assemblages</span></span>
-<span id="cb136-2"><a href="composition-diversity.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> D1, <span class="at">y =</span> J)) <span class="sc">+</span></span>
-<span id="cb136-3"><a href="composition-diversity.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">rownames</span>(data), <span class="at">colour =</span> region)) <span class="sc">+</span></span>
-<span id="cb136-4"><a href="composition-diversity.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(D1))) <span class="sc">+</span></span>
-<span id="cb136-5"><a href="composition-diversity.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(J))) <span class="sc">+</span></span>
-<span id="cb136-6"><a href="composition-diversity.html#cb136-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.87</span>, <span class="fl">0.15</span>)) <span class="sc">+</span></span>
-<span id="cb136-7"><a href="composition-diversity.html#cb136-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal1) <span class="sc">+</span></span>
-<span id="cb136-8"><a href="composition-diversity.html#cb136-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Behavioral Region&quot;</span>,</span>
-<span id="cb136-9"><a href="composition-diversity.html#cb136-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;(J = Peilou&#39;s J; D1 = Simpson diversity)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="composition-diversity.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity - diagnostics</span></span>
+<span id="cb138-2"><a href="composition-diversity.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpson diversity</span></span>
+<span id="cb138-3"><a href="composition-diversity.html#cb138-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>D1 <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>], <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span>)</span>
+<span id="cb138-4"><a href="composition-diversity.html#cb138-4" aria-hidden="true" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> data<span class="sc">$</span>D1</span>
+<span id="cb138-5"><a href="composition-diversity.html#cb138-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-6"><a href="composition-diversity.html#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="co"># evenness - diagnostics</span></span>
+<span id="cb138-7"><a href="composition-diversity.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shannon diversity</span></span>
+<span id="cb138-8"><a href="composition-diversity.html#cb138-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>H <span class="ot">&lt;-</span> <span class="fu">diversity</span>(data[<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>])</span>
+<span id="cb138-9"><a href="composition-diversity.html#cb138-9" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> data<span class="sc">$</span>H</span>
+<span id="cb138-10"><a href="composition-diversity.html#cb138-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-11"><a href="composition-diversity.html#cb138-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pielou&#39;s J (Shannon diversity index divided by natural log of richness)</span></span>
+<span id="cb138-12"><a href="composition-diversity.html#cb138-12" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>J <span class="ot">&lt;-</span> H<span class="sc">/</span><span class="fu">log</span>(S)</span>
+<span id="cb138-13"><a href="composition-diversity.html#cb138-13" aria-hidden="true" tabindex="-1"></a>J <span class="ot">&lt;-</span> data<span class="sc">$</span>J</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="composition-diversity.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identify high &amp; low diversity assemblages</span></span>
+<span id="cb139-2"><a href="composition-diversity.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> D1, <span class="at">y =</span> J)) <span class="sc">+</span></span>
+<span id="cb139-3"><a href="composition-diversity.html#cb139-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">rownames</span>(data), <span class="at">colour =</span> region)) <span class="sc">+</span></span>
+<span id="cb139-4"><a href="composition-diversity.html#cb139-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(D1))) <span class="sc">+</span></span>
+<span id="cb139-5"><a href="composition-diversity.html#cb139-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(J))) <span class="sc">+</span></span>
+<span id="cb139-6"><a href="composition-diversity.html#cb139-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.87</span>, <span class="fl">0.15</span>)) <span class="sc">+</span></span>
+<span id="cb139-7"><a href="composition-diversity.html#cb139-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal1) <span class="sc">+</span></span>
+<span id="cb139-8"><a href="composition-diversity.html#cb139-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Behavioral Region&quot;</span>,</span>
+<span id="cb139-9"><a href="composition-diversity.html#cb139-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;(J = Peilou&#39;s J; D1 = Simpson diversity)&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:diversity2"></span>
 <img src="_main_files/figure-html/diversity2-1.png" alt="Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8; 2, 16CD12-BP2; 3, 41CE19-F119; 4, 16RR1-BP2; 5, 16CD12-BP5; 6, 16RR1-BP3; 7, 41CE19-F134; 8, 16CD12-BP1. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and represent the three earliest contexts to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat." width="100%" />
 <p class="caption">
@@ -1477,19 +1480,19 @@ Figure 3.3: Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8
 <h2><span class="header-section-number">3.5</span> Diversity through time<a href="composition-diversity.html#diversity-through-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong><em>Hypothesis</em>: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.</strong></p>
 <p>This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as Caddo burial practices evolved.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="composition-diversity.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity</span></span>
-<span id="cb137-2"><a href="composition-diversity.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RRPP)</span>
-<span id="cb137-3"><a href="composition-diversity.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb137-4"><a href="composition-diversity.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate data to add temporal assignment</span></span>
-<span id="cb137-5"><a href="composition-diversity.html#cb137-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb137-6"><a href="composition-diversity.html#cb137-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temporal =</span> <span class="fu">c</span>(<span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Subsequent&quot;</span>,</span>
-<span id="cb137-7"><a href="composition-diversity.html#cb137-7" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Initial&quot;</span>, <span class="st">&quot;Initial&quot;</span>, <span class="st">&quot;Initial&quot;</span>), </span>
-<span id="cb137-8"><a href="composition-diversity.html#cb137-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">.after =</span> region)</span>
-<span id="cb137-9"><a href="composition-diversity.html#cb137-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb137-10"><a href="composition-diversity.html#cb137-10" aria-hidden="true" tabindex="-1"></a><span class="co"># revised table of diagnostics</span></span>
-<span id="cb137-11"><a href="composition-diversity.html#cb137-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(temp) <span class="sc">%&gt;%</span> </span>
-<span id="cb137-12"><a href="composition-diversity.html#cb137-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb137-13"><a href="composition-diversity.html#cb137-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="composition-diversity.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity</span></span>
+<span id="cb140-2"><a href="composition-diversity.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RRPP)</span>
+<span id="cb140-3"><a href="composition-diversity.html#cb140-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-4"><a href="composition-diversity.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate data to add temporal assignment</span></span>
+<span id="cb140-5"><a href="composition-diversity.html#cb140-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb140-6"><a href="composition-diversity.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temporal =</span> <span class="fu">c</span>(<span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Subsequent&quot;</span>,</span>
+<span id="cb140-7"><a href="composition-diversity.html#cb140-7" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Subsequent&quot;</span>, <span class="st">&quot;Initial&quot;</span>, <span class="st">&quot;Initial&quot;</span>, <span class="st">&quot;Initial&quot;</span>), </span>
+<span id="cb140-8"><a href="composition-diversity.html#cb140-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">.after =</span> region)</span>
+<span id="cb140-9"><a href="composition-diversity.html#cb140-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-10"><a href="composition-diversity.html#cb140-10" aria-hidden="true" tabindex="-1"></a><span class="co"># revised table of diagnostics</span></span>
+<span id="cb140-11"><a href="composition-diversity.html#cb140-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(temp) <span class="sc">%&gt;%</span> </span>
+<span id="cb140-12"><a href="composition-diversity.html#cb140-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb140-13"><a href="composition-diversity.html#cb140-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -2353,37 +2356,37 @@ Initial
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="composition-diversity.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for plots</span></span>
-<span id="cb138-2"><a href="composition-diversity.html#cb138-2" aria-hidden="true" tabindex="-1"></a>temp.D1 <span class="ot">&lt;-</span> temp<span class="sc">$</span>D1</span>
-<span id="cb138-3"><a href="composition-diversity.html#cb138-3" aria-hidden="true" tabindex="-1"></a>temp.J <span class="ot">&lt;-</span> temp<span class="sc">$</span>J</span>
-<span id="cb138-4"><a href="composition-diversity.html#cb138-4" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> temp<span class="sc">$</span>temporal</span>
-<span id="cb138-5"><a href="composition-diversity.html#cb138-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-6"><a href="composition-diversity.html#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="co">#diversity</span></span>
-<span id="cb138-7"><a href="composition-diversity.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="do">## plot diversity</span></span>
-<span id="cb138-8"><a href="composition-diversity.html#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(temp, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> temp.D1)) <span class="sc">+</span></span>
-<span id="cb138-9"><a href="composition-diversity.html#cb138-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">position=</span><span class="fu">position_jitter</span>(<span class="dv">0</span>), <span class="at">cex =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>)) <span class="sc">+</span></span>
-<span id="cb138-10"><a href="composition-diversity.html#cb138-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb138-11"><a href="composition-diversity.html#cb138-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Simpson Diversity&quot;</span>,</span>
-<span id="cb138-12"><a href="composition-diversity.html#cb138-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&quot;Context&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="composition-diversity.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for plots</span></span>
+<span id="cb141-2"><a href="composition-diversity.html#cb141-2" aria-hidden="true" tabindex="-1"></a>temp.D1 <span class="ot">&lt;-</span> temp<span class="sc">$</span>D1</span>
+<span id="cb141-3"><a href="composition-diversity.html#cb141-3" aria-hidden="true" tabindex="-1"></a>temp.J <span class="ot">&lt;-</span> temp<span class="sc">$</span>J</span>
+<span id="cb141-4"><a href="composition-diversity.html#cb141-4" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> temp<span class="sc">$</span>temporal</span>
+<span id="cb141-5"><a href="composition-diversity.html#cb141-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-6"><a href="composition-diversity.html#cb141-6" aria-hidden="true" tabindex="-1"></a><span class="co">#diversity</span></span>
+<span id="cb141-7"><a href="composition-diversity.html#cb141-7" aria-hidden="true" tabindex="-1"></a><span class="do">## plot diversity</span></span>
+<span id="cb141-8"><a href="composition-diversity.html#cb141-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(temp, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> temp.D1)) <span class="sc">+</span></span>
+<span id="cb141-9"><a href="composition-diversity.html#cb141-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">position=</span><span class="fu">position_jitter</span>(<span class="dv">0</span>), <span class="at">cex =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>)) <span class="sc">+</span></span>
+<span id="cb141-10"><a href="composition-diversity.html#cb141-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb141-11"><a href="composition-diversity.html#cb141-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Simpson Diversity&quot;</span>,</span>
+<span id="cb141-12"><a href="composition-diversity.html#cb141-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&quot;Context&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpsoninitdiversity-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="composition-diversity.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are data not normally distributed?</span></span>
-<span id="cb139-2"><a href="composition-diversity.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(temp.D1)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="composition-diversity.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are data not normally distributed?</span></span>
+<span id="cb142-2"><a href="composition-diversity.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(temp.D1)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  temp.D1
 ## W = 0.955, p-value = 0.7613</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="composition-diversity.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot distribution</span></span>
-<span id="cb141-2"><a href="composition-diversity.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.D1, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="composition-diversity.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot distribution</span></span>
+<span id="cb144-2"><a href="composition-diversity.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.D1, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpsoninitdiversity-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="composition-diversity.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: temp.D1 as a function of time</span></span>
-<span id="cb142-2"><a href="composition-diversity.html#cb142-2" aria-hidden="true" tabindex="-1"></a>temp.simpson <span class="ot">&lt;-</span> <span class="fu">lm.rrpp</span>(temp.D1 <span class="sc">~</span> time,</span>
-<span id="cb142-3"><a href="composition-diversity.html#cb142-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> temp,</span>
-<span id="cb142-4"><a href="composition-diversity.html#cb142-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb142-5"><a href="composition-diversity.html#cb142-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb142-6"><a href="composition-diversity.html#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-7"><a href="composition-diversity.html#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA: increase in diversity through time?</span></span>
-<span id="cb142-8"><a href="composition-diversity.html#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(temp.simpson)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="composition-diversity.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: temp.D1 as a function of time</span></span>
+<span id="cb145-2"><a href="composition-diversity.html#cb145-2" aria-hidden="true" tabindex="-1"></a>temp.simpson <span class="ot">&lt;-</span> <span class="fu">lm.rrpp</span>(temp.D1 <span class="sc">~</span> time,</span>
+<span id="cb145-3"><a href="composition-diversity.html#cb145-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> temp,</span>
+<span id="cb145-4"><a href="composition-diversity.html#cb145-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb145-5"><a href="composition-diversity.html#cb145-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb145-6"><a href="composition-diversity.html#cb145-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-7"><a href="composition-diversity.html#cb145-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA: increase in diversity through time?</span></span>
+<span id="cb145-8"><a href="composition-diversity.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(temp.simpson)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -2402,33 +2405,33 @@ Initial
 ## Call: lm.rrpp(f1 = temp.D1 ~ time, iter = 9999, data = temp, print.progress = FALSE)</code></pre>
 <div id="evenness-through-time" class="section level3 hasAnchor" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Evenness through time<a href="composition-diversity.html#evenness-through-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="composition-diversity.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evenness</span></span>
-<span id="cb144-2"><a href="composition-diversity.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="do">## plot evenness</span></span>
-<span id="cb144-3"><a href="composition-diversity.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(temp, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> temp.J)) <span class="sc">+</span></span>
-<span id="cb144-4"><a href="composition-diversity.html#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">position=</span><span class="fu">position_jitter</span>(<span class="fl">0.03</span>), <span class="at">cex =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>)) <span class="sc">+</span></span>
-<span id="cb144-5"><a href="composition-diversity.html#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)) <span class="sc">+</span></span>
-<span id="cb144-6"><a href="composition-diversity.html#cb144-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb144-7"><a href="composition-diversity.html#cb144-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Peilou&#39;s J&quot;</span>,</span>
-<span id="cb144-8"><a href="composition-diversity.html#cb144-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&quot;Context&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="composition-diversity.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evenness</span></span>
+<span id="cb147-2"><a href="composition-diversity.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="do">## plot evenness</span></span>
+<span id="cb147-3"><a href="composition-diversity.html#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(temp, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> temp.J)) <span class="sc">+</span></span>
+<span id="cb147-4"><a href="composition-diversity.html#cb147-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">position=</span><span class="fu">position_jitter</span>(<span class="fl">0.03</span>), <span class="at">cex =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>)) <span class="sc">+</span></span>
+<span id="cb147-5"><a href="composition-diversity.html#cb147-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)) <span class="sc">+</span></span>
+<span id="cb147-6"><a href="composition-diversity.html#cb147-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb147-7"><a href="composition-diversity.html#cb147-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Peilou&#39;s J&quot;</span>,</span>
+<span id="cb147-8"><a href="composition-diversity.html#cb147-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&quot;Context&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpsoninitevenness-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="composition-diversity.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are data not normally distributed?</span></span>
-<span id="cb145-2"><a href="composition-diversity.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(temp.J)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="composition-diversity.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are data not normally distributed?</span></span>
+<span id="cb148-2"><a href="composition-diversity.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(temp.J)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  temp.J
 ## W = 0.84242, p-value = 0.07976</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="composition-diversity.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot distribution</span></span>
-<span id="cb147-2"><a href="composition-diversity.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.J, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="composition-diversity.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot distribution</span></span>
+<span id="cb150-2"><a href="composition-diversity.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(temp.J, <span class="at">col=</span><span class="st">&#39;steelblue&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/simpsoninitevenness-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="composition-diversity.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: temp.J as a function of time</span></span>
-<span id="cb148-2"><a href="composition-diversity.html#cb148-2" aria-hidden="true" tabindex="-1"></a>temporal.J <span class="ot">&lt;-</span> <span class="fu">lm.rrpp</span>(temp.J <span class="sc">~</span> time,</span>
-<span id="cb148-3"><a href="composition-diversity.html#cb148-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> temp,</span>
-<span id="cb148-4"><a href="composition-diversity.html#cb148-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb148-5"><a href="composition-diversity.html#cb148-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb148-6"><a href="composition-diversity.html#cb148-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb148-7"><a href="composition-diversity.html#cb148-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA: increase in evenness through time?</span></span>
-<span id="cb148-8"><a href="composition-diversity.html#cb148-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(temporal.J)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="composition-diversity.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: temp.J as a function of time</span></span>
+<span id="cb151-2"><a href="composition-diversity.html#cb151-2" aria-hidden="true" tabindex="-1"></a>temporal.J <span class="ot">&lt;-</span> <span class="fu">lm.rrpp</span>(temp.J <span class="sc">~</span> time,</span>
+<span id="cb151-3"><a href="composition-diversity.html#cb151-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> temp,</span>
+<span id="cb151-4"><a href="composition-diversity.html#cb151-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb151-5"><a href="composition-diversity.html#cb151-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb151-6"><a href="composition-diversity.html#cb151-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-7"><a href="composition-diversity.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA: increase in evenness through time?</span></span>
+<span id="cb151-8"><a href="composition-diversity.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(temporal.J)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -2481,13 +2484,13 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "night",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-diversity.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
