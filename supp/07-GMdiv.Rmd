@@ -115,7 +115,7 @@ shapeHulls(pc.plot,
 
 ```{r pca2.div, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 ## plot PCA with mean shape (gray) and x/y maxima/minima (black)
-knitr::include_graphics('images/temporal-pca-warpref.png')
+knitr::include_graphics('images/temporal-pca-warpref.jpg')
 ```
 
 ## Procrustes ANOVA

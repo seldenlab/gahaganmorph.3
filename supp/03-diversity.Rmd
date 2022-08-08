@@ -310,9 +310,9 @@ hist(temp.J, col='steelblue')
 
 # MODEL: temp.J as a function of time
 temporal.J <- lm.rrpp(temp.J ~ time,
-                        data = temp,
-                        print.progress = FALSE,
-                        iter = 9999)
+                      data = temp,
+                      print.progress = FALSE,
+                      iter = 9999)
 
 ## ANOVA: increase in evenness through time?
 anova(temporal.J)
