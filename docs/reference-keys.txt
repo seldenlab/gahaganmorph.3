@@ -20,7 +20,6 @@ fig:figlm4
 fig:figsplinesplitfrbl
 fig:figlmslmall
 fig:figbevlm
-basis-of-inquiry
 primary-findings
 assemblage-diversity
 findings

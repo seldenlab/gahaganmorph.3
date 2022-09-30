@@ -23,7 +23,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., John E. Dockall, and David L. Carlson" />
 
 
-<meta name="date" content="2022-09-25" />
+<meta name="date" content="2022-09-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,12 +162,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#basis-of-inquiry"><i class="fa fa-check"></i><b>0.1</b> Basis of inquiry</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#primary-findings"><i class="fa fa-check"></i><b>0.2</b> Primary findings</a>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#primary-findings"><i class="fa fa-check"></i><b>0.1</b> Primary findings</a>
 <ul>
-<li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#assemblage-diversity"><i class="fa fa-check"></i><b>0.2.1</b> ASSEMBLAGE DIVERSITY</a></li>
-<li class="chapter" data-level="0.2.2" data-path="index.html"><a href="index.html#object-placement"><i class="fa fa-check"></i><b>0.2.2</b> OBJECT PLACEMENT</a></li>
-<li class="chapter" data-level="0.2.3" data-path="index.html"><a href="index.html#temporal-trajectories"><i class="fa fa-check"></i><b>0.2.3</b> TEMPORAL TRAJECTORIES</a></li>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#assemblage-diversity"><i class="fa fa-check"></i><b>0.1.1</b> ASSEMBLAGE DIVERSITY</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#object-placement"><i class="fa fa-check"></i><b>0.1.2</b> OBJECT PLACEMENT</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#temporal-trajectories"><i class="fa fa-check"></i><b>0.1.3</b> TEMPORAL TRAJECTORIES</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i>Funding</a></li>
@@ -266,18 +265,16 @@ div.csl-indent {
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="composition-diversity.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <pre><code>## here() starts at C:/Users/selde/Desktop/github/gahaganmorph.3/supp</code></pre>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="composition-diversity.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages
-## ──────────────────────────────────────────
-## tidyverse 1.3.2 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
-## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-## ✔ readr   2.1.2      ✔ forcats 0.5.2 
-## ── Conflicts ───────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::combine()    masks rcarbon::combine()
-## ✖ dplyr::filter()     masks stats::filter()
-## ✖ dplyr::group_rows() masks kableExtra::group_rows()
-## ✖ dplyr::lag()        masks stats::lag()</code></pre>
+<pre><code>## -- Attaching packages ----------------------------------------------------- tidyverse 1.3.2 --</code></pre>
+<pre><code>## v ggplot2 3.3.6      v purrr   0.3.4 
+## v tibble  3.1.8      v dplyr   1.0.10
+## v tidyr   1.2.1      v stringr 1.4.1 
+## v readr   2.1.2      v forcats 0.5.2 
+## -- Conflicts -------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::combine()    masks rcarbon::combine()
+## x dplyr::filter()     masks stats::filter()
+## x dplyr::group_rows() masks kableExtra::group_rows()
+## x dplyr::lag()        masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="composition-diversity.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb103-2"><a href="composition-diversity.html#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb103-3"><a href="composition-diversity.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
