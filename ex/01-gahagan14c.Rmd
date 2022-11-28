@@ -1,0 +1,67 @@
+# Recalibrate Legacy Dates
+
+Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001]. A table of associated diagnostic artefacts is included as a means of providing information related to relative dates.
+
+```{r install, echo = TRUE}
+# check for update
+#devtools::install_github('ISAAKiel/oxcAAR')
+
+# load oxcAAR and OxCal
+library(kableExtra)
+library(rcarbon)
+library(oxcAAR)
+quickSetupOxcal()
+```
+
+## Calibration and plots for dates from Burial Pit 5 at the Mounds Plantation site
+
+Three dates (Tx-55, Tx-56, and M-1466) were reported from Burial Pit 5 at the Mounds Plantation site. Additional information about these dates can be found in the text, and those works cited within the text of the manuscript.
+
+```{r mplcal, echo=TRUE}
+moundspl<-data.frame(bp=c(860, 900),
+std=c(120, 100),
+names=c("Tx-55", "M-1466")
+)
+moundsplpool <- with(moundspl, poolDates(bp, std))
+moundsplcal <- oxcalCalibrate(moundsplpool$wCRA,
+                              moundsplpool$wCRAerrors,
+                              "Mounds Plantation site Burial Pit 5")
+moundsplcal
+plot(moundsplcal)
+calcurve_plot(moundsplcal)
+```
+
+## Calibration and plots for dates from Burial Pit 2 at the Gahagan Mound site
+
+Three AMS dates (UGA12296, ISGS A0465, and ISGS A0466) were reported from Burial Pit 2 at the Gahagan Mound site. Additional information about these dates can be found in the text, and those works cited within the text of the manuscript.
+
+```{r gahagancal, echo=TRUE}
+gahagan<-data.frame(bp=c(1000, 950, 910),
+std=c(40, 40, 35),
+names=c("UGA-12296", "ISGS-A0466", "ISGS-A0465")
+)
+gahaganpool <- with(gahagan, poolDates(bp, std))
+gahagancal<-oxcalCalibrate(gahaganpool$wCRA,
+                           gahaganpool$wCRAerrors,
+                           "Gahagan Mound site Burial Pit 2")
+gahagancal
+plot(gahagancal)
+calcurve_plot(gahagancal)
+```
+
+## Calibration and plots for the dates from F119 and F134 at the George C. Davis site
+
+Two dates (Tx-913 and Tx-1206) were reported from Features 119 and 134, respectively. The date from F134 is not included here, since the results are considered to be inconsistent with the stratigraphy and seriation results. Additional information about Tx-913 can be found in the text and cited references.
+
+```{r GCDcal, echo=TRUE}
+gcd<-data.frame(bp=c(1150),
+                std=c(80),
+                names=c("Tx-913")
+)
+gcdcal<-oxcalCalibrate(gcd$bp,
+                       gcd$std,
+                       gcd$names)
+gcdcal
+plot(gcdcal)
+calcurve_plot(gcdcal)
+```

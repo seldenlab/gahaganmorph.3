@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>gahaganmorph.3 - 3DGM - Landmarking Protocol</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">gahaganmorph.3</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./gahagan14c.html">Recalibrate Legacy Dates</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./seriate.html">Seriation</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./diversity.html">Composition &amp; Diversity</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./modelgeom.html">3DGM - Modeling Geometry</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./landprotocol.html" aria-current="page">3DGM - Landmarking Protocol</a>
+  </li>  
+  <li class="dropdown-header">
+ gm.qmd</li>
+  <li class="dropdown-header">
+ gmdiv.qmd</li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/seldenlab/gahaganmorph.3"><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#generating-the-spline" id="toc-generating-the-spline" class="nav-link active" data-scroll-target="#generating-the-spline">Generating the spline</a></li>
+  <li><a href="#splitting-the-spline" id="toc-splitting-the-spline" class="nav-link" data-scroll-target="#splitting-the-spline">Splitting the spline</a></li>
+  <li><a href="#landmark-and-semilandmark-placement" id="toc-landmark-and-semilandmark-placement" class="nav-link" data-scroll-target="#landmark-and-semilandmark-placement">Landmark and semilandmark placement</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">3DGM - Landmarking Protocol</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>The landmarking protocol used for this study (LM3d1) is identical to that used by Selden and colleagues <span class="citation" data-cites="RN21001">(<a href="#ref-RN21001" role="doc-biblioref">Selden Jr., Dockall, and Dubied 2020</a>)</span>; which is appended below, and available at: <a href="https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md">https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md</a>.</p>
+<p>The landmarking protocol developed for this project bears some visual similarities with the configuration used in the previous study <span class="citation" data-cites="RN11783">(<a href="#ref-RN11783" role="doc-biblioref">Selden Jr., Dockall, and Shafer 2018</a>)</span>, as well as other two-dimensional geometric morphometric analyses <span class="citation" data-cites="RN1754 RN1736 RN11731">(<a href="#ref-RN1754" role="doc-biblioref">Buchanan and Collard 2010</a>; <a href="#ref-RN1736" role="doc-biblioref">Buchanan et al. 2011</a>; <a href="#ref-RN11731" role="doc-biblioref">Ragan and Buchanan 2018</a>)</span>; however, it differs in some fundamental ways. The first and most obvious difference is that this is a three-dimensional study. The second is the method of landmark placement, where <em>Geomagic Design X</em> was used to generate a spline around the periphery of each biface, and to populate the landmarks and equidistant semilandmarks in a replicable manner using mathematically-defined criteria.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/figbev.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figbev.png" class="img-fluid figure-img" width="1912"></p>
+<p></p><figcaption class="figure-caption">Gahagan biface 545 from the Gahagan Mound site, illustrating axial twisting. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The goal of this effort was to increase the precision and rigour of the study by including the z-dimension to capture those morphological characteristics associated with axial twisting that are introduced through the practice of bifacial beveling. This landmarking protocol represents an intermediate iteration between the previous 2D analysis <span class="citation" data-cites="RN11783">(<a href="#ref-RN11783" role="doc-biblioref">Selden Jr., Dockall, and Shafer 2018</a>)</span>, and the forthcoming protocol that also includes semilandmarks placed on a series of equidistant cross-sections. The cross-sections increase the coverage of semilandmarks across the mesh topology, and provide for greater precision in the analysis of morphology for the whole object. The evolution of this landmarking protocol represents a concerted effort to better comprehend the vagaries of morphological similarities and differences among Gahagan bifaces. While true that some landmarking protocols can be—and often are—recycled as new specimens are added, this particular research programme endeavours to achieve ever-greater accuracy and precision in each analytical iteration.</p>
+<section id="generating-the-spline" class="level3">
+<h3 class="anchored" data-anchor-id="generating-the-spline">Generating the spline</h3>
+<p>Unlike the previous study, where the outline of each Gahagan biface was projected onto a 2D plane, this effort enlists a spline extracted from the surface geometry of the mesh using the <code>extract contour curves</code> command, which is used to detect and extract 3D contour curves from high-curvature areas of the mesh. In reverse-engineering, <code>extract contour curves</code> is regularly employed as the first step in building a <code>patch network</code> that is used to create a surface. The extracted feature curve is rendered as a spline, and follows the highest curvature contours around the periphery of the lateral and basal edges, following the highly variable sinuous edge morphology around the entirety of the biface. The remainder of the landmarking protocol is based upon this spline, which was subsequently split at four mathematically-defined locations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/extractspline.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/extractspline.png" class="img-fluid figure-img" width="2344"></p>
+<p></p><figcaption class="figure-caption">Spline extracted along the highest contours of the projectile. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="splitting-the-spline" class="level3">
+<h3 class="anchored" data-anchor-id="splitting-the-spline">Splitting the spline</h3>
+<p><em>A few definitions are warranted before proceeding. <code>Reference geometries</code> are used in the assistance of creating other features. These include basic geometric entities, such as <code>planes</code>, <code>vectors</code>, <code>coordinates</code>, <code>points</code>, and <code>polygons</code>. A <code>reference point</code> is a virtual point and is used to mark a specific position on a model or in 3D space. A <code>reference plane</code> is a virtual plane that has a normal direction and an infinite size. A <code>reference plane</code> is not a surface body, and is used to create other features.</em></p>
+<p>The characteristic points and tangents developed for this landmarking protocol were inspired by the work of Birkhoff <span class="citation" data-cites="RN11786">(<a href="#ref-RN11786" role="doc-biblioref">1933</a>)</span>. The first landmark (LM1) is placed at the horizontal tangent on the tip of each Gahagan biface. The second and third splits (LM2 and LM3) occur at points of highest curvature, and LM2 is always split on the right side of the biface when oriented in 3D space following the alignment output of <em>auto3dgm</em>, which is illustrated in Figure 7a of the manuscript. To place the final landmark (LM4), a linear measurement was used to project a reference point equidistant between LM2 and LM3. The location of that point was leveraged in placing the reference plane used to cut the spline at the location of LM4.</p>
+<section id="spline-split-at-location-of-lm1" class="level4">
+<h4 class="anchored" data-anchor-id="spline-split-at-location-of-lm1">Spline split at location of LM1</h4>
+<p>The <code>horizontal tangent</code> is calculated by drawing a horizontal line above the tip of the biface using the tangent as a <code>common constraint</code>, and the horizontal as the <code>independent constraint</code>. To split the 3D spline at the location of the horizontal tangent, a <code>reference point</code> was inserted at the location of the <code>tangent</code> in the 2D sketch (light blue point; below, left), followed by a <code>reference plane</code> (in white; below, left and right) using the <code>pick point and normal axis</code> function where the <code>reference point</code> (h-tangent) was used as the <code>pick point</code>, and the <code>Right plane</code> as the <code>normal axis</code> (below, left). The 3D spline was then cut at the location where the <code>reference plane</code> intersected with the spline (below image, right).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/lm1.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lm1.png" class="img-fluid figure-img" width="1500"></p>
+<p></p><figcaption class="figure-caption">Identify horizontal tangent, insert reference point and reference plane (left). Use reference plane to cut spline at the location of the horizontal tangent (right). </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="spline-split-at-locations-of-lm2-and-lm3" class="level4">
+<h4 class="anchored" data-anchor-id="spline-split-at-locations-of-lm2-and-lm3">Spline split at locations of LM2 and LM3</h4>
+<p>The point of highest curvature on either side of the basal edge was calculated using the <code>curvature function</code> in the Accuracy Analyser. This function displays the curvature flow as a continuous colour plot across the area of the curve. In this instance, <em>curvature</em> is defined as the amount by which a geometric shape deviates from being flat or straight in the case of a line. The curvature is displayed in different colours according to the local radius, and is calculated in only one direction (U or V) along the curve. Using this tool, the two points of highest curvature were located between the basal and lateral edges on either side of each biface where the local radius measure was largest. The alignment and orientation of each biface was dictated by the <em>auto3dgm</em> output (see Figure 7a in the manuscript), and the landmarking protocol follows the mesh orientation in that figure, where LM2 was always placed on the right side of the basal edge, and LM3 on the left.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/splinesplit1.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/splinesplit1.png" class="img-fluid figure-img" width="1947"></p>
+<p></p><figcaption class="figure-caption">Identify points of hightest curvature (light blue) at left/right intersection of lateral and basal edges. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="spline-split-at-location-of-lm4" class="level4">
+<h4 class="anchored" data-anchor-id="spline-split-at-location-of-lm4">Spline split at location of LM4</h4>
+<p>One additional landmark (LM4) was placed at the centre of the base. The location of this landmark was identified by calculating the linear distance between LM2 and LM3, and projecting a <code>reference point</code> (ctrl-div; below) equidistant between the two. A <code>reference plane</code> was added using the ctrl-div as the pick point, and the <code>Right plane</code> as the <code>normal axis</code>. The spline was then split at the intersection of the <code>reference plane</code> and the basal spline.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/lm4.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lm4.png" class="img-fluid figure-img" width="1876"></p>
+<p></p><figcaption class="figure-caption">Calculate linear distance between LM2 and LM3, insert reference plane coplanar to Right plane equidistant between LM2 and LM3, and use the reference plane to cut the spline. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="final-spline" class="level4">
+<h4 class="anchored" data-anchor-id="final-spline">Final spline</h4>
+<p>Through the preceding protocol, the initial spline was split into four discrete splines. These splines articulate with components of bifacial morphology that can be compartmentalised in the subsequent analyses (i.e., left/right [directional] asymmetry, blade/base morphological integration, etc.). The primary analytical gain achieved through this exercise is the requisite foundation needed to carry out replicable analyses of Gahagan biface morphology in three dimensions, further increasing the precision of the geometric morphometric analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/splinesplit-frbl.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/splinesplit-frbl.png" class="img-fluid figure-img" width="1912"></p>
+<p></p><figcaption class="figure-caption">Result of spline splits include four discrete splines, each articulating with a potential region of analytical interest. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="landmark-and-semilandmark-placement" class="level3">
+<h3 class="anchored" data-anchor-id="landmark-and-semilandmark-placement">Landmark and semilandmark placement</h3>
+<p>Landmarks 1-4 were placed at the location of each spline split (blue points, below). Equidistant semilandmarks were then added to each of the four splines; 20 between LM1 and LM2, five between LM2 and LM4, five between LM4 and LM3, and 20 between LM3 and LM1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/lmslm-all.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lmslm-all.png" class="img-fluid figure-img" width="1876"></p>
+<p></p><figcaption class="figure-caption">3D spline with landmarks (blue) and equidistant semilandmarks (white) applied, with top, right, and front planes. Semilandmarks are renumbered in post. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Superficially, this constellation of landmarks and semilandmarks appears similar to those used in recent 2D studies. However, the rigourous protocol used in the application of landmarks and semilandmarks aids in capturing morphological variation that articulates with axial twisting introduced by knappers through the practice of beveling. Thus, this constellation of landmarks and semilandmarks provides for greater precision in the geometric morphometric analysis, marking a substantive advancement in those analytical protocols used to achieve a more complete and holistic analysis of Gahagan biface morphology.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/figbevlm.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figbevlm.png" class="img-fluid figure-img" width="1912"></p>
+<p></p><figcaption class="figure-caption">Mesh for Gahagan biface 545 from Gahagan Mound with landmarks and equidistant semilandmarks applied. </figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-RN11786" class="csl-entry" role="doc-biblioentry">
+Birkhoff, George D. 1933. <em>Aesthetic Measure</em>. Cambridge: Harvard University Press.
+</div>
+<div id="ref-RN1754" class="csl-entry" role="doc-biblioentry">
+Buchanan, Briggs, and Mark Collard. 2010. <span>“<span class="nocase">A Geometric Morphometrics-Based Assessment of Blade Shape Differences among Paleoindian Projectile Point Types from Western North America</span>.”</span> <em>Journal of Archaeological Science</em> 37 (2): 350–59. <a href="https://doi.org/10.1016/j.jas.2009.09.047">https://doi.org/10.1016/j.jas.2009.09.047</a>.
+</div>
+<div id="ref-RN1736" class="csl-entry" role="doc-biblioentry">
+Buchanan, Briggs, Mark Collard, Marcus J. Hamilton, and Michael J. O’Brien. 2011. <span>“<span class="nocase">Points and Prey: A Quantitative Test of the Hypothesis that Prey Size Influences early Paleoindian Projectile Point Form</span>.”</span> <em>Journal of Archaeological Science</em> 38 (4): 852–64. <a href="https://doi.org/10.1016/j.jas.2010.11.007">https://doi.org/10.1016/j.jas.2010.11.007</a>.
+</div>
+<div id="ref-RN11731" class="csl-entry" role="doc-biblioentry">
+Ragan, Kathryn, and Briggs Buchanan. 2018. <span>“<span class="nocase">Assessing Collector Bias: A Geometric Morphometric Analysis of a Collection of Isolated Clovis Points from the Midcontinent</span>.”</span> <em>Midcontinental Journal of Archaeology</em> 43 (2): 91–111. <a href="https://doi.org/10.1080/01461109.2018.1426430">https://doi.org/10.1080/01461109.2018.1426430</a>.
+</div>
+<div id="ref-RN21001" class="csl-entry" role="doc-biblioentry">
+Selden Jr., Robert Z., John E. Dockall, and Morgane Dubied. 2020. <span>“A Quantitative Assessment of Intraspecific Morphological Variation in Gahagan Bifaces from the Southern Caddo Area and Central Texas.”</span> <em>Southeastern Archaeology</em> 39 (2): 125–45. <a href="https://doi.org/10.1080/0734578x.2020.1744416">https://doi.org/10.1080/0734578x.2020.1744416</a>.
+</div>
+<div id="ref-RN11783" class="csl-entry" role="doc-biblioentry">
+Selden Jr., Robert Z., John E. Dockall, and Harry J. Shafer. 2018. <span>“<span class="nocase">Lithic Morphological Organisation: Gahagan Bifaces from the Southern Caddo Area</span>.”</span> <em>Digital Applications in Archaeology and Cultural Heritage</em> 10: e00080. <a href="https://doi.org/10.1016/j.daach.2018.e00080">https://doi.org/10.1016/j.daach.2018.e00080</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

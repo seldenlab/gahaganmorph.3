@@ -1,0 +1,174 @@
+# Seriation
+
+Load the data and summarize row and column sums. Also create gahagan_ct with only the counts using context and region as rownames. Finally create gahagan_pct with percentages.
+
+```{r load}
+library(ca)
+library(plotrix)
+library(kableExtra)
+# gahagan <- read.csv("gahagan-diagnostics.csv")
+# save(gahagan, file="gahagan-diagnostics.RData")
+load("gahagan-diagnostics.RData")
+# Structure of the data frame
+str(gahagan, give.attr=FALSE)
+
+# data
+knitr::kable(gahagan) %>% 
+  kable_styling() %>% 
+  scroll_box(width = "100%", box_css = "border: 0px;")
+
+# Row sums
+(RS <- rowSums(gahagan[, -(1:2)]))
+# Column sums
+CS <- colSums(gahagan[, -(1:2)])
+as.matrix(CS)
+gahagan_ct <- gahagan[, -(1:2)]
+labels <- paste0(gahagan$context, " (", substr(gahagan$region, 1, 1), ")")
+rownames(gahagan_ct) <- labels
+gahagan_pct <- gahagan_ct / RS  * 100
+```
+
+Use the first dimension of a corresponce analysis on gahagan_ct to provide an initial ordering of the data (ca_ord).
+
+```{r ca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+gahagan_ca <- ca(gahagan_ct)
+plot.ca(gahagan_ca, labels=c(0, 2), cex = .75)
+# Correspondence Analysis Ordering on Dimension 1
+(ca_ord <- order(gahagan_ca$rowcoord[, 1]))
+```
+
+Use the first projection of a detrended corresponce analysis on gahagan_ct to provide an alternate ordering of the data (dec_ord). Use correlation to compare the two sequences. Detach packages that contain functions that interfere with the seriation package.
+
+```{r decorana, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+library(vegan)
+gahagan_dec <- decorana(gahagan_ct)
+plot(gahagan_dec, display="species")
+points(gahagan_dec, display="sites")
+# Decorana Ordering on Projection 1
+(dec_ord <- order(gahagan_dec$rproj[, 1]))
+(cor.test(ca_ord, dec_ord, method="kendall"))
+detach("package:vegan")
+detach("package:permute")
+```
+
+Load the seriation package to use the the manhattan distance matrices to compare the orderings. Robinson developed the method of seriation by permuting distance matrices. He used a similarity matrix where 200 was the index value for an ordering with itself. A perfect matrix should show consistent *decreases* from the diagonal horizontally and vertically. The seriation package implements this as a manhattan distance matrix where 0 is the index value for an ordering with itself. A perfect matrix should show consistent *increases* from the diagonal horizontally and vertically. The AR measure (Anti-Robinson) counts the number of times there is a decrease between adjacent values. The AR_deviation measure weights the index by the difference in values. These are loss measures meaning that low values are better. The Gradient_raw and Gradient_weighted indices are similar, but look at triplets. These are merit measures meaning that higher values are better. There are other options, but these are relatively straightforward.
+
+The seriation package has multiple methods for seriating distance matrices. The ARSA (Anti-Robinson seriation by simulated annealing) method attempts to minimize the linear seriation criterion defined by Robinson. Two other methods use branch and bound algorithms (BBURCG and BBWRCG) focus on the gradient measures.
+
+The five ordinations are then compared to the original order of the data. The detrended correspondence ordering is better than the correspondence ordering, but the permutation orderings are better. The ARSA and BBWRCG oderings are the same and the BBURCG ordering differs only by the switching of the positions of 16RR1-BP2 (S) and 16CD12-BP5 (N). The first (and third) orderings have the best values for AR_deviations (lowest) and Gradient_weighted (highest) whereas the second ordering has the best values for AR_events (lowest) and Gradient_raw (highest).
+
+The battleship plot shows the first ordering. 
+
+```{r seriation, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+library(seriation)
+gahagan_dist <- dist(gahagan_pct, method="manhattan")
+# Distance matrix:
+round(gahagan_dist, 1)
+set.seed(42)
+gahagan_ser1 <- seriate(gahagan_dist, method="ARSA")
+gahagan_ser2 <- seriate(gahagan_dist, method="BBURCG")
+gahagan_ser3 <- seriate(gahagan_dist, method="BBWRCG")
+ord1 <- get_order(gahagan_ser1)
+ord2 <- get_order(gahagan_ser2)
+ord3 <- get_order(gahagan_ser3)
+# Suggested orderings
+rbind(ord1, ord2, ord3)
+
+Crit <- c("AR_events", "AR_deviations", "Gradient_raw", "Gradient_weighted")
+gahagan_ord1 <- permute(gahagan_dist, ord1)
+gahagan_ord2 <- permute(gahagan_dist, ord2)
+gahagan_ord3 <- permute(gahagan_dist, ord3)
+gahagan_dec_ord <- permute(gahagan_dist, dec_ord)
+gahagan_ca_ord <- permute(gahagan_dist, ca_ord)
+
+# Comparison between original and ordered:
+Results <- list(Original=gahagan_dist, Ordered1=gahagan_ord1, Ordered2=gahagan_ord2, Ordered3=gahagan_ord3, CA=gahagan_ca_ord, DEC=gahagan_dec_ord)
+round(sapply(Results, criterion, method=Crit), 1)
+
+battleship.plot(gahagan_pct[ord1, ], col="gray", cex.labels = .75)
+```
+
+Since there are only eight contexts, it is feasible to consider all possible orderings to see if the preceding analysis found the best ordering. With 8 rows, there are 40,320 permutations, but half of these are reversals so we only need to consider the first 20,160 permutations. This takes a few minutes but it allows us to get the best ordering for each criterion. In this case the two "best" orderings are the same two that the seriation function provided.
+
+```{r exhaustive, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+library(e1071)
+library(seriation)
+rows <- nrow(gahagan_pct)
+perm <- permutations(rows)
+nperm <- factorial(rows) / 2
+all_perms <- t(sapply(seq(nperm), function(i) criterion(gahagan_dist, perm[i,], method=Crit)))
+
+# Permutations which minimize AR (first two) or maximize Gradient (second two) measures:
+# Permutation with mimimum AR events:
+which.min(all_perms[, 1])
+# Permutation with mimimum AR deviations:
+which.min(all_perms[, 2])
+# Permutation with maximum Gradient raw score:
+which.max(all_perms[, 3])
+# Permutation with maximum Gradient weighted score:
+which.max(all_perms[, 4])
+# Best order for event/raw count:
+perm[2034, ]
+# Best order for deviation/weighted score:
+perm[2634, ]
+# Quantiles for all measures:
+# AR events (lower is better):
+quantile(all_perms[, 1], probs=c(0, .01, .25, .50, .75, .99, 1))
+# AR deviations (lower is better):
+round(quantile(all_perms[, 2], probs=c(0, .01, .25, .50, .75, .99, 1)))
+# Gradient raw score (higher is better):
+quantile(all_perms[, 3], probs=c(0, .01, .25, .50, .75, .99, 1))
+# Gradient weighted score (higher is better):
+round(quantile(all_perms[, 4], probs=c(0, .01, .25, .50, .75, .99, 1)))
+battleship.plot(gahagan_pct[perm[2034, ], ], col="gray", cex.labels = .75)
+battleship.plot(gahagan_pct[perm[2634, ], ], col="gray", cex.labels = .75)
+# gahagan.dst <- round(dist(gahagan_pct[perm[2034, ], ], method="manhattan", diag=TRUE, upper=TRUE), 1)
+# par(mar=c(0, 0, 0, 0))
+# image(as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt="n", yaxt="n", frame.plot=FALSE)
+# image(200 - as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt="n", yaxt="n", frame.plot=FALSE)
+```
+
+We can conclude that (5 1 4 [3 7] 2 6 8) and (5 1 4 [7 3] 2 6 8) are the best seriations for these data. The brackets indicate the only difference between the two. However, given the relatively small sample sizes, it may be that sampling fluctuations could make other orderings better. 
+
+Running the North and South groups separately produces the same orderings (although South is reversed). Since the tied contexts were one North and one South, it did not have any effect on the separate orderings.
+
+```{r twogroups, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+
+# North contexts
+north <- grep("(N)", rownames(gahagan_pct))
+north_pct <- gahagan_pct[north, ]
+north_dist <- dist(north_pct, method="manhattan")
+northrows <- nrow(north_pct)
+northperm <- permutations(northrows)
+northnperm <- factorial(northrows) / 2
+# There are only 12 permutations to check
+north_perms <- t(sapply(seq(northnperm), function(i) criterion(north_dist, northperm[i,], method=Crit)))
+round(north_perms, 1)
+northbest <- c(which.min(north_perms[, "AR_events"]), which.min(north_perms[, "AR_deviations"]),
+     which.max(north_perms[, "Gradient_raw"]), which.max(north_perms[, "Gradient_weighted"]))
+# All four criteria agree on permutation 4
+northbest
+north_ser <- northperm[northbest[1], ]
+rownames(north_pct)[north_ser]
+battleship.plot(north_pct[north_ser, ], col="gray", cex.labels = .75)
+
+# South contexts
+south <- grep("(S)", rownames(gahagan_pct))
+south_pct <- gahagan_pct[south, ]
+south_dist <- dist(south_pct, method="manhattan")
+southrows <- nrow(south_pct)
+southperm <- permutations(southrows)
+southnperm <- factorial(southrows) / 2
+# There are only 12 permutations to check
+south_perms <- t(sapply(seq(southnperm), function(i) criterion(south_dist, southperm[i,], method=Crit)))
+round(south_perms, 1)
+southbest <- c(which.min(south_perms[, "AR_events"]), which.min(south_perms[, "AR_deviations"]),
+     which.max(south_perms[, "Gradient_raw"]), which.max(south_perms[, "Gradient_weighted"]))
+# All four criteria agree on permuation 7
+southbest
+south_ser <- southperm[southbest[1], ]
+rownames(south_pct)[south_ser]
+# Reverse South for battlship plot
+battleship.plot(south_pct[rev(south_ser), ], col="gray", cex.labels = .75)
+```
+

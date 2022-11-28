@@ -1,0 +1,319 @@
+# Composition & Diversity
+
+The analysis of mortuary assemblage diversity is limited to Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mound sites where Gahagan bifaces were recovered. We begin by looking at taxonomic composition, where the rows are reordered based on seriation results. Then to Alpha diversity and relative abundance, followed by Beta diversity. The Alpha and Beta diversity results raised the question of a potential increase in diversity through time.
+
+**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
+
+This hypothesis was tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as Caddo burial practices evolved.
+
+## Taxonomic composition
+
+```{r composition}
+library(here)
+library(tidyverse)
+library(kableExtra)
+
+# read data
+raw <- read.csv("gahagan-diversity.csv")
+```
+
+### Reorder contexts based on seriation results
+
+Data were reordered based on seriation results from the previous chapter (order of middle two rows are interchangeable). In the following three tables, all contexts are arranged from oldest (bottom) to youngest (top). All three are wide tables, and the columns at right can be viewed by scrolling to the right.
+
+```{r arrange.rows}
+# arrange contexts based on seriation results
+data <- raw %>% 
+  arrange(match(context, c("16CD12-BP8", "16CD12-BP2", "41CE19-F119", 
+                           "16RR1-BP2", "16CD12-BP5", "16RR1-BP3", 
+                           "41CE19-F134","16CD12-BP1")))
+
+## internments (scroll right for more)
+knitr::kable(data[c(1:5, 7:9, 6, 10)]) %>%
+kable_styling() %>%
+scroll_box(width = "100%", box_css = "border: 0px;")
+
+## lithic offerings (scroll right for more)
+knitr::kable(data[c(1:2, 11:19, 26)]) %>%
+kable_styling() %>%
+scroll_box(width = "100%", box_css = "border: 0px;")
+
+## ceramic offerings (scroll right for more)
+knitr::kable(data[c(1:2, 20:25, 27)]) %>%
+kable_styling() %>%
+scroll_box(width = "100%", box_css = "border: 0px;")
+```
+
+## Alpha diversity
+
+```{r diversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+library(vegan)
+
+## assemblage size (N)
+N <- rowSums(data[11:25])
+N
+
+# number of each type recovered
+T <- colSums(data[11:25])
+T
+
+## richness (S) = number of types from each mortuary context
+S <- specnumber(data[11:25])
+S
+
+## ubiquity (U) = number of mortuary contexts that contain each type
+U <- specnumber(data[11:25], MARGIN = 2)
+U
+```
+
+## Relative abundance
+
+```{r relative.abundance}
+## mean number of observations for each type
+colMeans(data[11:25])
+
+# convert to percentage
+data.pct <- data[11:25]/N*100
+## mean percent (Mp) of each type
+Mp <- colMeans(data.pct)
+Mp
+
+## percentage of sites that include each type
+Up <- U/length(N)*100
+Up
+```
+
+### Relative abundance by context
+
+```{r plotburialdiversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of age and sex data associated with burials. For this undertaking, the term juvenile encompassess all non-adults. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+library(dplyr)
+library(reshape)
+library(ggplot2)
+library(ggpubr)
+library(ggExtra)
+library(wesanderson)
+
+# relative abundance of Caddo adult and juvenile burials
+pal <- wes_palette("Moonrise2", 2, type = "continuous")
+
+burials <- data %>% 
+  select(context, total_adult, total_juvenile) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot1 <- burials %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# relative abundance of burials by age (where known)
+pal <- wes_palette("Moonrise2", 6, type = "continuous")
+
+burials <- data %>% 
+  select(context, adult_male:uid_adult, juvenile_male:uid_juvenile) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot2 <- burials %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# render figure
+figure <- ggarrange(plot1, plot2,
+                      labels = c("a","b"),
+                      ncol = 1, nrow = 2)
+
+## plot figure
+figure
+```
+
+```{r plotalphadiversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Relative abundance of associated diagnostics. Contexts ordered temporally from bottom to top based upon seriation results provided in the previous chapter. Middle two contexts (16RR1-BP2 and 16CD12-BP5) are interchangeable."}
+# relative abundance of lithics + ceramics
+pal1 <- wes_palette("Moonrise2", 2, type = "continuous")
+
+cerlith <- data %>% 
+  select(context, lithics, ceramics) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot3 <- cerlith %>%
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot(aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal1) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Category")
+
+# relative abundance of diagnostic types
+pal <- wes_palette("Moonrise2", 17, type = "continuous")
+
+diagnostics <- data %>% 
+  select(context, alba:ceramic_bowl) %>% 
+  mutate(context = paste(context, c("(N)", "(N)", "(S)", "(S)",
+                                    "(N)", "(S)", "(S)", "(N)"))) %>% 
+  melt(id.vars = "context")
+
+# configure plot
+plot4 <- diagnostics %>% 
+  arrange(context) %>% 
+  mutate(context = factor(context, levels = c(
+                            "16CD12-BP1 (N)", "41CE19-F134 (S)", "16RR1-BP3 (S)",
+                            "16CD12-BP5 (N)", "16RR1-BP2 (S)", "41CE19-F119 (S)", 
+                            "16CD12-BP2 (N)", "16CD12-BP8 (N)"))) %>% 
+  ggplot( aes(x = context, y = value, fill = variable)) + 
+  geom_bar(stat = "identity", position = "fill") + 
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  labs(x = "Context",
+       y = "Relative abundance (%)",
+       fill = "Types") +
+  theme(legend.key.height = unit(0.05, "cm"))
+
+# render figure
+figure <- ggarrange(plot3, plot4,
+                      labels = c("c","d"),
+                      ncol = 1, nrow = 2)
+
+## plot figure
+figure
+```
+
+## Beta diversity
+
+```{r diversity.indices, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# diversity - diagnostics
+# Simpson diversity
+data$D1 <- diversity(data[11:25], index = "simpson")
+D1 <- data$D1
+
+# evenness - diagnostics
+# Shannon diversity
+data$H <- diversity(data[11:25])
+H <- data$H
+
+# Pielou's J (Shannon diversity index divided by natural log of richness)
+data$J <- H/log(S)
+J <- data$J
+```
+
+```{r diversity2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Caddo burial assemblages that include Gahagan bifaces; 1, 16CD12-BP8; 2, 16CD12-BP2; 3, 41CE19-F119; 4, 16RR1-BP2; 5, 16CD12-BP5; 6, 16RR1-BP3; 7, 41CE19-F134; 8, 16CD12-BP1. The three sites in the lower part of the left quadrat exhibit lower diversity and evenness, and represent the three earliest contexts to include a Gahagan biface. Those sites in the upper right quadrat have higher diversity and evenness, and occur later than those in the lower left quadrat."}
+
+# identify high & low diversity assemblages
+ggplot(data, aes(x = D1, y = J)) +
+  geom_text(aes(label = rownames(data), colour = region)) +
+  geom_vline(aes(xintercept = median(D1))) +
+  geom_hline(aes(yintercept = median(J))) +
+  theme(legend.position = c(0.87, 0.15)) +
+  scale_colour_manual(values = pal1) +
+  labs(color = "Behavioral Region",
+       caption = "(J = Peilou's J; D1 = Simpson diversity)")
+```
+
+## Diversity through time
+
+**_Hypothesis_: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
+
+This hypothesis is tested using counts of attributes and associated diagnostic artefacts recovered from Caddo mortuary contexts at the Mounds Plantation, George C. Davis, and Gahagan Mounds sites where Gahagan bifaces were included as part of the mortuary assemblage. The hypothesis assesses whether diagnostic material culture objects included with Caddo burials became more diverse and evenly distributed among the types as Caddo burial practices evolved.
+
+```{r simpsoninitdiversity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# diversity
+library(RRPP)
+
+# mutate data to add temporal assignment
+temp <- data %>%
+  mutate(temporal = c("Subsequent", "Subsequent", "Subsequent", "Subsequent",
+                      "Subsequent", "Initial", "Initial", "Initial"), 
+         .after = region)
+
+# revised table of diagnostics
+knitr::kable(temp) %>% 
+  kable_styling() %>% 
+  scroll_box(width = "100%", box_css = "border: 0px;")
+
+# attributes for plots
+temp.D1 <- temp$D1
+temp.J <- temp$J
+time <- temp$temporal
+
+#diversity
+## plot diversity
+ggplot(temp, aes(x = time, y = temp.D1)) +
+  geom_jitter(position=position_jitter(0), cex = 3, shape = as.character(1:8)) +
+  labs(x = "Time",
+       y = "Simpson Diversity",
+       shape = "Context")
+
+# are data not normally distributed?
+shapiro.test(temp.D1)
+
+## plot distribution
+hist(temp.D1, col='steelblue')
+
+# MODEL: temp.D1 as a function of time
+temp.simpson <- lm.rrpp(temp.D1 ~ time,
+                        data = temp,
+                        print.progress = FALSE,
+                        iter = 9999)
+
+## ANOVA: increase in diversity through time?
+anova(temp.simpson)
+```
+
+### Evenness through time
+
+```{r simpsoninitevenness, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# evenness
+## plot evenness
+ggplot(temp, aes(x = time, y = temp.J)) +
+  geom_jitter(position=position_jitter(0.03), cex = 3, shape = as.character(1:8)) +
+  scale_shape_manual(values = c(0:3,15:18)) +
+  labs(x = "Time",
+       y = "Peilou's J",
+       shape = "Context")
+
+# are data not normally distributed?
+shapiro.test(temp.J)
+
+## plot distribution
+hist(temp.J, col='steelblue')
+
+# MODEL: temp.J as a function of time
+temporal.J <- lm.rrpp(temp.J ~ time,
+                      data = temp,
+                      print.progress = FALSE,
+                      iter = 9999)
+
+## ANOVA: increase in evenness through time?
+anova(temporal.J)
+```

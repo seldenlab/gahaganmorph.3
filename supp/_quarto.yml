@@ -1,0 +1,37 @@
+project:
+  type: website
+
+website:
+  title: "gahaganmorph.3"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Temporal
+        menu:
+          - gahagan14c.qmd
+          - seriate.qmd
+      - text: Diversity
+        menu: 
+          - diversity.qmd
+      - text: Preliminaries
+        menu: 
+          - modelgeom.qmd
+          - landprotocol.qmd
+      - text: Geometric Morphometrics
+        menu:
+          - gm.qmd
+          - gmdiv.qmd
+    right:
+      - icon: github
+        href: https://github.com/seldenlab/gahaganmorph.3
+        aria-label: GitHub
+
+format:
+  html:
+    theme: lux
+    css: styles.css
+    toc: true
+
+editor: visual
+
