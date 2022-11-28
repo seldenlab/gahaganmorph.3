@@ -61,7 +61,7 @@ The seriation package has multiple methods for seriating distance matrices. The 
 
 The five ordinations are then compared to the original order of the data. The detrended correspondence ordering is better than the correspondence ordering, but the permutation orderings are better. The ARSA and BBWRCG oderings are the same and the BBURCG ordering differs only by the switching of the positions of 16RR1-BP2 (S) and 16CD12-BP5 (N). The first (and third) orderings have the best values for AR_deviations (lowest) and Gradient_weighted (highest) whereas the second ordering has the best values for AR_events (lowest) and Gradient_raw (highest).
 
-The battleship plot shows the first ordering. 
+The battleship plot shows the first ordering.
 
 ```{r seriation, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 library(seriation)
@@ -132,7 +132,7 @@ battleship.plot(gahagan_pct[perm[2634, ], ], col="gray", cex.labels = .75)
 # image(200 - as.matrix(gahagan.dst), ylim=c(1.1, -0.1), asp=1, xaxt="n", yaxt="n", frame.plot=FALSE)
 ```
 
-We can conclude that (5 1 4 [3 7] 2 6 8) and (5 1 4 [7 3] 2 6 8) are the best seriations for these data. The brackets indicate the only difference between the two. However, given the relatively small sample sizes, it may be that sampling fluctuations could make other orderings better. 
+We can conclude that (5 1 4 \[3 7\] 2 6 8) and (5 1 4 \[7 3\] 2 6 8) are the best seriations for these data. The brackets indicate the only difference between the two. However, given the relatively small sample sizes, it may be that sampling fluctuations could make other orderings better.
 
 Running the North and South groups separately produces the same orderings (although South is reversed). Since the tied contexts were one North and one South, it did not have any effect on the separate orderings.
 
@@ -175,4 +175,3 @@ rownames(south_pct)[south_ser]
 # Reverse South for battlship plot
 battleship.plot(south_pct[rev(south_ser), ], col="gray", cex.labels = .75)
 ```
-
