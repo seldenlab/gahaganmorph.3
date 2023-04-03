@@ -2,9 +2,11 @@ project:
   type: website
 
 website:
-  title: "gahaganmorph.3"
+  margin-header: |
+    ![](/images/slab.png)
   navbar:
-    left:
+    logo: "sfasu.png"
+    right:
       - href: index.qmd
         text: Home
       - text: Temporal
@@ -22,16 +24,9 @@ website:
         menu:
           - gm.qmd
           - gmdiv.qmd
-    right:
-      - icon: github
-        href: https://github.com/seldenlab/gahaganmorph.3
-        aria-label: GitHub
 
 format:
   html:
-    theme: lux
+    theme: spacelab
     css: styles.css
     toc: true
-
-editor: visual
-

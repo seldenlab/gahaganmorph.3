@@ -23,7 +23,7 @@ github-repo: seldenlab/gahaganmorph.3
 
 > Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-# Basis of Inquiry {.unnumbered}
+# Basis of Inquiry
 
 Exchange networks and interaction spheres functioned to establish, maintain, and formalize regional traditions, boundaries, and intergroup relationships. Large formal bifaces and associated diagnostics included as mortuary offerings provide evidence of material culture shifts, conveying the spatial and temporal dynamics of local and regional burial traditions. Among constituent groups associated with the Caddo Nation, contextual differences in burial practices are indicative of two discrete burial traditions; one where a Gahagan biface was placed *atop or alongside an individual*, and another where a cache of Gahagan bifaces was included *along the northern wall of the burial feature*. This study asks whether mortuary assemblage diversity increased through time, whether Gahagan biface morphology differs by burial tradition, and whether the morphology of Gahagan bifaces associated with each burial tradition changed through time. A seriation of mortuary contexts followed by an analysis of mortuary assemblage diversity highlights a significant increase in mortuary assemblage diversity and evenness through time, where assemblages from the earliest mortuary offerings express lower diversity and evenness than those from later contexts. Results also indicate that Gahagan biface shape differs between the two Caddo burial traditions, indicating discrete communities of practice delimited by placement and morphology. Bifaces included as offerings with *individuals* differ through time from those placed in *caches*; initially in size, and subsequently in shape. Bifaces found in *caches* express morphological stability through time as burial traditions mature, and Caddo mortuary offerings become both more diverse and evenly distributed among the diagnostic types. These findings provide the basis for a discussion of the establishment, maintenance, and evolution of a unique Caddo burial practice that occurs during their transition from a more mobile horticulture-based lifeway to one of emergent---and increasingly sedentary---agriculture.
 
@@ -42,7 +42,7 @@ knitr::include_graphics('images/fig02.jpg')
 knitr::include_graphics('images/h.a-b.png')
 ```
 
-### ASSEMBLAGE DIVERSITY
+### Assemblage diversity
 
 ***Hypothesis*****: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
 
@@ -69,7 +69,7 @@ The hypothesis was tested using counts of associated diagnostic artefacts recove
 
 Results demonstrate that lithics comprise 75% or more, in three cases, 100%, of those Caddo burial assemblages where Gahagan bifaces were recovered, as well as a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated with a Caddo burial practice. These assemblages are dominated by lithic diagnostics, and ceramics are absent from three of the burial contexts. Further discussion related to those diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
 
-### OBJECT PLACEMENT
+### Object placement
 
 ***Hypothesis*****: Gahagan bifaces included in Caddo burials as part of a cache differ in morphology from those placed atop or alongside an individual.**
 
@@ -89,7 +89,7 @@ knitr::include_graphics('images/mshape-cache-ind.jpg')
 
 Contextual differences suggest two distinct Caddo burial traditions associated with Gahagan bifaces; one more prevalent in the northern behavioral region where Gahagan bifaces were placed *atop or alongside an individual*, and one more prevalent in the southern behavioral region where all but six Gahagan bifaces were *included as a cache offering along the northern periphery of the burial*. Each burial tradition appears to have been bounded by its' own community of practice relating both to placement and the design (shape) of Gahagan bifaces interred in each context.
 
-### TEMPORAL TRAJECTORIES
+### Temporal trajectories
 
 ***Hypothesis 1 (Morphology)*****: Gahagan bifaces from *individual* and *cache* contexts differ through time---*initial* vs. *subsequent* deposition---as mortuary assemblage diversity increases.**
 
@@ -137,23 +137,23 @@ These hypotheses were tested using Gahagan bifaces recovered from four discrete 
 
 The temporal attribute used for the GM analysis is comprised of the same *initial* and *subsequent* contexts used in the analysis of Caddo mortuary assemblage diversity. That there are no cache offerings of Gahagan bifaces associated with the northern behavioural region raises questions regarding whether the spatial boundary may have been permeable, but in only one direction.
 
-## Acknowledgments {.unnumbered}
+## Acknowledgments
 
 RZS extends his gratitude to the Caddo Nation of Oklahoma, the Caddo Nation Tribal Council, Tribal Chairman, and Tribal Historic Preservation Office for their guidance related to the development of the 3D scanning protocols, for permission and access to NAGPRA and previously repatriated collections, and for frank discussions related to language surrounding burial contexts associated with Caddo children. Additional thanks to the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, Brazos Valley Museum of Natural History, Texas Parks and Wildlife Department, and Sam Noble Oklahoma Museum of Natural Science for providing access to the Gahagan bifaces. RZS expresses his gratitude to Carmen G. Montaña for discussions and guidance regarding measures of biological diversity and their application, and to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments and constructive criticisms on the analyses of Gahagan biface morphology.
 
 RZS thanks Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms of the landmarking protocol used in this study ([`LM3d1`](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)), as well as the landmarking protocol for Gahagan bifaces that will be used in subsequent analytical efforts ([`LM3d2`](https://github.com/seldenlab/gahaganmorph.3/blob/main/lm3d2/03-landmarking-protocol.Rmd)); to Martin Hinz for fielding questions related to the `oxcAAR` package, and to Emma Sherratt, Kersten Bergstrom, Dean C. Adams, and Michael L. Collyer for their constructive criticisms, general comments, and suggestions throughout the development of this research program.
 
-## Funding {.unnumbered}
+## Funding
 
 Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training (NCPTT), and additional grants to RZS from the Caddo Nation of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074). Funding to scan the Gahagan bifaces at the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, and Sam Noble Oklahoma Museum of Natural Science was provided to the RZS by the Heritage Research Center at Stephen F. Austin State University.
 
-## Data management {.unnumbered}
+## Data management
 
 The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/seldenlab/gahaganmorph.3) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/Y7B39](https://osf.io/y7b39/). The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915; @RN20916; @RN20917], which is a necessary requirement for the production of reliable knowledge.
 
 Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804; @RN21009; @RN11783; @RN21001; @RN9364], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
 
-## Colophon {.unnumbered}
+## Colophon
 
 This version of the analysis was generated on `r Sys.time()` using the following computational environment and dependencies:
 
