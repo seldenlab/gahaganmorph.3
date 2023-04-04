@@ -1,0 +1,159 @@
+---
+title: "3DGM - Biface Evolution"
+bibliography: [book.bib]
+---
+
+This 3D geometric morphometric analysis follows recent analyses of Gahagan biface morphology across the southern Caddo area and central Texas [@RN11783;@RN21001], where Gahagan bifaces were found to differ in shape across the same geography as Caddo bottles [@RN11801;@RN11782;@RN11716;@RN8312] and Perdiz arrow points ([Selden and Dockall, this volume](https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf)). The analysis, and the two that precede it, builds upon the work of Shafer [-@RN3684;-@RN20701;-@RN4924]. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.
+
+***Hypothesis*****: Gahagan bifaces from *cache* contexts increase in size through time, suggesting directional selection in preference by the Caddo.**
+
+This hypothesis is tested using only those Gahagan bifaces recovered from burial caches. The hypothesis assesses whether mean Gahagan biface size increased through each temporal component, which would suggest directional selection, and provide evidence for the evolution of Caddo preference related to bifaces. 
+
+```{r, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# do burial caches demonstrate the evolution of gahagan bifaces?
+library(here)
+library(tidyverse)
+library(geomorph)
+library(tidyr)
+library(ggplot2)
+library(wesanderson)
+library(plyr)
+
+source('readmulti.csv.R')
+
+# read .csv files
+setwd("./data3")
+filelist <- list.files(pattern = ".csv")
+coords <- readmulti.csv(filelist)
+setwd("../")
+
+# read/arrange categorical data
+evolution <- read.csv("gahagancaches.csv", 
+                      header = TRUE, 
+                      row.names = 1)
+
+evolution2 <- evolution %>% 
+  unite("merged", c(trinomial, t.context), remove = FALSE)
+
+evolution2 <- evolution2[match(dimnames(coords)[[3]], rownames(evolution)),]
+
+# gpa ----
+Y.gpa <- gpagen(coords,
+                PrinAxes = TRUE,
+                print.progress = FALSE)
+## plot gpa
+#plot(Y.gpa)
+
+# geomorph data frame
+gdf <- geomorph.data.frame(shape = Y.gpa$coords,
+                           size = Y.gpa$Csize,
+                           temporal = evolution2$merged) 
+
+# add centroid size to evolution
+evolution2$csz <- Y.gpa$Csize
+
+# palette
+pal <- wes_palette("Moonrise2")
+
+# principal components analysis ----
+pca <- gm.prcomp(Y.gpa$coords)
+summary(pca)
+
+# set plot parameters to plot by context
+pch.gps.context <- c(15:18)[as.factor(evolution2$merged)]
+col.gps.context <- pal[as.factor(evolution2$merged)]
+col.hull.context <- c("#CCC591","#29211F","#C27D38","#798E87")
+
+## plot pca by context 2
+pc.plot <- plot(pca, asp = 1,
+                pch = pch.gps.context,
+                col = col.gps.context)
+shapeHulls(pc.plot,
+           groups = evolution2$merged,
+           group.cols = col.hull.context)
+
+# plot x/y maxima/minima
+## x - minima
+mean.shape <- mshape(Y.gpa$coords)
+plotRefToTarget(pca$shapes$shapes.comp1$min, 
+                mean.shape)
+
+## x - maxima
+plotRefToTarget(pca$shapes$shapes.comp1$max, 
+                mean.shape)
+
+## y - minima
+plotRefToTarget(pca$shapes$shapes.comp2$min, 
+                mean.shape)
+
+## y - maxima
+plotRefToTarget(pca$shapes$shapes.comp2$max, 
+                mean.shape)
+
+# ANOVAs ----
+# MODEL: shape as a function of context
+fit.shape.context <- procD.lm(shape ~ temporal,
+                              data = gdf,
+                              print.progress = FALSE,
+                              iter = 9999)
+
+# ANOVA: do gahagan biface shapes differ by context?
+anova(fit.shape.context)
+
+# MODEL: size as a function of context
+fit.size.context <- procD.lm(size ~ temporal,
+                             data = gdf,
+                             print.progress = FALSE,
+                             iter = 9999)
+
+# ANOVA: do gahagan biface sizes differ by context?
+anova(fit.size.context)
+
+# pairwise comparison of LS means = which differ?
+sz.context <- pairwise(fit.size.context,
+                     groups = evolution2$merged)
+summary(sz.context, 
+        confidence = 0.95, 
+        test.type = "dist")
+
+# morphological disparity ----
+# morphological disparity by size
+morphol.disparity(fit.size.context, 
+                  groups = evolution2$merged, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
+```
+
+## Selection differential
+
+```{r, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# size-based selection?----
+# density plot (csize) with means
+evo.mean <- ddply(evolution2, 'merged', summarise, grp.mean = mean(csz)) %>% 
+  arrange(grp.mean)
+evo.mean
+
+csz.evol <- evolution2 %>% 
+  arrange(merged) %>% 
+  mutate(merged = factor(merged, levels = c('41CE19_initial', '16RR1_initial', 
+                                            '16RR1_subsequent', '41CE19_subsequent'))) %>%
+  ggplot(aes(x = csz, fill = merged)) +
+  geom_density(alpha = 0.4) + 
+  geom_histogram(aes(y = ..density..),
+                 alpha = 0.4, position = 'dodge') +
+  scale_fill_manual(values = pal) +
+  scale_color_manual(values = c('41CE19_initial' = "#798E87",
+                                '16RR1_initial' = "#C27D38",
+                                '16RR1_subsequent' = "#CCC591",
+                                '41CE19_subsequent' = "#29211F")) +
+  geom_vline(data = evo.mean, aes(xintercept = grp.mean,
+                                  color = merged),
+             linetype = 'dashed') +
+  scale_x_continuous(limits = c(50, 850)) +
+  labs(x = 'Centroid Size', y = 'Density') +
+  theme(legend.position = "none")
+
+# plot
+csz.evol
+```

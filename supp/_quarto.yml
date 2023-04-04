@@ -16,14 +16,13 @@ website:
       - text: Diversity
         menu: 
           - diversity.qmd
-      - text: Preliminaries
-        menu: 
-          - modelgeom.qmd
-          - landprotocol.qmd
       - text: Geometric Morphometrics
         menu:
+          - modelgeom.qmd
+          - landprotocol.qmd
           - gm.qmd
           - gmdiv.qmd
+          - gmevo.qmd
 
 format:
   html:

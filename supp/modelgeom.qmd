@@ -1,5 +1,5 @@
 ---
-title: "3DGM - Modeling Geometry"
+title: "Preliminaries - Modeling Geometry"
 bibliography: [book.bib]
 ---
 

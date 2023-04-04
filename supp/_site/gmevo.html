@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3DGM - Biface Evolution</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./sfasu.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-temporal" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Temporal</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-temporal">    
+        <li>
+    <a class="dropdown-item" href="./gahagan14c.html">
+ <span class="dropdown-text">Recalibrate Legacy Dates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./seriate.html">
+ <span class="dropdown-text">Seriation</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-diversity" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Diversity</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-diversity">    
+        <li>
+    <a class="dropdown-item" href="./diversity.html">
+ <span class="dropdown-text">Composition &amp; Diversity</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-geometric-morphometrics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Geometric Morphometrics</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-geometric-morphometrics">    
+        <li>
+    <a class="dropdown-item" href="./modelgeom.html">
+ <span class="dropdown-text">Preliminaries - Modeling Geometry</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./landprotocol.html">
+ <span class="dropdown-text">Preliminaries - Landmarking Protocol</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./gm.html">
+ <span class="dropdown-text">3DGM - Individual vs.&nbsp;Cache</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./gmdiv.html">
+ <span class="dropdown-text">3DGM - Contexts Through Time</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./gmevo.html">
+ <span class="dropdown-text">3DGM - Biface Evolution</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p><img src="./images/slab.png" class="img-fluid"></p>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#selection-differential" id="toc-selection-differential" class="nav-link active" data-scroll-target="#selection-differential">Selection differential</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">3DGM - Biface Evolution</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This 3D geometric morphometric analysis follows recent analyses of Gahagan biface morphology across the southern Caddo area and central Texas <span class="citation" data-cites="RN11783 RN21001">(<a href="#ref-RN11783" role="doc-biblioref">Selden Jr., Dockall, and Shafer 2018</a>; <a href="#ref-RN21001" role="doc-biblioref">Selden Jr., Dockall, and Dubied 2020</a>)</span>, where Gahagan bifaces were found to differ in shape across the same geography as Caddo bottles <span class="citation" data-cites="RN11801 RN11782 RN11716 RN8312">(<a href="#ref-RN11801" role="doc-biblioref">Selden Jr. 2018a</a>, <a href="#ref-RN11782" role="doc-biblioref">2018b</a>, <a href="#ref-RN11716" role="doc-biblioref">2019</a>, <a href="#ref-RN8312" role="doc-biblioref">2021</a>)</span> and Perdiz arrow points (<a href="https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf">Selden and Dockall, this volume</a>). The analysis, and the two that precede it, builds upon the work of Shafer <span class="citation" data-cites="RN3684 RN20701 RN4924">(<a href="#ref-RN3684" role="doc-biblioref">1973</a>, <a href="#ref-RN20701" role="doc-biblioref">1974</a>, <a href="#ref-RN4924" role="doc-biblioref">2006</a>)</span>. A succinct overview of the analytical procedures used for this analysis is provided in the manuscript, and the analytical code provided in this document can be used to reproduce the results exactly.</p>
+<p><strong><em>Hypothesis</em>: Gahagan bifaces from <em>cache</em> contexts increase in size through time, suggesting directional selection in preference by the Caddo.</strong></p>
+<p>This hypothesis is tested using only those Gahagan bifaces recovered from burial caches. The hypothesis assesses whether mean Gahagan biface size increased through each temporal component, which would suggest directional selection, and provide evidence for the evolution of Caddo preference related to bifaces.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do burial caches demonstrate the evolution of gahagan bifaces?</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /Users/seldenjrz/Documents/github/gahaganmorph.3/supp</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.1     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: RRPP
+Loading required package: rgl
+Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>------------------------------------------------------------------------------
+You have loaded plyr after dplyr - this is likely to cause problems.
+If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+library(plyr); library(dplyr)
+------------------------------------------------------------------------------
+
+Attaching package: 'plyr'
+
+The following objects are masked from 'package:dplyr':
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise,
+    summarize
+
+The following object is masked from 'package:purrr':
+
+    compact
+
+The following object is masked from 'package:here':
+
+    here</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'readmulti.csv.R'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read .csv files</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"./data3"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">".csv"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">readmulti.csv</span>(filelist)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"../"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read/arrange categorical data</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>evolution <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gahagancaches.csv"</span>, </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>evolution2 <span class="ot">&lt;-</span> evolution <span class="sc">%&gt;%</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"merged"</span>, <span class="fu">c</span>(trinomial, t.context), <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>evolution2 <span class="ot">&lt;-</span> evolution2[<span class="fu">match</span>(<span class="fu">dimnames</span>(coords)[[<span class="dv">3</span>]], <span class="fu">rownames</span>(evolution)),]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># gpa ----</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(coords,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">PrinAxes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="do">## plot gpa</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(Y.gpa)</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords,</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                           <span class="at">temporal =</span> evolution2<span class="sc">$</span>merged) </span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to evolution</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>evolution2<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co"># palette</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">"Moonrise2"</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis ----</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Ordination type: Principal Component Analysis 
+Centering by OLS mean
+Orthogonal projection of OLS residuals
+Number of observations: 50 
+Number of vectors 49 
+
+Importance of Components:
+                             Comp1        Comp2        Comp3        Comp4
+Eigenvalues            0.002599867 0.0005553329 0.0002691505 0.0001548898
+Proportion of Variance 0.632055037 0.1350072889 0.0654333275 0.0376553480
+Cumulative Proportion  0.632055037 0.7670623255 0.8324956530 0.8701510010
+                              Comp5        Comp6        Comp7        Comp8
+Eigenvalues            0.0001209178 9.317367e-05 7.243396e-05 5.194082e-05
+Proportion of Variance 0.0293963851 2.265150e-02 1.760946e-02 1.262736e-02
+Cumulative Proportion  0.8995473861 9.221989e-01 9.398083e-01 9.524357e-01
+                              Comp9       Comp10       Comp11       Comp12
+Eigenvalues            4.925642e-05 2.130257e-05 1.935836e-05 1.358642e-05
+Proportion of Variance 1.197476e-02 5.178880e-03 4.706222e-03 3.303002e-03
+Cumulative Proportion  9.644105e-01 9.695893e-01 9.742956e-01 9.775986e-01
+                             Comp13       Comp14       Comp15       Comp16
+Eigenvalues            1.161006e-05 1.006758e-05 8.298113e-06 6.860007e-06
+Proportion of Variance 2.822527e-03 2.447535e-03 2.017359e-03 1.667740e-03
+Cumulative Proportion  9.804211e-01 9.828686e-01 9.848860e-01 9.865537e-01
+                             Comp17       Comp18       Comp19       Comp20
+Eigenvalues            6.029793e-06 5.735786e-06 4.528965e-06 4.190261e-06
+Proportion of Variance 1.465906e-03 1.394430e-03 1.101039e-03 1.018697e-03
+Cumulative Proportion  9.880196e-01 9.894141e-01 9.905151e-01 9.915338e-01
+                             Comp21       Comp22       Comp23       Comp24
+Eigenvalues            3.290971e-06 3.235418e-06 2.807769e-06 2.489130e-06
+Proportion of Variance 8.000697e-04 7.865642e-04 6.825983e-04 6.051337e-04
+Cumulative Proportion  9.923339e-01 9.931204e-01 9.938030e-01 9.944082e-01
+                             Comp25       Comp26       Comp27       Comp28
+Eigenvalues            2.215830e-06 2.130585e-06 1.964133e-06 1.748636e-06
+Proportion of Variance 5.386915e-04 5.179677e-04 4.775015e-04 4.251120e-04
+Cumulative Proportion  9.949469e-01 9.954648e-01 9.959423e-01 9.963674e-01
+                             Comp29       Comp30       Comp31       Comp32
+Eigenvalues            1.458557e-06 1.379774e-06 1.306838e-06 1.204807e-06
+Proportion of Variance 3.545906e-04 3.354376e-04 3.177061e-04 2.929014e-04
+Cumulative Proportion  9.967220e-01 9.970575e-01 9.973752e-01 9.976681e-01
+                             Comp33       Comp34       Comp35       Comp36
+Eigenvalues            1.130775e-06 1.008837e-06 8.667652e-07 8.158458e-07
+Proportion of Variance 2.749034e-04 2.452589e-04 2.107198e-04 1.983407e-04
+Cumulative Proportion  9.979430e-01 9.981882e-01 9.983990e-01 9.985973e-01
+                             Comp37       Comp38       Comp39       Comp40
+Eigenvalues            7.428038e-07 6.838381e-07 5.940232e-07 5.297908e-07
+Proportion of Variance 1.805834e-04 1.662483e-04 1.444133e-04 1.287977e-04
+Cumulative Proportion  9.987779e-01 9.989441e-01 9.990885e-01 9.992173e-01
+                             Comp41       Comp42       Comp43       Comp44
+Eigenvalues            4.970685e-07 4.768485e-07 4.310014e-07 4.143536e-07
+Proportion of Variance 1.208426e-04 1.159269e-04 1.047810e-04 1.007337e-04
+Cumulative Proportion  9.993382e-01 9.994541e-01 9.995589e-01 9.996596e-01
+                             Comp45       Comp46       Comp47       Comp48
+Eigenvalues            3.518551e-07 3.293530e-07 2.868863e-07 2.343624e-07
+Proportion of Variance 8.553969e-05 8.006920e-05 6.974509e-05 5.697596e-05
+Cumulative Proportion  9.997452e-01 9.998252e-01 9.998950e-01 9.999520e-01
+                             Comp49
+Eigenvalues            1.976215e-07
+Proportion of Variance 4.804387e-05
+Cumulative Proportion  1.000000e+00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters to plot by context</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pch.gps.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">18</span>)[<span class="fu">as.factor</span>(evolution2<span class="sc">$</span>merged)]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>col.gps.context <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(evolution2<span class="sc">$</span>merged)]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>col.hull.context <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#CCC591"</span>,<span class="st">"#29211F"</span>,<span class="st">"#C27D38"</span>,<span class="st">"#798E87"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## plot pca by context 2</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps.context,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps.context)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> evolution2<span class="sc">$</span>merged,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull.context)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gmevo_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot x/y maxima/minima</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## x - minima</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mean.shape <span class="ot">&lt;-</span> <span class="fu">mshape</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(pca<span class="sc">$</span>shapes<span class="sc">$</span>shapes.comp1<span class="sc">$</span>min, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                mean.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gmevo_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## x - maxima</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(pca<span class="sc">$</span>shapes<span class="sc">$</span>shapes.comp1<span class="sc">$</span>max, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                mean.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gmevo_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## y - minima</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(pca<span class="sc">$</span>shapes<span class="sc">$</span>shapes.comp2<span class="sc">$</span>min, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                mean.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gmevo_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## y - maxima</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRefToTarget</span>(pca<span class="sc">$</span>shapes<span class="sc">$</span>shapes.comp2<span class="sc">$</span>max, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                mean.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gmevo_files/figure-html/unnamed-chunk-1-5.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVAs ----</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: shape as a function of context</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fit.shape.context <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> temporal,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> gdf,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface shapes differ by context?</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.shape.context)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Analysis of Variance, using Residual Randomization
+Permutation procedure: Randomization of null model residuals 
+Number of permutations: 10000 
+Estimation method: Ordinary Least Squares 
+Sums of Squares and Cross-products: Type I 
+Effect sizes (Z) based on F distributions
+
+          Df       SS        MS     Rsq      F        Z Pr(&gt;F)
+temporal   3 0.011196 0.0037321 0.05555 0.9019 0.025804 0.4887
+Residuals 46 0.190358 0.0041382 0.94445                       
+Total     49 0.201554                                         
+
+Call: procD.lm(f1 = shape ~ temporal, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL: size as a function of context</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fit.size.context <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> temporal,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> gdf,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA: do gahagan biface sizes differ by context?</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.size.context)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Analysis of Variance, using Residual Randomization
+Permutation procedure: Randomization of null model residuals 
+Number of permutations: 10000 
+Estimation method: Ordinary Least Squares 
+Sums of Squares and Cross-products: Type I 
+Effect sizes (Z) based on F distributions
+
+          Df     SS    MS     Rsq      F      Z Pr(&gt;F)   
+temporal   3 106559 35520 0.22152 4.3631 2.3785 0.0093 **
+Residuals 46 374485  8141 0.77848                        
+Total     49 481044                                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Call: procD.lm(f1 = size ~ temporal, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sz.context <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.size.context,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">groups =</span> evolution2<span class="sc">$</span>merged)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sz.context, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">"dist"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Pairwise comparisons
+
+Groups: 16RR1_initial 16RR1_subsequent 41CE19_initial 41CE19_subsequent 
+
+RRPP: 10000 permutations
+
+LS means:
+Vectors hidden (use show.vectors = TRUE to view)
+
+Pairwise distances between means, plus statistics
+                                           d UCL (95%)          Z Pr &gt; d
+16RR1_initial:16RR1_subsequent      17.42651  76.23526 -0.4292897 0.6593
+16RR1_initial:41CE19_initial        11.51217  79.11822 -0.8247431 0.7805
+16RR1_initial:41CE19_subsequent    108.38193  81.63485  2.1492188 0.0076
+16RR1_subsequent:41CE19_initial     28.93868  74.90167  0.1608093 0.4519
+16RR1_subsequent:41CE19_subsequent  90.95542  74.15611  1.9708020 0.0152
+41CE19_initial:41CE19_subsequent   119.89410  78.86087  2.4326933 0.0022</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity ----</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity by size</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(fit.size.context, </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> evolution2<span class="sc">$</span>merged, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+morphol.disparity(f1 = fit.size.context, groups = evolution2$merged,  
+    iter = 9999, data = gdf, print.progress = FALSE) 
+
+
+
+Randomized Residual Permutation Procedure Used
+10000 Permutations
+
+Procrustes variances for defined groups
+    16RR1_initial  16RR1_subsequent    41CE19_initial 41CE19_subsequent 
+         6982.348          3906.382          2544.620         17378.985 
+
+
+Pairwise absolute differences between variances
+                  16RR1_initial 16RR1_subsequent 41CE19_initial
+16RR1_initial             0.000         3075.967       4437.729
+16RR1_subsequent       3075.967            0.000       1361.762
+41CE19_initial         4437.729         1361.762          0.000
+41CE19_subsequent     10396.636        13472.603      14834.365
+                  41CE19_subsequent
+16RR1_initial              10396.64
+16RR1_subsequent           13472.60
+41CE19_initial             14834.37
+41CE19_subsequent              0.00
+
+
+P-Values
+                  16RR1_initial 16RR1_subsequent 41CE19_initial
+16RR1_initial            1.0000           0.5059         0.3570
+16RR1_subsequent         0.5059           1.0000         0.7600
+41CE19_initial           0.3570           0.7600         1.0000
+41CE19_subsequent        0.0219           0.0008         0.0004
+                  41CE19_subsequent
+16RR1_initial                0.0219
+16RR1_subsequent             0.0008
+41CE19_initial               0.0004
+41CE19_subsequent            1.0000</code></pre>
+</div>
+</div>
+<section id="selection-differential" class="level2">
+<h2 class="anchored" data-anchor-id="selection-differential">Selection differential</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size-based selection?----</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># density plot (csize) with means</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>evo.mean <span class="ot">&lt;-</span> <span class="fu">ddply</span>(evolution2, <span class="st">'merged'</span>, summarise, <span class="at">grp.mean =</span> <span class="fu">mean</span>(csz)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(grp.mean)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>evo.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             merged grp.mean
+1    41CE19_initial 308.9387
+2     16RR1_initial 320.4508
+3  16RR1_subsequent 337.8773
+4 41CE19_subsequent 428.8328</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>csz.evol <span class="ot">&lt;-</span> evolution2 <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(merged) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merged =</span> <span class="fu">factor</span>(merged, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'41CE19_initial'</span>, <span class="st">'16RR1_initial'</span>, </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">'16RR1_subsequent'</span>, <span class="st">'41CE19_subsequent'</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> csz, <span class="at">fill =</span> merged)) <span class="sc">+</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">position =</span> <span class="st">'dodge'</span>) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'41CE19_initial'</span> <span class="ot">=</span> <span class="st">"#798E87"</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'16RR1_initial'</span> <span class="ot">=</span> <span class="st">"#C27D38"</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'16RR1_subsequent'</span> <span class="ot">=</span> <span class="st">"#CCC591"</span>,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'41CE19_subsequent'</span> <span class="ot">=</span> <span class="st">"#29211F"</span>)) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> evo.mean, <span class="fu">aes</span>(<span class="at">xintercept =</span> grp.mean,</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> merged),</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">'dashed'</span>) <span class="sc">+</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">850</span>)) <span class="sc">+</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Centroid Size'</span>, <span class="at">y =</span> <span class="st">'Density'</span>) <span class="sc">+</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>csz.evol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="gmevo_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-RN11801" class="csl-entry" role="doc-biblioentry">
+Selden Jr., Robert Z. 2018a. <span>“<span class="nocase">A Preliminary Study of Smithport Plain Bottle Morphology in the Southern Caddo Area</span>.”</span> <em>Bulletin of the Texas Archeological Society</em> 89: 63–89.
+</div>
+<div id="ref-RN11782" class="csl-entry" role="doc-biblioentry">
+———. 2018b. <span>“<span class="nocase">Ceramic Morphological Organisation in the Southern Caddo Area: Quiddity of Shape for Hickory Engraved Bottles</span>.”</span> <em>Journal of Archaeological Science: Reports</em> 21: 884–96. <a href="https://doi.org/10.1016/j.jasrep.2018.08.045">https://doi.org/10.1016/j.jasrep.2018.08.045</a>.
+</div>
+<div id="ref-RN11716" class="csl-entry" role="doc-biblioentry">
+———. 2019. <span>“<span class="nocase">Ceramic Morphological Organisation in the Southern Caddo Area: The Clarence H. Webb Collections</span>.”</span> <em>Journal of Cultural Heritage</em> 35: 41–55. https://doi.org/<a href="https://doi.org/10.1016/j.culher.2018.07.002">https://doi.org/10.1016/j.culher.2018.07.002</a>.
+</div>
+<div id="ref-RN8312" class="csl-entry" role="doc-biblioentry">
+———. 2021. <span>“Louisiana Limitrophe: An Iterative Morphological Exegesis of Caddo Bottle and Biface Production.”</span> Book Section. In <em>Ancestral Caddo Ceramic Traditions</em>, edited by Duncan P. McKinnon, Jeffrey S. Girard, and Timothy K. Perttula, 258–76. Baton Rouge: LSU Press.
+</div>
+<div id="ref-RN21001" class="csl-entry" role="doc-biblioentry">
+Selden Jr., Robert Z., John E. Dockall, and Morgane Dubied. 2020. <span>“A Quantitative Assessment of Intraspecific Morphological Variation in Gahagan Bifaces from the Southern Caddo Area and Central Texas.”</span> <em>Southeastern Archaeology</em> 39 (2): 125–45. <a href="https://doi.org/10.1080/0734578x.2020.1744416">https://doi.org/10.1080/0734578x.2020.1744416</a>.
+</div>
+<div id="ref-RN11783" class="csl-entry" role="doc-biblioentry">
+Selden Jr., Robert Z., John E. Dockall, and Harry J. Shafer. 2018. <span>“<span class="nocase">Lithic Morphological Organisation: Gahagan Bifaces from the Southern Caddo Area</span>.”</span> <em>Digital Applications in Archaeology and Cultural Heritage</em> 10: e00080. <a href="https://doi.org/10.1016/j.daach.2018.e00080">https://doi.org/10.1016/j.daach.2018.e00080</a>.
+</div>
+<div id="ref-RN3684" class="csl-entry" role="doc-biblioentry">
+Shafer, Harry J. 1973. <span>“<span class="nocase">Lithic Technology at the George C. Davis Site, Cherokee County, Texas</span>.”</span> Unpublished Ph.D. Dissertation, The University of Texas at Austin.
+</div>
+<div id="ref-RN20701" class="csl-entry" role="doc-biblioentry">
+———. 1974. <span>“<span class="nocase">Lithic Reduction Strategies at the George C. Davis Site</span>.”</span> <em>Louisiana Archaeology</em> 1: 66–74. <a href="https://docs.wixstatic.com/ugd/fefb33_71a3f0c39e5d47a2b55af09847e6d821.pdf">https://docs.wixstatic.com/ugd/fefb33_71a3f0c39e5d47a2b55af09847e6d821.pdf</a>.
+</div>
+<div id="ref-RN4924" class="csl-entry" role="doc-biblioentry">
+———. 2006. <span>“<span class="nocase">People of the Prairie: A Possible Connection to the Davis Site Caddo</span>.”</span> Texas Department of Transportation; Prewitt &amp; Associates, Inc.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

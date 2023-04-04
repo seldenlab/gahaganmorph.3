@@ -1,5 +1,5 @@
 ---
-title: "Mortuary assemblage diversity, Gahagan biface morphology, and the evolution of a Caddo burial tradition in the American Southeast"
+title: "Mortuary assemblage diversity, Gahagan biface morphology, and the evolution of Caddo preference related to bifaces"
 author:
   - name: Robert Z. Selden, Jr.
     affiliations:
@@ -42,7 +42,7 @@ knitr::include_graphics('images/fig02.jpg')
 knitr::include_graphics('images/h.a-b.png')
 ```
 
-### Assemblage diversity
+### ASSEMBLAGE DIVERSITY
 
 ***Hypothesis*****: Caddo mortuary assemblages associated with Gahagan bifaces increase in diversity subsequent to their initial use in mortuary offerings.**
 
@@ -69,7 +69,7 @@ The hypothesis was tested using counts of associated diagnostic artefacts recove
 
 Results demonstrate that lithics comprise 75% or more, in three cases, 100%, of those Caddo burial assemblages where Gahagan bifaces were recovered, as well as a significant increase in the diversity and evenness of diagnostic artefacts included in Caddo burial contexts with Gahagan bifaces. This general trend articulates with the development, maintenance, and evolution associated with a Caddo burial practice. These assemblages are dominated by lithic diagnostics, and ceramics are absent from three of the burial contexts. Further discussion related to those diagnostic types that do/do not transcend specific spatial and temporal boundaries are included in the manuscript.
 
-### Object placement
+### OBJECT PLACEMENT
 
 ***Hypothesis*****: Gahagan bifaces included in Caddo burials as part of a cache differ in morphology from those placed atop or alongside an individual.**
 
@@ -77,7 +77,7 @@ This hypothesis is tested using Gahagan bifaces recovered from two discrete cont
 
 #### *Findings*:
 
--   Gahagan bifaces **differ significantly in *shape*** between cache and individual contexts
+-   Gahagan bifaces **differ significantly in *shape** between cache and individual contexts
 -   Gahagan bifaces do not differ in *size* between cache and individual contexts
 -   Gahagan bifaces from individual contexts exhibit **significantly greater size diversity**
 
@@ -89,7 +89,7 @@ knitr::include_graphics('images/mshape-cache-ind.jpg')
 
 Contextual differences suggest two distinct Caddo burial traditions associated with Gahagan bifaces; one more prevalent in the northern behavioral region where Gahagan bifaces were placed *atop or alongside an individual*, and one more prevalent in the southern behavioral region where all but six Gahagan bifaces were *included as a cache offering along the northern periphery of the burial*. Each burial tradition appears to have been bounded by its' own community of practice relating both to placement and the design (shape) of Gahagan bifaces interred in each context.
 
-### Temporal trajectories
+### TEMPORAL TRAJECTORIES
 
 ***Hypothesis 1 (Morphology)*****: Gahagan bifaces from *individual* and *cache* contexts differ through time---*initial* vs. *subsequent* deposition---as mortuary assemblage diversity increases.**
 
@@ -136,6 +136,25 @@ These hypotheses were tested using Gahagan bifaces recovered from four discrete 
 -   The hypothesis that morphological diversity in Gahagan bifaces increases through the technological life cycle is rejected. Gahagan bifaces from *initial* contexts that were placed atop or alongside an individual expressed a greater diversity in size than all other categories. Thus, for the comparison of Gahagan biface morphological diversity through time among contexts, those found with individuals express stability in shape, but the inverse of the hypothesis in size (becoming less diverse in size through time), while those from cache contexts express morphological stability in both shape and size through time.
 
 The temporal attribute used for the GM analysis is comprised of the same *initial* and *subsequent* contexts used in the analysis of Caddo mortuary assemblage diversity. That there are no cache offerings of Gahagan bifaces associated with the northern behavioural region raises questions regarding whether the spatial boundary may have been permeable, but in only one direction.
+
+### THE EVOLUTION OF CADDO PREFERENCE
+
+***Hypothesis*****: Gahagan bifaces from *cache* contexts increase in size through time, suggesting directional selection in preference by the Caddo.**
+
+This hypothesis is tested using only those Gahagan bifaces recovered from burial caches. The hypothesis assesses whether mean Gahagan biface size increased through each temporal component, which would suggest directional selection, and provide evidence for the evolution of Caddo preference related to bifaces. 
+
+#### *Findings*:
+
+-   Gahagan bifaces **differ significantly in *size** between caches
+-   Mean Gahagan biface size increases through each temporal component, suggesting directional selection
+
+```{r gahaganevolution, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="The mean size of Gahagan bifaces increases at each temporal step, suggesting directional selection in biface size."}
+knitr::include_graphics('images/gahaganbiface_evolution.png')
+```
+
+#### Summary of results
+
+Temporal differences demonstrate a significant size difference in the Gahagan bifaces from the latest context at George C. Davis. When plotted by temporal context, mean Gahagan biface size increases incrementally, suggesting directional selection. This demonstrates that the evolution of Caddo preference was driven by size. Since burial caches have only been recovered from the southern behavioral region, findings are spatially restricted.
 
 ## Acknowledgments
 

@@ -1,5 +1,5 @@
 ---
-title: "3DGM - Landmarking Protocol"
+title: "Preliminaries - Landmarking Protocol"
 bibliography: [book.bib]
 ---
 
