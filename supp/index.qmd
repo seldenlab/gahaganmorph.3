@@ -1,5 +1,5 @@
 ---
-title: "Mortuary assemblage diversity, Gahagan biface morphology, and the evolution of Caddo preference related to bifaces"
+title: "Gahagan bifaces and the evolution of Caddo preference"
 author:
   - name: Robert Z. Selden, Jr.
     affiliations:
@@ -16,6 +16,7 @@ author:
       - Department of Anthropology, Texas A&M University
     email: dcarlson@tamu.edu
 bibliography: [book.bib]
+description: Supplementary Materials
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 link-citations: yes
 github-repo: seldenlab/gahaganmorph.3
@@ -145,7 +146,7 @@ This hypothesis is tested using only those Gahagan bifaces recovered from burial
 
 #### *Findings*:
 
--   Gahagan bifaces **differ significantly in *size** between caches
+-   Gahagan bifaces _**differ significantly in size**_ between caches
 -   Mean Gahagan biface size increases through each temporal component, suggesting directional selection
 
 ```{r gahaganevolution, out.width = "100%", dpi = 300, echo=FALSE, warning=FALSE, fig.cap="The mean size of Gahagan bifaces increases at each temporal step, suggesting directional selection in biface size."}
